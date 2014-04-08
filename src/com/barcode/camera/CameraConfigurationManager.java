@@ -18,7 +18,8 @@ import java.util.List;
 
 /**
  * 相机配置管理类
- * 
+ * @author 刘清伟Meteoral（http://www.liuqingwei.com）
+ * @created 2014-04-06
  */
 final class CameraConfigurationManager {
 

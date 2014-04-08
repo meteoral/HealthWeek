@@ -13,8 +13,8 @@ import com.barcode.executor.AsyncTaskExecManager;
 
 /**
  * 自动对焦管理
- * @author 火蚁（http://my.oschina/LittleDY）
- * @created 2014-03-14
+ * @author 刘清伟Meteoral（http://www.liuqingwei.com）
+ * @created 2014-04-06
  */
 final class AutoFocusManager implements Camera.AutoFocusCallback {
 

@@ -10,9 +10,9 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.LinearLayout;
 /**
  * 应用程序启动类：显示欢迎界面并跳转到主界面
- * @author liux (http://my.oschina.net/liux)
+ * @author 刘清伟（http://www.liuqingwei.com）
+ * @created 2014-04-06
  * @version 1.0
- * @created 2012-3-21
  */
 public class AppStart extends Activity {
     

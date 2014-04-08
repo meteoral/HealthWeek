@@ -29,7 +29,8 @@ import java.io.IOException;
 
 /**
  * 相机管理类
- *
+ * @author 刘清伟Meteoral（http://www.liuqingwei.com）
+ * @created 2014-04-06
  */
 public final class CameraManager {
 

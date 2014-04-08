@@ -1,7 +1,6 @@
 package com.liuqingwei.healthweek;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,8 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
-
+/**
+ * 应用程序主界面：主界面
+ * @author 刘清伟Meteoral（http://www.liuqingwei.com）
+ * @created 2014-04-06
+ * @version 1.0
+ */
 public class MainActivity extends Activity {
 
 	@Override
