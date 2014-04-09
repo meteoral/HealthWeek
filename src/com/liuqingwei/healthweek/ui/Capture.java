@@ -46,6 +46,7 @@ import com.google.zxing.Result;
 import com.google.zxing.client.result.ParsedResult;
 import com.google.zxing.client.result.ResultParser;
 import com.google.zxing.common.HybridBinarizer;
+import com.liuqingwei.healthweek.AppManager;
 import com.liuqingwei.healthweek.R;
 
 /**
@@ -126,7 +127,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 		back = (ImageView) findViewById(R.id.capture_back);
 		back.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				//AppManager.getAppManager().finishActivity(Capture.this);
+				Capture.this.finish();
 			}
 		});
 	}
