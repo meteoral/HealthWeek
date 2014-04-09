@@ -48,8 +48,8 @@ import com.google.zxing.common.HybridBinarizer;
 
 /**
  * 扫描二维码
- * @author 火蚁（http://my.oschina/LittleDY）
- *
+ * @author 刘清伟（http://www.liuqingwei.com）
+ * @created 2014-04-06
  */
 @SuppressWarnings("deprecation")
 public final class Capture extends Activity implements SurfaceHolder.Callback {

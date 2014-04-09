@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         <activity
-            android:name="com.liuqingwei.healthweek.AppStart"
+            android:name=".AppStart"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,11 +23,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.liuqingwei.healthweek.MainActivity"
+            android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.ZoomLight" />
+            android:theme="@style/Theme.ZoomLight">
+        </activity>
+		<activity
+            android:name=".ui.Capture"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            android:theme="@style/Theme.SlideTop"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
     </application>
 	<uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

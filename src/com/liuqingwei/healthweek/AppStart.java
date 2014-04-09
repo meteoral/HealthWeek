@@ -1,5 +1,7 @@
 package com.liuqingwei.healthweek;
 
+import com.liuqingwei.healthweek.ui.Capture;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,7 +30,7 @@ public class AppStart extends Activity {
         
 		//渐变展示启动屏
 		AlphaAnimation aa = new AlphaAnimation(0.3f,1.0f);
-		aa.setDuration(1000);
+		aa.setDuration(2000);
 		view.startAnimation(aa);
 		aa.setAnimationListener(new AnimationListener()
 		{
