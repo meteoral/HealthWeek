@@ -1,54 +1,78 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@drawable/sequ_background" >
 
-	<include layout="@layout/main_header" />
+    <include
+        android:id="@+id/include2"
+        layout="@layout/main_header" />
+
+    <include
+        android:id="@+id/include1"
+        layout="@layout/main_footer" />
+
     <Button
-        android:id="@+id/sequence"
+        android:id="@+id/main_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/main_button_xu"
+        android:layout_below="@+id/main_button_xu"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sequ_button_main" />
+
+    <Button
+        android:id="@+id/main_button_xu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/include2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
-        android:text="@string/sequence" />
-
+        android:layout_marginTop="50dp"
+        android:background="@drawable/sequ_button_xu" />
+    
     <Button
-        android:id="@+id/buttoncapture"
+        android:id="@+id/main_button_ehome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_below="@+id/sequence"
-        android:layout_marginTop="134dp"
-        android:text="@string/touch_Capture" />
+        android:layout_alignBottom="@+id/main_button"
+        android:layout_marginBottom="53dp"
+        android:layout_toRightOf="@+id/main_button"
+        android:background="@drawable/sequ_button_ehome" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/main_button_bag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/buttoncapture"
-        android:layout_below="@+id/sequence"
-        android:layout_marginTop="64dp"
-        android:text="Button4" />
+        android:layout_alignBottom="@+id/main_button"
+        android:layout_marginBottom="53dp"
+        android:layout_toLeftOf="@+id/main_button"
+        android:background="@drawable/sequ_button_medical_bag" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/main_button_tran"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button4"
-        android:layout_alignBottom="@+id/button4"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="19dp"
-        android:text="Button3" />
+        android:layout_alignTop="@+id/main_button"
+		android:layout_marginTop="53dp"
+        android:layout_toLeftOf="@+id/main_button"
+        android:background="@drawable/sequ_button_body_tran" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/main_button_bed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/sequence"
-        android:layout_below="@+id/buttoncapture"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="67dp"
-        android:text="Button2" />
+		android:layout_alignTop="@+id/main_button"
+		android:layout_marginTop="53dp"
+        android:layout_toRightOf="@+id/main_button"
+        android:background="@drawable/sequ_button_int_bed" />
+
+    <Button
+        android:id="@+id/main_button_wei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_button"
+        android:layout_alignLeft="@+id/main_button"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sequ_button_wei" />
 
 </RelativeLayout>

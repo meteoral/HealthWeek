@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/main_relativelayout_footer" 
+  	android:layout_width="fill_parent" 
+  	android:layout_height="100dip"
+	android:layout_alignParentBottom="true"
+	android:layout_alignParentLeft="true"
+  	android:background="@drawable/sequ_bottom">
+  	
+</RelativeLayout>
