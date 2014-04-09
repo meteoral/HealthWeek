@@ -36,6 +36,11 @@
             android:theme="@style/Theme.SlideTop"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
+        
+		<activity
+            android:name="com.mobilehealth.medicalkit.Medicalkit"
+            android:label="@string/title_activity_medicalkit" >
+        </activity>
     </application>
 	<uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

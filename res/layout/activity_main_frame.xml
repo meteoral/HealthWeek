@@ -1,0 +1,96 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.liuqingwei.healthweek.MainFrame$PlaceholderFragment" >
+
+    <RelativeLayout
+        android:id="@+id/rlHead"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_frame_head_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/head_bg" >
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/head_back"
+            android:contentDescription="@string/app_name" />
+        <TextView
+            android:id="@+id/tvCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ivCurSubjectIcon"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/caption_medicalkit"
+            android:gravity="bottom"
+            android:textColor="@color/head_text_color"
+            android:paddingBottom="10dp"
+            android:layout_marginRight="10dp" />
+        <ImageView
+            android:id="@+id/ivCurSubjectIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/medicalkit_icon"
+            android:contentDescription="@string/app_name"
+            android:paddingRight="8dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rlFoot"
+        android:layout_below="@+id/rlHead"
+        android:background="@color/white" >
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/rlFoot"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_frame_foot_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal"
+        android:background="@drawable/head_bg"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:id="@+id/ivCloudData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:scaleType="centerInside"
+            android:src="@drawable/cloud_data"
+            android:contentDescription="@string/app_name" />
+        <ImageView
+            android:id="@+id/ivHealthKnowledge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:scaleType="centerInside"
+            android:src="@drawable/health_knowledge"
+            android:contentDescription="@string/app_name" />
+        <ImageView
+            android:id="@+id/ivTimeSpaceConnecting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:scaleType="centerInside"
+            android:src="@drawable/time_space_connecting"
+            android:contentDescription="@string/app_name" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -7,4 +7,12 @@
     <string name="msg_camera_framework_bug">抱歉，Android相机出现问题。您可能需要重启设备。</string>
     <string name="capture_head_title">扫一扫</string>
     <string name="sequence">序言</string>
+    
+    <string name="medicalkit">医疗包</string>
+    <string name="title_activity_activity_main_frame">ActivityMainFrame</string>
+    <string name="title_activity_main_frame">MainFrame</string>
+    <string name="title_activity_medicalkit">Medicalkit</string>
+    <string name="caption_medicalkit">乡村医疗包</string>
+    <string name="user_account">账号：</string>
+    <string name="user_password">密码：</string>
 </resources>

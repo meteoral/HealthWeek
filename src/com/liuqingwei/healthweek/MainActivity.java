@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout.LayoutParams;
 
 import com.liuqingwei.healthweek.ui.Capture;
+import com.mobilehealth.medicalkit.Medicalkit;
 /**
  * 应用程序主界面：主界面
  * @author 刘清伟Meteoral（http://www.liuqingwei.com）
@@ -71,6 +72,14 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				 Intent intent = new Intent(MainActivity.this, Capture.class);
+			     startActivity(intent);
+			}
+		});
+		
+		btnBag.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				 Intent intent = new Intent(MainActivity.this, Medicalkit.class);
 			     startActivity(intent);
 			}
 		});
