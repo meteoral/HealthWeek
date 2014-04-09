@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">科技健康周</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="touch_Capture">扫描二维码</string>
     <string name="action_settings">Settings</string>
     <string name="msg_camera_framework_bug">抱歉，Android相机出现问题。您可能需要重启设备。</string>
+    
 </resources>

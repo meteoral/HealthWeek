@@ -97,7 +97,7 @@ public final class ViewfinderView extends View {
 
 	@Override
 	public void onDraw(Canvas canvas) {
-		// Log.d("steven", "ondraw invoke:"+System.currentTimeMillis());
+		// Log.d("Meteoral", "ondraw invoke:"+System.currentTimeMillis());
 		if (cameraManager == null) {
 			return; // not ready yet, early draw before done configuring
 		}

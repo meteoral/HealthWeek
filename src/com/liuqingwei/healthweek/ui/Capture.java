@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Hashtable;
 
 import com.liuqingwei.healthweek.R;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -27,6 +28,8 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.barcode.camera.CameraManager;
 import com.barcode.core.CaptureActivityHandler;
 import com.barcode.core.FinishListener;
@@ -65,7 +68,6 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 	private Collection<BarcodeFormat> decodeFormats;
 	private String characterSet;
 	private InactivityTimer inactivityTimer;
-	//private Button from_gallery;
 	private final int from_photo = 010;
 	static final int PARSE_BARCODE_SUC = 3035;
 	static final int PARSE_BARCODE_FAIL = 3036;
@@ -123,11 +125,11 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
 		viewfinderView.setCameraManager(cameraManager);
 		//back = (ImageView) findViewById(R.id.capture_back);
-		back.setOnClickListener(new View.OnClickListener() {
+		/*back.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				//AppManager.getAppManager().finishActivity(Capture.this);
 			}
-		});
+		});*/
 	}
 	
 	/**
@@ -159,7 +161,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 		Result result;
 		try {
 			result = reader2.decode(bitmap1, hints);
-			android.util.Log.i("steven", "result:" + result);
+			android.util.Log.i("Meteoral", "result:" + result);
 			parseOk = result.getText();
 
 		} catch (NotFoundException e) {
@@ -178,7 +180,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		android.util.Log.i("steven", "data.getData()" + data);
+		android.util.Log.i("Meteoral", "data.getData()" + data);
 		if (data != null) {
 			mProgress = new ProgressDialog(Capture.this);
 			mProgress.setMessage("正在扫描...");
@@ -313,9 +315,9 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 		ResultHandler resultHandler = new ResultHandler(parseResult(rawResult));
 
 		if (barcode == null) {
-			android.util.Log.i("steven", "rawResult.getBarcodeFormat().toString():" + rawResult.getBarcodeFormat().toString());
-			android.util.Log.i("steven", "resultHandler.getType().toString():" + resultHandler.getType().toString());
-			android.util.Log.i("steven", "resultHandler.getDisplayContents():" + resultHandler.getDisplayContents());
+			android.util.Log.i("Meteoral", "rawResult.getBarcodeFormat().toString():" + rawResult.getBarcodeFormat().toString());
+			android.util.Log.i("Meteoral", "resultHandler.getType().toString():" + resultHandler.getType().toString());
+			android.util.Log.i("Meteoral", "resultHandler.getDisplayContents():" + resultHandler.getDisplayContents());
 		} else {
 			// 对扫到的二维码进行解析
 			parseBarCode(resultHandler.getDisplayContents().toString());
@@ -357,7 +359,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 				ClipboardManager cm =(ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 				//将文本数据复制到剪贴板
 				cm.setText(msg);
-				//UIHelper.ToastMessage(Capture.this, "复制成功");
+				Toast.makeText(Capture.this, "复制成功！", Toast.LENGTH_SHORT).show();
 			}
 		}).setNegativeButton("返回", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
@@ -382,7 +384,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 		try {
 			cameraManager.openDriver(surfaceHolder);
 			if (handler == null) {
-				//handler = new CaptureActivityHandler(this, decodeFormats, characterSet, cameraManager);
+				handler = new CaptureActivityHandler(this, decodeFormats, characterSet, cameraManager);
 			}
 		} catch (IOException ioe) {
 			Log.w(TAG, ioe);
@@ -411,7 +413,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 	 */
 	public void restartPreviewAfterDelay(long delayMS) {
 		if (handler != null) {
-			//handler.sendEmptyMessageDelayed(R.id.restart_preview, delayMS);
+			handler.sendEmptyMessageDelayed(R.id.restart_preview, delayMS);
 		}
 		viewfinderView.setVisibility(View.VISIBLE);
 		lastResult = null;

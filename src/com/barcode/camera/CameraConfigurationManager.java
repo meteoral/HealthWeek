@@ -54,10 +54,15 @@ final class CameraConfigurationManager {
 		int width = display.getWidth();
 		@SuppressWarnings("deprecation")
 		int height = display.getHeight();
-		screenResolution = new Point(width, height);
+		if (width < height) {
+            int temp = width;
+            width = height;
+            height = temp;
+       }
+		screenResolution = new Point(height, width);
 		Log.i(TAG, "Screen resolution: " + screenResolution);
 		cameraResolution = findBestPreviewSizeValue(parameters,
-				screenResolution);
+				new Point(width, height));
 		Log.i(TAG, "Camera resolution: " + cameraResolution);
 	}
 
