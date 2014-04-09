@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Hashtable;
 
-import com.liuqingwei.healthweek.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -33,11 +31,11 @@ import android.widget.Toast;
 import com.barcode.camera.CameraManager;
 import com.barcode.core.CaptureActivityHandler;
 import com.barcode.core.FinishListener;
+import com.barcode.core.InactivityTimer;
 import com.barcode.core.QRCodeReader;
 import com.barcode.core.RGBLuminanceSource;
 import com.barcode.core.ViewfinderView;
 import com.barcode.executor.ResultHandler;
-import com.barcode.core.InactivityTimer;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
@@ -48,6 +46,7 @@ import com.google.zxing.Result;
 import com.google.zxing.client.result.ParsedResult;
 import com.google.zxing.client.result.ResultParser;
 import com.google.zxing.common.HybridBinarizer;
+import com.liuqingwei.healthweek.R;
 
 /**
  * 扫描二维码
@@ -124,12 +123,12 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 		cameraManager = new CameraManager(getApplication());
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
 		viewfinderView.setCameraManager(cameraManager);
-		//back = (ImageView) findViewById(R.id.capture_back);
-		/*back.setOnClickListener(new View.OnClickListener() {
+		back = (ImageView) findViewById(R.id.capture_back);
+		back.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				//AppManager.getAppManager().finishActivity(Capture.this);
 			}
-		});*/
+		});
 	}
 	
 	/**
@@ -350,7 +349,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 	 */
 	private void showDialog(final String msg) {
 		new AlertDialog.Builder(Capture.this).setTitle("扫描结果").
-		setMessage("非oschina提供活动签到二维码\n内容：" + msg).
+		setMessage("内容：" + msg).
 		setPositiveButton("复制", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				mProgress.dismiss();
