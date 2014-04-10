@@ -30,5 +30,12 @@
     <string name="dangdelion_scheme">蒲公英计划</string>
     <string name="title_activity_dandelion_scheme_frame">DandelionSchemeFrame</string>
     <string name="hello_world">Hello world!</string>
+    <string name="dandelion_scheme_body_commu">蒲公英计划——人体通信</string>
+    <string name="idea_sharer">爱普者</string>
+    <string name="little_dandelion">小蒲</string>
+    <string name="genius">天才</string>
+    <string name="intelligences">智囊团</string>
+    <string name="doctor">博士</string>
+    <string name="promising_future">展望未来</string>
 
 </resources>

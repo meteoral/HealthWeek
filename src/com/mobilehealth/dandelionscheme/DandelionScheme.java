@@ -27,9 +27,6 @@ public class DandelionScheme extends DandelionSchemeFrame{
 	
 	private void init(View content)
 	{
-		this.ivCurSubjectIcon.setImageResource(R.drawable.icon_dandelion_scheme);
-		this.tvRightCaption.setText(R.string.creator_platform);
-		
 		this.ivBodyCommu=(ImageView)content.findViewById(R.id.ivBodyCommu);
 		
 		this.ivBodyCommu.setOnClickListener(new OnClickListener() {

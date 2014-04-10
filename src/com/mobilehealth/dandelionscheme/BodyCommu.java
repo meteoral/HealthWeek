@@ -1,6 +1,8 @@
 package com.mobilehealth.dandelionscheme;
 
+import android.content.Intent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.RelativeLayout;
 
@@ -8,6 +10,8 @@ import com.mobilehealth.core.DandelionSchemeFrame;
 import com.siat.healthweek.R;
 
 public class BodyCommu extends DandelionSchemeFrame{
+	
+	private RelativeLayout rlIdeaSharer;
 	
 	@Override
 	protected void populateContent() {
@@ -22,7 +26,15 @@ public class BodyCommu extends DandelionSchemeFrame{
 	
 	private void init(View content)
 	{
-		this.ivCurSubjectIcon.setImageResource(R.drawable.icon_dandelion_scheme);
-		this.tvRightCaption.setText(R.string.creator_platform);
+		rlIdeaSharer=(RelativeLayout)content.findViewById(R.id.rlBodyCommuBlock1);
+		rlIdeaSharer.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent i=new Intent(BodyCommu.this, IdeaSharer.class);
+				startActivity(i);
+			}
+		});
 	}
 }

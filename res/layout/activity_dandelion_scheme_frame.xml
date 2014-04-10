@@ -37,7 +37,7 @@
             android:layout_toLeftOf="@+id/ivCurSubjectIcon"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:text="@string/dangdelion_scheme"
+            android:text="@string/creator_platform"
             android:gravity="bottom"
             android:textColor="@color/head_text_color"
             android:paddingBottom="10dp"

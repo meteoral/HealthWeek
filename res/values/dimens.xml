@@ -11,5 +11,6 @@
     <dimen name="main_frame_content_foot_margin">35dp</dimen>
     
     <dimen name="body_commu_foot_height">15dp</dimen>
+    <dimen name="dandelion_bodycommu_block_gap">15dp</dimen>
 
 </resources>
