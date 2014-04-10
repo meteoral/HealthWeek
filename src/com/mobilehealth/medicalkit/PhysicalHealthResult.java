@@ -9,9 +9,9 @@ import com.siat.healthweek.R;
 public class PhysicalHealthResult extends MainFrame{
 
 	@Override
-	protected void popularContent() {
+	protected void populateContent() {
 		// TODO Auto-generated method stub
-		super.popularContent();
+		super.populateContent();
 		
 		View content=View.inflate(this, R.layout.physical_health_result, null);
 		rlContent.addView(content,new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
@@ -21,6 +21,7 @@ public class PhysicalHealthResult extends MainFrame{
 	
 	private void init()
 	{
-		setCenterCaption(getResources().getString(R.string.physicalHealthCapthion));
+		this.tvCenterCaption.setText(R.string.physicalHealthCapthion);
+		this.tvCenterCaption.setVisibility(View.VISIBLE);
 	}
 }

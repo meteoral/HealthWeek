@@ -18,7 +18,10 @@ public class MainFrame extends Activity {
 	protected ImageView ivHealthKnowledge;
 	protected ImageView ivTimeSpaceConnecting;
 	
+	protected ImageView ivCurSubjectIcon;
+	
 	protected TextView tvCenterCaption;
+	protected TextView tvRightCaption;
 	
 	protected ViewFlipper vfBgFrame;
 	private int curViewIndex=0;
@@ -39,8 +42,10 @@ public class MainFrame extends Activity {
 		ivTimeSpaceConnecting=(ImageView)findViewById(R.id.ivTimeSpaceConnecting);
 		vfBgFrame=(ViewFlipper)findViewById(R.id.vfBgFrame);
 		tvCenterCaption=(TextView)findViewById(R.id.tvCenterCaption);
+		tvRightCaption=(TextView)findViewById(R.id.tvRightCaption);
+		ivCurSubjectIcon=(ImageView)findViewById(R.id.ivCurSubjectIcon);
 		
-		popularContent();
+		populateContent();
 		
 		ivCloudData.setOnClickListener(new OnClickListener() {
 			
@@ -68,7 +73,7 @@ public class MainFrame extends Activity {
 		});
 	}
 	
-	protected void popularContent()
+	protected void populateContent()
 	{
 	}
 	
@@ -94,12 +99,6 @@ public class MainFrame extends Activity {
 			vfBgFrame.showPrevious();
 		}
 		curViewIndex=index;
-	}
-	
-	protected void setCenterCaption(String info)
-	{
-		this.tvCenterCaption.setText(info);
-		this.tvCenterCaption.setVisibility(View.VISIBLE);
 	}
 	
 }

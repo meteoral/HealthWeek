@@ -45,6 +45,10 @@
             android:name="com.mobilehealth.medicalkit.PhysicalHealthResult"
             android:label="@string/title_activity_physicalhealthresult" >
         </activity>
+        <activity
+            android:name="com.mobilehealth.healthehome.HealthEHome"
+            android:label="@string/title_activity_physicalhealthresult" >
+        </activity>
     </application>
 	<uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

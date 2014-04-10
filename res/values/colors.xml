@@ -66,4 +66,7 @@
 	<color name="head_text_color">#ffffffff</color>
 	<color name="powderblue">#ffaeeeee</color>
 	<color name="bluetext">#ff436eee</color>
+	
+	<color name="health_experience_color">#33437799</color>
+	<color name="health_diet_color">#33123221</color>
 </resources>

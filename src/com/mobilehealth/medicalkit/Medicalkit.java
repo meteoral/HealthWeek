@@ -15,9 +15,9 @@ public class Medicalkit extends MainFrame {
 	private ImageView ivPhysicalHealthResult;
 	
 	@Override
-	protected void popularContent() {
+	protected void populateContent() {
 		// TODO Auto-generated method stub
-		super.popularContent();
+		super.populateContent();
 
 		View content=View.inflate(this, R.layout.medicalkit, null);
 		rlContent.addView(content,new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));

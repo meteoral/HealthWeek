@@ -10,6 +10,7 @@ import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
+import com.mobilehealth.healthehome.HealthEHome;
 import com.mobilehealth.medicalkit.Medicalkit;
 import com.siat.healthweek.R;
 import com.siat.healthweek.ui.Capture;
@@ -94,6 +95,13 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				AverageCubicTemperatureChart ave = new AverageCubicTemperatureChart();
 				startActivity(ave.execute(MainActivity.this));
+			}
+		});
+		btnEhome.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, HealthEHome.class);
+				startActivity(intent);
 			}
 		});
 	}
