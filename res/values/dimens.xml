@@ -8,5 +8,6 @@
     <dimen name="main_frame_foot_height">50dp</dimen>
     <dimen name="edittext_height">40dp</dimen>
     <dimen name="edittext_width">150dp</dimen>
+    <dimen name="main_frame_content_foot_margin">35dp</dimen>
 
 </resources>

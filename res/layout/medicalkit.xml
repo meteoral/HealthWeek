@@ -4,18 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginRight="@dimen/activity_horizontal_margin"
-    android:layout_marginBottom="@dimen/activity_vertical_margin"
-    android:layout_marginTop="@dimen/activity_vertical_margin" >
+    android:padding="20dp" >
     
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/powderblue"
+        android:background="@drawable/cloud"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_weight="0.2" >
+        android:paddingTop="60dp"
+        android:paddingRight="10dp" >
 
         <LinearLayout
             android:layout_width="match_parent"

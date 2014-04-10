@@ -15,4 +15,8 @@
     <string name="caption_medicalkit">乡村医疗包</string>
     <string name="user_account">账号：</string>
     <string name="user_password">密码：</string>
+    <string name="title_activity_physicalhealthresult">PhysicalHealthResult</string>
+    <string name="welcomUserInfo">早上好！kaogongji@126.com</string>
+    <string name="physicalHealthData">肺活量：2433ml\n标准值：>1213ml\n您的孩子肺部健康，适合做运动员</string>
+    <string name="physicalHealthCapthion">生理\n健康 结果</string>
 </resources>

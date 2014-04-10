@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.liuqingwei.healthweek.MainFrame$PlaceholderFragment" >
+    tools:context="com.liuqingwei.healthweek.MainFrame$PlaceholderFragment"
+    android:background="@color/white" >
 
     <RelativeLayout
         android:id="@+id/rlHead"
@@ -22,7 +23,15 @@
             android:src="@drawable/head_back"
             android:contentDescription="@string/app_name" />
         <TextView
-            android:id="@+id/tvCaption"
+            android:id="@+id/tvCenterCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/head_text_color"
+            android:visibility="invisible" />
+        <TextView
+            android:id="@+id/tvRightCaption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/ivCurSubjectIcon"
@@ -44,15 +53,6 @@
             android:src="@drawable/medicalkit_icon"
             android:contentDescription="@string/app_name"
             android:paddingRight="8dp" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rlContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/rlFoot"
-        android:layout_below="@+id/rlHead"
-        android:background="@color/white" >
     </RelativeLayout>
 
     <LinearLayout
@@ -92,5 +92,44 @@
             android:contentDescription="@string/app_name" />
 
     </LinearLayout>
+    
+    <ViewFlipper
+        android:id="@+id/vfBgFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/rlHead"
+        android:layout_marginBottom="@dimen/main_frame_content_foot_margin"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" >
+
+        <FrameLayout
+            android:id="@+id/flLeft"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_left" />
+
+        <FrameLayout
+            android:id="@+id/flMid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_mid" />
+
+        <FrameLayout
+            android:id="@+id/flRight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_right" />
+    </ViewFlipper>
+    
+    <RelativeLayout
+        android:id="@+id/rlContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rlFoot"
+        android:layout_below="@+id/rlHead"
+        android:layout_margin="18dp" >
+    </RelativeLayout>
 
 </RelativeLayout>
