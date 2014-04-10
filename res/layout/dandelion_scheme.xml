@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dandelion_scheme_bg" >
+    <ImageView
+        android:id="@+id/ivSportHandring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerInside"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/sport_hand_ring"
+        android:layout_marginTop="40dp" />
+    <ImageView
+        android:id="@+id/ivIntelligentGlasses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerInside"
+        android:src="@drawable/intelligent_glasses"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="40dp" />
+    <ImageView
+        android:id="@+id/ivBodyCommu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerInside"
+        android:src="@drawable/icon_body_commu"
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="40dp" />
+    
+    <TextView
+        android:id="@+id/tvDandelionScheme"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/dangdelion_scheme"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_vertical"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp" />
+
+</RelativeLayout>

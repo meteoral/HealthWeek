@@ -10,6 +10,7 @@ import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
+import com.mobilehealth.dandelionscheme.DandelionScheme;
 import com.mobilehealth.healthehome.HealthEHome;
 import com.mobilehealth.medicalkit.Medicalkit;
 import com.siat.healthweek.R;
@@ -101,6 +102,13 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this, HealthEHome.class);
+				startActivity(intent);
+			}
+		});
+		btnTran.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, DandelionScheme.class);
 				startActivity(intent);
 			}
 		});

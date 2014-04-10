@@ -9,5 +9,7 @@
     <dimen name="edittext_height">40dp</dimen>
     <dimen name="edittext_width">150dp</dimen>
     <dimen name="main_frame_content_foot_margin">35dp</dimen>
+    
+    <dimen name="body_commu_foot_height">15dp</dimen>
 
 </resources>
