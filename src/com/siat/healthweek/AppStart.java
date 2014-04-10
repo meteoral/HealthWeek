@@ -1,6 +1,7 @@
-package com.liuqingwei.healthweek;
+package com.siat.healthweek;
 
-import com.liuqingwei.healthweek.ui.Capture;
+import com.siat.healthweek.R;
+import com.siat.healthweek.ui.Capture;
 
 import android.app.Activity;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.liuqingwei.healthweek;
+package com.siat.healthweek;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,8 +10,9 @@ import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
-import com.liuqingwei.healthweek.ui.Capture;
 import com.mobilehealth.medicalkit.Medicalkit;
+import com.siat.healthweek.R;
+import com.siat.healthweek.ui.Capture;
 
 /**
  * 应用程序主界面：主界面
@@ -62,7 +63,6 @@ public class MainActivity extends Activity {
 					btnWei.setVisibility(View.VISIBLE);
 					btnTran.setVisibility(View.VISIBLE);
 					btnBed.setVisibility(View.VISIBLE);
-
 					btnXu.setAnimation(income);
 					btnEhome.setAnimation(income);
 					btnBag.setAnimation(income);
@@ -86,6 +86,15 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this, Medicalkit.class);
 				startActivity(intent);
+			}
+		});
+		btnBed.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				AverageCubicTemperatureChart ave = new AverageCubicTemperatureChart();
+				startActivity(ave.execute(MainActivity.this));
+				//startActivity(null);
 			}
 		});
 	}

@@ -30,8 +30,8 @@ import android.util.Log;
 
 import java.util.Collection;
 
-import com.liuqingwei.healthweek.R;
-import com.liuqingwei.healthweek.ui.Capture;
+import com.siat.healthweek.R;
+import com.siat.healthweek.ui.Capture;
 
 /**
  * This class handles all the messaging which comprises the state machine for

@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<set android:interpolator="@android:anim/anticipate_overshoot_interpolator"
+<set
   	xmlns:android="http://schemas.android.com/apk/res/android">
     <scale android:duration="@android:integer/config_shortAnimTime"
+         android:interpolator="@android:anim/anticipate_overshoot_interpolator"
       	android:pivotX="50.0%" android:pivotY="50.0%"
-      	android:fromXScale="0.5" android:toXScale="1.0"
-      	android:fromYScale="0.5" android:toYScale="1.0"/>
+      	android:fromXScale="0.5" android:toXScale="2"
+      	android:fromYScale="0.5" android:toYScale="2"/>
     <rotate android:duration="@android:integer/config_shortAnimTime"
         android:fromDegrees="0" android:toDegrees="720"
         android:pivotX="50.0%" android:pivotY="50.0%"/>
     <alpha android:duration="@android:integer/config_shortAnimTime"
       	android:fromAlpha="0.0" android:toAlpha="1.0" />
+	<set>
+	<scale android:duration="@android:integer/config_shortAnimTime"
+      	android:pivotX="50.0%" android:pivotY="50.0%"
+      	android:startOffset="@android:integer/config_longAnimTime"
+      	android:fromXScale="1" android:toXScale="0.5"
+      	android:fromYScale="1" android:toYScale="0.5"/>
+	<rotate android:duration="@android:integer/config_shortAnimTime"
+	    android:startOffset="@android:integer/config_longAnimTime"
+        android:fromDegrees="0" android:toDegrees="720"
+        android:pivotX="50.0%" android:pivotY="50.0%"/>
+	</set>
 </set>

@@ -35,7 +35,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.liuqingwei.healthweek.R;
+import com.siat.healthweek.R;
 
 /**
  * 二维码扫描框视图

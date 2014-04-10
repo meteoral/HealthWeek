@@ -4,8 +4,8 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.RelativeLayout;
 
-import com.liuqingwei.healthweek.R;
 import com.mobilehealth.core.MainFrame;
+import com.siat.healthweek.R;
 
 public class Medicalkit extends MainFrame {
 

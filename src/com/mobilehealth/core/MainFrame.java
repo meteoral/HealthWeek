@@ -1,6 +1,7 @@
 package com.mobilehealth.core;
 
-import com.liuqingwei.healthweek.R;
+import com.siat.healthweek.R;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.RelativeLayout;

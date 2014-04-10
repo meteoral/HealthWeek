@@ -29,7 +29,7 @@ import java.util.EnumSet;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
-import com.liuqingwei.healthweek.ui.Capture;
+import com.siat.healthweek.ui.Capture;
 
 /**
  * This thread does all the heavy lifting of decoding the images.

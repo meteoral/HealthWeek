@@ -33,8 +33,8 @@ import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
-import com.liuqingwei.healthweek.R;
-import com.liuqingwei.healthweek.ui.Capture;
+import com.siat.healthweek.R;
+import com.siat.healthweek.ui.Capture;
 
 final class DecodeHandler extends Handler {
 
