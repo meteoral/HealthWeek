@@ -94,7 +94,6 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				AverageCubicTemperatureChart ave = new AverageCubicTemperatureChart();
 				startActivity(ave.execute(MainActivity.this));
-				//startActivity(null);
 			}
 		});
 	}
