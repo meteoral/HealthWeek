@@ -13,7 +13,6 @@ import android.widget.Button;
 import com.mobilehealth.core.MainFrameNew;
 import com.mobilehealth.dandelionscheme.DandelionScheme;
 import com.mobilehealth.healthehome.HealthEHome;
-import com.mobilehealth.medicalkit.Medicalkit;
 import com.siat.healthweek.R;
 import com.siat.healthweek.ui.Capture;
 

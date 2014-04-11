@@ -2,6 +2,9 @@ package com.mobilehealth.core;
 
 import java.util.ArrayList;
 
+import com.mobilehealth.medicalkit.FragmentCloudData;
+import com.mobilehealth.medicalkit.FragmentHealthKnowledge;
+import com.mobilehealth.medicalkit.FragmentTimeSpaceConnecting;
 import com.siat.healthweek.R;
 
 import android.app.Activity;
@@ -11,12 +14,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainFrameNew extends Activity {
+public class MainFrameNew extends Activity{
 
 	private ViewPager vpContent;
 	private ViewPagerAdapter vpAdapter;
@@ -52,7 +56,6 @@ public class MainFrameNew extends Activity {
 		vpAdapter.addFragment(FragmentCloudData.class, null);
 		vpAdapter.addFragment(FragmentHealthKnowledge.class, null);
 		vpAdapter.addFragment(FragmentTimeSpaceConnecting.class, null);
-		vpAdapter.addFragment(FragmentPhysicalHealth.class, null);
 
 		vpContent.setAdapter(vpAdapter);
 
@@ -90,6 +93,19 @@ public class MainFrameNew extends Activity {
 			}
 		});
 	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			if(vpAdapter.onBack()==true)
+			{
+				return true;
+			}
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+	
 
 	private static class ViewPagerAdapter extends FragmentPagerAdapter {
 		private Context context;
@@ -99,6 +115,21 @@ public class MainFrameNew extends Activity {
 			super(fm);
 			// TODO Auto-generated constructor stub
 			this.context = context;
+		}
+		
+		public boolean onBack()
+		{
+			for(int i=0;i<fragList.size();i++)
+			{
+				if(fragList.get(i).frag!=null)
+				{
+					if(((MainFrameMessageListener)fragList.get(i).frag).onBack()==true)
+					{
+						return true;
+					}
+				}
+			}
+			return false;
 		}
 
 		@Override

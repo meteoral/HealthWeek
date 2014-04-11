@@ -43,10 +43,6 @@
         </activity>
         <activity android:name="org.achartengine.GraphicalActivity" />
         <activity
-            android:name="com.mobilehealth.medicalkit.PhysicalHealthResult"
-            android:label="@string/title_activity_physicalhealthresult" >
-        </activity>
-        <activity
             android:name="com.mobilehealth.healthehome.HealthEHome"
             android:label="@string/title_activity_physicalhealthresult" >
         </activity>
