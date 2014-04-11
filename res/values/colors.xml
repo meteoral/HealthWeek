@@ -69,4 +69,15 @@
 	
 	<color name="health_experience_color">#33437799</color>
 	<color name="health_diet_color">#33123221</color>
+	
+	<color name="blue1">#ff33b5e5</color>
+	<color name="blue2">#ff0099cc</color>
+	<color name="red1">#ffff4444</color>
+	<color name="red2">#ffcc0000</color>
+	<color name="green1">#ff99cc00</color>
+	<color name="green2">#ff669900</color>
+	<color name="orange1">#ff33b5e5</color>
+	<color name="orange2">#ff0099cc</color>
+	<color name="purple1">#ffaa66cc</color>
+	<color name="purple2">#ff9933cc</color>
 </resources>
