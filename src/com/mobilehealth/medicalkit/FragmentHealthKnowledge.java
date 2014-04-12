@@ -1,10 +1,9 @@
 package com.mobilehealth.medicalkit;
 
-import com.mobilehealth.core.MainFrameMessageListener;
 import com.siat.healthweek.R;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-public class FragmentHealthKnowledge extends Fragment implements MainFrameMessageListener{
+public class FragmentHealthKnowledge extends Fragment{
 	
 	private ImageView ivContainerFrameBg;
 	private RelativeLayout pageContainer;
@@ -51,11 +50,5 @@ public class FragmentHealthKnowledge extends Fragment implements MainFrameMessag
 
 		View new_page=View.inflate(this.getActivity(), R.layout.page_health_knowledge, null);
 		pageContainer.addView(new_page,new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-	}
-
-	@Override
-	public boolean onBack() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 }

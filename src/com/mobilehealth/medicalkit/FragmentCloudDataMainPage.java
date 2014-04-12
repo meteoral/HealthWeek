@@ -1,5 +1,6 @@
 package com.mobilehealth.medicalkit;
 
+import com.mobilehealth.core.ChildPageMessageListener;
 import com.siat.healthweek.R;
 
 import android.os.Bundle;
@@ -7,14 +8,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
-public class FragmentTimeSpaceConnecting extends Fragment{
+public class FragmentCloudDataMainPage extends Fragment{
 	
-	private ImageView ivContainerFrameBg;
-	private RelativeLayout pageContainer;
+	private ImageView ivPhysicalHealthResult;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -27,7 +26,7 @@ public class FragmentTimeSpaceConnecting extends Fragment{
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		return inflater.inflate(R.layout.page_container, container, false);
+		return inflater.inflate(R.layout.page_cloud_data, container, false);
 		
 		//return super.onCreateView(inflater, container, savedInstanceState);
 	}
@@ -43,12 +42,17 @@ public class FragmentTimeSpaceConnecting extends Fragment{
 	
 	private void init(View layout)
 	{
-		ivContainerFrameBg=(ImageView)layout.findViewById(R.id.ivContainerFrameBg);
-		pageContainer=(RelativeLayout)layout.findViewById(R.id.rlMain);
-		
-		ivContainerFrameBg.setImageResource(R.drawable.indicator_right_bg);
+		ivPhysicalHealthResult = (ImageView) layout.findViewById(R.id.ivPhysicalHealthResult);
 
-		View new_page=View.inflate(this.getActivity(), R.layout.page_timespace_connecting, null);
-		pageContainer.addView(new_page,new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+		ivPhysicalHealthResult.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				((ChildPageMessageListener)getParentFragment()).changeToPage(1);
+			}
+		});
 	}
+	
+	
 }

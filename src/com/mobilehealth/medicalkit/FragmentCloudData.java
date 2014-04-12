@@ -1,26 +1,16 @@
 package com.mobilehealth.medicalkit;
 
-import com.mobilehealth.core.MainFrameMessageListener;
+import com.mobilehealth.core.ChildPageMessageListener;
 import com.siat.healthweek.R;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
-public class FragmentCloudData extends Fragment implements MainFrameMessageListener{
-	
-	private RelativeLayout pageContainer;
-	private ImageView ivPhysicalHealthResult;
-	
-	private int cur_view_index=0;
+public class FragmentCloudData extends Fragment implements ChildPageMessageListener{
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,82 +32,42 @@ public class FragmentCloudData extends Fragment implements MainFrameMessageListe
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		init(view);
+		FragmentTransaction transac=getChildFragmentManager().beginTransaction();
+
+		Fragment newPage=Fragment.instantiate(getActivity(), FragmentCloudDataMainPage.class.getName());
+		transac.add(R.id.rlMain, newPage);
+		
+		transac.commit();
 		
 		super.onViewCreated(view, savedInstanceState);
 	}
 	
-	
-	private void init(View layout)
+	private void changeToPageLocal(int toIndex)
 	{
-		pageContainer=(RelativeLayout)layout.findViewById(R.id.rlMain);
-		View new_page=null;
-		if(cur_view_index==0)
+		if(toIndex==1)
 		{
-			new_page=View.inflate(this.getActivity(), R.layout.page_cloud_data, null);
-		}else if(cur_view_index==1)
-		{
-			new_page=View.inflate(this.getActivity(), R.layout.physical_health_result, null);
-		}
-		pageContainer.addView(new_page,new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-		initEvent(new_page, cur_view_index);
-	}
-	
-	private void initEvent(View new_page, int page_index) {
-		if(page_index==0)
-		{
-			ivPhysicalHealthResult = (ImageView) new_page.findViewById(R.id.ivPhysicalHealthResult);
-
-			ivPhysicalHealthResult.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					changeView(1);
-				}
-			});
-		}
-	}
-	
-	private boolean changeView(int index)
-	{
-		if(cur_view_index==index|index<0)
-		{
-			return false;
-		}
-		
-		View old_page=pageContainer.getChildAt(0);
-		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_disappear);
-        old_page.startAnimation(anim);
-        
-        pageContainer.removeViewAt(0);
-        
-        View new_page=null;
-		if(index==1)
-		{
-			new_page=View.inflate(this.getActivity(), R.layout.physical_health_result, null);
-			pageContainer.addView(new_page,new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-
-			anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_emerge);
-			new_page.startAnimation(anim);
+			FragmentTransaction transac=getChildFragmentManager().beginTransaction();
 			
-		}else if(index==0)
-		{
-			new_page=View.inflate(this.getActivity(), R.layout.page_cloud_data, null);
-			pageContainer.addView(new_page,new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+			Fragment newPage=Fragment.instantiate(getActivity(), FragmentPhysicalHealthResult.class.getName());
+			transac.replace(R.id.rlMain, newPage);
 			
-			anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_emerge);
-            new_page.startAnimation(anim);
+			transac.addToBackStack(null);
+			
+			transac.commit();
+		}else if(toIndex==0)
+		{
+            FragmentTransaction transac=getChildFragmentManager().beginTransaction();
+
+			Fragment newPage=Fragment.instantiate(getActivity(), FragmentCloudDataMainPage.class.getName());
+			transac.replace(R.id.rlMain, newPage);
+			
+			transac.commit();
 		}
-		initEvent(new_page,index);
-		
-		cur_view_index=index;
-		return true;
 	}
 
 	@Override
-	public boolean onBack() {
+	public void changeToPage(int toIndex) {
 		// TODO Auto-generated method stub
-		return changeView(cur_view_index-1);
+		changeToPageLocal(toIndex);
 	}
 }

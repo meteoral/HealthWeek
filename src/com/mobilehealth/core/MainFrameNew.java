@@ -7,12 +7,12 @@ import com.mobilehealth.medicalkit.FragmentHealthKnowledge;
 import com.mobilehealth.medicalkit.FragmentTimeSpaceConnecting;
 import com.siat.healthweek.R;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.View;
@@ -20,7 +20,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainFrameNew extends Activity{
+public class MainFrameNew extends FragmentActivity{
 
 	private ViewPager vpContent;
 	private ViewPagerAdapter vpAdapter;
@@ -52,7 +52,7 @@ public class MainFrameNew extends Activity{
 		tvRightCaption = (TextView) findViewById(R.id.tvRightCaption);
 		ivCurSubjectIcon = (ImageView) findViewById(R.id.ivCurSubjectIcon);
         
-		vpAdapter = new ViewPagerAdapter(this, getFragmentManager());
+		vpAdapter = new ViewPagerAdapter(this, getSupportFragmentManager());
 		vpAdapter.addFragment(FragmentCloudData.class, null);
 		vpAdapter.addFragment(FragmentHealthKnowledge.class, null);
 		vpAdapter.addFragment(FragmentTimeSpaceConnecting.class, null);
@@ -97,11 +97,13 @@ public class MainFrameNew extends Activity{
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			if(vpAdapter.onBack()==true)
-			{
+		if(keyCode==KeyEvent.KEYCODE_BACK)
+		{
+			Fragment curFragment=vpAdapter.getItem(vpContent.getCurrentItem());
+			if (curFragment != null && curFragment.getChildFragmentManager().getBackStackEntryCount() > 0){
+				curFragment.getChildFragmentManager().popBackStack();
 				return true;
-			}
+		    }
 		}
 		return super.onKeyDown(keyCode, event);
 	}
@@ -115,21 +117,6 @@ public class MainFrameNew extends Activity{
 			super(fm);
 			// TODO Auto-generated constructor stub
 			this.context = context;
-		}
-		
-		public boolean onBack()
-		{
-			for(int i=0;i<fragList.size();i++)
-			{
-				if(fragList.get(i).frag!=null)
-				{
-					if(((MainFrameMessageListener)fragList.get(i).frag).onBack()==true)
-					{
-						return true;
-					}
-				}
-			}
-			return false;
 		}
 
 		@Override

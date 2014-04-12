@@ -7,14 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
-public class FragmentTimeSpaceConnecting extends Fragment{
-	
-	private ImageView ivContainerFrameBg;
-	private RelativeLayout pageContainer;
+public class FragmentPhysicalHealthResult extends Fragment{
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -27,7 +23,7 @@ public class FragmentTimeSpaceConnecting extends Fragment{
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		return inflater.inflate(R.layout.page_container, container, false);
+		return inflater.inflate(R.layout.page_physical_health_result, container, false);
 		
 		//return super.onCreateView(inflater, container, savedInstanceState);
 	}
@@ -36,19 +32,18 @@ public class FragmentTimeSpaceConnecting extends Fragment{
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		init(view);
+		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_emerge);
+		view.startAnimation(anim);
 		
 		super.onViewCreated(view, savedInstanceState);
 	}
 	
-	private void init(View layout)
-	{
-		ivContainerFrameBg=(ImageView)layout.findViewById(R.id.ivContainerFrameBg);
-		pageContainer=(RelativeLayout)layout.findViewById(R.id.rlMain);
+	@Override
+	public void onDestroyView() {
+		// TODO Auto-generated method stub
+		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_disappear);
+		this.getView().startAnimation(anim);
 		
-		ivContainerFrameBg.setImageResource(R.drawable.indicator_right_bg);
-
-		View new_page=View.inflate(this.getActivity(), R.layout.page_timespace_connecting, null);
-		pageContainer.addView(new_page,new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+		super.onDestroyView();
 	}
 }
