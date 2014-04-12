@@ -83,15 +83,7 @@ public class MainFrame extends FragmentActivity implements ChildPageMessageListe
 		// TODO Auto-generated method stub
 		if(keyCode==KeyEvent.KEYCODE_BACK)
 		{
-			boolean ret_val=false;
-			for(int i=0;i<vpAdapter.getCount();i++)
-			{
-				ret_val=((ParentPageMessageListener)vpAdapter.getItem(i)).onBack();
-				if(ret_val==true)
-				{
-					break;
-				}
-			}
+			boolean ret_val=((ParentPageMessageListener)vpAdapter.getItem(vpContent.getCurrentItem())).onBack();
 			if(ret_val==true)
 			{
 				return true;
