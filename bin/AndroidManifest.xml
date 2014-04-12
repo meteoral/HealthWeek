@@ -37,19 +37,7 @@
             android:theme="@style/Theme.SlideTop"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
-        <activity
-            android:name="com.mobilehealth.medicalkit.Medicalkit"
-            android:label="@string/title_activity_medicalkit" >
-        </activity>
         <activity android:name="org.achartengine.GraphicalActivity" />
-        <activity
-            android:name="com.mobilehealth.healthehome.HealthEHome"
-            android:label="@string/title_activity_physicalhealthresult" >
-        </activity>
-        <activity
-            android:name="com.mobilehealth.healthehome.HealthExperience"
-            android:label="@string/title_activity_physicalhealthresult" >
-        </activity>
         <activity
             android:name="com.mobilehealth.dandelionscheme.DandelionScheme"
             android:label="@string/title_activity_physicalhealthresult" >
@@ -63,7 +51,12 @@
             android:label="@string/title_activity_physicalhealthresult" >
         </activity>
         <activity
-            android:name="com.mobilehealth.core.MainFrameNew"
+            android:name="com.mobilehealth.medicalkit.MedicalKit"
+            android:label="@string/title_activity_physicalhealthresult"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.mobilehealth.healthehome.HealthEHome"
             android:label="@string/title_activity_physicalhealthresult"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>

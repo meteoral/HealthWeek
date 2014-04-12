@@ -2,103 +2,114 @@ package com.mobilehealth.core;
 
 import com.siat.healthweek.R;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.ViewFlipper;
 
-public class MainFrame extends Activity {
+public class MainFrame extends FragmentActivity implements ChildPageMessageListener{
 
-	protected RelativeLayout rlContent;
-	protected ImageView ivCloudData;
-	protected ImageView ivHealthKnowledge;
-	protected ImageView ivTimeSpaceConnecting;
-	
+	protected ViewPager vpContent;
+	protected FragmentListAdapter vpAdapter;
+
+	protected ImageView ivTab0;
+	protected ImageView ivTab1;
+	protected ImageView ivTab2;
+
 	protected ImageView ivCurSubjectIcon;
-	
 	protected TextView tvCenterCaption;
 	protected TextView tvRightCaption;
-	
-	protected ViewFlipper vfBgFrame;
-	private int curViewIndex=0;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main_frame);
+		setContentView(R.layout.main_frame);
 
 		init();
 	}
-	
-	private void init()
-	{
-		rlContent=(RelativeLayout)findViewById(R.id.rlContent);
-		ivCloudData=(ImageView)findViewById(R.id.ivCloudData);
-		ivHealthKnowledge=(ImageView)findViewById(R.id.ivHealthKnowledge);
-		ivTimeSpaceConnecting=(ImageView)findViewById(R.id.ivTimeSpaceConnecting);
-		vfBgFrame=(ViewFlipper)findViewById(R.id.vfBgFrame);
-		tvCenterCaption=(TextView)findViewById(R.id.tvCenterCaption);
-		tvRightCaption=(TextView)findViewById(R.id.tvRightCaption);
-		ivCurSubjectIcon=(ImageView)findViewById(R.id.ivCurSubjectIcon);
-		
-		populateContent();
-		
-		ivCloudData.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				changeBgFrame(0);
-			}
-		});
-		ivHealthKnowledge.setOnClickListener(new OnClickListener() {
+
+	protected void init() {
+		vpContent = (ViewPager) findViewById(R.id.vpContent);
+
+		ivTab0 = (ImageView) findViewById(R.id.ivCloudData);
+		ivTab1 = (ImageView) findViewById(R.id.ivHealthKnowledge);
+		ivTab2 = (ImageView) findViewById(R.id.ivTimeSpaceConnecting);
+		tvCenterCaption = (TextView) findViewById(R.id.tvCenterCaption);
+		tvRightCaption = (TextView) findViewById(R.id.tvRightCaption);
+		ivCurSubjectIcon = (ImageView) findViewById(R.id.ivCurSubjectIcon);
+
+		ivTab0.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				changeBgFrame(1);
+				if(vpContent.getCurrentItem()!=0)
+				{
+					vpContent.setCurrentItem(0);
+				}
 			}
 		});
-		ivTimeSpaceConnecting.setOnClickListener(new OnClickListener() {
+		ivTab1.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				changeBgFrame(2);
+				if(vpContent.getCurrentItem()!=1)
+				{
+					vpContent.setCurrentItem(1);
+				}
+			}
+		});
+		ivTab2.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if(vpContent.getCurrentItem()!=2)
+				{
+					vpContent.setCurrentItem(2);
+				}
 			}
 		});
 	}
 	
-	protected void populateContent()
-	{
-	}
-	
-	private void changeBgFrame(int index)
-	{
-		if(index==curViewIndex)
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if(keyCode==KeyEvent.KEYCODE_BACK)
 		{
-			return;
+			boolean ret_val=false;
+			for(int i=0;i<vpAdapter.getCount();i++)
+			{
+				ret_val=((ParentPageMessageListener)vpAdapter.getItem(i)).onBack();
+				if(ret_val==true)
+				{
+					break;
+				}
+			}
+			if(ret_val==true)
+			{
+				return true;
+			}
 		}
-		if((index-curViewIndex)==1)
-		{
-			vfBgFrame.showNext();
-		}else if((index-curViewIndex)==2)
-		{
-			vfBgFrame.showNext();
-			vfBgFrame.showNext();
-		}else if((curViewIndex-index)==1)
-		{
-			vfBgFrame.showPrevious();
-		}else if((curViewIndex-index)==2)
-		{
-			vfBgFrame.showPrevious();
-			vfBgFrame.showPrevious();
-		}
-		curViewIndex=index;
+		return super.onKeyDown(keyCode, event);
 	}
-	
+
+	@Override
+	public void changeToPage(int toIndex) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void changeCenterCaption(String str, int visibility) {
+		// TODO Auto-generated method stub
+		this.tvCenterCaption.setText(str);
+		this.tvCenterCaption.setVisibility(visibility);
+	}
 }

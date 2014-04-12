@@ -16,8 +16,8 @@
     <string name="user_password">密码：</string>
     <string name="title_activity_physicalhealthresult">PhysicalHealthResult</string>
     <string name="welcomUserInfo">早上好！kaogongji@126.com</string>
-    <string name="physicalHealthData">肺活量：2433ml\n标准值：>1213ml\n您的孩子肺部健康，适合做运动员</string>
-    <string name="physicalHealthCapthion">生理\n健康 结果</string>
+    <string name="physical_health_data">肺活量：2433ml\n标准值：>1213ml\n您的孩子肺部健康，适合做运动员</string>
+    <string name="physical_health_capthion">生理\n健康 结果</string>
     <string name="health_e_home">健康e家</string>
     <string name="health_experience">健康体验</string>
     <string name="health_diet">健康点播</string>

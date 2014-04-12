@@ -1,4 +1,4 @@
-package com.mobilehealth.medicalkit;
+package com.mobilehealth.healthehome;
 
 import com.mobilehealth.core.ChildPageMessageListener;
 import com.siat.healthweek.R;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-public class FragmentPhysicalHealthResult extends Fragment{
+public class FragmentHealthExperience extends Fragment{
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class FragmentPhysicalHealthResult extends Fragment{
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		return inflater.inflate(R.layout.page_physical_health_result, container, false);
+		return inflater.inflate(R.layout.page_health_experience, container, false);
 		
 		//return super.onCreateView(inflater, container, savedInstanceState);
 	}
@@ -33,10 +33,10 @@ public class FragmentPhysicalHealthResult extends Fragment{
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
+		((ChildPageMessageListener)getParentFragment()).changeCenterCaption(getResources().getString(R.string.health_experience), View.VISIBLE);
+		
 		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_emerge);
 		view.startAnimation(anim);
-		
-		((ChildPageMessageListener)getParentFragment()).changeCenterCaption(getResources().getString(R.string.physical_health_capthion), View.VISIBLE);
 		
 		super.onViewCreated(view, savedInstanceState);
 	}
@@ -47,7 +47,7 @@ public class FragmentPhysicalHealthResult extends Fragment{
 		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_disappear);
 		this.getView().startAnimation(anim);
 		
-		((ChildPageMessageListener)getParentFragment()).changeCenterCaption(getResources().getString(R.string.physical_health_capthion), View.INVISIBLE);
+		((ChildPageMessageListener)getParentFragment()).changeCenterCaption(getResources().getString(R.string.health_experience), View.INVISIBLE);
 		
 		super.onDestroyView();
 	}

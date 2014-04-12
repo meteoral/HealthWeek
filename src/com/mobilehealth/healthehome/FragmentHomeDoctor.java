@@ -1,11 +1,11 @@
-package com.mobilehealth.medicalkit;
+package com.mobilehealth.healthehome;
 
 import com.mobilehealth.core.ParentFragment;
 import com.siat.healthweek.R;
 
 import android.view.View;
 
-public class FragmentHealthKnowledge extends ParentFragment{
+public class FragmentHomeDoctor extends ParentFragment{
 	
 	@Override
 	protected void init(View layout) {
@@ -15,7 +15,7 @@ public class FragmentHealthKnowledge extends ParentFragment{
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_mid_bg);
 		
 		this.childFragmentArray=new String[]{
-				FragmentHealthKnowledgeMainPage.class.getName()
+				FragmentHomeDoctorMainPage.class.getName()
 		};
 	}
 }

@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class FragmentCloudDataMainPage extends Fragment{
@@ -37,6 +39,9 @@ public class FragmentCloudDataMainPage extends Fragment{
 		
 		init(view);
 		
+		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_emerge);
+		view.startAnimation(anim);
+		
 		super.onViewCreated(view, savedInstanceState);
 	}
 	
@@ -52,6 +57,15 @@ public class FragmentCloudDataMainPage extends Fragment{
 				((ChildPageMessageListener)getParentFragment()).changeToPage(1);
 			}
 		});
+	}
+	
+	@Override
+	public void onDestroyView() {
+		// TODO Auto-generated method stub
+		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_disappear);
+		this.getView().startAnimation(anim);
+		
+		super.onDestroyView();
 	}
 	
 	

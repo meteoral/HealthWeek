@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/white" >
     
     <RelativeLayout
         android:id="@+id/rlLogInfo"
@@ -58,7 +59,7 @@
             android:id="@+id/tvPhysicalHealthData"
             android:layout_width="100dp"
             android:layout_height="130dp"
-            android:text="@string/physicalHealthData"
+            android:text="@string/physical_health_data"
             android:textColor="@color/red"
             android:layout_alignParentRight="true"
             android:layout_marginTop="85dp"

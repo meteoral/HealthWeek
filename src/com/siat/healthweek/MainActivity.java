@@ -10,9 +10,10 @@ import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
-import com.mobilehealth.core.MainFrameNew;
+import com.mobilehealth.core.MainFrame;
 import com.mobilehealth.dandelionscheme.DandelionScheme;
 import com.mobilehealth.healthehome.HealthEHome;
+import com.mobilehealth.medicalkit.MedicalKit;
 import com.siat.healthweek.R;
 import com.siat.healthweek.ui.Capture;
 
@@ -87,7 +88,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				//Intent intent = new Intent(MainActivity.this, Medicalkit.class);
-				Intent intent = new Intent(MainActivity.this, MainFrameNew.class);
+				Intent intent = new Intent(MainActivity.this, MedicalKit.class);
 				startActivity(intent);
 			}
 		});
