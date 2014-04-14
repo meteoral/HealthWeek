@@ -11,7 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainFrame extends FragmentActivity implements ChildPageMessageListener{
+public class MainFrameForMedicalKit extends FragmentActivity implements ChildPageMessageListener{
 
 	protected ViewPager vpContent;
 	protected FragmentListAdapter vpAdapter;
@@ -28,7 +28,7 @@ public class MainFrame extends FragmentActivity implements ChildPageMessageListe
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_frame);
+		setContentView(R.layout.main_frame_for_medicalkit);
 
 		init();
 	}

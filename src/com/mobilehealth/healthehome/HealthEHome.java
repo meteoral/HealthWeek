@@ -1,10 +1,10 @@
 package com.mobilehealth.healthehome;
 
 import com.mobilehealth.core.FragmentListAdapter;
-import com.mobilehealth.core.MainFrame;
+import com.mobilehealth.core.MainFrameForMedicalKit;
 import com.siat.healthweek.R;
 
-public class HealthEHome extends MainFrame{
+public class HealthEHome extends MainFrameForMedicalKit{
 	
 	@Override
 	protected void init() {

@@ -11,7 +11,7 @@
         android:layout_height="@dimen/main_frame_head_height"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/head_bg" >
+        android:background="@drawable/bg_blue_actionbar" >
         <ImageView
             android:id="@+id/ivBack"
             android:layout_width="wrap_content"
@@ -44,8 +44,8 @@
             android:layout_marginRight="10dp" />
         <ImageView
             android:id="@+id/ivCurSubjectIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="55dp"
+            android:layout_height="45dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
@@ -63,10 +63,10 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true"
         android:orientation="horizontal"
-        android:background="@drawable/head_bg"
+        android:background="@drawable/bg_blue_footbar"
         android:gravity="center_vertical" />
 
-    
+
     <RelativeLayout
         android:id="@+id/rlContent"
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.mobilehealth.medicalkit;
+package com.mobilehealth.dandelionscheme;
 
 import com.mobilehealth.core.ChildPageMessageListener;
 import com.siat.healthweek.R;
@@ -9,11 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
-public class FragmentCloudDataMainPage extends Fragment{
+public class FragmentBodyCommu extends Fragment{
 	
-	private ImageView ivPhysicalHealthResult;
+	private RelativeLayout rlIdeaSharer;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class FragmentCloudDataMainPage extends Fragment{
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		return inflater.inflate(R.layout.page_cloud_data, container, false);
+		return inflater.inflate(R.layout.page_body_commu, container, false);
 		
 		//return super.onCreateView(inflater, container, savedInstanceState);
 	}
@@ -42,15 +42,15 @@ public class FragmentCloudDataMainPage extends Fragment{
 	
 	private void init(View layout)
 	{
-		ivPhysicalHealthResult = (ImageView) layout.findViewById(R.id.ivPhysicalHealthResult);
-
-		ivPhysicalHealthResult.setOnClickListener(new OnClickListener() {
-
+		rlIdeaSharer=(RelativeLayout)layout.findViewById(R.id.rlBodyCommuBlock1);
+		rlIdeaSharer.setOnClickListener(new OnClickListener() {
+			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getParentFragment()).changeToPage(1);
+				((ChildPageMessageListener)getActivity()).changeToPage(2);
 			}
 		});
 	}
+
 }

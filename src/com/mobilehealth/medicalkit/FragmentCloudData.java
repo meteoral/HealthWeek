@@ -16,7 +16,6 @@ public class FragmentCloudData extends ParentFragment{
 		
 		this.childFragmentArray=new String[]{
 				FragmentCloudDataMainPage.class.getName(),
-				FragmentPhysicalHealthResult.class.getName()
-		};
+				FragmentPhysicalHealthResult.class.getName()};
 	}
 }

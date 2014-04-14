@@ -39,9 +39,6 @@ public class FragmentHealthEHomeMainPage extends Fragment{
 		
 		init(view);
 		
-		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_emerge);
-		view.startAnimation(anim);
-		
 		super.onViewCreated(view, savedInstanceState);
 	}
 	
@@ -60,11 +57,11 @@ public class FragmentHealthEHomeMainPage extends Fragment{
 	}
 	
 	@Override
-	public void onDestroyView() {
+	public void onPause() {
 		// TODO Auto-generated method stub
+		super.onPause();
+		
 		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_disappear);
 		this.getView().startAnimation(anim);
-		
-		super.onDestroyView();
 	}
 }

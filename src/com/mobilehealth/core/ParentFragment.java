@@ -1,7 +1,5 @@
 package com.mobilehealth.core;
 
-import java.util.List;
-
 import com.siat.healthweek.R;
 
 import android.os.Bundle;
@@ -42,14 +40,17 @@ public class ParentFragment extends Fragment implements ChildPageMessageListener
 		
 		init(view);
 		
-		removeAllChildFragments();
-		
-		FragmentTransaction transac=getChildFragmentManager().beginTransaction();
-		
-		Fragment newPage=Fragment.instantiate(getActivity(), childFragmentArray[curPageIndex]);
-		transac.add(R.id.rlMain, newPage);
-		
-		transac.commit();
+		Fragment newPage=getChildFragmentManager().findFragmentByTag(childFragmentArray[curPageIndex]);
+		if(newPage==null)
+		{
+			FragmentTransaction transac=getChildFragmentManager().beginTransaction();
+			
+			newPage=Fragment.instantiate(getActivity(), childFragmentArray[curPageIndex]);
+			//transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, R.anim.view_emerge, R.anim.view_disappear);
+			transac.add(R.id.rlMain, newPage, childFragmentArray[curPageIndex]);
+			
+			transac.commit();
+		}
 		
 		super.onViewCreated(view, savedInstanceState);
 	}
@@ -66,31 +67,17 @@ public class ParentFragment extends Fragment implements ChildPageMessageListener
 			return false;
 		}
 		curPageIndex=toIndex;
-		
+
 		FragmentTransaction transac=getChildFragmentManager().beginTransaction();
 		
 		Fragment newPage=Fragment.instantiate(getActivity(), childFragmentArray[curPageIndex]);
-		transac.replace(R.id.rlMain, newPage);
+		transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, R.anim.view_emerge, R.anim.view_disappear);
+		transac.replace(R.id.rlMain, newPage, childFragmentArray[curPageIndex]);
 		
 		transac.commit();
+		
 		
 		return true;
-	}
-	
-	private void removeAllChildFragments()
-	{
-		List<Fragment> frags=getChildFragmentManager().getFragments();
-		if(frags==null)
-		{
-			return;
-		}
-		
-		FragmentTransaction transac=getChildFragmentManager().beginTransaction();
-		for(int i=0;i<frags.size();i++)
-		{
-			transac.remove(frags.get(i));
-		}
-		transac.commit();
 	}
 
 	@Override

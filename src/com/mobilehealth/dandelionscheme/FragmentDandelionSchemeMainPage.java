@@ -1,4 +1,4 @@
-package com.mobilehealth.medicalkit;
+package com.mobilehealth.dandelionscheme;
 
 import com.mobilehealth.core.ChildPageMessageListener;
 import com.siat.healthweek.R;
@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
-public class FragmentCloudDataMainPage extends Fragment{
+public class FragmentDandelionSchemeMainPage extends Fragment{
 	
-	private ImageView ivPhysicalHealthResult;
+	private ImageView ivBodyCommu;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class FragmentCloudDataMainPage extends Fragment{
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		return inflater.inflate(R.layout.page_cloud_data, container, false);
+		return inflater.inflate(R.layout.page_dandelion_scheme, container, false);
 		
 		//return super.onCreateView(inflater, container, savedInstanceState);
 	}
@@ -42,14 +42,14 @@ public class FragmentCloudDataMainPage extends Fragment{
 	
 	private void init(View layout)
 	{
-		ivPhysicalHealthResult = (ImageView) layout.findViewById(R.id.ivPhysicalHealthResult);
+		ivBodyCommu = (ImageView) layout.findViewById(R.id.ivBodyCommu);
 
-		ivPhysicalHealthResult.setOnClickListener(new OnClickListener() {
+		ivBodyCommu.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getParentFragment()).changeToPage(1);
+				((ChildPageMessageListener)getActivity()).changeToPage(1);
 			}
 		});
 	}

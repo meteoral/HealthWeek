@@ -10,7 +10,6 @@ import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
-import com.mobilehealth.core.MainFrame;
 import com.mobilehealth.dandelionscheme.DandelionScheme;
 import com.mobilehealth.healthehome.HealthEHome;
 import com.mobilehealth.medicalkit.MedicalKit;

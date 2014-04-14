@@ -37,10 +37,6 @@
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         <activity
-            android:name="com.mobilehealth.medicalkit.Medicalkit"
-            android:label="@string/title_activity_medicalkit" >
-        </activity>
-        <activity
             android:name=".AverageCubicTemperatureChart"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTask"
@@ -48,28 +44,19 @@
             android:theme="@style/Theme.ZoomLight">
         </activity>
         <activity
-            android:name="com.mobilehealth.medicalkit.PhysicalHealthResult"
-            android:label="@string/title_activity_physicalhealthresult" >
+            android:name="com.mobilehealth.medicalkit.MedicalKit"
+            android:label="@string/title_activity_medicalkit"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
             android:name="com.mobilehealth.healthehome.HealthEHome"
-            android:label="@string/title_activity_physicalhealthresult" >
-        </activity>
-        <activity
-            android:name="com.mobilehealth.healthehome.HealthExperience"
-            android:label="@string/title_activity_physicalhealthresult" >
+            android:label="@string/title_activity_physicalhealthresult"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
             android:name="com.mobilehealth.dandelionscheme.DandelionScheme"
-            android:label="@string/title_activity_physicalhealthresult" >
-        </activity>
-        <activity
-            android:name="com.mobilehealth.dandelionscheme.BodyCommu"
-            android:label="@string/title_activity_physicalhealthresult" >
-        </activity>
-        <activity
-            android:name="com.mobilehealth.dandelionscheme.IdeaSharer"
-            android:label="@string/title_activity_physicalhealthresult" >
+            android:label="@string/title_activity_physicalhealthresult"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
     </application>
 

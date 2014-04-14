@@ -1,9 +1,9 @@
 package com.mobilehealth.medicalkit;
 
 import com.mobilehealth.core.FragmentListAdapter;
-import com.mobilehealth.core.MainFrame;
+import com.mobilehealth.core.MainFrameForMedicalKit;
 
-public class MedicalKit extends MainFrame{
+public class MedicalKit extends MainFrameForMedicalKit{
 	
 	@Override
 	protected void init() {

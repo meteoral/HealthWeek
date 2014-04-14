@@ -8,8 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 public class FragmentPhysicalHealthResult extends Fragment{
 	
@@ -33,9 +31,6 @@ public class FragmentPhysicalHealthResult extends Fragment{
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_emerge);
-		view.startAnimation(anim);
-		
 		((ChildPageMessageListener)getParentFragment()).changeCenterCaption(getResources().getString(R.string.physical_health_capthion), View.VISIBLE);
 		
 		super.onViewCreated(view, savedInstanceState);
@@ -44,8 +39,6 @@ public class FragmentPhysicalHealthResult extends Fragment{
 	@Override
 	public void onDestroyView() {
 		// TODO Auto-generated method stub
-		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_disappear);
-		this.getView().startAnimation(anim);
 		
 		((ChildPageMessageListener)getParentFragment()).changeCenterCaption(getResources().getString(R.string.physical_health_capthion), View.INVISIBLE);
 		

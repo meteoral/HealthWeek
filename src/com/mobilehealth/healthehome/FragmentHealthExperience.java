@@ -8,8 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 public class FragmentHealthExperience extends Fragment{
 	
@@ -35,17 +33,12 @@ public class FragmentHealthExperience extends Fragment{
 		
 		((ChildPageMessageListener)getParentFragment()).changeCenterCaption(getResources().getString(R.string.health_experience), View.VISIBLE);
 		
-		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_emerge);
-		view.startAnimation(anim);
-		
 		super.onViewCreated(view, savedInstanceState);
 	}
 	
 	@Override
 	public void onDestroyView() {
 		// TODO Auto-generated method stub
-		Animation anim=AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_disappear);
-		this.getView().startAnimation(anim);
 		
 		((ChildPageMessageListener)getParentFragment()).changeCenterCaption(getResources().getString(R.string.health_experience), View.INVISIBLE);
 		

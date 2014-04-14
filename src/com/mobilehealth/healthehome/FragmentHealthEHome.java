@@ -16,8 +16,7 @@ public class FragmentHealthEHome extends ParentFragment{
 		
 		this.childFragmentArray=new String[]{
 				FragmentHealthEHomeMainPage.class.getName(),
-				FragmentHealthExperience.class.getName()
-		};
+				FragmentHealthExperience.class.getName()};
 	}
 
 }

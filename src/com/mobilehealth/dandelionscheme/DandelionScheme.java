@@ -1,42 +1,97 @@
 package com.mobilehealth.dandelionscheme;
 
-import android.content.Intent;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-
-import com.mobilehealth.core.DandelionSchemeFrame;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+import com.mobilehealth.core.ChildPageMessageListener;
 import com.siat.healthweek.R;
 
-public class DandelionScheme extends DandelionSchemeFrame{
+public class DandelionScheme extends FragmentActivity implements ChildPageMessageListener{
+
+	/*private ImageView ivCurSubjectIcon;
+	private TextView tvCenterCaption;
+	private TextView tvRightCaption;*/
 	
-	private ImageView ivBodyCommu;
+	private String[] childFragmentArray;
+	
+	private int curPageIndex=0;
 	
 	@Override
-	protected void populateContent() {
+	protected void onCreate(Bundle arg0) {
 		// TODO Auto-generated method stub
-		super.populateContent();
+		super.onCreate(arg0);
+		setContentView(R.layout.main_frame_for_dandelion_scheme);
 		
-		View content=View.inflate(this, R.layout.dandelion_scheme, null);
-		rlContent.addView(content,new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-		
-		init(content);
+		init();
 	}
 	
-	private void init(View content)
+	private void init()
 	{
-		this.ivBodyCommu=(ImageView)content.findViewById(R.id.ivBodyCommu);
+		/*tvCenterCaption = (TextView) findViewById(R.id.tvCenterCaption);
+		tvRightCaption = (TextView) findViewById(R.id.tvRightCaption);
+		ivCurSubjectIcon = (ImageView) findViewById(R.id.ivCurSubjectIcon);*/
 		
-		this.ivBodyCommu.setOnClickListener(new OnClickListener() {
+		this.childFragmentArray=new String[]{
+				FragmentDandelionSchemeMainPage.class.getName(),
+				FragmentBodyCommu.class.getName(),
+				FragmentIdeaSharer.class.getName()};
+		
+		Fragment newPage=getSupportFragmentManager().findFragmentByTag(childFragmentArray[curPageIndex]);
+		if(newPage==null)
+		{
+			FragmentTransaction transac=getSupportFragmentManager().beginTransaction();
 			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent i=new Intent(DandelionScheme.this, BodyCommu.class);
-				startActivity(i);
-			}
-		});
+			newPage=Fragment.instantiate(this, childFragmentArray[curPageIndex]);
+			transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, R.anim.view_emerge, R.anim.view_disappear);
+			transac.add(R.id.rlContent, newPage, childFragmentArray[curPageIndex]);
+			
+			transac.commit();
+		}
 	}
+	
+	private boolean changeToPageLocal(int toIndex)
+	{
+		if(toIndex==curPageIndex|toIndex<0)
+		{
+			return false;
+		}
+		
+		boolean direct_in=false;
+		if((toIndex-curPageIndex)==1)
+		{
+			direct_in=true;
+		}
+		
+		curPageIndex=toIndex;
+
+		FragmentTransaction transac=getSupportFragmentManager().beginTransaction();
+		
+		Fragment newPage=Fragment.instantiate(this, childFragmentArray[curPageIndex]);
+		transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, R.anim.view_emerge, R.anim.view_disappear);
+		transac.replace(R.id.rlContent, newPage, childFragmentArray[curPageIndex]);
+		if(direct_in==true)
+		{
+			transac.addToBackStack(null);
+		}
+		
+		transac.commit();
+		
+		
+		return true;
+	}
+	
+	@Override
+	public void changeToPage(int toIndex) {
+		// TODO Auto-generated method stub
+		changeToPageLocal(toIndex);
+	}
+
+	@Override
+	public void changeCenterCaption(String str, int visibility) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 }
