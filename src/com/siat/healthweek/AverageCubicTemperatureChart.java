@@ -18,8 +18,11 @@ package com.siat.healthweek;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.achartengine.ChartFactory;
+import org.achartengine.GraphicalView;
 import org.achartengine.chart.PointStyle;
 import org.achartengine.model.CategorySeries;
 import org.achartengine.model.MultipleCategorySeries;
@@ -31,25 +34,85 @@ import org.achartengine.renderer.SimpleSeriesRenderer;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint.Align;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 
 /**
  * 平均温度示例表格。
  * @author 刘清伟（http://www.liuqingwei.com）
  * @created 2014-04-06
  */
-public class AverageCubicTemperatureChart {
+public class AverageCubicTemperatureChart extends Activity{
 
+	private Timer timer = new Timer();
+	private TimerTask task;
+	private Handler handler;
+	private XYMultipleSeriesDataset mDataset;
+	private XYSeries series;
+	private GraphicalView hello;
+    private int addX = -1, addY;
+    int[] xv = new int[100];
+    int[] yv = new int[100];
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.bed_fragment);
+		LayoutParams layout = new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT);
+		layout.weight = 1;
+		series = new XYSeries("new");
+		mDataset = new XYMultipleSeriesDataset();
+		mDataset.addSeries(series);
+		int[] colors = new int[] { Color.RED};//线条的颜色
+	    PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE};//坐标点的形状
+        XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles);
+        setChartSettings(renderer,"Test","X", "Y", 0, 100, 0, 90, Color.WHITE, Color.WHITE);
+        ((XYSeriesRenderer) renderer.getSeriesRendererAt(0)).setFillPoints(true);
+        ((XYSeriesRenderer) renderer.getSeriesRendererAt(0)).setLineWidth(3f);
+		LinearLayout linearView = (LinearLayout) findViewById(R.id.chart_show);
+        hello = ChartFactory.getCubeLineChartView(this, mDataset, renderer,0.1f);
+		linearView.addView(showDraw(this),layout);
+		linearView.addView(hello,layout);
+		handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                //刷新图表
+                updateChart(hello);
+                super.handleMessage(msg);
+            }
+        };
+
+        task = new TimerTask() {
+            @Override
+            public void run() {
+                Message message = new Message();
+                message.what = 1;
+                handler.sendMessage(message);
+            }
+        };
+        timer.schedule(task, 500, 500);
+	}
+
+    @Override
+    public void onDestroy() {
+        //当结束程序时关掉Timer
+        timer.cancel();
+        super.onDestroy();
+    }
   /**
    * 展示表格
    *
    * @param context the context
    * @return the built intent
    */
-  public Intent execute(Context context) {
+  public View showDraw(Context context) {
     String[] titles = new String[] { "上海", "广州", "深圳", "重庆" };
     List<double[]> x = new ArrayList<double[]>();
     for (int i = 0; i < titles.length; i++) {
@@ -67,6 +130,7 @@ public class AverageCubicTemperatureChart {
     int length = renderer.getSeriesRendererCount();
     for (int i = 0; i < length; i++) {
       ((XYSeriesRenderer) renderer.getSeriesRendererAt(i)).setFillPoints(true);
+      ((XYSeriesRenderer) renderer.getSeriesRendererAt(i)).setLineWidth(3f);
     }
     setChartSettings(renderer, "平均气温", "月份", "气温", 0.5, 12.5, 0, 32,
         Color.LTGRAY, Color.LTGRAY);
@@ -80,9 +144,7 @@ public class AverageCubicTemperatureChart {
 
     renderer.setPanLimits(new double[] { -10, 20, -10, 40 });
     renderer.setZoomLimits(new double[] { -10, 20, -10, 40 });
-    Intent intent = ChartFactory.getCubicLineChartIntent(context, buildDataset(titles, x, values),
-        renderer, 0.33f, "平均气温");
-    return intent;
+    return ChartFactory.getCubeLineChartView(context, buildDataset(titles, x, values),renderer, 0.33f);
   }
 
   /**
@@ -290,4 +352,43 @@ public class AverageCubicTemperatureChart {
 	    }
 	    return renderer;
 	  }
+
+	private void updateChart(View chart) {
+
+		// 设置好下一个需要增加的节点
+		addX = 0;
+		addY = ((int) (Math.random() * 30))+40;
+
+		// 移除数据集中旧的点集
+		mDataset.removeSeries(series);
+
+		// 判断当前点集中到底有多少点，因为屏幕总共只能容纳100个，所以当点数超过100时，长度永远是100
+		int length = series.getItemCount();
+		if (length > 100) {
+			length = 100;
+		}
+
+		// 将旧的点集中x和y的数值取出来放入backup中，并且将x的值加1，造成曲线向右平移的效果
+		for (int i = 0; i < length; i++) {
+			xv[i] = (int) series.getX(i) + 2;
+			yv[i] = (int) series.getY(i);
+		}
+
+		// 点集先清空，为了做成新的点集而准备
+		series.clear();
+
+		// 将新产生的点首先加入到点集中，然后在循环体中将坐标变换后的一系列点都重新加入到点集中
+		// 这里可以试验一下把顺序颠倒过来是什么效果，即先运行循环体，再添加新产生的点
+		series.add(addX, addY);
+		for (int k = 0; k < length; k++) {
+			series.add(xv[k], yv[k]);
+		}
+
+		// 在数据集中添加新的点集
+		mDataset.addSeries(series);
+
+		// 视图更新，没有这一步，曲线不会呈现动态
+		// 如果在非UI主线程中，需要调用postInvalidate()，具体参考api
+		chart.invalidate();
+	}
 }

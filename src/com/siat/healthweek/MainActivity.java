@@ -96,8 +96,8 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				AverageCubicTemperatureChart ave = new AverageCubicTemperatureChart();
-				startActivity(ave.execute(MainActivity.this));
+				Intent intent = new Intent(MainActivity.this, AverageCubicTemperatureChart.class);
+				startActivity(intent);
 			}
 		});
 		btnEhome.setOnClickListener(new OnClickListener() {
