@@ -45,5 +45,12 @@
     <string name="age">年龄：28</string>
     <string name="career">职业：设计师</string>
     <string name="sharer_level">创客等级：</string>
+    <string name="sensible_bed">感知床</string>
+    <string name="general_health_status">健康状况总体良好</string>
+    <string name="sleep_quality">睡眠质量欠佳</string>
+    <string name="sensible_bed_tips">适量运动有助于您的睡眠</string>
+    <string name="hrv">HRV</string>
+    <string name="breath_freq">呼吸节律</string>
+    <string name="sleep_status">夜间翻身次数</string>
 
 </resources>

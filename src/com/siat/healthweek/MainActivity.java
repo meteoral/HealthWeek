@@ -13,6 +13,7 @@ import android.widget.Button;
 import com.mobilehealth.dandelionscheme.DandelionScheme;
 import com.mobilehealth.healthehome.HealthEHome;
 import com.mobilehealth.medicalkit.MedicalKit;
+import com.mobilehealth.sensibelbed.SensibleBed;
 import com.siat.healthweek.R;
 import com.siat.healthweek.ui.Capture;
 
@@ -95,7 +96,9 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, AverageCubicTemperatureChart.class);
+				/*Intent intent = new Intent(MainActivity.this, AverageCubicTemperatureChart.class);
+				startActivity(intent);*/
+				Intent intent = new Intent(MainActivity.this, SensibleBed.class);
 				startActivity(intent);
 			}
 		});

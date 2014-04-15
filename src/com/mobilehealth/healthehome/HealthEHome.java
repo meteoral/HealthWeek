@@ -15,6 +15,7 @@ public class HealthEHome extends MainFrameForMedicalKit{
 		ivTab1.setImageResource(R.drawable.home_doctor);
 		ivTab2.setImageResource(R.drawable.sunset_community);
 		
+		ivCurSubjectIcon.setImageResource(R.drawable.health_e_home);
 		tvRightCaption.setText(R.string.health_e_home);
 		
         vpAdapter = new FragmentListAdapter(this, getSupportFragmentManager());
