@@ -4,6 +4,7 @@ import com.siat.healthweek.R;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +47,7 @@ public class ParentFragment extends Fragment implements ChildPageMessageListener
 			FragmentTransaction transac=getChildFragmentManager().beginTransaction();
 			
 			newPage=Fragment.instantiate(getActivity(), childFragmentArray[curPageIndex]);
-			//transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, R.anim.view_emerge, R.anim.view_disappear);
+			transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, R.anim.view_emerge, R.anim.view_disappear);
 			transac.add(R.id.rlMain, newPage, childFragmentArray[curPageIndex]);
 			
 			transac.commit();
@@ -66,13 +67,19 @@ public class ParentFragment extends Fragment implements ChildPageMessageListener
 		{
 			return false;
 		}
-		curPageIndex=toIndex;
 
 		FragmentTransaction transac=getChildFragmentManager().beginTransaction();
 		
-		Fragment newPage=Fragment.instantiate(getActivity(), childFragmentArray[curPageIndex]);
+		Fragment newPage=Fragment.instantiate(getActivity(), childFragmentArray[toIndex]);
 		transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, R.anim.view_emerge, R.anim.view_disappear);
-		transac.replace(R.id.rlMain, newPage, childFragmentArray[curPageIndex]);
+		transac.replace(R.id.rlMain, newPage, childFragmentArray[toIndex]);
+		
+		if((toIndex-curPageIndex)==1)
+		{
+			transac.addToBackStack(null);
+		}
+		
+		curPageIndex=toIndex;
 		
 		transac.commit();
 		
@@ -95,6 +102,13 @@ public class ParentFragment extends Fragment implements ChildPageMessageListener
 	@Override
 	public boolean onBack() {
 		// TODO Auto-generated method stub
-		return changeToPageLocal(curPageIndex-1);
+		FragmentManager childFragManager=getChildFragmentManager();
+		if(childFragManager.getBackStackEntryCount()>0)
+		{
+			childFragManager.popBackStack();
+			curPageIndex=curPageIndex-1;
+			return true;
+		}
+		return false;
 	}
 }

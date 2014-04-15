@@ -56,24 +56,19 @@ public class DandelionScheme extends FragmentActivity implements ChildPageMessag
 		{
 			return false;
 		}
-		
-		boolean direct_in=false;
-		if((toIndex-curPageIndex)==1)
-		{
-			direct_in=true;
-		}
-		
-		curPageIndex=toIndex;
 
 		FragmentTransaction transac=getSupportFragmentManager().beginTransaction();
 		
-		Fragment newPage=Fragment.instantiate(this, childFragmentArray[curPageIndex]);
+		Fragment newPage=Fragment.instantiate(this, childFragmentArray[toIndex]);
 		transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, R.anim.view_emerge, R.anim.view_disappear);
-		transac.replace(R.id.rlContent, newPage, childFragmentArray[curPageIndex]);
-		if(direct_in==true)
+		transac.replace(R.id.rlContent, newPage, childFragmentArray[toIndex]);
+		
+		if((toIndex-curPageIndex)==1)
 		{
 			transac.addToBackStack(null);
 		}
+		
+		curPageIndex=toIndex;
 		
 		transac.commit();
 		

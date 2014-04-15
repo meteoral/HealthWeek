@@ -12,5 +12,7 @@
     
     <dimen name="body_commu_foot_height">15dp</dimen>
     <dimen name="dandelion_bodycommu_block_gap">15dp</dimen>
+    
+    <dimen name="textsize_for_product_introduction">25px</dimen>
 
 </resources>

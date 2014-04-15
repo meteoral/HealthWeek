@@ -37,5 +37,13 @@
     <string name="intelligences">智囊团</string>
     <string name="doctor">博士</string>
     <string name="promising_future">展望未来</string>
+    <string name="my_dandelion">蒲公英计划——我的蒲公英</string>
+    <string name="product_introduction">产品发散思路：人体通讯设备可以运用在贴身穿戴式设备上。
+        手环根据你的睡眠质量、心情、天气等一系列综合数据为你推荐今天适合的衣服和适合做的运动等。</string>
+    <string name="nickname">昵称：爱普者</string>
+    <string name="gender">性别：</string>
+    <string name="age">年龄：28</string>
+    <string name="career">职业：设计师</string>
+    <string name="sharer_level">创客等级：</string>
 
 </resources>
