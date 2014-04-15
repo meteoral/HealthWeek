@@ -16,5 +16,7 @@ public class FragmentCommunityShare extends ParentFragment{
 		
 		this.childFragmentArray=new String[]{
 				FragmentCommunityShareMainPage.class.getName()};
+		
+		firstLevelIndex=2;
 	}
 }

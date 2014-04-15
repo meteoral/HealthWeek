@@ -16,5 +16,7 @@ public class FragmentSunsetCommunity extends ParentFragment{
 		
 		this.childFragmentArray=new String[]{
 				FragmentSunsetCommunityMainPage.class.getName()};
+		
+		firstLevelIndex=2;
 	}
 }

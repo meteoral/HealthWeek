@@ -19,7 +19,6 @@ import org.achartengine.renderer.SimpleSeriesRenderer;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
-import com.mobilehealth.core.ChildPageMessageListener;
 import com.siat.healthweek.R;
 
 import android.annotation.SuppressLint;
@@ -70,8 +69,6 @@ public class FragmentBreathFreq extends Fragment{
 		
 		init(view);
 		
-		((ChildPageMessageListener)getParentFragment()).changeCenterCaption(getResources().getString(R.string.breath_freq), View.VISIBLE);
-		
 		super.onViewCreated(view, savedInstanceState);
 	}
 	
@@ -119,15 +116,6 @@ public class FragmentBreathFreq extends Fragment{
         timer.cancel();
         super.onDestroy();
     }
-	
-	@Override
-	public void onDestroyView() {
-		// TODO Auto-generated method stub
-		
-		((ChildPageMessageListener)getParentFragment()).changeCenterCaption(getResources().getString(R.string.health_experience), View.INVISIBLE);
-		
-		super.onDestroyView();
-	}
 	
 	/**
 	   * 展示表格

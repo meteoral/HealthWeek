@@ -7,9 +7,8 @@
 
     <RelativeLayout
         android:id="@+id/rlHead"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/main_frame_head_height"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/bg_blue_actionbar" >
         <ImageView
@@ -22,13 +21,6 @@
             android:scaleType="centerInside"
             android:src="@drawable/head_back"
             android:contentDescription="@string/app_name" />
-        <TextView
-            android:id="@+id/tvCenterCaption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:textColor="@color/head_text_color" />
         <TextView
             android:id="@+id/tvRightCaption"
             android:layout_width="wrap_content"
@@ -49,22 +41,35 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:scaleType="centerInside"
-            android:src="@drawable/icon_dandelion_scheme"
+            android:src="@drawable/icon_starting"
             android:contentDescription="@string/app_name"
-            android:paddingRight="8dp" />
+            android:layout_marginRight="8dp" />
     </RelativeLayout>
 
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/rlFoot"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
+        android:layout_height="@dimen/main_frame_foot_height"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true"
-        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
         android:background="@drawable/bg_blue_footbar"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
 
+        <ImageView
+            android:id="@+id/ivCurSubjectIconInBottom"
+            android:layout_width="55dp"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/app_name"
+            android:layout_marginLeft="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_starting" />
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rlContent"

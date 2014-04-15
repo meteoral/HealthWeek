@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="@string/general_health_status"
             android:textColor="@color/bluetext"
-            android:textSize="35px" />
+            android:textSize="@dimen/textsize_for_health_status" />
 
         <TextView
             android:id="@+id/tvSleepQuality"
@@ -35,7 +35,7 @@
             android:layout_marginLeft="20dp"
             android:text="@string/sleep_quality"
             android:textColor="@color/bluetext"
-            android:textSize="35px" />
+            android:textSize="@dimen/textsize_for_health_status" />
 
         <TextView
             android:id="@+id/tvTips"
@@ -44,7 +44,7 @@
             android:layout_marginLeft="30dp"
             android:text="@string/sensible_bed_tips"
             android:textColor="@color/bluetext"
-            android:textSize="35px" />
+            android:textSize="@dimen/textsize_for_health_status" />
     </LinearLayout>
 
     <LinearLayout
@@ -61,7 +61,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1"
             android:gravity="center_vertical" >
@@ -89,7 +89,7 @@
         <LinearLayout
             android:id="@+id/llBreathFreq"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1"
             android:gravity="center_vertical" >
@@ -116,7 +116,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1"
             android:gravity="center_vertical" >

@@ -1,6 +1,5 @@
 package com.mobilehealth.healthehome;
 
-import com.mobilehealth.core.ChildPageMessageListener;
 import com.siat.healthweek.R;
 
 import android.os.Bundle;
@@ -25,23 +24,5 @@ public class FragmentHealthExperience extends Fragment{
 		return inflater.inflate(R.layout.page_health_experience, container, false);
 		
 		//return super.onCreateView(inflater, container, savedInstanceState);
-	}
-	
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		
-		((ChildPageMessageListener)getParentFragment()).changeCenterCaption(getResources().getString(R.string.health_experience), View.VISIBLE);
-		
-		super.onViewCreated(view, savedInstanceState);
-	}
-	
-	@Override
-	public void onDestroyView() {
-		// TODO Auto-generated method stub
-		
-		((ChildPageMessageListener)getParentFragment()).changeCenterCaption(getResources().getString(R.string.health_experience), View.INVISIBLE);
-		
-		super.onDestroyView();
 	}
 }

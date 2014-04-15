@@ -1,4 +1,4 @@
-package com.mobilehealth.medicalkit;
+package com.mobilehealth.starting;
 
 import com.siat.healthweek.R;
 
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FragmentPhysicalHealthResult extends Fragment{
+public class FragmentGenerationSucceed extends Fragment{
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -21,8 +21,14 @@ public class FragmentPhysicalHealthResult extends Fragment{
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		return inflater.inflate(R.layout.page_physical_health_result, container, false);
+		return inflater.inflate(R.layout.page_qrcode_generation_succeed, container, false);
 		
 		//return super.onCreateView(inflater, container, savedInstanceState);
+	}
+	
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onViewCreated(view, savedInstanceState);
 	}
 }

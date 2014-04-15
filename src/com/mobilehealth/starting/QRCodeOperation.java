@@ -1,41 +1,47 @@
-package com.mobilehealth.dandelionscheme;
+package com.mobilehealth.starting;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.mobilehealth.core.ChildPageMessageListener;
 import com.siat.healthweek.R;
 
-public class DandelionScheme extends FragmentActivity implements ChildPageMessageListener{
+public class QRCodeOperation extends FragmentActivity implements ChildPageMessageListener{
 
-	/*private ImageView ivCurSubjectIcon;
-	private TextView tvCenterCaption;
-	private TextView tvRightCaption;*/
+	private ImageView ivCurSubjectIconOnBottom;
+	private ImageView ivCurSubjectIcon;
+	private TextView tvCaption;
 	
 	private String[] childFragmentArray;
-	
-	private int curPageIndex=0;
+
+	private int curPageIndex = 0;
 	
 	@Override
 	protected void onCreate(Bundle arg0) {
 		// TODO Auto-generated method stub
 		super.onCreate(arg0);
-		setContentView(R.layout.main_frame_for_dandelion_scheme);
+		setContentView(R.layout.main_frame_for_qrcode_operation);
 		
 		init();
 	}
 	
 	private void init()
 	{
-		/*tvCenterCaption = (TextView) findViewById(R.id.tvCenterCaption);
-		tvRightCaption = (TextView) findViewById(R.id.tvRightCaption);
-		ivCurSubjectIcon = (ImageView) findViewById(R.id.ivCurSubjectIcon);*/
+		tvCaption = (TextView) findViewById(R.id.tvRightCaption);
+		ivCurSubjectIconOnBottom=(ImageView)findViewById(R.id.ivCurSubjectIconInBottom);
+		ivCurSubjectIcon = (ImageView) findViewById(R.id.ivCurSubjectIcon);
 		
 		this.childFragmentArray=new String[]{
-				FragmentDandelionSchemeMainPage.class.getName(),
-				FragmentBodyCommu.class.getName(),
-				FragmentIdeaSharer.class.getName()};
+				FragmentQRCodeOperationMainPage.class.getName(),
+				FragmentScanQRCode.class.getName(),
+				FragmentGenerateQRCode.class.getName(),
+				FragmentGenerationSucceed.class.getName()};
+		
 		
 		Fragment newPage=getSupportFragmentManager().findFragmentByTag(childFragmentArray[curPageIndex]);
 		if(newPage==null)
@@ -48,6 +54,8 @@ public class DandelionScheme extends FragmentActivity implements ChildPageMessag
 			
 			transac.commit();
 		}
+		
+		childPageChanged(-1, curPageIndex);
 	}
 	
 	private boolean changeToPageLocal(int toIndex)
@@ -88,5 +96,24 @@ public class DandelionScheme extends FragmentActivity implements ChildPageMessag
 	public void childPageChanged(int firstLeveIndex, int secondLevelIndex) {
 		// TODO Auto-generated method stub
 		
+		curPageIndex=secondLevelIndex;
+		
+		if(secondLevelIndex==0)
+		{
+			ivCurSubjectIcon.setImageResource(R.drawable.icon_starting);
+			ivCurSubjectIconOnBottom.setVisibility(View.INVISIBLE);
+			tvCaption.setText("");
+		}else if(secondLevelIndex==1)
+		{
+			ivCurSubjectIcon.setImageResource(R.drawable.scan_qrcode_icon);
+			ivCurSubjectIconOnBottom.setVisibility(View.VISIBLE);
+			tvCaption.setText(getResources().getString(R.string.scan_qrcode));
+		}else if(secondLevelIndex==2)
+		{
+			ivCurSubjectIcon.setImageResource(R.drawable.generate_qrcode_icon);
+			ivCurSubjectIconOnBottom.setVisibility(View.VISIBLE);
+			tvCaption.setText(getResources().getString(R.string.generate_qrcode));
+		}
 	}
+
 }

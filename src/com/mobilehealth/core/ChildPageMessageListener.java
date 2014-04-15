@@ -4,5 +4,5 @@ public interface ChildPageMessageListener {
 	
 	void changeToPage(int toIndex);
 	
-	void changeCenterCaption(String str, int visibility);
+	void childPageChanged(int firstLevelIndex, int secondLevelIndex);
 }

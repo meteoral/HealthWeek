@@ -1,5 +1,7 @@
 package com.mobilehealth.sensibelbed;
 
+import java.util.ArrayList;
+
 import com.mobilehealth.core.FragmentListAdapter;
 import com.mobilehealth.core.MainFrameForMedicalKit;
 import com.siat.healthweek.R;
@@ -17,6 +19,21 @@ public class SensibleBed extends MainFrameForMedicalKit{
 		
 		ivCurSubjectIcon.setImageResource(R.drawable.sensible_bed);
 		tvRightCaption.setText(R.string.sensible_bed);
+		
+		{
+			ArrayList<String> temp=new ArrayList<String>();
+			temp.add("");
+			temp.add(getResources().getString(R.string.breath_freq));
+			centerCaptions.add(temp);
+			
+			temp=new ArrayList<String>();
+			temp.add("");
+			centerCaptions.add(temp);
+			
+			temp=new ArrayList<String>();
+			temp.add("");
+			centerCaptions.add(temp);
+		}
 		
         vpAdapter = new FragmentListAdapter(this, getSupportFragmentManager());
         vpAdapter.addFragment(FragmentHealthCheck.class, null);

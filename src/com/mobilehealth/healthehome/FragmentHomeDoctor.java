@@ -16,5 +16,7 @@ public class FragmentHomeDoctor extends ParentFragment{
 		
 		this.childFragmentArray=new String[]{
 				FragmentHomeDoctorMainPage.class.getName()};
+		
+		firstLevelIndex=1;
 	}
 }

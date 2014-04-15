@@ -63,6 +63,11 @@
             android:label="@string/title_activity_physicalhealthresult"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
+        <activity
+            android:name="com.mobilehealth.starting.QRCodeOperation"
+            android:label="@string/title_activity_physicalhealthresult"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

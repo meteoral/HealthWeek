@@ -81,6 +81,8 @@
 	<color name="purple1">#ffaa66cc</color>
 	<color name="purple2">#ff9933cc</color>
 	
+	<color name="generate_qrcode_block_color">#5533b5e5</color>
+	
 	<color name="pleasantblue">#ff9ac0cd</color>
 	<color name="darkgray">#ff668b8b</color>
 </resources>

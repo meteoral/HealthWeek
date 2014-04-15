@@ -16,5 +16,7 @@ public class FragmentTimeSpaceConnecting extends ParentFragment{
 		
 		this.childFragmentArray=new String[]{
 				FragmentTimeSpaceConnectingMainPage.class.getName()};
+		
+		firstLevelIndex=2;
 	}
 }

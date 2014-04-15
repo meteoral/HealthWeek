@@ -1,10 +1,13 @@
 package com.mobilehealth.core;
 
+import java.util.ArrayList;
+
 import com.siat.healthweek.R;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,6 +26,9 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 	protected ImageView ivCurSubjectIcon;
 	protected TextView tvCenterCaption;
 	protected TextView tvRightCaption;
+	
+	protected ArrayList<ArrayList<String>> centerCaptions=new ArrayList<ArrayList<String>>();
+	private int[] childPageIndexes;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +82,43 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 				}
 			}
 		});
+		
+		vpContent.setOnPageChangeListener(new OnPageChangeListener() {
+			
+			@Override
+			public void onPageSelected(int arg0) {
+				// TODO Auto-generated method stub
+				MainFrameForMedicalKit.this.tvCenterCaption.setText(centerCaptions.get(vpContent.getCurrentItem()).get(childPageIndexes[vpContent.getCurrentItem()]));
+			}
+			
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		{
+			ArrayList<String> temp=new ArrayList<String>();
+			temp.add("");
+			temp.add(getResources().getString(R.string.physical_health_capthion));
+			centerCaptions.add(temp);
+			
+			temp=new ArrayList<String>();
+			temp.add("");
+			centerCaptions.add(temp);
+			
+			temp=new ArrayList<String>();
+			temp.add("");
+			centerCaptions.add(temp);
+		}
+		childPageIndexes=new int[]{0, 0, 0};
 	}
 	
 	@Override
@@ -99,9 +142,12 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 	}
 
 	@Override
-	public void changeCenterCaption(String str, int visibility) {
+	public void childPageChanged(int firstLevelIndex, int secondLevelIndex) {
 		// TODO Auto-generated method stub
-		this.tvCenterCaption.setText(str);
-		this.tvCenterCaption.setVisibility(visibility);
+		if(firstLevelIndex==vpContent.getCurrentItem())
+		{
+			childPageIndexes[firstLevelIndex]=secondLevelIndex;
+			this.tvCenterCaption.setText(centerCaptions.get(firstLevelIndex).get(secondLevelIndex));
+		}
 	}
 }

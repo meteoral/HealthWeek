@@ -16,5 +16,7 @@ public class FragmentHealthKnowledge extends ParentFragment{
 		
 		this.childFragmentArray=new String[]{
 				FragmentHealthKnowledgeMainPage.class.getName()};
+		
+		firstLevelIndex=1;
 	}
 }

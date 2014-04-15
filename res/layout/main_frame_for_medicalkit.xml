@@ -3,106 +3,108 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white" >
-    
+
     <RelativeLayout
         android:id="@+id/rlHead"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/main_frame_head_height"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/bg_blue_actionbar" >
+
         <ImageView
             android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
+            android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/head_back"
-            android:contentDescription="@string/app_name" />
+            android:src="@drawable/head_back" />
+
         <TextView
             android:id="@+id/tvCenterCaption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textColor="@color/head_text_color"
-            android:visibility="invisible" />
+            android:textColor="@color/head_text_color" />
+
         <TextView
             android:id="@+id/tvRightCaption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/ivCurSubjectIcon"
-            android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:text="@string/caption_medicalkit"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/ivCurSubjectIcon"
             android:gravity="bottom"
-            android:textColor="@color/head_text_color"
             android:paddingBottom="10dp"
-            android:layout_marginRight="10dp" />
+            android:text="@string/caption_medicalkit"
+            android:textColor="@color/head_text_color" />
+
         <ImageView
             android:id="@+id/ivCurSubjectIcon"
             android:layout_width="55dp"
             android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/medicalkit_icon"
+            android:layout_marginRight="8dp"
             android:contentDescription="@string/app_name"
-            android:paddingRight="8dp" />
+            android:scaleType="centerInside"
+            android:src="@drawable/medicalkit_icon" />
     </RelativeLayout>
-    
+
     <LinearLayout
         android:id="@+id/rlFoot"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
         android:background="@drawable/bg_blue_footbar"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
 
         <ImageView
             android:id="@+id/ivCloudData"
             android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:scaleType="fitXY"
-            android:src="@drawable/cloud_data"
             android:contentDescription="@string/app_name"
-            android:layout_marginLeft="5dp" />
+            android:scaleType="fitXY"
+            android:src="@drawable/cloud_data" />
+
         <ImageView
             android:id="@+id/ivHealthKnowledge"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1"
-            android:scaleType="fitXY"
-            android:src="@drawable/health_knowledge"
-            android:contentDescription="@string/app_name"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:src="@drawable/health_knowledge" />
+
         <ImageView
             android:id="@+id/ivTimeSpaceConnecting"
             android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:scaleType="fitXY"
-            android:src="@drawable/time_space_connecting"
             android:contentDescription="@string/app_name"
-            android:layout_marginRight="5dp" />
-
+            android:scaleType="fitXY"
+            android:src="@drawable/time_space_connecting" />
     </LinearLayout>
-    
+
     <android.support.v4.view.ViewPager
         android:id="@+id/vpContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/occupySpace"
         android:layout_below="@+id/rlHead" >
-        
-    </android.support.v4.view.ViewPager >
-    
+    </android.support.v4.view.ViewPager>
+
     <FrameLayout
         android:id="@+id/occupySpace"
         android:layout_width="match_parent"

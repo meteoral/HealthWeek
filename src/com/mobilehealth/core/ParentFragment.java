@@ -18,6 +18,9 @@ public class ParentFragment extends Fragment implements ChildPageMessageListener
 	protected String[] childFragmentArray;
 	
 	private int curPageIndex=0;
+	private int prevPageIndex=0;
+	
+	protected int firstLevelIndex=0;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -47,11 +50,13 @@ public class ParentFragment extends Fragment implements ChildPageMessageListener
 			FragmentTransaction transac=getChildFragmentManager().beginTransaction();
 			
 			newPage=Fragment.instantiate(getActivity(), childFragmentArray[curPageIndex]);
-			transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, R.anim.view_emerge, R.anim.view_disappear);
+			transac.setCustomAnimations(0, 0, 0, R.anim.view_disappear);
 			transac.add(R.id.rlMain, newPage, childFragmentArray[curPageIndex]);
 			
 			transac.commit();
 		}
+		
+		childPageChanged(firstLevelIndex, curPageIndex);
 		
 		super.onViewCreated(view, savedInstanceState);
 	}
@@ -59,6 +64,8 @@ public class ParentFragment extends Fragment implements ChildPageMessageListener
 	protected void init(View layout)
 	{
 		ivContainerFrameBg=(ImageView)layout.findViewById(R.id.ivContainerFrameBg);
+		
+		firstLevelIndex=0;
 	}
 	
 	private boolean changeToPageLocal(int toIndex)
@@ -71,18 +78,27 @@ public class ParentFragment extends Fragment implements ChildPageMessageListener
 		FragmentTransaction transac=getChildFragmentManager().beginTransaction();
 		
 		Fragment newPage=Fragment.instantiate(getActivity(), childFragmentArray[toIndex]);
-		transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, R.anim.view_emerge, R.anim.view_disappear);
+		if(toIndex>curPageIndex)
+		{
+			transac.setCustomAnimations(0, R.anim.view_disappear, 0, R.anim.view_disappear);
+		}else
+		{
+			transac.setCustomAnimations(0, 0, 0, R.anim.view_disappear);
+		}
+		
 		transac.replace(R.id.rlMain, newPage, childFragmentArray[toIndex]);
 		
-		if((toIndex-curPageIndex)==1)
+		if(toIndex>curPageIndex)
 		{
 			transac.addToBackStack(null);
+			prevPageIndex=curPageIndex;
 		}
 		
 		curPageIndex=toIndex;
 		
 		transac.commit();
 		
+		childPageChanged(firstLevelIndex, curPageIndex);
 		
 		return true;
 	}
@@ -94,9 +110,9 @@ public class ParentFragment extends Fragment implements ChildPageMessageListener
 	}
 
 	@Override
-	public void changeCenterCaption(String str, int visibility) {
+	public void childPageChanged(int firstLeveIndex, int secondLevelIndex) {
 		// TODO Auto-generated method stub
-		((ChildPageMessageListener)getActivity()).changeCenterCaption(str, visibility);
+		((ChildPageMessageListener)getActivity()).childPageChanged(firstLeveIndex, secondLevelIndex);
 	}
 
 	@Override
@@ -106,7 +122,10 @@ public class ParentFragment extends Fragment implements ChildPageMessageListener
 		if(childFragManager.getBackStackEntryCount()>0)
 		{
 			childFragManager.popBackStack();
-			curPageIndex=curPageIndex-1;
+			curPageIndex=prevPageIndex;
+			
+			childPageChanged(firstLevelIndex, curPageIndex);
+			
 			return true;
 		}
 		return false;
