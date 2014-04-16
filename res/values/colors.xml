@@ -85,4 +85,5 @@
 	
 	<color name="pleasantblue">#ff9ac0cd</color>
 	<color name="darkgray">#ff668b8b</color>
+	<color name="separator_line">#77808080</color>
 </resources>

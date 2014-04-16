@@ -58,7 +58,7 @@
     <LinearLayout
         android:id="@+id/rlFoot"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/main_frame_foot_height"
         android:layout_alignParentBottom="true"
         android:background="@drawable/bg_blue_footbar"
         android:gravity="center_vertical"
@@ -67,8 +67,7 @@
         <ImageView
             android:id="@+id/ivCloudData"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="5dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:contentDescription="@string/app_name"
             android:scaleType="fitXY"
@@ -77,9 +76,7 @@
         <ImageView
             android:id="@+id/ivHealthKnowledge"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:contentDescription="@string/app_name"
             android:scaleType="fitXY"
@@ -88,8 +85,7 @@
         <ImageView
             android:id="@+id/ivTimeSpaceConnecting"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginRight="5dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:contentDescription="@string/app_name"
             android:scaleType="fitXY"
@@ -107,7 +103,7 @@
     <FrameLayout
         android:id="@+id/occupySpace"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="42dp"
         android:layout_alignParentBottom="true"
         android:visibility="invisible" />
 

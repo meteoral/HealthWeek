@@ -3,46 +3,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white" >
-    
+
     <RelativeLayout
         android:id="@+id/rlLogInfo"
         android:layout_width="wrap_content"
-        android:layout_height="50dp" >
+        android:layout_height="42dp" >
+
         <ImageView
             android:id="@+id/ivUserPic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:src="@drawable/user_pic"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:contentDescription="@string/app_name" />
+            android:src="@drawable/user_pic" />
+
         <TextView
             android:id="@+id/welcomInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:text="@string/welcomUserInfo"
             android:textColor="@color/bluetext" />
+
         <ImageView
             android:id="@+id/ivFlagLoggedIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:src="@drawable/flag_logged_in"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:contentDescription="@string/app_name" />
+            android:src="@drawable/flag_logged_in" />
     </RelativeLayout>
+
     <FrameLayout
         android:id="@+id/flSepLine"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:layout_below="@+id/rlLogInfo"
-        android:background="@color/gray" />
+        android:background="@color/separator_line" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,22 +55,43 @@
         android:layout_below="@+id/flSepLine" >
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/girl_image"
-            android:scaleType="fitXY"
-            android:contentDescription="@string/app_name" />
-        <TextView
-            android:id="@+id/tvPhysicalHealthData"
-            android:layout_width="100dp"
-            android:layout_height="130dp"
-            android:text="@string/physical_health_data"
-            android:textColor="@color/red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitStart"
+            android:src="@drawable/girl_image" />
+
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="135dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="80dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="85dp"
-            android:layout_marginRight="5dp"
-            android:background="@color/powderblue" />
-        
+            android:background="@drawable/generate_qrcode_block_bg" >
+
+            <TextView
+                android:id="@+id/tvPhysicalHealthData"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/physical_health_data"
+                android:textColor="@color/red"
+                android:padding="6dp"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="5dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/great_icon" />
+        </RelativeLayout>
     </RelativeLayout>
 
 </RelativeLayout>
