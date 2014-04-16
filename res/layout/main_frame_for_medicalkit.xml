@@ -13,14 +13,14 @@
 
         <ImageView
             android:id="@+id/ivBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:padding="6dp"
+            android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/head_back" />
+            android:src="@drawable/icon_back" />
 
         <TextView
             android:id="@+id/tvCenterCaption"
@@ -34,22 +34,21 @@
             android:id="@+id/tvRightCaption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/ivCurSubjectIcon"
             android:gravity="bottom"
-            android:paddingBottom="10dp"
             android:text="@string/caption_medicalkit"
-            android:textColor="@color/head_text_color" />
+            android:textColor="@color/head_text_color"
+            android:layout_alignBottom="@+id/ivCurSubjectIcon"
+            android:layout_marginRight="10dp"
+            android:paddingBottom="2dp"
+            android:textSize="@dimen/textsize_for_actionbar_caption" />
 
         <ImageView
             android:id="@+id/ivCurSubjectIcon"
-            android:layout_width="55dp"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
             android:layout_marginRight="8dp"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"

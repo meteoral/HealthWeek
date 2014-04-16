@@ -7,8 +7,14 @@
         android:id="@+id/rlScanQRCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/scan_qrcode_bg" >
+        android:layout_weight="1" >
+        
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/scan_qrcode_bg"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -21,8 +27,8 @@
 
         <ImageView
             android:id="@+id/ivScanQRCodeIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_margin="10dp"
@@ -36,8 +42,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/generate_qrcode_bg" >
+        android:layout_marginTop="5dp" >
+        
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/generate_qrcode_bg"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY" />
+        
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,8 +62,8 @@
 
         <ImageView
             android:id="@+id/ivGenerateQRCodeIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_margin="10dp"

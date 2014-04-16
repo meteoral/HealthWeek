@@ -15,5 +15,8 @@
     
     <dimen name="textsize_for_product_introduction">25px</dimen>
     <dimen name="textsize_for_health_status">30px</dimen>
+    <dimen name="textsize_for_actionbar_caption">25px</dimen>
+    
+    <dimen name="icon_size">40dp</dimen>
 
 </resources>

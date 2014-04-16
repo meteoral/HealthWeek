@@ -2,7 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/generate_qrcode" >
+    android:padding="10dp" >
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/generate_qrcode"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name" />
+    
     <FrameLayout
         android:id="@+id/flInputBlockBox"
         android:layout_width="150dp"
