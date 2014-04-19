@@ -2,8 +2,10 @@ package com.mobilehealth.core;
 
 import java.util.ArrayList;
 
+import com.siat.healthweek.MainActivity;
 import com.siat.healthweek.R;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -26,6 +28,7 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 	protected ImageView ivCurSubjectIcon;
 	protected TextView tvCenterCaption;
 	protected TextView tvRightCaption;
+	protected ImageView ivBack;
 	
 	protected ArrayList<ArrayList<String>> centerCaptions=new ArrayList<ArrayList<String>>();
 	private int[] childPageIndexes;
@@ -48,6 +51,7 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 		tvCenterCaption = (TextView) findViewById(R.id.tvCenterCaption);
 		tvRightCaption = (TextView) findViewById(R.id.tvRightCaption);
 		ivCurSubjectIcon = (ImageView) findViewById(R.id.ivCurSubjectIcon);
+		ivBack=(ImageView)findViewById(R.id.ivBack);
 
 		ivTab0.setOnClickListener(new OnClickListener() {
 
@@ -80,6 +84,15 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 				{
 					vpContent.setCurrentItem(2);
 				}
+			}
+		});
+		
+		ivBack.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				disposeBack();
 			}
 		});
 		
@@ -126,13 +139,28 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 		// TODO Auto-generated method stub
 		if(keyCode==KeyEvent.KEYCODE_BACK)
 		{
-			boolean ret_val=((ParentPageMessageListener)vpAdapter.getItem(vpContent.getCurrentItem())).onBack();
-			if(ret_val==true)
+			if(disposeBack()==true)
 			{
 				return true;
 			}
 		}
 		return super.onKeyDown(keyCode, event);
+	}
+	
+	private boolean disposeBack()
+	{
+		boolean ret_val=((ParentPageMessageListener)vpAdapter.getItem(vpContent.getCurrentItem())).onBack();
+		if(ret_val==true)
+		{
+			return true;
+		}
+		
+		Intent intent=new Intent();
+		intent.setClass(this, MainActivity.class);
+		startActivity(intent);
+		this.finish();
+		
+		return true;
 	}
 
 	@Override

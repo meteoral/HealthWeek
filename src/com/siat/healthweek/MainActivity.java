@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import com.mobilehealth.dandelionscheme.DandelionScheme;
+import com.mobilehealth.ending.VideoPlaying;
 import com.mobilehealth.healthehome.HealthEHome;
 import com.mobilehealth.medicalkit.MedicalKit;
 import com.mobilehealth.sensibelbed.SensibleBed;
@@ -32,7 +33,8 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fragment_main);
+		//setContentView(R.layout.fragment_main);
+		setContentView(R.layout.welcome);
 		initialButton();
 	}
 
@@ -95,6 +97,7 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		
 		btnBed.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -105,6 +108,7 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		
 		btnEhome.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -112,10 +116,19 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		
 		btnTran.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this, DandelionScheme.class);
+				startActivity(intent);
+			}
+		});
+		
+		btnWei.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, VideoPlaying.class);
 				startActivity(intent);
 			}
 		});

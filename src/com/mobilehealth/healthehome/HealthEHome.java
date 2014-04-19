@@ -21,6 +21,8 @@ public class HealthEHome extends MainFrameForMedicalKit{
 		tvRightCaption.setText(R.string.health_e_home);
 		
 		{
+			centerCaptions=new ArrayList<ArrayList<String>>();
+			
 			ArrayList<String> temp=new ArrayList<String>();
 			temp.add("");
 			temp.add(getResources().getString(R.string.health_experience));

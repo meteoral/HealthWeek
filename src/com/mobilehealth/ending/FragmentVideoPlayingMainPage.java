@@ -1,4 +1,4 @@
-package com.mobilehealth.dandelionscheme;
+package com.mobilehealth.ending;
 
 import com.mobilehealth.core.ChildPageMessageListener;
 import com.siat.healthweek.R;
@@ -9,11 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 
-public class FragmentBodyCommu extends Fragment{
+public class FragmentVideoPlayingMainPage extends Fragment{
 	
-	private RelativeLayout rlIdeaSharer;
+private ImageView ivVideoPlayingPush;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class FragmentBodyCommu extends Fragment{
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		return inflater.inflate(R.layout.page_body_commu, container, false);
+		return inflater.inflate(R.layout.page_video_playing, container, false);
 		
 		//return super.onCreateView(inflater, container, savedInstanceState);
 	}
@@ -37,22 +37,22 @@ public class FragmentBodyCommu extends Fragment{
 		
 		init(view);
 		
-		((ChildPageMessageListener)getActivity()).childPageChanged(-1, 1);
+		((ChildPageMessageListener)getActivity()).childPageChanged(-1, 0);
 		
 		super.onViewCreated(view, savedInstanceState);
 	}
 	
 	private void init(View layout)
 	{
-		rlIdeaSharer=(RelativeLayout)layout.findViewById(R.id.rlBodyCommuBlock1);
-		rlIdeaSharer.setOnClickListener(new OnClickListener() {
-			
+		ivVideoPlayingPush = (ImageView) layout.findViewById(R.id.ivVideoPlayingPush);
+
+		ivVideoPlayingPush.setOnClickListener(new OnClickListener() {
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getActivity()).changeToPage(2);
+				((ChildPageMessageListener)getActivity()).changeToPage(1);
 			}
 		});
 	}
-
 }

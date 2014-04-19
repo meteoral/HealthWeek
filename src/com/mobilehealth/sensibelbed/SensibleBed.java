@@ -21,6 +21,8 @@ public class SensibleBed extends MainFrameForMedicalKit{
 		tvRightCaption.setText(R.string.sensible_bed);
 		
 		{
+			centerCaptions=new ArrayList<ArrayList<String>>();
+			
 			ArrayList<String> temp=new ArrayList<String>();
 			temp.add("");
 			temp.add(getResources().getString(R.string.breath_freq));

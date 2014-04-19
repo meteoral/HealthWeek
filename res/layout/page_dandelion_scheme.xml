@@ -3,56 +3,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/body_commu_bg" >
-    
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitStart"
+        android:src="@drawable/body_commu_dandelions" />
+
     <ImageView
         android:id="@+id/ivSportHandring"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="30dp"
         android:contentDescription="@string/app_name"
         android:scaleType="centerInside"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/sport_hand_ring"
-        android:layout_marginTop="40dp" />
+        android:src="@drawable/icon_white_round" />
+
     <ImageView
         android:id="@+id/ivIntelligentGlasses"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_alignParentRight="true"
+        android:layout_marginRight="45dp"
+        android:layout_marginTop="135dp"
         android:contentDescription="@string/app_name"
         android:scaleType="centerInside"
-        android:src="@drawable/intelligent_glasses"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="40dp" />
+        android:src="@drawable/icon_white_round" />
+
     <ImageView
         android:id="@+id/ivBodyCommu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="145dp"
         android:contentDescription="@string/app_name"
         android:scaleType="centerInside"
-        android:src="@drawable/icon_body_commu"
-        android:layout_marginTop="110dp"
-        android:layout_marginLeft="40dp" />
-    
+        android:src="@drawable/icon_white_round" />
+
     <TextView
         android:id="@+id/tvDandelionScheme"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
-        android:text="@string/dangdelion_scheme"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
-        android:textColor="@color/white"
-        android:layout_marginLeft="10dp" />
-    
+        android:text="@string/dangdelion_scheme"
+        android:textColor="@color/white" />
+
     <ImageView
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:scaleType="fitEnd"
+        android:layout_alignParentRight="true"
         android:contentDescription="@string/app_name"
+        android:scaleType="fitEnd"
         android:src="@drawable/dandelion_flower" />
 
 </RelativeLayout>

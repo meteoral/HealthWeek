@@ -37,6 +37,8 @@ public class FragmentDandelionSchemeMainPage extends Fragment{
 		
 		init(view);
 		
+		((ChildPageMessageListener)getActivity()).childPageChanged(-1, 0);
+		
 		super.onViewCreated(view, savedInstanceState);
 	}
 	

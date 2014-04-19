@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sequ_background" >
+    
+    <RelativeLayout
+        android:id="@+id/rlHead"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_frame_head_height"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_blue_actionbar" >
+
+        <TextView
+            android:id="@+id/tvRightCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="right"
+            android:text="@string/welcome_caption"
+            android:textColor="@color/head_text_color"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentRight="true"
+            android:paddingBottom="2dp"
+            android:textSize="@dimen/textsize_small" />
+        
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/include1"
+        layout="@layout/main_footer" />
+
+    <Button
+        android:id="@+id/main_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/main_button_xu"
+        android:layout_below="@+id/main_button_xu"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sequ_button_main" />
+
+    <Button
+        android:id="@+id/main_button_xu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlHead"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/sequ_button_xu" />
+    
+    <Button
+        android:id="@+id/main_button_ehome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/main_button"
+        android:layout_marginBottom="53dp"
+        android:layout_toRightOf="@+id/main_button"
+        android:background="@drawable/sequ_button_ehome" />
+
+    <Button
+        android:id="@+id/main_button_bag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/main_button"
+        android:layout_marginBottom="53dp"
+        android:layout_toLeftOf="@+id/main_button"
+        android:background="@drawable/sequ_button_medical_bag" />
+
+    <Button
+        android:id="@+id/main_button_tran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/main_button"
+		android:layout_marginTop="53dp"
+        android:layout_toLeftOf="@+id/main_button"
+        android:background="@drawable/sequ_button_body_tran" />
+
+    <Button
+        android:id="@+id/main_button_bed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_alignTop="@+id/main_button"
+		android:layout_marginTop="53dp"
+        android:layout_toRightOf="@+id/main_button"
+        android:background="@drawable/sequ_button_int_bed" />
+
+    <Button
+        android:id="@+id/main_button_wei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_button"
+        android:layout_alignLeft="@+id/main_button"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sequ_button_wei" />
+
+</RelativeLayout>
