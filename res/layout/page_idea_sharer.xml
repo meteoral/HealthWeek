@@ -61,8 +61,8 @@
 
                     <ImageView
                         android:id="@+id/ivSharerGender"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:contentDescription="@string/app_name"
                         android:scaleType="centerInside"
                         android:src="@drawable/boy_flag" />
@@ -82,7 +82,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llInfo1"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:gravity="center_vertical" >
 
                 <TextView
                     android:id="@+id/tvSharerCareer"
@@ -96,7 +97,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical" >
 
                     <TextView
                         android:id="@+id/tvSharerLevel"
@@ -107,10 +109,10 @@
 
                     <ImageView
                         android:id="@+id/ivSharerLevel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
                         android:contentDescription="@string/app_name"
-                        android:scaleType="fitStart"
+                        android:scaleType="centerInside"
                         android:src="@drawable/sharer_level3" />
                 </LinearLayout>
             </LinearLayout>
@@ -144,14 +146,14 @@
                 android:gravity="center_vertical"
                 android:singleLine="false"
                 android:text="@string/product_introduction"
-                android:textColor="@color/bluetext"
-                android:textSize="@dimen/textsize_for_product_introduction" />
+                android:textColor="@color/blue1"
+                android:textSize="@dimen/textsize_small" />
         </LinearLayout>
     </RelativeLayout>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:contentDescription="@string/app_name"

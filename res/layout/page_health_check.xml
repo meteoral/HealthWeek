@@ -1,32 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@color/white" >
 
     <ImageView
         android:id="@+id/ivStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
         android:contentDescription="@string/app_name"
-        android:scaleType="fitXY"
-        android:src="@drawable/allisgood" />
+        android:scaleType="centerInside"
+        android:src="@drawable/allisgood"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/llStatus"
+        android:layout_marginTop="@dimen/general_margin" />
 
     <LinearLayout
+        android:id="@+id/llStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_weight="1"
-        android:orientation="vertical" >
+        android:layout_marginTop="@dimen/general_margin"
+        android:layout_marginBottom="@dimen/general_margin"
+        android:orientation="vertical"
+        android:layout_above="@+id/llItems"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_vertical" >
 
         <TextView
             android:id="@+id/tvGeneralHealthStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/general_health_status"
-            android:textColor="@color/bluetext"
-            android:textSize="@dimen/textsize_for_health_status" />
+            android:textColor="@color/blue1"
+            android:textSize="@dimen/textsize_medium"
+            android:layout_marginBottom="@dimen/general_margin" />
 
         <TextView
             android:id="@+id/tvSleepQuality"
@@ -34,8 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="@string/sleep_quality"
-            android:textColor="@color/bluetext"
-            android:textSize="@dimen/textsize_for_health_status" />
+            android:textColor="@color/blue1"
+            android:textSize="@dimen/textsize_medium"
+            android:layout_marginBottom="@dimen/general_margin" />
 
         <TextView
             android:id="@+id/tvTips"
@@ -43,21 +51,22 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:text="@string/sensible_bed_tips"
-            android:textColor="@color/bluetext"
-            android:textSize="@dimen/textsize_for_health_status" />
+            android:textColor="@color/blue1"
+            android:textSize="@dimen/textsize_medium" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llItems"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
         android:orientation="vertical"
-        android:layout_marginTop="10dp" >
+        android:layout_marginTop="@dimen/general_margin"
+        android:layout_alignParentBottom="true" >
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/lightblue" />
+            android:background="@color/blue1" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -68,8 +77,8 @@
 
             <ImageView
                 android:id="@+id/ivHRV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
                 android:src="@drawable/hrv_icon"
@@ -79,12 +88,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/hrv"
-                android:textColor="@color/bluetext" />
+                android:textColor="@color/blue1"
+                android:textSize="@dimen/textsize_medium" />
         </LinearLayout>
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/lightblue" />
+            android:background="@color/blue1" />
 
         <LinearLayout
             android:id="@+id/llBreathFreq"
@@ -96,8 +106,8 @@
 
             <ImageView
                 android:id="@+id/ivBreathFreq"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
                 android:src="@drawable/breath_freq"
@@ -107,12 +117,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/breath_freq"
-                android:textColor="@color/bluetext" />
+                android:textColor="@color/blue1"
+                android:textSize="@dimen/textsize_medium" />
         </LinearLayout>
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/lightblue" />
+            android:background="@color/blue1" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -123,8 +134,8 @@
 
             <ImageView
                 android:id="@+id/ivSleepStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
                 android:src="@drawable/sleeping_icon"
@@ -134,8 +145,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sleep_status"
-                android:textColor="@color/bluetext" />
+                android:textColor="@color/blue1"
+                android:textSize="@dimen/textsize_medium" />
         </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

@@ -8,8 +8,8 @@
         android:id="@+id/ivHealthExperience"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_above="@+id/flSepLine"
+        android:layout_alignParentTop="true"
         android:contentDescription="@string/app_name"
         android:scaleType="fitXY"
         android:src="@drawable/health_experience" />
@@ -18,41 +18,39 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_alignBottom="@+id/ivHealthExperience"
-        android:background="@color/health_experience_color" >
+        android:background="@color/health_experience_color"
+        android:padding="2dp" >
 
         <ImageView
             android:id="@+id/ivIconHealthExperience"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
             android:layout_toLeftOf="@+id/tvHealthExperience"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/icon_health_experience"
-            android:layout_marginRight="10dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true" />
+            android:src="@drawable/icon_health_experience" />
 
         <TextView
             android:id="@+id/tvHealthExperience"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:text="@string/health_experience"
             android:textColor="@color/white"
-            android:gravity="center_vertical" />
-        
+            android:textSize="@dimen/textsize_medium" />
     </RelativeLayout>
-    
+
     <FrameLayout
         android:id="@+id/flSepLine"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_centerVertical="true"
         android:background="@color/gray" />
-    
+
     <ImageView
         android:id="@+id/ivHealthDiet"
         android:layout_width="match_parent"
@@ -62,36 +60,35 @@
         android:contentDescription="@string/app_name"
         android:scaleType="fitXY"
         android:src="@drawable/health_diet" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_alignBottom="@+id/ivHealthDiet"
-        android:background="@color/health_diet_color" >
+        android:background="@color/health_diet_color"
+        android:padding="2dp" >
 
         <ImageView
             android:id="@+id/ivIconHealthDiet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
             android:layout_toLeftOf="@+id/tvHealthDiet"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/icon_health_diet"
-            android:layout_marginRight="10dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true" />
+            android:src="@drawable/icon_health_diet" />
 
         <TextView
             android:id="@+id/tvHealthDiet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:text="@string/health_diet"
             android:textColor="@color/white"
-            android:gravity="center_vertical"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true" />
-        
+            android:textSize="@dimen/textsize_medium" />
     </RelativeLayout>
 
 </RelativeLayout>

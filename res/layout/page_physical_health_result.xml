@@ -7,15 +7,14 @@
     <RelativeLayout
         android:id="@+id/rlLogInfo"
         android:layout_width="wrap_content"
-        android:layout_height="42dp" >
+        android:layout_height="45dp" >
 
         <ImageView
             android:id="@+id/ivUserPic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/user_pic" />
@@ -27,49 +26,50 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="@string/welcomUserInfo"
-            android:textColor="@color/bluetext" />
+            android:textColor="@color/blue1" />
 
         <ImageView
             android:id="@+id/ivFlagLoggedIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
+            android:layout_marginRight="3dp"
             android:src="@drawable/flag_logged_in" />
     </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/flSepLine"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_below="@+id/rlLogInfo"
         android:background="@color/separator_line" />
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/flSepLine" >
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginBottom="1dp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
             android:contentDescription="@string/app_name"
             android:scaleType="fitStart"
             android:src="@drawable/girl_image" />
 
         <RelativeLayout
             android:layout_width="120dp"
-            android:layout_height="135dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="80dp"
+            android:layout_height="115dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="85dp"
             android:layout_alignParentRight="true"
             android:background="@drawable/generate_qrcode_block_bg" >
 
@@ -78,9 +78,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/physical_health_data"
-                android:textColor="@color/red"
+                android:textColor="@color/red1"
                 android:padding="6dp"
-                android:textSize="14sp" />
+                android:textSize="13sp" />
 
             <ImageView
                 android:layout_width="30dp"

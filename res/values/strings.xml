@@ -11,7 +11,7 @@
     <string name="title_activity_activity_main_frame">ActivityMainFrame</string>
     <string name="title_activity_main_frame">MainFrame</string>
     <string name="title_activity_medicalkit">Medicalkit</string>
-    <string name="caption_medicalkit">乡村医疗包</string>
+    <string name="caption_medicalkit">医疗包</string>
     <string name="user_account">账号：</string>
     <string name="user_password">密码：</string>
     <string name="title_activity_physicalhealthresult">PhysicalHealthResult</string>

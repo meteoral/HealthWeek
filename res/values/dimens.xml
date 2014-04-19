@@ -6,17 +6,21 @@
     
     <dimen name="main_frame_head_height">50dp</dimen>
     <dimen name="main_frame_foot_height">50dp</dimen>
-    <dimen name="edittext_height">40dp</dimen>
-    <dimen name="edittext_width">130dp</dimen>
+    <dimen name="edittext_height">36dp</dimen>
+    <dimen name="edittext_width">125dp</dimen>
     <dimen name="main_frame_content_foot_margin">35dp</dimen>
     
     <dimen name="body_commu_foot_height">15dp</dimen>
     <dimen name="dandelion_bodycommu_block_gap">15dp</dimen>
     
-    <dimen name="textsize_for_product_introduction">16sp</dimen>
-    <dimen name="textsize_for_health_status">20sp</dimen>
-    <dimen name="textsize_for_actionbar_caption">16sp</dimen>
+    <dimen name="textsize_for_actionbar_caption">18sp</dimen>
+    <dimen name="textsize_small">16sp</dimen>
+    <dimen name="textsize_medium">18sp</dimen>
+    <dimen name="textsize_large">20sp</dimen>
     
-    <dimen name="icon_size">40dp</dimen>
+    <dimen name="icon_height">40dp</dimen>
+    <dimen name="icon_width">50dp</dimen>
+    <dimen name="general_padding">8dp</dimen>
+    <dimen name="general_margin">8dp</dimen>
 
 </resources>

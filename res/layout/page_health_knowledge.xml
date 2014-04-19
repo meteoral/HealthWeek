@@ -7,7 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="健康科普"
-        android:textColor="@color/bluetext"
+        android:textColor="@color/blue1"
+        android:textSize="@dimen/textsize_medium"
         android:gravity="center" />
 
 </RelativeLayout>

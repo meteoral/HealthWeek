@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dandelion_scheme_bg" >
+    android:background="@drawable/body_commu_bg" >
+    
     <ImageView
         android:id="@+id/ivSportHandring"
         android:layout_width="wrap_content"
@@ -44,5 +45,14 @@
         android:gravity="center_vertical"
         android:textColor="@color/white"
         android:layout_marginLeft="10dp" />
+    
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitEnd"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/dandelion_flower" />
 
 </RelativeLayout>

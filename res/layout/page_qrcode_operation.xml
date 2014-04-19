@@ -2,19 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="2dp" >
+
     <RelativeLayout
         android:id="@+id/rlScanQRCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" >
-        
+        android:layout_weight="1"
+        android:background="@drawable/block_white_bg" >
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/scan_qrcode_bg"
             android:contentDescription="@string/app_name"
-            android:scaleType="centerInside" />
+            android:scaleType="centerInside"
+            android:src="@drawable/scan_qrcode_bg" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -23,34 +26,36 @@
             android:layout_toLeftOf="@+id/ivScanQRCodeIcon"
             android:text="@string/scan_qrcode"
             android:textColor="@color/blue1"
-            android:textSize="25px" />
+            android:textSize="@dimen/textsize_medium" />
 
         <ImageView
             android:id="@+id/ivScanQRCodeIcon"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_margin="10dp"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/scan_qrcode_icon" />
-
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/rlGenerateQRCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         android:layout_weight="1"
-        android:layout_marginTop="5dp" >
-        
+        android:background="@drawable/block_white_bg" >
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/generate_qrcode_bg"
+            android:layout_marginTop="3dp"
             android:contentDescription="@string/app_name"
-            android:scaleType="fitXY" />
-        
+            android:scaleType="fitXY"
+            android:src="@drawable/generate_qrcode_bg" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,12 +63,12 @@
             android:layout_toRightOf="@+id/ivGenerateQRCodeIcon"
             android:text="@string/generate_qrcode"
             android:textColor="@color/blue1"
-            android:textSize="25px" />
+            android:textSize="@dimen/textsize_medium" />
 
         <ImageView
             android:id="@+id/ivGenerateQRCodeIcon"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_margin="10dp"
@@ -71,4 +76,5 @@
             android:scaleType="centerInside"
             android:src="@drawable/generate_qrcode_icon" />
     </RelativeLayout>
+
 </LinearLayout>

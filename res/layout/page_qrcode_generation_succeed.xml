@@ -18,9 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/generation_succeed_tip"
-        android:textColor="@color/bluetext"
+        android:textColor="@color/blue1"
         android:gravity="top|center_horizontal"
-        android:layout_marginTop="10dp"
-        android:textSize="@dimen/textsize_for_product_introduction" />
+        android:layout_marginTop="10dp" />
 
 </LinearLayout>

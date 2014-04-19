@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/generate_qrcode_direction"
-        android:textColor="@color/bluetext"
+        android:textColor="@color/blue1"
         android:gravity="center_horizontal"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/flInputBlockBox"

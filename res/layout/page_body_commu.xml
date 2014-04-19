@@ -3,15 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/body_commu_bg" >
-    
+
     <TextView
         android:id="@+id/tvCaption"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginRight="10dp"
         android:gravity="center_vertical|right"
         android:text="@string/dandelion_scheme_body_commu"
-        android:textColor="@color/white"
-        android:layout_marginRight="10dp" />
+        android:textColor="@color/white" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,31 +24,35 @@
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:visibility="invisible" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@+id/flCenterLine"
-            android:layout_alignParentLeft="true" >
+            android:orientation="vertical" >
 
             <RelativeLayout
                 android:id="@+id/rlBodyCommuBlock1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.25"
-                android:background="@drawable/block_bg"
+                android:layout_marginBottom="@dimen/dandelion_bodycommu_block_gap"
                 android:layout_marginLeft="@dimen/dandelion_bodycommu_block_gap"
                 android:layout_marginRight="@dimen/dandelion_bodycommu_block_gap"
-                android:layout_marginBottom="@dimen/dandelion_bodycommu_block_gap" >
+                android:layout_weight="0.25"
+                android:background="@drawable/block_bg" >
+
                 <ImageView
                     android:id="@+id/ivBodyCommuBlock1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/icon_idea_sharer"
-                    android:contentDescription="@string/app_name"
                     android:layout_above="@+id/tvBodyCommuBlock1"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/product_image"
+                    android:padding="8dp" />
+
                 <TextView
                     android:id="@+id/tvBodyCommuBlock1"
                     android:layout_width="match_parent"
@@ -57,19 +62,22 @@
                     android:text="@string/idea_sharer"
                     android:textColor="@color/white" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_margin="@dimen/dandelion_bodycommu_block_gap"
                 android:layout_weight="0.25"
-                android:background="@drawable/block_bg"
-                android:layout_margin="@dimen/dandelion_bodycommu_block_gap" >
+                android:background="@drawable/block_bg" >
+
                 <ImageView
                     android:id="@+id/ivBodyCommuBlock2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
+                    android:layout_above="@+id/tvBodyCommuBlock2"
                     android:contentDescription="@string/app_name"
-                    android:layout_above="@+id/tvBodyCommuBlock2" />
+                    android:scaleType="fitXY" />
+
                 <TextView
                     android:id="@+id/tvBodyCommuBlock2"
                     android:layout_width="match_parent"
@@ -79,19 +87,22 @@
                     android:text="@string/little_dandelion"
                     android:textColor="@color/white" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_margin="@dimen/dandelion_bodycommu_block_gap"
                 android:layout_weight="0.25"
-                android:background="@drawable/block_bg"
-                android:layout_margin="@dimen/dandelion_bodycommu_block_gap" >
+                android:background="@drawable/block_bg" >
+
                 <ImageView
                     android:id="@+id/ivBodyCommuBlock3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
+                    android:layout_above="@+id/tvBodyCommuBlock3"
                     android:contentDescription="@string/app_name"
-                    android:layout_above="@+id/tvBodyCommuBlock3" />
+                    android:scaleType="fitXY" />
+
                 <TextView
                     android:id="@+id/tvBodyCommuBlock3"
                     android:layout_width="match_parent"
@@ -102,27 +113,31 @@
                     android:textColor="@color/white" />
             </RelativeLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_alignParentRight="true"
             android:layout_toRightOf="@+id/flCenterLine"
-            android:layout_alignParentRight="true" >
+            android:orientation="vertical" >
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.25"
-                android:background="@drawable/block_bg"
+                android:layout_marginBottom="@dimen/dandelion_bodycommu_block_gap"
                 android:layout_marginLeft="@dimen/dandelion_bodycommu_block_gap"
                 android:layout_marginRight="@dimen/dandelion_bodycommu_block_gap"
-                android:layout_marginBottom="@dimen/dandelion_bodycommu_block_gap" >
+                android:layout_weight="0.25"
+                android:background="@drawable/block_bg" >
+
                 <ImageView
                     android:id="@+id/ivBodyCommuBlock4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
+                    android:layout_above="@+id/tvBodyCommuBlock4"
                     android:contentDescription="@string/app_name"
-                    android:layout_above="@+id/tvBodyCommuBlock4" />
+                    android:scaleType="fitXY" />
+
                 <TextView
                     android:id="@+id/tvBodyCommuBlock4"
                     android:layout_width="match_parent"
@@ -132,19 +147,22 @@
                     android:text="@string/intelligences"
                     android:textColor="@color/white" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_margin="@dimen/dandelion_bodycommu_block_gap"
                 android:layout_weight="0.25"
-                android:background="@drawable/block_bg"
-                android:layout_margin="@dimen/dandelion_bodycommu_block_gap" >
+                android:background="@drawable/block_bg" >
+
                 <ImageView
                     android:id="@+id/ivBodyCommuBlock5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
+                    android:layout_above="@+id/tvBodyCommuBlock5"
                     android:contentDescription="@string/app_name"
-                    android:layout_above="@+id/tvBodyCommuBlock5" />
+                    android:scaleType="fitXY" />
+
                 <TextView
                     android:id="@+id/tvBodyCommuBlock5"
                     android:layout_width="match_parent"
@@ -154,19 +172,22 @@
                     android:text="@string/doctor"
                     android:textColor="@color/white" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_margin="@dimen/dandelion_bodycommu_block_gap"
                 android:layout_weight="0.25"
-                android:background="@drawable/block_bg"
-                android:layout_margin="@dimen/dandelion_bodycommu_block_gap" >
+                android:background="@drawable/block_bg" >
+
                 <ImageView
                     android:id="@+id/ivBodyCommuBlock6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
+                    android:layout_above="@+id/tvBodyCommuBlock6"
                     android:contentDescription="@string/app_name"
-                    android:layout_above="@+id/tvBodyCommuBlock6" />
+                    android:scaleType="fitXY" />
+
                 <TextView
                     android:id="@+id/tvBodyCommuBlock6"
                     android:layout_width="match_parent"
@@ -178,12 +199,14 @@
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
+
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/body_commu_leftbottom"
-        android:scaleType="fitStart"
-        android:contentDescription="@string/app_name"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitStart"
+        android:src="@drawable/body_commu_leftbottom" />
+
 </RelativeLayout>

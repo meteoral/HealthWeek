@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/white" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,7 +12,8 @@
         android:gravity="center"
         android:orientation="vertical"
         android:paddingRight="10dp"
-        android:paddingTop="50dp" >
+        android:paddingTop="50dp"
+        android:layout_weight="1" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +23,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="3dp"
                 android:text="@string/user_account"
                 android:textColor="@color/bluetext" />
 
@@ -40,7 +42,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="3dp"
                 android:text="@string/user_password"
                 android:textColor="@color/bluetext" />
 
@@ -56,7 +58,7 @@
         android:id="@+id/ivPhysicalHealthResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.3"
+        android:layout_weight="1"
         android:contentDescription="@string/app_name"
         android:scaleType="fitXY"
         android:src="@drawable/goto_physical_health_result" />
@@ -65,9 +67,10 @@
         android:id="@+id/ivPsychologyHealthResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.3"
+        android:layout_weight="1"
         android:contentDescription="@string/app_name"
         android:scaleType="fitXY"
-        android:src="@drawable/goto_psychology_health_result" />
+        android:src="@drawable/goto_psychology_health_result"
+        android:layout_marginBottom="2dp" />
 
 </LinearLayout>

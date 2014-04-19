@@ -2,105 +2,105 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
+
     <FrameLayout
         android:id="@+id/flBgHeartRate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_above="@+id/flOccupyBottomSpace"
+        android:layout_alignParentTop="true"
         android:background="@drawable/heart_rate_well" />
-    
+
     <TextView
         android:layout_width="120dp"
         android:layout_height="100dp"
-        android:text="@string/heart_rate_well"
-        android:textColor="@color/white"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
         android:layout_marginTop="100dp"
-        android:gravity="center_vertical" />
-    
+        android:gravity="center_vertical"
+        android:text="@string/heart_rate_well"
+        android:textColor="@color/white" />
+
     <RelativeLayout
         android:id="@+id/rlHeartRateHead"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true" >
+
         <ImageView
             android:id="@+id/ivIconHealthExperience"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/icon_health_experience"
-            android:layout_marginLeft="10dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true" />
+            android:src="@drawable/icon_health_experience" />
+
         <TextView
             android:id="@+id/tvHeartRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/ivIconHealthExperience"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
             android:text="@string/heart_rate"
             android:textColor="@color/white"
-            android:gravity="center_vertical" />
+            android:textSize="@dimen/textsize_medium" />
+
         <ImageView
             android:id="@+id/ivIconDownTriangle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/down_triangle"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true" />
+            android:src="@drawable/down_triangle" />
     </RelativeLayout>
-    
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_alignBottom="@+id/flBgHeartRate" >
+
         <ImageView
             android:id="@+id/ivIconMoreDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="4dp"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/more_details_arrow"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true" />
+            android:src="@drawable/more_details_arrow" />
+
         <TextView
             android:id="@+id/tvMoreDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
             android:text="@string/detailed_param"
-            android:textColor="@color/white"
-            android:gravity="center_vertical" />
-        
+            android:textColor="@color/white" />
     </RelativeLayout>
-    
+
     <FrameLayout
         android:id="@+id/flOccupyBottomSpace"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:visibility="invisible"
-        android:layout_alignParentBottom="true" />
-    
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical"
-        android:background="@color/white" >
+        android:background="@color/white"
+        android:orientation="vertical" >
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -114,13 +114,11 @@
 
             <ImageView
                 android:id="@+id/ivKPa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
                 android:src="@drawable/kpa" />
@@ -131,16 +129,18 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/ivKPa"
                 android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/ivKPa"
                 android:gravity="center_vertical"
                 android:text="@string/blood_pressure"
                 android:textColor="@color/bluetext" />
         </RelativeLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/powderblue" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -148,13 +148,11 @@
 
             <ImageView
                 android:id="@+id/ivMMOLL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
                 android:src="@drawable/mmol_l" />
@@ -165,14 +163,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/ivMMOLL"
                 android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/ivMMOLL"
                 android:gravity="center_vertical"
                 android:text="@string/blood_sweet"
                 android:textColor="@color/bluetext" />
         </RelativeLayout>
-        
     </LinearLayout>
-    
 
 </RelativeLayout>

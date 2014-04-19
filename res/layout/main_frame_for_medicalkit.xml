@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/ivBack"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
             android:padding="6dp"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
@@ -62,33 +62,34 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/bg_blue_footbar"
         android:gravity="center_vertical"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingTop="2dp" >
 
         <ImageView
             android:id="@+id/ivCloudData"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="42dp"
             android:layout_weight="1"
             android:contentDescription="@string/app_name"
-            android:scaleType="fitXY"
+            android:scaleType="centerInside"
             android:src="@drawable/cloud_data" />
 
         <ImageView
             android:id="@+id/ivHealthKnowledge"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="42dp"
             android:layout_weight="1"
             android:contentDescription="@string/app_name"
-            android:scaleType="fitXY"
+            android:scaleType="centerInside"
             android:src="@drawable/health_knowledge" />
 
         <ImageView
             android:id="@+id/ivTimeSpaceConnecting"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="42dp"
             android:layout_weight="1"
             android:contentDescription="@string/app_name"
-            android:scaleType="fitXY"
+            android:scaleType="centerInside"
             android:src="@drawable/time_space_connecting" />
     </LinearLayout>
 
