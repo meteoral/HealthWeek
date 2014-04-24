@@ -57,5 +57,5 @@
     <string name="generate_qrcode_direction">请将三个人物拖进方框内\n将自动合成二维码</string>
     <string name="generation_succeed_tip">在移动互联网的大环境下，科研、科普、科技产品转化最终能做到相辅相成、相互联系。</string>
     <string name="welcome_caption">2014北京科技周\n中科院移动健康主题展</string>
-
+	<string name="show_body_led">翻身次数</string>
 </resources>
