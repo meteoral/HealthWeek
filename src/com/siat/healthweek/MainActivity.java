@@ -10,14 +10,13 @@ import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
-import com.mobilehealth.dandelionscheme.DandelionScheme;
+import com.mobilehealth.dandelionscheme.StartingDisplayBodyCommu;
 import com.mobilehealth.ending.VideoPlaying;
-import com.mobilehealth.healthehome.HealthEHome;
-import com.mobilehealth.medicalkit.MedicalKit;
-import com.mobilehealth.sensibelbed.SensibleBed;
+import com.mobilehealth.healthehome.StartingDisplayHealthEHome;
+import com.mobilehealth.medicalkit.StartingDisplayMedicalkit;
+import com.mobilehealth.sensibelbed.StartingDisplaySensibleBed;
 import com.mobilehealth.starting.QRCodeOperation;
 import com.siat.healthweek.R;
-import com.siat.healthweek.ui.Capture;
 
 /**
  * 应用程序主界面：主界面
@@ -84,17 +83,17 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				/*Intent intent = new Intent(MainActivity.this, Capture.class);
 				startActivity(intent);*/
-				Intent intent = new Intent(MainActivity.this, QRCodeOperation.class);
-				startActivity(intent);
+				/*Intent intent = new Intent(MainActivity.this, QRCodeOperation.class);
+				startActivity(intent);*/
+				
+				startChildApp(QRCodeOperation.class);
 			}
 		});
 
 		btnBag.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//Intent intent = new Intent(MainActivity.this, Medicalkit.class);
-				Intent intent = new Intent(MainActivity.this, MedicalKit.class);
-				startActivity(intent);
+				startChildApp(StartingDisplayMedicalkit.class);
 			}
 		});
 		
@@ -102,36 +101,40 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				/*Intent intent = new Intent(MainActivity.this, AverageCubicTemperatureChart.class);
-				startActivity(intent);*/
-				Intent intent = new Intent(MainActivity.this, SensibleBed.class);
-				startActivity(intent);
+				startChildApp(StartingDisplaySensibleBed.class);
 			}
 		});
 		
 		btnEhome.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, HealthEHome.class);
-				startActivity(intent);
+				startChildApp(StartingDisplayHealthEHome.class);
 			}
 		});
 		
 		btnTran.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, DandelionScheme.class);
-				startActivity(intent);
+				startChildApp(StartingDisplayBodyCommu.class);
 			}
 		});
 		
 		btnWei.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, VideoPlaying.class);
-				startActivity(intent);
+				/*Intent intent = new Intent(MainActivity.this, VideoPlaying.class);
+				startActivity(intent);*/
+				
+				startChildApp(VideoPlaying.class);
 			}
 		});
+	}
+	
+	private void startChildApp(Class<?> clazz)
+	{
+		Intent intent = new Intent(MainActivity.this, clazz);
+		startActivity(intent);
+		overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 	}
 
 }

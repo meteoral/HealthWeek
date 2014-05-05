@@ -21,9 +21,7 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 	protected ViewPager vpContent;
 	protected FragmentListAdapter vpAdapter;
 
-	protected ImageView ivTab0;
-	protected ImageView ivTab1;
-	protected ImageView ivTab2;
+	protected ImageView[] ivTabs;
 
 	protected ImageView ivCurSubjectIcon;
 	protected TextView tvCenterCaption;
@@ -32,6 +30,11 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 	
 	protected ArrayList<ArrayList<String>> centerCaptions=new ArrayList<ArrayList<String>>();
 	private int[] childPageIndexes;
+	
+	protected int[] bottom_tab_on_selectors;
+	protected int[] bottom_tab_off_selectors;
+	
+	private int curTabIndex=0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,42 +48,46 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 	protected void init() {
 		vpContent = (ViewPager) findViewById(R.id.vpContent);
 
-		ivTab0 = (ImageView) findViewById(R.id.ivCloudData);
-		ivTab1 = (ImageView) findViewById(R.id.ivHealthKnowledge);
-		ivTab2 = (ImageView) findViewById(R.id.ivTimeSpaceConnecting);
+		ivTabs=new ImageView[3];
+		ivTabs[0] = (ImageView) findViewById(R.id.ivCloudData);
+		ivTabs[1] = (ImageView) findViewById(R.id.ivHealthKnowledge);
+		ivTabs[2] = (ImageView) findViewById(R.id.ivTimeSpaceConnecting);
 		tvCenterCaption = (TextView) findViewById(R.id.tvCenterCaption);
 		tvRightCaption = (TextView) findViewById(R.id.tvRightCaption);
 		ivCurSubjectIcon = (ImageView) findViewById(R.id.ivCurSubjectIcon);
 		ivBack=(ImageView)findViewById(R.id.ivBack);
 
-		ivTab0.setOnClickListener(new OnClickListener() {
+		ivTabs[0].setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(vpContent.getCurrentItem()!=0)
+				curTabIndex=vpContent.getCurrentItem();
+				if(curTabIndex!=0)
 				{
 					vpContent.setCurrentItem(0);
 				}
 			}
 		});
-		ivTab1.setOnClickListener(new OnClickListener() {
+		ivTabs[1].setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(vpContent.getCurrentItem()!=1)
+				curTabIndex=vpContent.getCurrentItem();
+				if(curTabIndex!=1)
 				{
 					vpContent.setCurrentItem(1);
 				}
 			}
 		});
-		ivTab2.setOnClickListener(new OnClickListener() {
+		ivTabs[2].setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(vpContent.getCurrentItem()!=2)
+				curTabIndex=vpContent.getCurrentItem();
+				if(curTabIndex!=2)
 				{
 					vpContent.setCurrentItem(2);
 				}
@@ -97,23 +104,24 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 		});
 		
 		vpContent.setOnPageChangeListener(new OnPageChangeListener() {
-			
 			@Override
 			public void onPageSelected(int arg0) {
 				// TODO Auto-generated method stub
-				MainFrameForMedicalKit.this.tvCenterCaption.setText(centerCaptions.get(vpContent.getCurrentItem()).get(childPageIndexes[vpContent.getCurrentItem()]));
+				if(arg0!=curTabIndex)
+				{
+					MainFrameForMedicalKit.this.tvCenterCaption.setText(centerCaptions.get(arg0).get(childPageIndexes[arg0]));
+					bottomTabSelectionChanged(arg0);
+				}
 			}
 			
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
 				// TODO Auto-generated method stub
-				
 			}
 		});
 		
@@ -132,6 +140,16 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 			centerCaptions.add(temp);
 		}
 		childPageIndexes=new int[]{0, 0, 0};
+		
+	}
+	
+	private void bottomTabSelectionChanged(int selectedIndex)
+	{
+		ivTabs[curTabIndex].setImageResource(bottom_tab_off_selectors[curTabIndex]);
+		
+		ivTabs[selectedIndex].setImageResource(bottom_tab_on_selectors[selectedIndex]);
+		
+		curTabIndex=selectedIndex;
 	}
 	
 	@Override

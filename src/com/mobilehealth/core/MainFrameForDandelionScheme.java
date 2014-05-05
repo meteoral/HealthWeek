@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -48,6 +49,19 @@ public class MainFrameForDandelionScheme extends FragmentActivity implements Chi
 		});
 	}
 	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if(keyCode==KeyEvent.KEYCODE_BACK)
+		{
+			if(disposeBack()==true)
+			{
+				return true;
+			}
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+	
 	private boolean disposeBack()
 	{
 		FragmentManager childFragManager=getSupportFragmentManager();
@@ -75,7 +89,13 @@ public class MainFrameForDandelionScheme extends FragmentActivity implements Chi
 		FragmentTransaction transac=getSupportFragmentManager().beginTransaction();
 		
 		Fragment newPage=Fragment.instantiate(this, childFragmentArray[toIndex]);
-		transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, 0, R.anim.view_disappear);
+		if(toIndex>curPageIndex)
+		{
+			transac.setCustomAnimations(0, R.anim.view_disappear, 0, R.anim.view_disappear);
+		}else
+		{
+			transac.setCustomAnimations(0, 0, 0, R.anim.view_disappear);
+		}
 		transac.replace(R.id.rlContent, newPage, childFragmentArray[toIndex]);
 		
 		if(toIndex>curPageIndex)

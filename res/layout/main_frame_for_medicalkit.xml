@@ -74,7 +74,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/cloud_data" />
+            android:src="@drawable/cloud_data_on_selector" />
 
         <ImageView
             android:id="@+id/ivHealthKnowledge"
@@ -83,7 +83,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/health_knowledge" />
+            android:src="@drawable/health_knowledge_off_selector" />
 
         <ImageView
             android:id="@+id/ivTimeSpaceConnecting"
@@ -92,7 +92,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/time_space_connecting" />
+            android:src="@drawable/time_space_connecting_off_selector" />
     </LinearLayout>
 
     <android.support.v4.view.ViewPager

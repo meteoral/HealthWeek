@@ -13,9 +13,9 @@ public class HealthEHome extends MainFrameForMedicalKit{
 		// TODO Auto-generated method stub
 		super.init();
 		
-		ivTab0.setImageResource(R.drawable.health_e_home);
-		ivTab1.setImageResource(R.drawable.home_doctor);
-		ivTab2.setImageResource(R.drawable.sunset_community);
+		ivTabs[0].setImageResource(R.drawable.health_ehome_on_selector);
+		ivTabs[1].setImageResource(R.drawable.home_doctor_off_selector);
+		ivTabs[2].setImageResource(R.drawable.sunset_community_off_selector);
 		
 		ivCurSubjectIcon.setImageResource(R.drawable.health_ehome_icon);
 		tvRightCaption.setText(R.string.health_e_home);
@@ -43,5 +43,8 @@ public class HealthEHome extends MainFrameForMedicalKit{
         vpAdapter.addFragment(FragmentSunsetCommunity.class, null);
 
 		vpContent.setAdapter(vpAdapter);
+		
+		bottom_tab_on_selectors=new int[]{R.drawable.health_ehome_on_selector, R.drawable.home_doctor_on_selector, R.drawable.sunset_community_on_selector};
+		bottom_tab_off_selectors=new int[]{R.drawable.health_ehome_off_selector, R.drawable.home_doctor_off_selector, R.drawable.sunset_community_off_selector};
 	}
 }

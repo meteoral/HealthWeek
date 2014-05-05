@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/medicalkit_starting_display" >
+    
+    <FrameLayout
+        android:id="@+id/flCenterOccupy"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true" />
+    
+    <TextView
+        android:id="@+id/tvDescriptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flCenterOccupy"
+        android:layout_above="@+id/ivClickEnter"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/medicalkit_starting_display_descriptions"
+        android:textColor="@color/black"
+        android:visibility="invisible" />
+    
+    <ImageView
+        android:id="@+id/ivClickEnter"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/click_enter_selector"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name" />
+
+</RelativeLayout>

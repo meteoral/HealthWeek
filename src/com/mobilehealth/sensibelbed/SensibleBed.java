@@ -13,9 +13,9 @@ public class SensibleBed extends MainFrameForMedicalKit{
 		// TODO Auto-generated method stub
 		super.init();
 		
-		ivTab0.setImageResource(R.drawable.health_check);
-		ivTab1.setImageResource(R.drawable.healthcare_knowledge);
-		ivTab2.setImageResource(R.drawable.community_share);
+		ivTabs[0].setImageResource(R.drawable.health_check_on_selector);
+		ivTabs[1].setImageResource(R.drawable.healthcare_knowledge_off_selector);
+		ivTabs[2].setImageResource(R.drawable.community_share_off_selector);
 		
 		ivCurSubjectIcon.setImageResource(R.drawable.sensible_bed);
 		tvRightCaption.setText(R.string.sensible_bed);
@@ -43,5 +43,8 @@ public class SensibleBed extends MainFrameForMedicalKit{
         vpAdapter.addFragment(FragmentCommunityShare.class, null);
 
 		vpContent.setAdapter(vpAdapter);
+		
+		bottom_tab_on_selectors=new int[]{R.drawable.health_check_on_selector, R.drawable.healthcare_knowledge_on_selector, R.drawable.community_share_on_selector};
+		bottom_tab_off_selectors=new int[]{R.drawable.health_check_off_selector, R.drawable.healthcare_knowledge_off_selector, R.drawable.community_share_off_selector};
 	}
 }

@@ -58,4 +58,13 @@
     <string name="generation_succeed_tip">在移动互联网的大环境下，科研、科普、科技产品转化最终能做到相辅相成、相互联系。</string>
     <string name="welcome_caption">2014北京科技周\n中科院移动健康主题展</string>
 	<string name="show_body_led">翻身次数</string>
+	
+	<string name="medicalkit_starting_display_descriptions">在中国，空巢老人近1亿，\n留守儿童6100万\n这些人基本没有“体检”的意识，\n
+	    一些重大疾病潜伏在这些人群中不被重视。\n\n多参数健康检查仪，\n能够提供10余种健康参数检测，\n并结合先进通讯技术，实现云端健康管理。\n守护这些社会弱势群体</string>
+	<string name="body_commu_staring_display_descriptions">人体可以导电，这是常识；彼此握手可以交换名片，你听说过嘛？\n当通信设备与人体的电磁波达到耦合时，人体就成为传输数字信息的通道\n
+	    我们的身体可以安全、低耗、快捷地进行通信，\n这在未来的医疗、军事、娱乐和电子行业应用前景无限</string>
+	<string name="sensible_bed_staring_display_descriptions">在中国，睡眠呼吸暂停综合症患者至少有7000万，\n60岁以上老年人已超2亿，\n
+	    俯卧睡觉的婴幼儿发生窒息性猝死的风险是正常睡姿婴幼儿的6倍……\n以上都表明，在睡眠休息时，无干扰、无负重的健康守护极为必要。\n\n不论是在医院、社区康复中心，不论是家庭还是个人，\n此系统可以为您提供实效实时的夜间监护和预警，让您和家人睡得安心。</string>
+	<string name="health_ehome_staring_display_descriptions">截至2012年，我国有2.6亿慢性病患者，\n高血压、糖尿病等多种慢性疾病时刻吞噬着人们的健康\n\n
+	    电视、手机与电脑三网融合，\n用低成本方式实现日常监护和早期诊断，\n足不出户掌握全家人的生理状况，\n更有医生通过后台数据对健康走向做出及时预判</string>
 </resources>
