@@ -69,8 +69,8 @@ public class FragmentBreathFreq extends Fragment {
 
 	@SuppressLint("HandlerLeak")
 	private void init(View view) {
-		LayoutParams layout = new LayoutParams(LayoutParams.WRAP_CONTENT,
-				LayoutParams.WRAP_CONTENT);
+		LayoutParams layout = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		layout.weight = 1;
 		LinearLayout linearView = (LinearLayout) view
 				.findViewById(R.id.chart_show);

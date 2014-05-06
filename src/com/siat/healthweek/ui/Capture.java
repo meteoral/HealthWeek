@@ -18,7 +18,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Vibrator;
-import android.provider.MediaStore;
+import android.provider.MediaStore.MediaColumns;
 import android.text.ClipboardManager;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -125,12 +125,13 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 		viewfinderView.setCameraManager(cameraManager);
 		back = (ImageView) findViewById(R.id.capture_back);
 		back.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				Capture.this.finish();
 			}
 		});
 	}
-	
+
 	/**
 	 * 解析本地的二维
 	 * @param path
@@ -172,7 +173,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 		}
 		return parseOk;
 	}
-	
+
 	/**
 	 * 扫描手机中指定图片时的回调处理
 	 */
@@ -189,7 +190,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 				if (resultCode == RESULT_OK) {
 					Cursor cursor = getContentResolver().query(data.getData(), null, null, null, null);
 					if (cursor.moveToFirst()) {
-						photoPath = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+						photoPath = cursor.getString(cursor.getColumnIndex(MediaColumns.DATA));
 					}
 					cursor.close();
 					new Thread(new Runnable() {
@@ -300,7 +301,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 
 	@Override
 	public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-		
+
 	}
 
 	private static ParsedResult parseResult(Result rawResult) {
@@ -322,7 +323,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 			parseBarCode(resultHandler.getDisplayContents().toString());
 		}
 	}
-	
+
 	// 解析二维码
 	private void parseBarCode(String msg) {
 		// 手机震动
@@ -330,11 +331,12 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 		vibrator.vibrate(200);
 		mProgress = ProgressDialog.show(Capture.this, null, "已扫描，正在处理···",true,true);
 		mProgress.setOnDismissListener(new DialogInterface.OnDismissListener() {
+			@Override
 			public void onDismiss(DialogInterface dialog) {
 				restartPreviewAfterDelay(1l);
 			}
 		});
-		
+
 		// 判断是否符合基本的json格式
 		if (!msg.matches("^\\{.*")) {
 			showDialog(msg);
@@ -342,7 +344,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 				//TODO:Someting
 		}
 	}
-		
+
 	/**
 	 * 扫描结果对话框
 	 * @param msg
@@ -351,6 +353,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 		new AlertDialog.Builder(Capture.this).setTitle("扫描结果").
 		setMessage("内容：" + msg).
 		setPositiveButton("复制", new DialogInterface.OnClickListener() {
+			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				mProgress.dismiss();
 				dialog.dismiss();
@@ -361,6 +364,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 				Toast.makeText(Capture.this, "复制成功！", Toast.LENGTH_SHORT).show();
 			}
 		}).setNegativeButton("返回", new DialogInterface.OnClickListener() {
+			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				mProgress.dismiss();
 				dialog.dismiss();
@@ -393,7 +397,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 			displayFrameworkBugMessageAndExit();
 		}
 	}
-	
+
 	/**
 	 * 初始化照相机失败显示窗口
 	 */
@@ -405,7 +409,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 		builder.setOnCancelListener(new FinishListener(this));
 		builder.show();
 	}
-	
+
 	/**
 	 * 重启二维码扫描界面
 	 * @param delayMS

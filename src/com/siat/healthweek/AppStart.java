@@ -1,8 +1,5 @@
 package com.siat.healthweek;
 
-import com.siat.healthweek.R;
-import com.siat.healthweek.ui.Capture;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,17 +15,17 @@ import android.widget.LinearLayout;
  * @version 1.0
  */
 public class AppStart extends Activity {
-    
+
 	private static final String TAG  = "AppStart";
-	
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       
+
         final View view = View.inflate(this, R.layout.start, null);
 		LinearLayout wellcome = (LinearLayout) view.findViewById(R.id.app_start_view);
 		setContentView(view);
-        
+
 		//渐变展示启动屏
 		AlphaAnimation aa = new AlphaAnimation(0.3f,1.0f);
 		aa.setDuration(2000);
@@ -43,14 +40,14 @@ public class AppStart extends Activity {
 			public void onAnimationRepeat(Animation animation) {}
 			@Override
 			public void onAnimationStart(Animation animation) {}
-			
+
 		});
     }
-    
+
     /**
      * 跳转到...
      */
-    private void redirectTo(){        
+    private void redirectTo(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();

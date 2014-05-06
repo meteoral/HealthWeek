@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/sequ_background" >
-    
+
     <RelativeLayout
         android:id="@+id/rlHead"
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:layout_alignParentRight="true"
             android:paddingBottom="2dp"
             android:textSize="@dimen/textsize_small" />
-        
+
     </RelativeLayout>
 
     <include
@@ -47,7 +47,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:background="@drawable/sequ_button_xu" />
-    
+
     <Button
         android:id="@+id/main_button_ehome"
         android:layout_width="wrap_content"
@@ -92,5 +92,13 @@
         android:layout_alignLeft="@+id/main_button"
         android:layout_marginTop="30dp"
         android:background="@drawable/sequ_button_wei" />
+
+	<Button
+        android:id="@+id/main_button_haodou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/main_button_wei"
+        android:layout_alignLeft="@+id/main_button_tran"
+        android:text="Button" />
 
 </RelativeLayout>

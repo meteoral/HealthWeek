@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
@@ -16,7 +15,6 @@ import com.mobilehealth.healthehome.StartingDisplayHealthEHome;
 import com.mobilehealth.medicalkit.StartingDisplayMedicalkit;
 import com.mobilehealth.sensibelbed.StartingDisplaySensibleBed;
 import com.mobilehealth.starting.QRCodeOperation;
-import com.siat.healthweek.R;
 
 /**
  * 应用程序主界面：主界面
@@ -26,7 +24,7 @@ import com.siat.healthweek.R;
  * @version 1.0
  */
 public class MainActivity extends Activity {
-	private Button btnMain, btnXu, btnEhome, btnBag, btnWei, btnTran, btnBed;
+	private Button btnMain, btnXu, btnEhome, btnBag, btnWei, btnTran, btnBed, btnHaodou;
 	private static Boolean isClick = false;
 
 	@Override
@@ -45,6 +43,7 @@ public class MainActivity extends Activity {
 		btnWei = (Button) findViewById(R.id.main_button_wei);
 		btnTran = (Button) findViewById(R.id.main_button_tran);
 		btnBed = (Button) findViewById(R.id.main_button_bed);
+		btnHaodou = (Button) findViewById(R.id.main_button_haodou);
 
 		btnXu.setVisibility(View.INVISIBLE);
 		btnEhome.setVisibility(View.INVISIBLE);
@@ -53,13 +52,13 @@ public class MainActivity extends Activity {
 		btnTran.setVisibility(View.INVISIBLE);
 		btnBed.setVisibility(View.INVISIBLE);
 
-		Animation ani = (AnimationSet) AnimationUtils.loadAnimation(this,R.anim.translucent_button_zoom_in);
+		Animation ani = AnimationUtils.loadAnimation(this,R.anim.translucent_button_zoom_in);
 		btnMain.setAnimation(ani);
 		ani.setDuration(2000);
 		ani.start();
 		btnMain.setOnClickListener(new OnClickListener() {
 
-			Animation income = (AnimationSet) AnimationUtils.loadAnimation(MainActivity.this,R.anim.translucent_button_zoom_in);
+			Animation income = AnimationUtils.loadAnimation(MainActivity.this,R.anim.translucent_button_zoom_in);
 			@Override
 			public void onClick(View v) {
 					btnXu.setVisibility(View.VISIBLE);
@@ -85,7 +84,7 @@ public class MainActivity extends Activity {
 				startActivity(intent);*/
 				/*Intent intent = new Intent(MainActivity.this, QRCodeOperation.class);
 				startActivity(intent);*/
-				
+
 				startChildApp(QRCodeOperation.class);
 			}
 		});
@@ -96,7 +95,7 @@ public class MainActivity extends Activity {
 				startChildApp(StartingDisplayMedicalkit.class);
 			}
 		});
-		
+
 		btnBed.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -104,32 +103,39 @@ public class MainActivity extends Activity {
 				startChildApp(StartingDisplaySensibleBed.class);
 			}
 		});
-		
+
 		btnEhome.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				startChildApp(StartingDisplayHealthEHome.class);
 			}
 		});
-		
+
 		btnTran.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				startChildApp(StartingDisplayBodyCommu.class);
 			}
 		});
-		
+
 		btnWei.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				/*Intent intent = new Intent(MainActivity.this, VideoPlaying.class);
 				startActivity(intent);*/
-				
+
 				startChildApp(VideoPlaying.class);
 			}
 		});
+		btnHaodou.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startChildApp(HaoDou.class);
+			}
+		});
 	}
-	
+
 	private void startChildApp(Class<?> clazz)
 	{
 		Intent intent = new Intent(MainActivity.this, clazz);

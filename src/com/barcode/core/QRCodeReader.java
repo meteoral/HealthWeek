@@ -83,7 +83,8 @@ public class QRCodeReader implements Reader {
     return result;
   }
 
-  public void reset() {
+  @Override
+public void reset() {
     // do nothing
   }
 
