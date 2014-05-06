@@ -64,7 +64,8 @@
 	    android:layout_width="100dip"
 	    android:layout_height="100dip"
 	    android:layout_alignBaseline="@+id/main_button_ehome"
-	    android:layout_centerHorizontal="true"
+	    android:layout_alignParentRight="true"
+	    android:layout_marginRight="10dp"
 	    android:background="@drawable/sequ_button_haodou" />
 
 	<Button
@@ -72,8 +73,7 @@
 	    android:layout_width="100dip"
 	    android:layout_height="100dip"
 	    android:layout_alignBaseline="@+id/main_button_ehome"
-	    android:layout_alignParentRight="true"
-	    android:layout_marginRight="10dp"
+	    android:layout_centerHorizontal="true"
 	    android:background="@drawable/sequ_button_body_tran" />
 
 	<Button
@@ -87,11 +87,19 @@
 	    android:background="@drawable/sequ_button_healthpaper" />
 
 	<Button
-	    android:id="@+id/main_button_wei"
+	    android:id="@+id/main_button_about"
 	    android:layout_width="100dip"
 	    android:layout_height="100dip"
 	    android:layout_alignBaseline="@+id/main_button_healthpaper"
 	    android:layout_centerHorizontal="true"
-	    android:background="@drawable/sequ_button_wei" />
+	    android:background="@drawable/sequ_button_about" />
 
+	<Button
+	    android:id="@+id/main_button_wei"
+	    android:layout_width="100dip"
+	    android:layout_height="100dip"
+	    android:layout_alignBaseline="@+id/main_button_healthpaper"
+	    android:layout_alignParentRight="true"
+	    android:layout_marginRight="10dp"
+	    android:background="@drawable/sequ_button_wei" />
 </RelativeLayout>

@@ -25,7 +25,7 @@ import com.mobilehealth.starting.QRCodeOperation;
  */
 public class MainActivity extends Activity {
 	private Button btnHealthpaper, btnXu, btnEhome, btnBag, btnWei, btnTran,
-			btnBed, btnHaodou;
+			btnBed, btnHaodou, btnAbout;
 	private static Boolean isClick = false;
 
 	@Override
@@ -44,25 +44,10 @@ public class MainActivity extends Activity {
 		btnTran = (Button) findViewById(R.id.main_button_tran);
 		btnBed = (Button) findViewById(R.id.main_button_bed);
 		btnHaodou = (Button) findViewById(R.id.main_button_haodou);
+		btnAbout = (Button) findViewById(R.id.main_button_about);
 
-		btnHealthpaper.setVisibility(View.INVISIBLE);
-		btnXu.setVisibility(View.INVISIBLE);
-		btnEhome.setVisibility(View.INVISIBLE);
-		btnBag.setVisibility(View.INVISIBLE);
-		btnWei.setVisibility(View.INVISIBLE);
-		btnTran.setVisibility(View.INVISIBLE);
-		btnBed.setVisibility(View.INVISIBLE);
-		btnHaodou.setVisibility(View.INVISIBLE);
 		Animation income = AnimationUtils.loadAnimation(MainActivity.this,
 				R.anim.translucent_button_zoom_in);
-		btnXu.setVisibility(View.VISIBLE);
-		btnEhome.setVisibility(View.VISIBLE);
-		btnBag.setVisibility(View.VISIBLE);
-		btnWei.setVisibility(View.VISIBLE);
-		btnTran.setVisibility(View.VISIBLE);
-		btnBed.setVisibility(View.VISIBLE);
-		btnHealthpaper.setVisibility(View.VISIBLE);
-		btnHaodou.setVisibility(View.VISIBLE);
 		btnXu.setAnimation(income);
 		btnEhome.setAnimation(income);
 		btnBag.setAnimation(income);
@@ -71,6 +56,7 @@ public class MainActivity extends Activity {
 		btnBed.setAnimation(income);
 		btnHaodou.setAnimation(income);
 		btnHealthpaper.setAnimation(income);
+		btnAbout.setAnimation(income);
 		income.setDuration(1000);
 		income.start();
 		btnXu.setOnClickListener(new OnClickListener() {
