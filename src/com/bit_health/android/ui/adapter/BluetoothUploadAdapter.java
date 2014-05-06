@@ -8,7 +8,6 @@ import com.bit_health.android.util.TimeFormatUtil;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;

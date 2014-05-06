@@ -378,6 +378,7 @@ public class EcgChart extends BaseFramelayout {
 				super.onReceivedTouchIconUrl(view, url, precomposed);
 			}
 
+			@Override
 			public void onProgressChanged(WebView view, int progress) {
 				if (progress == 100) {
 					hideWaittingDialog();
@@ -389,6 +390,7 @@ public class EcgChart extends BaseFramelayout {
 		// 监听软键盘上的"完成"按键
 		editInput.setOnEditorActionListener(new OnEditorActionListener() {
 
+			@Override
 			public boolean onEditorAction(TextView v, int actionId,
 					KeyEvent event) {
 				// TODO Auto-generated method stub
@@ -450,6 +452,7 @@ public class EcgChart extends BaseFramelayout {
 	}
 	
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.layout_front_page:

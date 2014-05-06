@@ -1,18 +1,12 @@
 package com.bit_health.android.ui.fragment;
 
 import com.siat.healthweek.R;
-import com.bit_health.android.ui.activities.AddMembersActivity;
-import com.bit_health.android.ui.activities.AddMembersOfEditInfoActivity;
-import com.bit_health.android.ui.activities.BaseActivity;
-
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;

@@ -30,6 +30,7 @@ public class UploadEcgPggDialog extends AbsUploadDeviceFileDialog {
 	private FileDbTable mFileTb;
 	private RoleDatabase mDb;
 	private static final String mDeviceAdress = "00:00:00:00:00";
+	@Override
 	public boolean initUploadData() {
 		mUploadBean.mapPar.put(UploadDeviceFileBean.BP_Fs, "0");
 		mUploadBean.mapPar.put(UploadDeviceFileBean.IS_GZ, "1");

@@ -136,15 +136,18 @@ public class ReportsDetailActivity extends BaseActivity {
 		}
 
 		if (BusinessConst.AF_ANLASY_SUCCESS.equals(mAnlasyResultType)) {
-			return DataCatchInterface.getInstance(this).getTableName(
+			DataCatchInterface.getInstance(this);
+			return DataCatchInterface.getTableName(
 					BusinessConst.ALL_MESURE, BusinessConst.AF_ANLASY_SUCCESS);
 		}
 		if (BusinessConst.ANLASY_SUCCESS_ABNORMAL.equals(mAnlasyResultType)) {
-			return DataCatchInterface.getInstance(this).getTableName(
+			DataCatchInterface.getInstance(this);
+			return DataCatchInterface.getTableName(
 					BusinessConst.ALL_MESURE,
 					BusinessConst.ANLASY_SUCCESS_ABNORMAL);
 		}
-		return DataCatchInterface.getInstance(this).getTableName(measureType,
+		DataCatchInterface.getInstance(this);
+		return DataCatchInterface.getTableName(measureType,
 				BusinessConst.ALL_ANLASY);
 	}
 
@@ -433,10 +436,12 @@ public class ReportsDetailActivity extends BaseActivity {
 	 ******************************************************************/
 	public class MyOnPageChangeListener implements OnPageChangeListener {
 
+		@Override
 		public void onPageScrollStateChanged(int arg0) {
 
 		}
 
+		@Override
 		public void onPageScrolled(int arg0, float arg1, int arg2) {
 
 		}
@@ -447,6 +452,7 @@ public class ReportsDetailActivity extends BaseActivity {
 		 * @param arg0
 		 *            = 0, 1, 2 即当前页的位置
 		 ******************************************************************/
+		@Override
 		public void onPageSelected(int arg0) {
 			setCurrentPageView(arg0);
 		}
@@ -482,6 +488,7 @@ public class ReportsDetailActivity extends BaseActivity {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.reports_detail_backout:

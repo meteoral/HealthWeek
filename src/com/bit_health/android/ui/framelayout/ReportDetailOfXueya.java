@@ -104,7 +104,7 @@ public class ReportDetailOfXueya extends FrameLayout {
 		View view = inflater.inflate(R.layout.report_detail_of_xueya2, this);
 
 		bpStateImage = (ImageView) findViewById(R.id.bp_detail_state_image);
-		layoutSuggestion = (View) findViewById(R.id.layout_suggestion_of_xueya_detail);
+		layoutSuggestion = findViewById(R.id.layout_suggestion_of_xueya_detail);
 		bpDetailDtateValue = (TextView) findViewById(R.id.bp_detail_state_value);
 		showTimeText = (TextView) findViewById(R.id.detail_report_time_of_xueya);
 		sleepSpbText = (TextView) findViewById(R.id.shui_qian_shousuoya_value_text);
@@ -148,6 +148,7 @@ public class ReportDetailOfXueya extends FrameLayout {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

@@ -43,7 +43,7 @@ public class RoleInfoBeanList extends JsonBase{
 		
 		JSONObject jobj = new JSONObject();
 		try {
-			jobj.put(RoleInfoBean.RETURN_CODE, 0);
+			jobj.put(JsonBase.RETURN_CODE, 0);
 			jobj.put(USER_FLAG+0, str);
 			jobj.put(USER_FLAG+1, str1);
 			String str2 = jobj.toString();

@@ -1,13 +1,10 @@
 package com.bit_health.android.ui.activities;
 
 import com.siat.healthweek.R;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -136,6 +133,7 @@ public class AddMembersOfEditInfoActivity extends BaseActivity {
 
 	class MyViewListener implements OnClickListener {
 
+		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.choice_role_back_iamge:

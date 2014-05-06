@@ -14,7 +14,6 @@ import com.bit_health.android.controllers.beans.RoleInfoBean;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.text.SpannableString;
 import android.text.TextUtils;
 
 

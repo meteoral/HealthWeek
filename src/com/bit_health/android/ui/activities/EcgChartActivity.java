@@ -7,7 +7,6 @@ import com.siat.healthweek.R;
 import com.bit_health.android.controllers.beans.EcgInfoBean;
 import com.bit_health.android.controllers.beans.PpgInfoBean;
 import com.bit_health.android.ui.adapter.ReportModule_Adapter;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
 import com.bit_health.android.ui.framelayout.EcgChart;
 
 import android.content.Context;
@@ -24,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
@@ -201,11 +201,11 @@ public class EcgChartActivity extends BaseActivity {
 		displacement = (screenW - bmpWidthOfBackImage) / 3;// 需要滑动的位移
 
 		layoutEcgChart.setLayoutParams(new LinearLayout.LayoutParams(
-				displacement, LinearLayout.LayoutParams.WRAP_CONTENT));
+				displacement, LayoutParams.WRAP_CONTENT));
 		layoutAbnormalEcgChart.setLayoutParams(new LinearLayout.LayoutParams(
-				displacement, LinearLayout.LayoutParams.WRAP_CONTENT));
+				displacement, LayoutParams.WRAP_CONTENT));
 		layoutShunshiEcgChart.setLayoutParams(new LinearLayout.LayoutParams(
-				displacement, LinearLayout.LayoutParams.WRAP_CONTENT));
+				displacement, LayoutParams.WRAP_CONTENT));
 	}
 
 	/******************************************************************
@@ -229,9 +229,9 @@ public class EcgChartActivity extends BaseActivity {
 		displacement = (screenW - bmpWidthOfBackImage) / 2;// 需要滑动的位移
 
 		layoutEcgChart.setLayoutParams(new LinearLayout.LayoutParams(
-				displacement, LinearLayout.LayoutParams.WRAP_CONTENT));
+				displacement, LayoutParams.WRAP_CONTENT));
 		layoutAbnormalEcgChart.setLayoutParams(new LinearLayout.LayoutParams(
-				displacement, LinearLayout.LayoutParams.WRAP_CONTENT));
+				displacement, LayoutParams.WRAP_CONTENT));
 	}
 
 	/******************************************************************
@@ -241,10 +241,12 @@ public class EcgChartActivity extends BaseActivity {
 	 ******************************************************************/
 	public class MyOnPageChangeListener implements OnPageChangeListener {
 
+		@Override
 		public void onPageScrollStateChanged(int arg0) {
 
 		}
 
+		@Override
 		public void onPageScrolled(int arg0, float arg1, int arg2) {
 
 		}
@@ -255,6 +257,7 @@ public class EcgChartActivity extends BaseActivity {
 		 * @param arg0
 		 *            = 0, 1, 2 即当前页的位置
 		 ******************************************************************/
+		@Override
 		public void onPageSelected(int arg0) {
 			setCurrentPageView(arg0);
 		}
@@ -304,6 +307,7 @@ public class EcgChartActivity extends BaseActivity {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 			if (layoutEcgChart == v) {
 				for (int i = 0; i < titleTextView.size(); i++) {

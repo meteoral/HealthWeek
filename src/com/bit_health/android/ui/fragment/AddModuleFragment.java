@@ -14,7 +14,6 @@ import android.widget.Toast;
 import java.util.*;
 
 import com.siat.healthweek.R;
-import com.bit_health.android.ui.activities.BaseActivity;
 import com.bit_health.android.ui.activities.FourModuleManangerActivity;
 import com.bit_health.android.ui.adapter.AddModuleLV_Adapter;
 import com.slidingmenu.lib.SlidingMenu;
@@ -58,7 +57,7 @@ public class AddModuleFragment extends BaseFragment implements
 		listView = (ListView) view.findViewById(R.id.add_module_listview);
 		listItems = getListItems();
 		listViewAdapter = new AddModuleLV_Adapter(
-				(FourModuleManangerActivity) getActivity(), listItems);
+				getActivity(), listItems);
 		listView.setAdapter(listViewAdapter);
 		listView.setOnItemClickListener(this);
 		

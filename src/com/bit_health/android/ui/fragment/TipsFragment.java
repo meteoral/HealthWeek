@@ -1,7 +1,6 @@
 package com.bit_health.android.ui.fragment;
 
 import com.siat.healthweek.R;
-import com.bit_health.android.ui.activities.BaseActivity;
 import com.bit_health.android.ui.activities.MoreInfoActivity;
 
 import android.content.Context;
@@ -63,6 +62,7 @@ public class TipsFragment extends BaseFragment {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

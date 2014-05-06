@@ -95,7 +95,7 @@ public class DownLoadApkService extends Service implements IProgressCallback {
 		// 每0.5秒中刷新一次，如果刷得太频繁，会很卡
 		if (System.currentTimeMillis() - refreshTime > 500 || pos == total) {
 
-			int progressNum = (int) ((pos*100) / total);// 计算百分比
+			int progressNum = (pos*100) / total;// 计算百分比
 
 			notif.contentView.setProgressBar(R.id.content_view_progress, total,
 					pos, false);

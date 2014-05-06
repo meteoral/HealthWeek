@@ -1,8 +1,6 @@
 package com.bit_health.android.ui.fragment;
 
 import com.siat.healthweek.R;
-import com.bit_health.android.ui.activities.BaseActivity;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;

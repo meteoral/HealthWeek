@@ -150,6 +150,7 @@ public class ReportDetailOfMaibo extends BaseFramelayout {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 			if (baseDataOfPPG == v) {
 				Intent intent0 = new Intent(mActivity,

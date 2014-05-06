@@ -140,7 +140,7 @@ public class ChartOfXindian {
 		String[] types = new String[] { BarChart.TYPE, LineChart.TYPE };// 图的类型，画一个图形就需要对应一个字段
 		chart = ChartFactory.getCombinedXYChartView(mActivity, dataset,
 				renderer, types);
-		layout.addView(chart, new LayoutParams(LayoutParams.WRAP_CONTENT, 380));
+		layout.addView(chart, new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, 380));
 	}
 
 	protected XYMultipleSeriesDataset buildDataset(String[] titles,

@@ -6,7 +6,6 @@ import com.bit_health.android.ui.activities.MenuChildPageActivity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

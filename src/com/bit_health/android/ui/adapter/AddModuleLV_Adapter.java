@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.siat.healthweek.R;
-import com.bit_health.android.util.SetTextSizeClass;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -35,21 +33,25 @@ public class AddModuleLV_Adapter extends BaseAdapter {
 		this.listItems = listItems;
 	}
 
+	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
 		return listItems.size();
 	}
 
+	@Override
 	public Object getItem(int position) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public long getItemId(int position) {
 		// TODO Auto-generated method stub
 		return 0;
 	}	
 
+	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		final int selectID = position;
 		ViewHolder listItemView = null;
@@ -81,6 +83,7 @@ public class AddModuleLV_Adapter extends BaseAdapter {
 //		listItemView.addData.setTextSize(SetTextSizeClass.getTextFontSize());
 		listItemView.addData.setOnClickListener(new View.OnClickListener() {
 
+			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				showDetailInfo(selectID);

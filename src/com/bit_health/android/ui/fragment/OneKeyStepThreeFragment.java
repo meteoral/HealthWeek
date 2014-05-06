@@ -2,13 +2,10 @@ package com.bit_health.android.ui.fragment;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.List;
-
 import com.siat.healthweek.R;
 import com.bit_health.android.configuration.AndroidConfiguration;
 import com.bit_health.android.constants.BusinessConst;
 import com.bit_health.android.ui.activities.AndroidActivityMananger;
-import com.bit_health.android.ui.activities.BaseActivity;
 import com.bit_health.android.ui.activities.OneKeyTestActivity;
 import com.bit_health.android.ui.activities.ReportsDetailActivity;
 import com.bit_health.android.ui.activities.TestXueTangActivity;
@@ -178,6 +175,7 @@ public class OneKeyStepThreeFragment extends BaseFragment {
 	 * @author 梁才学 创建日期：2014.1.8
 	 **********************************************************************/
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

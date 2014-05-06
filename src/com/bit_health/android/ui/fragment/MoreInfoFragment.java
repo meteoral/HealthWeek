@@ -92,6 +92,7 @@ public class MoreInfoFragment extends BaseFragment {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {
@@ -267,12 +268,14 @@ public class MoreInfoFragment extends BaseFragment {
 	}
 
 	private Runnable showUpdate = new Runnable() {
+		@Override
 		public void run() {
 			new AlertDialog.Builder(getActivity())
 					.setTitle("提示")
 					.setMessage("当前应用不是最新版本，是否更新？")
 					.setPositiveButton("是",
 							new DialogInterface.OnClickListener() {
+								@Override
 								public void onClick(DialogInterface dialog,
 										int whichButton) {
 									// String fileName = APPDATA_PATH
@@ -287,6 +290,7 @@ public class MoreInfoFragment extends BaseFragment {
 							})
 					.setNegativeButton("否",
 							new DialogInterface.OnClickListener() {
+								@Override
 								public void onClick(DialogInterface dialog,
 										int whichButton) {
 

@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.text.TextUtils;
 import com.bit_health.android.controllers.beans.JsonBase;
 import com.bit_health.android.database.DatabaseBean;
 import com.bit_health.android.database.RoleDatabase;

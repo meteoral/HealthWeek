@@ -4,12 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.siat.healthweek.R;
-import com.bit_health.android.configuration.AndroidConfiguration;
 import com.bit_health.android.constants.BusinessConst;
-import com.bit_health.android.controllers.InterfaceService;
-import com.bit_health.android.controllers.beans.JsonBase;
 import com.bit_health.android.ui.adapter.ReportModule_Adapter;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
 import com.bit_health.android.ui.framelayout.HistoryRecords;
 import com.bit_health.android.ui.framelayout.XueTangReport;
 
@@ -21,7 +17,6 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -94,6 +89,7 @@ public class ReportOfXueTangActivity extends ReportActivity {
 	 * 
 	 * 
 	 ******************************************************************/
+	@Override
 	protected void initViewPager() {
 		// TODO Auto-generated method stub
 		mViewPager = (ViewPager) view
@@ -139,10 +135,12 @@ public class ReportOfXueTangActivity extends ReportActivity {
 	 ******************************************************************/
 	public class MyOnPageChangeListener implements OnPageChangeListener {
 
+		@Override
 		public void onPageScrollStateChanged(int arg0) {
 
 		}
 
+		@Override
 		public void onPageScrolled(int arg0, float arg1, int arg2) {
 
 		}
@@ -153,6 +151,7 @@ public class ReportOfXueTangActivity extends ReportActivity {
 		 * @param arg0
 		 *            = 0, 1, 2 即当前页的位置
 		 ******************************************************************/
+		@Override
 		public void onPageSelected(int arg0) {
 
 			Animation animation = new TranslateAnimation(displacement

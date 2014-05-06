@@ -11,7 +11,6 @@ import com.bit_health.android.controllers.beans.JsonBase;
 import com.bit_health.android.ui.activities.AbnormalReportActivity;
 import com.bit_health.android.ui.activities.AndroidActivityMananger;
 import com.bit_health.android.ui.activities.FourModuleManangerActivity;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
 import com.bit_health.android.util.ChartOfXindian;
 import com.bit_health.android.util.SetTextSizeClass;
 import com.bit_health.android.util.TimeFormatUtil;
@@ -141,17 +140,17 @@ public class XueYaReport extends FrameLayout {
 		LayoutInflater inflater = (LayoutInflater) mActivity
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View view = inflater.inflate(R.layout.xue_ya_report, this);
-		layoutXueYaChartTitle = (View) findViewById(R.id.layout_title_xueya);
-		layoutXueYaMoreDialog = (View) findViewById(R.id.show_more_chart_dialog_xueya);
-		layoutSuggestion = (View) findViewById(R.id.layout_suggestion_of_xueya);
-		layoutAbnormal = (View) findViewById(R.id.layout_month_abnormal_of_xueya);
-		layoutFoundAbnormal = (View) findViewById(R.id.layout_found_abnormal_of_xueya);
-		layoutAbnormalContents = (View) findViewById(R.id.layout_abnormal_contents_of_xueya);
-		showChart_bs_ssy = (View) findViewById(R.id.show_chart_bs_ssy);
-		showChart_bs_szy = (View) findViewById(R.id.show_chart_bs_szy);
+		layoutXueYaChartTitle = findViewById(R.id.layout_title_xueya);
+		layoutXueYaMoreDialog = findViewById(R.id.show_more_chart_dialog_xueya);
+		layoutSuggestion = findViewById(R.id.layout_suggestion_of_xueya);
+		layoutAbnormal = findViewById(R.id.layout_month_abnormal_of_xueya);
+		layoutFoundAbnormal = findViewById(R.id.layout_found_abnormal_of_xueya);
+		layoutAbnormalContents = findViewById(R.id.layout_abnormal_contents_of_xueya);
+		showChart_bs_ssy = findViewById(R.id.show_chart_bs_ssy);
+		showChart_bs_szy = findViewById(R.id.show_chart_bs_szy);
 		// showChart_bs_ml = (View) findViewById(R.id.show_chart_bs_ml);
-		showChart_aw_ssy = (View) findViewById(R.id.show_chart_aw_ssy);
-		showChart_aw_szy = (View) findViewById(R.id.show_chart_aw_szy);
+		showChart_aw_ssy = findViewById(R.id.show_chart_aw_ssy);
+		showChart_aw_szy = findViewById(R.id.show_chart_aw_szy);
 		// showChart_aw_ml = (View) findViewById(R.id.show_chart_aw_ml);
 		suggestionContentText = (TextView) findViewById(R.id.suggestion_content_of_xueya);
 		xueyaTitleNameText = (TextView) findViewById(R.id.xueya_title_name_text);
@@ -339,6 +338,7 @@ public class XueYaReport extends FrameLayout {
 	}
 	
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 			int arrayLength = mBpInfoBean.size();
 			switch (v.getId()) {

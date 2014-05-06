@@ -72,7 +72,7 @@ public class MyFamilyFragment extends BaseFragment {
 		mRoles = RoleCatchInfo.getInstance(
 				this.getActivity().getApplicationContext()).getRoles();
 		mListView = (ListView) view.findViewById(R.id.my_family_listview);
-		adapter = new MyFamilyAdapter((MenuChildPageActivity) getActivity(),
+		adapter = new MyFamilyAdapter(getActivity(),
 				mRoles);
 		mListView.setAdapter(adapter);
 		mListView.setOnItemClickListener(new OnItemClickListener() {
@@ -203,6 +203,7 @@ public class MyFamilyFragment extends BaseFragment {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

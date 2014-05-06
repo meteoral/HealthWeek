@@ -166,10 +166,10 @@ public class XinDianReport extends FrameLayout {
 		LayoutInflater inflater = (LayoutInflater) mActivity
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View view = inflater.inflate(R.layout.xin_dian_report, this);
-		layoutSuggestion = (View) findViewById(R.id.layout_suggestion);
-		layoutAbnormal = (View) findViewById(R.id.layout_month_abnormal);
-		layoutFoundAbnormal = (View) findViewById(R.id.layout_found_abnormal_of_xindian);
-		layoutAbnormalContents = (View) findViewById(R.id.layout_abnormal_contents);
+		layoutSuggestion = findViewById(R.id.layout_suggestion);
+		layoutAbnormal = findViewById(R.id.layout_month_abnormal);
+		layoutFoundAbnormal = findViewById(R.id.layout_found_abnormal_of_xindian);
+		layoutAbnormalContents = findViewById(R.id.layout_abnormal_contents);
 		suggestionContentText = (TextView) findViewById(R.id.suggestion_content);
 		suggestionPointerImage = (ImageView) findViewById(R.id.suggestion_pointer_image);
 		abnormalPointerImage = (ImageView) findViewById(R.id.abnormal_pointer_image);
@@ -406,6 +406,7 @@ public class XinDianReport extends FrameLayout {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

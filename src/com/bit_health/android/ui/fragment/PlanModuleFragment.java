@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.siat.healthweek.R;
-import com.bit_health.android.ui.activities.BaseActivity;
-import com.bit_health.android.ui.activities.FourModuleManangerActivity;
 import com.bit_health.android.ui.adapter.PlanModuleLV_Adapter;
 
 import android.content.Context;
@@ -64,7 +62,7 @@ public class PlanModuleFragment extends BaseFragment {
     	planListView = (ListView) view.findViewById(R.id.plan_listview);
     	completeListView = (ListView) view.findViewById(R.id.complete_listview);    	
     	datasList = getListItems();    	
-    	adapter = new PlanModuleLV_Adapter((FourModuleManangerActivity)getActivity(), datasList);
+    	adapter = new PlanModuleLV_Adapter(getActivity(), datasList);
     	planListView.setAdapter(adapter);
     	completeListView.setAdapter(adapter);// 注意：已完成的计划数据需要另行获取，这里未处理
     	
@@ -87,6 +85,7 @@ public class PlanModuleFragment extends BaseFragment {
     }
     
     class ImageListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 			
 			switch(v.getId()){

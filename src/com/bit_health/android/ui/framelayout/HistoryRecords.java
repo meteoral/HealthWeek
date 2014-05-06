@@ -79,6 +79,7 @@ public class HistoryRecords extends FrameLayout implements IXListViewListener {
 		// 监听分组展开
 		expandablelistview
 				.setOnGroupExpandListener(new OnGroupExpandListener() {
+					@Override
 					public void onGroupExpand(int groupPosition) {
 
 					}
@@ -87,6 +88,7 @@ public class HistoryRecords extends FrameLayout implements IXListViewListener {
 		// 监听分组关闭
 		expandablelistview
 				.setOnGroupCollapseListener(new OnGroupCollapseListener() {
+					@Override
 					public void onGroupCollapse(int groupPosition) {
 
 					}

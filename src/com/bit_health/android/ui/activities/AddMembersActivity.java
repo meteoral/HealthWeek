@@ -420,6 +420,7 @@ public class AddMembersActivity extends BaseActivity implements
 					}
 				})
 				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+					@Override
 					public void onClick(DialogInterface dialog, int whichButton) {
 						dialog.dismiss();
 					}
@@ -437,6 +438,7 @@ public class AddMembersActivity extends BaseActivity implements
 	 **********************************************************************/
 	class MyViewListener implements OnClickListener {
 
+		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.add_members_back_icon:

@@ -86,6 +86,7 @@ public class RoleInfoBean extends JsonBase {
 		return super.toJsonString(USER_DETAIL, toString());
 	}
 
+	@Override
 	public String toString() {
 		JSONObject jobj = new JSONObject();
 		try {
@@ -139,6 +140,7 @@ public class RoleInfoBean extends JsonBase {
 		}
 	}
 
+	@Override
 	public RoleInfoBean clone() {
 		RoleInfoBean bean = new RoleInfoBean();
 		bean.mId = mId;

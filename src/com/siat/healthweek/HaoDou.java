@@ -3,9 +3,6 @@ package com.siat.healthweek;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.view.Display;
-import android.view.ViewGroup;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -27,7 +24,8 @@ public class HaoDou extends Activity {
 
 		webView = (WebView) findViewById(R.id.webview_haodou);
 		webView.setWebViewClient(new WebViewClient(){
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            @Override
+			public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return true;
             }

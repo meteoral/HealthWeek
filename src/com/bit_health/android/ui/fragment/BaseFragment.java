@@ -47,6 +47,7 @@ public abstract class BaseFragment extends Fragment implements
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data){
 		
 	}

@@ -112,6 +112,7 @@ public class EcgInfoBean extends EcgBriefBean implements Serializable{
 	public int mType; // 详细信息还是简要信息
 	public String mData;// 缓存数据
 	public boolean bIsNormal = true; // 体检是否正常
+	@Override
 	public void parserJson(String json) {
 		mData = json; // 保存缓存数据
 		super.parserJson(json);

@@ -17,7 +17,6 @@ import android.widget.Gallery;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.Gallery.LayoutParams;
 import android.widget.ViewSwitcher.ViewFactory;
 
 /**********************************************************************
@@ -112,7 +111,7 @@ public class BgSettingsFragment extends BaseFragment implements
 		imageView.setBackgroundResource(R.drawable.white);// 刚刚初始化时，给ImageSwitcher一个背景
 		imageView.setScaleType(ImageView.ScaleType.FIT_XY);// 全屏显示
 		imageView.setLayoutParams(new ImageSwitcher.LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
 		return imageView;
 	}
 
@@ -121,18 +120,22 @@ public class BgSettingsFragment extends BaseFragment implements
 			mContext = c;
 		}
 
+		@Override
 		public int getCount() {
 			return mBgSettingsImage.getArraysLength();
 		}
 
+		@Override
 		public Object getItem(int position) {
 			return position;
 		}
 
+		@Override
 		public long getItemId(int position) {
 			return position;
 		}
 
+		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			ImageView imageView = new ImageView(mContext);
 			imageView.setImageResource(mBgSettingsImage.getBgImage(position));

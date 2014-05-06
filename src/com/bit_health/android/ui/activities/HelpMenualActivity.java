@@ -1,14 +1,6 @@
 package com.bit_health.android.ui.activities;
 
 import com.siat.healthweek.R;
-import com.bit_health.android.ui.fragment.AboutInfoFragment;
-import com.bit_health.android.ui.fragment.ContentFragment;
-import com.bit_health.android.ui.fragment.HelpMenual3n1Fragment;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
-import com.bit_health.android.ui.fragment.RemindSetFragment;
-import com.bit_health.android.ui.fragment.UnitSetFragment;
-
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -63,6 +55,7 @@ public class HelpMenualActivity extends BaseActivity {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

@@ -1,8 +1,6 @@
 package com.bit_health.android.ui.adapter;
 
 import com.siat.healthweek.R;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.TypedValue;

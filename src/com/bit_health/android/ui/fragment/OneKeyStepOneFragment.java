@@ -127,6 +127,7 @@ public class OneKeyStepOneFragment extends BaseFragment {
 	 * @author 梁才学 创建日期：2014.1.8
 	 **********************************************************************/
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

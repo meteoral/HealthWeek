@@ -33,6 +33,7 @@ public class BsBaseBean extends JsonBase {
 	public String toJsonString(String key) {
 		return super.toJsonString(key, toString());
 	}
+	@Override
 	public String toString(){
 		JSONObject jobj = new JSONObject();
 		try {

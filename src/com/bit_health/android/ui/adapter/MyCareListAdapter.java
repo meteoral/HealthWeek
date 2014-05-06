@@ -8,15 +8,11 @@ import com.bit_health.android.configuration.RoleCatchInfo;
 import com.bit_health.android.controllers.IBusinessCallback;
 import com.bit_health.android.controllers.InterfaceService;
 import com.bit_health.android.controllers.beans.RoleInfoBean;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
 import com.bit_health.android.util.HeadImageUtil;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;

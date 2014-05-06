@@ -1,14 +1,12 @@
 package com.bit_health.android.ui.activities;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
 
 import com.siat.healthweek.R;
 import com.bit_health.android.constants.BusinessConst;
 import com.bit_health.android.constants.DeviceConst;
 import com.bit_health.android.ui.adapter.ReportModule_Adapter;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
 import com.bit_health.android.ui.framelayout.HistoryRecords;
 import com.bit_health.android.ui.framelayout.MaiBoReport;
 
@@ -98,6 +96,7 @@ public class ReportOfMaiboActivity extends ReportActivity {
 	 * 
 	 * 
 	 ******************************************************************/
+	@Override
 	protected void initViewPager() {
 		// TODO Auto-generated method stub
 		mViewPager = (ViewPager) view.findViewById(R.id.maibo_viewpager);
@@ -140,10 +139,12 @@ public class ReportOfMaiboActivity extends ReportActivity {
 	 ******************************************************************/
 	public class MyOnPageChangeListener implements OnPageChangeListener {
 
+		@Override
 		public void onPageScrollStateChanged(int arg0) {
 
 		}
 
+		@Override
 		public void onPageScrolled(int arg0, float arg1, int arg2) {
 
 		}
@@ -154,6 +155,7 @@ public class ReportOfMaiboActivity extends ReportActivity {
 		 * @param arg0
 		 *            = 0, 1, 2 即当前页的位置
 		 ******************************************************************/
+		@Override
 		public void onPageSelected(int arg0) {
 
 			Animation animation = new TranslateAnimation(displacement

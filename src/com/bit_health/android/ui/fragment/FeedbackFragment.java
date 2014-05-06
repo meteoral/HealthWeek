@@ -57,6 +57,7 @@ public class FeedbackFragment extends BaseFragment {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

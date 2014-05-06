@@ -336,15 +336,18 @@ public class TestXueYaActivity extends BaseActivity implements
 	 * 
 	 **********************************************************************/
 	private TextWatcher textWatcher = new TextWatcher() {
+		@Override
 		public void afterTextChanged(Editable s) {
 			// TODO Auto-generated method stub
 		}
 
+		@Override
 		public void beforeTextChanged(CharSequence s, int start, int count,
 				int after) {
 			// TODO Auto-generated method stub
 		}
 
+		@Override
 		public void onTextChanged(CharSequence s, int start, int before,
 				int count) {
 			if (!TextUtils.isEmpty(mEditBsleepssy.getText().toString())
@@ -364,6 +367,7 @@ public class TestXueYaActivity extends BaseActivity implements
 	};
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

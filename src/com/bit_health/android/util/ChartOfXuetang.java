@@ -39,7 +39,7 @@ public class ChartOfXuetang {
 		chart = ChartFactory.getBarChartView(mActivity, getBarChartDataset(),
 				renderer, Type.DEFAULT);// 生成图表
 		layout.addView(chart, new LayoutParams(
-				LayoutParams.WRAP_CONTENT, 380));
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT, 380));
 	}
 
 	/*****************************************************************

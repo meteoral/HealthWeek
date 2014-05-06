@@ -11,7 +11,6 @@ import com.bit_health.android.controllers.beans.PpgInfoBean;
 import com.bit_health.android.ui.activities.AbnormalReportActivity;
 import com.bit_health.android.ui.activities.AndroidActivityMananger;
 import com.bit_health.android.ui.activities.FourModuleManangerActivity;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
 import com.bit_health.android.util.ChartOfXindian;
 import com.bit_health.android.util.SetTextSizeClass;
 import com.bit_health.android.util.TimeFormatUtil;
@@ -120,6 +119,7 @@ public class MaiBoReport extends FrameLayout {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

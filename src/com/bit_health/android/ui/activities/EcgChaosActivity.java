@@ -2,7 +2,6 @@
 
 
 import com.siat.healthweek.R;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
 import com.bit_health.android.ui.views.EcgChaosView;
 
 import android.app.Activity;

@@ -1,7 +1,6 @@
 package com.bit_health.android.util;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;

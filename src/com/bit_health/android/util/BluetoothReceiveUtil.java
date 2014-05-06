@@ -3,7 +3,6 @@ package com.bit_health.android.util;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.lang.reflect.Method;
 import java.util.Timer;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -13,12 +12,10 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import com.bit_health.android.device.bluetooth.ConnectBluetooth;
 import com.bit_health.android.device.bluetooth.ConnectionDevice;
 
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.os.Build;
 
 public class BluetoothReceiveUtil {
 	private BluetoothSocket mSocket;
@@ -481,9 +478,9 @@ public class BluetoothReceiveUtil {
 //			android.util.Log.e("getFileDataAtemp", "getFileDataAtemp end");
 			return -1;
 		}
-		int dataLen = (((int) (byteRequest[8]&0xff)) << 24)
-				| (((int) (byteRequest[9]&0xff)) << 16) | (((int) (byteRequest[10]&0xff)) << 8)
-				| ((int) (byteRequest[11]&0xff));
+		int dataLen = ((byteRequest[8]&0xff) << 24)
+				| ((byteRequest[9]&0xff) << 16) | ((byteRequest[10]&0xff) << 8)
+				| (byteRequest[11]&0xff);
 		
 		if (!read(data, destPos, dataLen)) {
 //			android.util.Log.e("getFileDataAtemp", "getFileDataAtemp1 end dataLen = "+dataLen);
@@ -557,9 +554,9 @@ public class BluetoothReceiveUtil {
 
 		if (checkCommand(byteRequest,10)) {
 			// 合法的数据包
-			int length = (((int) (byteRequest[4]&0xff)) << 24)
-					| (((int) (byteRequest[5]&0xff)) << 16)
-					| (((int) (byteRequest[6]&0xff)) << 8) | ((int) (byteRequest[7]&0xff));
+			int length = ((byteRequest[4]&0xff) << 24)
+					| ((byteRequest[5]&0xff) << 16)
+					| ((byteRequest[6]&0xff) << 8) | (byteRequest[7]&0xff);
 			return length;		
 		}
 		return -1;

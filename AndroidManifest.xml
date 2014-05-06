@@ -29,7 +29,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.siat.healthweek.AppStart"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/Theme.ZoomLight.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -40,7 +41,7 @@
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.ZoomLight" >
+            android:theme="@style/Theme.ZoomLight.Fullscreen" >
         </activity>
         <activity
             android:name="com.siat.healthweek.ui.Capture"

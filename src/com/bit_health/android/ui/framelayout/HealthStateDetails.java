@@ -237,6 +237,7 @@ public class HealthStateDetails extends BaseFramelayout {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 		}

@@ -179,6 +179,7 @@ public class LoginActivity extends BaseActivity {
 	 **********************************************************************/
 	class MyViewListener implements OnClickListener {
 
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

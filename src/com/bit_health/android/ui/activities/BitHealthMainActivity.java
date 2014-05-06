@@ -30,6 +30,7 @@ public class BitHealthMainActivity extends BaseActivity {
 	private ProgressBar m_ProgressBar;
 
 	private Handler handler = new Handler() {
+		@Override
 		public void handleMessage(Message msg) {
 
 			switch (msg.what) {

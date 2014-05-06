@@ -7,7 +7,6 @@ import com.siat.healthweek.R;
 import com.bit_health.android.configuration.AndroidConfiguration;
 import com.bit_health.android.constants.BusinessConst;
 import com.bit_health.android.controllers.beans.BsInfoBean;
-import com.bit_health.android.controllers.beans.EcgInfoBean;
 import com.bit_health.android.controllers.beans.JsonBase;
 import com.bit_health.android.ui.activities.AbnormalReportActivity;
 import com.bit_health.android.ui.activities.AndroidActivityMananger;
@@ -19,7 +18,6 @@ import com.bit_health.android.util.TimeFormatUtil;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,17 +111,17 @@ public class XueTangReport extends FrameLayout {
 		LayoutInflater inflater = (LayoutInflater) mActivity
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View view = inflater.inflate(R.layout.xue_tang_report, this);
-		layoutSuggestion = (View) findViewById(R.id.layout_suggestion_of_xuetang);
-		layoutAbnormal = (View) findViewById(R.id.layout_month_abnormal_of_xuetang);
-		layoutFoundAbnormal = (View) findViewById(R.id.layout_found_abnormal_of_xuetang);
-		layoutXueTangMoreDialog = (View) findViewById(R.id.show_more_chart_dialog_xuetang);
-		layoutKongFuXueTang = (View) findViewById(R.id.layout_kongfu_xuetang);
+		layoutSuggestion = findViewById(R.id.layout_suggestion_of_xuetang);
+		layoutAbnormal = findViewById(R.id.layout_month_abnormal_of_xuetang);
+		layoutFoundAbnormal = findViewById(R.id.layout_found_abnormal_of_xuetang);
+		layoutXueTangMoreDialog = findViewById(R.id.show_more_chart_dialog_xuetang);
+		layoutKongFuXueTang = findViewById(R.id.layout_kongfu_xuetang);
 
-		layoutAbnormalContents = (View) findViewById(R.id.layout_abnormal_contents_of_xuetang);
-		show_kf_chart = (View) findViewById(R.id.show_kongfu_xuetang_chart);
-		show_bl_chart = (View) findViewById(R.id.show_befort_lunch_xuetang_chart);
-		show_al_chart = (View) findViewById(R.id.show_after_lunch_xuetang_chart);
-		show_bs_chart = (View) findViewById(R.id.show_before_sleep_xuetang_chart);
+		layoutAbnormalContents = findViewById(R.id.layout_abnormal_contents_of_xuetang);
+		show_kf_chart = findViewById(R.id.show_kongfu_xuetang_chart);
+		show_bl_chart = findViewById(R.id.show_befort_lunch_xuetang_chart);
+		show_al_chart = findViewById(R.id.show_after_lunch_xuetang_chart);
+		show_bs_chart = findViewById(R.id.show_before_sleep_xuetang_chart);
 		xuetangTitleNameText = (TextView) findViewById(R.id.xuetang_title_name_text);
 		suggestionContentText = (TextView) findViewById(R.id.suggestion_content_of_xuetang);
 		suggestionPointerImage = (ImageView) findViewById(R.id.suggestion_pointer_image_of_xuetang);
@@ -225,6 +223,7 @@ public class XueTangReport extends FrameLayout {
 	}
 	
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			int arrayLength = mBsInfoBean.size();

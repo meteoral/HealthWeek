@@ -101,7 +101,7 @@ public class ReportModuleFragment extends BaseFragment implements
 						} else {
 							mInfos = fbeans;
 							adapter = new ReportModuleListViewAdapter(
-									(FourModuleManangerActivity) getActivity(),
+									getActivity(),
 									mInfos);
 							mListView.setAdapter(adapter);
 						}
@@ -186,7 +186,7 @@ public class ReportModuleFragment extends BaseFragment implements
 		if (mInfos != null && mInfos.size() > 0) {
 			// 存在缓存数据
 			adapter = new ReportModuleListViewAdapter(
-					(FourModuleManangerActivity) getActivity(), mInfos);
+					getActivity(), mInfos);
 			mListView.setAdapter(adapter);
 		} else {
 			refreshFromServer();
@@ -276,6 +276,7 @@ public class ReportModuleFragment extends BaseFragment implements
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

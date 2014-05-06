@@ -24,19 +24,19 @@ import com.mobilehealth.starting.QRCodeOperation;
  * @version 1.0
  */
 public class MainActivity extends Activity {
-	private Button btnMain, btnXu, btnEhome, btnBag, btnWei, btnTran, btnBed, btnHaodou;
+	private Button btnHealthpaper, btnXu, btnEhome, btnBag, btnWei, btnTran,
+			btnBed, btnHaodou;
 	private static Boolean isClick = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.fragment_main);
 		setContentView(R.layout.welcome);
 		initialButton();
 	}
 
 	private void initialButton() {
-		btnMain = (Button) findViewById(R.id.main_button);
+		btnHealthpaper = (Button) findViewById(R.id.main_button_healthpaper);
 		btnXu = (Button) findViewById(R.id.main_button_xu);
 		btnEhome = (Button) findViewById(R.id.main_button_ehome);
 		btnBag = (Button) findViewById(R.id.main_button_bag);
@@ -45,45 +45,45 @@ public class MainActivity extends Activity {
 		btnBed = (Button) findViewById(R.id.main_button_bed);
 		btnHaodou = (Button) findViewById(R.id.main_button_haodou);
 
+		btnHealthpaper.setVisibility(View.INVISIBLE);
 		btnXu.setVisibility(View.INVISIBLE);
 		btnEhome.setVisibility(View.INVISIBLE);
 		btnBag.setVisibility(View.INVISIBLE);
 		btnWei.setVisibility(View.INVISIBLE);
 		btnTran.setVisibility(View.INVISIBLE);
 		btnBed.setVisibility(View.INVISIBLE);
-
-		Animation ani = AnimationUtils.loadAnimation(this,R.anim.translucent_button_zoom_in);
-		btnMain.setAnimation(ani);
-		ani.setDuration(2000);
-		ani.start();
-		btnMain.setOnClickListener(new OnClickListener() {
-
-			Animation income = AnimationUtils.loadAnimation(MainActivity.this,R.anim.translucent_button_zoom_in);
-			@Override
-			public void onClick(View v) {
-					btnXu.setVisibility(View.VISIBLE);
-					btnEhome.setVisibility(View.VISIBLE);
-					btnBag.setVisibility(View.VISIBLE);
-					btnWei.setVisibility(View.VISIBLE);
-					btnTran.setVisibility(View.VISIBLE);
-					btnBed.setVisibility(View.VISIBLE);
-					btnXu.setAnimation(income);
-					btnEhome.setAnimation(income);
-					btnBag.setAnimation(income);
-					btnWei.setAnimation(income);
-					btnTran.setAnimation(income);
-					btnBed.setAnimation(income);
-					income.setDuration(1000);
-					income.start();
-			}
-		});
+		btnHaodou.setVisibility(View.INVISIBLE);
+		Animation income = AnimationUtils.loadAnimation(MainActivity.this,
+				R.anim.translucent_button_zoom_in);
+		btnXu.setVisibility(View.VISIBLE);
+		btnEhome.setVisibility(View.VISIBLE);
+		btnBag.setVisibility(View.VISIBLE);
+		btnWei.setVisibility(View.VISIBLE);
+		btnTran.setVisibility(View.VISIBLE);
+		btnBed.setVisibility(View.VISIBLE);
+		btnHealthpaper.setVisibility(View.VISIBLE);
+		btnHaodou.setVisibility(View.VISIBLE);
+		btnXu.setAnimation(income);
+		btnEhome.setAnimation(income);
+		btnBag.setAnimation(income);
+		btnWei.setAnimation(income);
+		btnTran.setAnimation(income);
+		btnBed.setAnimation(income);
+		btnHaodou.setAnimation(income);
+		btnHealthpaper.setAnimation(income);
+		income.setDuration(1000);
+		income.start();
 		btnXu.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				/*Intent intent = new Intent(MainActivity.this, Capture.class);
-				startActivity(intent);*/
-				/*Intent intent = new Intent(MainActivity.this, QRCodeOperation.class);
-				startActivity(intent);*/
+				/*
+				 * Intent intent = new Intent(MainActivity.this, Capture.class);
+				 * startActivity(intent);
+				 */
+				/*
+				 * Intent intent = new Intent(MainActivity.this,
+				 * QRCodeOperation.class); startActivity(intent);
+				 */
 
 				startChildApp(QRCodeOperation.class);
 			}
@@ -121,8 +121,10 @@ public class MainActivity extends Activity {
 		btnWei.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				/*Intent intent = new Intent(MainActivity.this, VideoPlaying.class);
-				startActivity(intent);*/
+				/*
+				 * Intent intent = new Intent(MainActivity.this,
+				 * VideoPlaying.class); startActivity(intent);
+				 */
 
 				startChildApp(VideoPlaying.class);
 			}
@@ -136,11 +138,11 @@ public class MainActivity extends Activity {
 		});
 	}
 
-	private void startChildApp(Class<?> clazz)
-	{
+	private void startChildApp(Class<?> clazz) {
 		Intent intent = new Intent(MainActivity.this, clazz);
 		startActivity(intent);
-		overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+		overridePendingTransition(android.R.anim.fade_in,
+				android.R.anim.fade_out);
 	}
 
 }

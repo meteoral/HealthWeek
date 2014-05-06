@@ -1,12 +1,9 @@
 package com.bit_health.android.ui.activities;
 
 import com.siat.healthweek.R;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +64,7 @@ public class RegisterIdentifyCodeActivity extends BaseActivity {
 	 * @author 梁才学 创建日期：2013.12.5
 	 **********************************************************************/
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

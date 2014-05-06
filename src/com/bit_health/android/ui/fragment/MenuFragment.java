@@ -57,13 +57,13 @@ public class MenuFragment extends Fragment {
 		// TODO Auto-generated method stub
 		view = inflater.inflate(R.layout.menu_fragment, container, false);
 
-		reLoginIdentity = (View) view
+		reLoginIdentity = view
 				.findViewById(R.id.layout_re_login_identity);
-		myCare = (View) view.findViewById(R.id.layout_my_care);
-		myFamily = (View) view.findViewById(R.id.layout_my_family);
-		reLogin = (View) view.findViewById(R.id.layout_re_login);
-		tips = (View) view.findViewById(R.id.layout_tips);
-		moreInfo = (View) view.findViewById(R.id.layout_more_info);
+		myCare = view.findViewById(R.id.layout_my_care);
+		myFamily = view.findViewById(R.id.layout_my_family);
+		reLogin = view.findViewById(R.id.layout_re_login);
+		tips = view.findViewById(R.id.layout_tips);
+		moreInfo = view.findViewById(R.id.layout_more_info);
 		editImage = (ImageView) view.findViewById(R.id.menu_page_edit_image);
 		shareImage = (ImageView) view.findViewById(R.id.menu_page_share_image);
 		re_login_identity_text = (TextView) view
@@ -185,6 +185,7 @@ public class MenuFragment extends Fragment {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

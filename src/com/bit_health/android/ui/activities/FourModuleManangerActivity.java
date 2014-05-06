@@ -66,6 +66,7 @@ public class FourModuleManangerActivity extends SlidingActivity {
 	private AndroidCustomTaskMgr mTaskMgr;
 	private CheckConnectTask mCheckConnectTask;
 
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.four_module_mananger); // 设置 Sliding 内容界面的布局

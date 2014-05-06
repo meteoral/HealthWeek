@@ -43,7 +43,7 @@ public class ChartOfXueya {
 		renderer = getBarChartRenderer();
 		chart = ChartFactory.getBarChartView(mActivity, getBarChartDataset(),
 				renderer, Type.DEFAULT);// 生成图表
-		layout.addView(chart, new LayoutParams(LayoutParams.WRAP_CONTENT, 380));
+		layout.addView(chart, new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, 380));
 	}
 	
 	/*****************************************************************

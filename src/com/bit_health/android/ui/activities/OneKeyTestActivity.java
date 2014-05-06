@@ -175,6 +175,7 @@ public class OneKeyTestActivity extends BaseActivity {
 	 * @author 梁才学 创建日期：2013.12.5
 	 **********************************************************************/
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

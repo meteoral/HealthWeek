@@ -572,6 +572,7 @@ public class BasicInfoOfFamilyActivity extends BaseActivity implements
 					}
 				})
 				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+					@Override
 					public void onClick(DialogInterface dialog, int whichButton) {
 						dialog.dismiss();
 					}
@@ -581,6 +582,7 @@ public class BasicInfoOfFamilyActivity extends BaseActivity implements
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

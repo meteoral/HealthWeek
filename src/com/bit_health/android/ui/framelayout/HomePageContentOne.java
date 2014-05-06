@@ -29,7 +29,6 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -208,7 +207,7 @@ public class HomePageContentOne extends FrameLayout {
 							.setSpan(
 									new ForegroundColorSpan(Color
 											.parseColor("#FF6D26")), start,
-									end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+									end, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
 					healthStateText.setText(spanableInfo);
 
 					break;
@@ -219,7 +218,7 @@ public class HomePageContentOne extends FrameLayout {
 							.setSpan(
 									new ForegroundColorSpan(Color
 											.parseColor("#FFFFFF")), start,
-									end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+									end, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
 					healthStateText.setText(spanableInfo);
 
 					Intent intentDetailBtn = new Intent();
@@ -236,7 +235,7 @@ public class HomePageContentOne extends FrameLayout {
 							.setSpan(
 									new ForegroundColorSpan(Color
 											.parseColor("#FFFFFF")), start,
-									end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+									end, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
 					healthStateText.setText(spanableInfo);
 
 					break;
@@ -253,7 +252,7 @@ public class HomePageContentOne extends FrameLayout {
 		spanableInfo.setSpan(new Clickable(listener), start, end,
 				Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 		spanableInfo.setSpan(new ForegroundColorSpan(Color.WHITE), start, end,
-				Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+				Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
 
 		return spanableInfo;
 	}
@@ -438,6 +437,7 @@ public class HomePageContentOne extends FrameLayout {
 	 * @author 梁才学 主要功能：界面上的各个控件的监听 创建日期：2014.1.2
 	 **********************************************************************/
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

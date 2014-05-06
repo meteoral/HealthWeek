@@ -61,11 +61,11 @@ public class BluetoothUploadMiniholterEcg extends UsbUploadMeasureFile {
 	}
 
 	private int caculateRequestTime(int iSize,float speed){
-		float time = ((float)iSize/ speed)/60;
-		float time1 = (float)((int)(time*10)/10);
+		float time = (iSize/ speed)/60;
+		float time1 = (int)(time*10)/10;
 		float time2 = time;
 		if(time2 - time1 >= 0.5){
-			time1 = (float) (time1 +1);
+			time1 = time1 +1;
 		}
 		return (int) time1;
 	}
@@ -78,10 +78,10 @@ public class BluetoothUploadMiniholterEcg extends UsbUploadMeasureFile {
 
 	private int caculateTime(int iSize){
 		float time = ((float)iSize)/(512*1024);
-		float time1 = (float)((int)(time*10)/10);
+		float time1 = (int)(time*10)/10;
 		float time2 = time;
 		if(time2 - time1 >= 0.5){
-			time1 = (float) (time1 +1);
+			time1 = time1 +1;
 		}
 		return (int) time1;
 	}

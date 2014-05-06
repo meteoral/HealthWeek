@@ -5,7 +5,6 @@ import java.util.regex.Pattern;
 
 import com.siat.healthweek.R;
 import com.bit_health.android.controllers.InterfaceService;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
 import com.bit_health.android.util.EmailAutoCompleteTextView;
 
 import android.content.Context;
@@ -134,6 +133,7 @@ public class RegisterActivity extends BaseActivity {
 	 * @author 梁才学 创建日期：2013.12.5
 	 **********************************************************************/
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

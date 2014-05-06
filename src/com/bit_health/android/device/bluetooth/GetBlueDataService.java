@@ -6,14 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.CoreConnectionPNames;
-import org.apache.http.params.HttpParams;
 
 import com.bit_health.android.configuration.AndroidConfiguration;
 import com.bit_health.android.device.bluetooth.ui.BluetoothData;
@@ -22,7 +15,6 @@ import com.bit_health.android.ui.activities.AndroidActivityMananger;
 import com.bit_health.android.ui.activities.TestXinDianActivity;
 
 import android.app.Service;
-import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
@@ -316,7 +308,8 @@ public class GetBlueDataService extends Service {
 			/**/
 
 			ConnectionDevice.getInstance().disconnectSocket();
-			BluetoothData.getInsetance().destroy();
+			BluetoothData.getInsetance();
+			BluetoothData.destroy();
 			wl.release();
 			android.util.Log.i("HandleThread", "HandleThread end....");
 		}

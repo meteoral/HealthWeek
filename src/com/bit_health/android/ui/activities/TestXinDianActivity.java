@@ -10,9 +10,6 @@ import com.bit_health.android.device.bluetooth.ConnectBluetooth;
 import com.bit_health.android.device.bluetooth.ConnectionDevice;
 import com.bit_health.android.device.bluetooth.GetBlueDataService;
 import com.bit_health.android.device.bluetooth.ui.BluetoothData;
-import com.bit_health.android.device.bluetooth.ui.EcgPpgActivity;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
-
 import android.app.Activity;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
@@ -259,6 +256,7 @@ public class TestXinDianActivity extends BaseActivity {
 	}
 	
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

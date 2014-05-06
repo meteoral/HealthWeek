@@ -116,7 +116,7 @@ public class BaseDataOfDetailActivity extends BaseActivity {
 	 * 方法描述：计算总脉搏数: 总脉搏数 = 脉率*（时长/60）
 	 *********************************************************************/
 	private int calculatePpgCount() {
-		return (int) testValue * (mPpgInfoId.mTimeLength / 60);
+		return testValue * (mPpgInfoId.mTimeLength / 60);
 	}
 
 	/**********************************************************************
@@ -270,6 +270,7 @@ public class BaseDataOfDetailActivity extends BaseActivity {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

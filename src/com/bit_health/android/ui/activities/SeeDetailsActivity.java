@@ -177,10 +177,12 @@ public class SeeDetailsActivity extends BaseActivity {
 	 ******************************************************************/
 	private class MyOnPageChangeListener implements OnPageChangeListener {
 
+		@Override
 		public void onPageScrollStateChanged(int arg0) {
 
 		}
 
+		@Override
 		public void onPageScrolled(int arg0, float arg1, int arg2) {
 
 		}
@@ -191,6 +193,7 @@ public class SeeDetailsActivity extends BaseActivity {
 		 * @param arg0
 		 *            = 0, 1, 2 即当前页的位置
 		 ******************************************************************/
+		@Override
 		public void onPageSelected(int arg0) {
 			setCurrentPageView(arg0);
 		}
@@ -231,6 +234,7 @@ public class SeeDetailsActivity extends BaseActivity {
 	}
 
 	class MyViewListener implements OnClickListener {
+		@Override
 		public void onClick(View v) {
 
 			switch (v.getId()) {

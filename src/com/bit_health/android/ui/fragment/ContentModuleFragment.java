@@ -3,7 +3,6 @@ package com.bit_health.android.ui.fragment;
 import com.siat.healthweek.R;
 import com.bit_health.android.configuration.AndroidConfiguration;
 import com.bit_health.android.configuration.RoleCatchInfo;
-import com.bit_health.android.controllers.beans.JsonBase;
 import com.bit_health.android.controllers.beans.RoleInfoBean;
 import com.bit_health.android.ui.activities.FourModuleManangerActivity;
 import com.bit_health.android.ui.adapter.ContentModuleVP_Adapter;
@@ -179,16 +178,19 @@ public class ContentModuleFragment extends BaseFragment {
 	 ******************************************************************/
 	public class MyOnPageChangeListener implements OnPageChangeListener {
 
+		@Override
 		public void onPageScrollStateChanged(int arg0) {
 
 		}
 
 		// 滑动过程调用
+		@Override
 		public void onPageScrolled(int arg0, float arg1, int arg2) {
 
 		}
 
 		// 当页面滑动停止后调用，从效果也可以看到，当滑动停止之后，横线图片才开始滑动
+		@Override
 		public void onPageSelected(int arg0) {
 
 			if (arg0 == 0) {

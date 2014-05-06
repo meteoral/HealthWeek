@@ -1,8 +1,6 @@
 package com.bit_health.android.ui.activities;
 
 import com.siat.healthweek.R;
-import com.bit_health.android.ui.fragment.FontSizeSetFragment;
-
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;

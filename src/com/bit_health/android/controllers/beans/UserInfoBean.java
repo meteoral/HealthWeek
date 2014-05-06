@@ -61,6 +61,7 @@ public class UserInfoBean extends JsonBase{
 	public String toJsonString() {
 		return super.toJsonString(USER_DETAIL, toString());
 	}
+	@Override
 	public String toString(){
 		JSONObject jobj = new JSONObject();
 		try {

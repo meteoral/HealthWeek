@@ -7,7 +7,6 @@
  ********************************************************/
 package com.bit_health.android.ui.activities;
 import java.util.List;
-import android.util.Log;
 import com.bit_health.android.configuration.AndroidConfiguration;
 import com.bit_health.android.constants.BusinessConst;
 import com.bit_health.android.controllers.DataCatchInterface;
