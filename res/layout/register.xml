@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/content_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/xiao_e_item_height"
+        android:background="@drawable/content_title_bg" >
+
+        <ImageView
+            android:id="@+id/register_title_bar_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/cancer_button_status" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/title_register"
+            android:textSize="@dimen/interface_title" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <!-- 表格布局  start -->
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_weight="0.6"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="25dip" >
+
+            <!-- 表格布局：第一行 -->
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_top_corner_no_bottom_line"
+                android:padding="10dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:text="@string/account_colon"
+                    android:textSize="@dimen/normal_textsize" >
+                </TextView>
+
+                <com.bit_health.android.util.EmailAutoCompleteTextView
+                    android:id="@+id/register_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/login_account_remarks"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textSize="@dimen/normal_textsize" />
+            </TableRow>
+            <!-- 表格布局：第二行 -->
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_no_corner_without_bottom"
+                android:padding="10dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:text="@string/register_password"
+                    android:textSize="@dimen/normal_textsize" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/register_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textSize="@dimen/normal_textsize" >
+                </EditText>
+            </TableRow>
+
+            <!-- 表格布局：第三行 -->
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_bottom_corner_no_top_line"
+                android:padding="10dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:text="@string/register_password_comfirmation"
+                    android:textSize="@dimen/normal_textsize" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/confirmation_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textSize="@dimen/normal_textsize" >
+                </EditText>
+            </TableRow>
+        </TableLayout>
+        <!-- 表格布局  start -->
+
+        <LinearLayout
+            android:id="@+id/layout_link"
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/activation_account"
+                android:textColor="#FF3030"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/register_link_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:gravity="center"
+                android:textColor="@color/textview_color"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_weight="0.2"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/register_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_style_green"
+                android:gravity="center"
+                android:layout_margin="20dip"
+                android:text="@string/register"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/normal_textsize" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

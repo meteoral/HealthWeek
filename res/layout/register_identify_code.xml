@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/content_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/xiao_e_item_height"
+        android:background="@drawable/content_title_bg" >
+
+        <ImageView
+            android:id="@+id/identify_code_title_bar_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/cancer_button_status" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/register"
+            android:textSize="@dimen/interface_title" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_weight="0.8"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/input_verification_code"
+                android:textSize="@dimen/normal_textsize" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="10dip" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:background="@drawable/shape_corner"
+                android:orientation="vertical"
+                android:padding="10dip" >
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@null"
+                    android:hint="123"
+                    android:singleLine="true"
+                    android:textSize="@dimen/normal_textsize" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_weight="0.2"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/complete_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_style_green"
+                android:gravity="center"
+                android:text="@string/complete"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/normal_textsize" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

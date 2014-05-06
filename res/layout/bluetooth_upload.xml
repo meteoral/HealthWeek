@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/content_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/xiao_e_item_height"
+        android:background="@drawable/content_title_bg" >
+
+        <ImageView
+            android:id="@+id/bluetooth_upload_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/cancer_button_status" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/upload_faile_records"
+            android:textSize="@dimen/interface_title" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TextView
+            android:id="@+id/no_data_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="没有数据"
+            android:alpha="0.3"
+            android:textSize="@dimen/interface_title" />
+
+        <ListView
+            android:id="@+id/bluetooth_upload_listview"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:listSelector="@color/transparent"
+            android:scrollbars="vertical" />
+    </RelativeLayout>
+
+</LinearLayout>

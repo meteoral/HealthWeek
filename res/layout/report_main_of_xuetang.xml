@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <!-- ************************* 顶部布局 start*********************** -->
+
+    <LinearLayout
+        android:id="@+id/layout_report_title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/xiao_e_item_height"
+        android:background="@drawable/content_title_bg"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/report_xuetang_back_iamge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="onClickBackImage"
+            android:src="@drawable/cancer_button_status" />
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/layout_report"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/listview_item_color"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClickLayoutReport" >
+
+                <TextView
+                    android:id="@+id/report_xuetang_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/xuetang_fenxi"
+                    android:textSize="@dimen/interface_title" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_records"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/listview_item_color"
+                android:clickable="true"
+                android:onClick="onClickLayoutRecords" >
+
+                <TextView
+                    android:id="@+id/history_xuetang_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:alpha="0.4"
+                    android:text="@string/title_xindian_records"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ************************* 顶部布局 end*********************** -->
+
+
+    <!-- ************************* 底部布局 start*********************** -->
+
+    <LinearLayout
+        android:id="@+id/layout_report_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:background="@drawable/main_bg_bottom">
+
+        <!-- <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:background="@drawable/listview_item_color"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="matrix"
+                android:src="@drawable/edit_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_text"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:background="@drawable/listview_item_color"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="matrix"
+                android:src="@drawable/filter_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_text"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout> -->
+
+        <LinearLayout
+            android:id="@+id/btn_xuetangtest_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:background="@drawable/listview_item_color"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="matrix"
+                android:src="@drawable/test_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/test_text"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- ************************* 底部布局 end *********************** -->
+
+    <ImageView
+        android:id="@+id/cursor"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_report_title"
+        android:scaleType="matrix"
+        android:src="@drawable/line" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/report_module_viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/layout_report_bottom"
+        android:layout_below="@id/cursor"
+        android:layout_gravity="center"
+        android:background="#FFFFFF"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+
+</RelativeLayout>

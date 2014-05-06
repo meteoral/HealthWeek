@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:background="@drawable/shape_corner" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:id="@+id/basic_info_head_edit"
+                        android:layout_width="@dimen/photo_w_and_h"
+                        android:layout_height="@dimen/photo_w_and_h"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/sun" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/set_head_photo"
+                        android:textSize="@dimen/normal_textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="60px"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:src="@drawable/lock_selector" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/locked"
+                        android:textSize="@dimen/normal_textsize" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/preference_single_item"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="changeRoleName" >
+
+                <TextView
+                    android:id="@+id/change_fullname_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="8dp"
+                    android:text="@string/role_colon"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <TextView
+                    android:id="@+id/set_fullname_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/change_fullname_text"
+                    android:padding="8dp"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="matrix"
+                    android:src="@drawable/abnormal_pointer_selector" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/ic_preference_single_normal"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/role_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="8dp"
+                    android:text="@string/name_colon"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <EditText
+                    android:id="@+id/role_user_name_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/role_name_text"
+                    android:background="@null"
+                    android:scaleType="matrix"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/ic_preference_single_normal"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/gender_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="8dp"
+                    android:text="@string/gender_colon"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_gender"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/gender_text"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/gender_man"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/male_colon"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <RadioButton
+                        android:id="@+id/gender_woman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dip"
+                        android:text="@string/female_colon"
+                        android:textSize="@dimen/normal_textsize" />
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/ic_preference_single_normal"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/birthday_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="8dp"
+                    android:text="@string/birthday_colon"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <TextView
+                    android:id="@+id/role_birthday_choice"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/birthday_text"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:singleLine="true"
+                    android:textSize="@dimen/normal_textsize" >
+                </TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/ic_preference_single_normal"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/height_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="8dp"
+                    android:text="@string/height_colon"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <EditText
+                    android:id="@+id/role_height_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/height_text"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:scaleType="matrix"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/ic_preference_single_normal"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/weight_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="8dp"
+                    android:text="@string/weight_colon"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <EditText
+                    android:id="@+id/role_weight_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/weight_text"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:scaleType="matrix"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

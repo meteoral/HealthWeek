@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/main_bg"
+    tools:context=".BitHealthMainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/main_bg_bottom"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/version_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="V2.0"
+            android:alpha="0.5"
+            android:textSize="@dimen/interface_bottom_one" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/version_text"
+            android:gravity="center_horizontal"
+            android:alpha="0.5"
+            android:text="@string/company_name"
+            android:textSize="@dimen/interface_bottom_two" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layout_bottom"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_weight="0.45"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal"
+                android:alpha="0.5"
+                android:text="@string/logo_name"
+                android:textSize="@dimen/interface_title" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/title_text"
+                android:gravity="center_horizontal"
+                android:src="@drawable/logo" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_weight="0.55"
+            android:orientation="vertical" 
+            android:layout_marginTop="20dip"
+            android:gravity="center_horizontal">
+
+            <ProgressBar
+                android:id="@+id/ProgressBar01"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                android:indeterminateOnly="false"
+                android:layout_marginLeft="50dip"
+                android:layout_marginRight="50dip"
+                android:progressDrawable="@drawable/horizontal_progress_style"
+                android:visibility="visible" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

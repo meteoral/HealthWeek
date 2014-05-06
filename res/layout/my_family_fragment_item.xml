@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10px" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150px"
+        android:background="@drawable/preference_single_item" >        
+        <!-- android:background="@drawable/shape_corner" -->
+
+        <ImageView
+            android:id="@+id/my_family_head_image"
+            android:layout_width="@dimen/photo_w_and_h"
+            android:layout_height="@dimen/photo_w_and_h"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10px" />
+
+        <ImageView
+            android:id="@+id/my_family_pointer_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/abnormal_pointer_selector" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/my_family_pointer_image"
+            android:layout_toRightOf="@id/my_family_head_image"
+            android:orientation="vertical"
+            android:paddingLeft="10px" >
+
+            <TextView
+                android:id="@+id/my_family_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/role_name_father"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/my_family_name_pinyin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Li jiacheng"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

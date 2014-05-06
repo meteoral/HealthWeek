@@ -1,0 +1,281 @@
+package com.bit_health.android.device;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.MotionEvent;
+import android.view.Window;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bit_health.android.configuration.AndroidConfiguration;
+import com.bit_health.android.constants.BusinessConst;
+import com.bit_health.android.controllers.IProgressCallback;
+import com.bit_health.android.controllers.IServerBusiness;
+import com.bit_health.android.controllers.beans.upload.UploadDeviceFileBean;
+import com.bit_health.android.device.bluetooth.ui.EcgPpgActivity;
+import com.bit_health.android.ui.activities.AndroidActivityMananger;
+import com.bit_health.android.ui.activities.BlueToothUploadActivity;
+import com.bit_health.android.ui.activities.FourModuleManangerActivity;
+import com.bit_health.android.ui.activities.ReportsDetailActivity;
+import com.siat.healthweek.R;
+
+public abstract class AbsUploadDeviceFileDialog extends Activity implements
+		IProgressCallback {
+	private static ProgressBar mDialog;
+	protected static TextView mContent;
+	protected Context mContext;
+	private static final String IS_RUNNING = "isrunning";
+	protected UploadDeviceFileBean mUploadBean = new UploadDeviceFileBean();
+
+	protected static boolean mbRunning = false;
+
+	// public AbsUploadDeviceFileDialog(Context context) {
+	// // TODO Auto-generated constructor stub
+	// this.mContext = context;
+	// }
+
+	// 初始化需要上传的数据
+	public abstract boolean initUploadData();
+
+	protected String gzCompressFile(String fileName) {
+//		try {
+//			if (TextUtils.isEmpty(fileName)) {
+//				return null;
+//			}
+//			File file = new File(fileName);
+//			if (!file.isFile()) {
+//				return null;
+//			}
+//			InputStream in = new FileInputStream(file);
+//			File gzFile = new File(fileName + ".gz");
+//			gzFile.createNewFile();
+//			GZIPOutputStream gzipOut = new GZIPOutputStream(
+//					new FileOutputStream(gzFile));
+//			byte[] readBytes = new byte[8 * 1024];
+//			int toRead = 0;
+//			while ((toRead = in.read(readBytes)) != -1) {
+//				gzipOut.write(readBytes, 0, toRead);
+//			}
+//			in.close();
+//			in = null;
+//			gzipOut.close();
+//			gzipOut = null;
+//			return fileName + ".gz";
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return null;
+		return fileName;
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		android.util.Log.i("AbsUploadDeviceFileDialog", "onCreate called");
+		this.setContentView(R.layout.upload_device_file);
+		this.mContext = this;
+		mDialog = (ProgressBar) findViewById(R.id.uploadprogressbarid);
+		mContent = (TextView) findViewById(R.id.uploadcontentid);
+		if (savedInstanceState != null) {
+			if (!savedInstanceState.getBoolean(IS_RUNNING)) {
+				new UploadECGPPGThread().start();
+			}
+		} else {
+			new UploadECGPPGThread().start();
+		}
+	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		mDialog = null;
+		mContent = null;
+		mbRunning = false;
+		super.onDestroy();
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		// TODO Auto-generated method stub
+		outState.putBoolean(IS_RUNNING, true);
+		super.onSaveInstanceState(outState);
+	}
+
+	// public void startUpload() {
+	//
+	// // 创建ProgressDialog对象
+	// if (mDialog == null) {
+	// mDialog = new ProgressDialog(mContext);
+	// }
+	//
+	// mDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+	//
+	// // 设置ProgressDialog 自定义的样式
+	// mDialog.setProgressDrawable(mContext.getResources().getDrawable(R.drawable.horizontal_progress_style));
+	// // 设置ProgressDialog 标题
+	// mDialog.setTitle("提示");
+	// // 设置ProgressDialog 提示信息
+	// mDialog.setMessage("准备上传数据");
+	// // 设置ProgressDialog 标题图标
+	// mDialog.setIcon(R.drawable.shadow);
+	// // 设置ProgressDialog 进度条进度
+	// // mDialog.setProgress(100);
+	// // 设置最大值
+	// mDialog.setMax(0);
+	//
+	// // 设置ProgressDialog 的进度条是否不明确
+	// mDialog.setIndeterminate(false);
+	//
+	// // 设置ProgressDialog 是否可以按退回按键取消
+	// mDialog.setCancelable(true);
+	// // 让ProgressDialog显示
+	// mDialog.show();
+	// new UploadECGPPGThread().start();
+	// }
+
+	public void updateProgress(final int pos, final int total,
+			final String message) {
+		((Activity) mContext).runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				if (mDialog != null) {
+					if (mDialog.getMax() != total) {
+						mDialog.setMax(total);
+					}
+					mDialog.setProgress(pos);
+					mContent.setText(message);
+				}
+			}
+		});
+	}
+
+	public void uploadEnd(final String message) {
+		((Activity) mContext).runOnUiThread(new Runnable() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				Toast.makeText(mContext, message, 1000).show();
+			}
+		});
+	}
+
+	protected void showMeasureDetail(final String ecgid, final String ppgid) {
+
+		final Activity ecgppgAcitiy = AndroidActivityMananger.getInstatnce()
+				.getActivity(EcgPpgActivity.class.getSimpleName());
+		Activity mainActivity = AndroidActivityMananger.getInstatnce()
+				.getActivity(FourModuleManangerActivity.class.getSimpleName());
+		Activity bluploadActivity = AndroidActivityMananger.getInstatnce()
+				.getActivity(BlueToothUploadActivity.class.getSimpleName());
+		Activity activity = ecgppgAcitiy != null ? ecgppgAcitiy
+				: bluploadActivity;
+		if(activity == null){
+			activity = mainActivity;
+		}
+		final Activity runActivity = activity;
+		runActivity.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				AlertDialog ad = new AlertDialog.Builder(runActivity).create();
+				ad.setTitle("上传成功");
+				ad.setMessage("是否要马上看分析结果？");
+				ad.setButton("是", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int i) {
+						// TODO Auto-generated method stub
+						Intent intent = new Intent(runActivity
+								.getApplicationContext(),
+								ReportsDetailActivity.class);
+						ArrayList<String> ids = new ArrayList<String>();
+						ArrayList<String> types = new ArrayList<String>();
+						ids.add(ecgid);
+						types.add(BusinessConst.ECG_MESURE);
+						if(!TextUtils.isEmpty(ppgid)){
+							ids.add(ppgid);
+							types.add(BusinessConst.PPG_MESURE);
+						}
+						intent.putStringArrayListExtra("bean_id", ids);
+						intent.putStringArrayListExtra("bean_type", types);
+						String roleId = AndroidConfiguration.getInstance(runActivity).getRoleId();
+						intent.putExtra("role_id", roleId);
+						runActivity.startActivity(intent);
+						if(ecgppgAcitiy !=  null){
+							ecgppgAcitiy.finish();
+						}
+					}
+				});
+				ad.setButton2("否", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int i) {
+
+					}
+				});
+				ad.setCanceledOnTouchOutside(false);
+				ad.show();
+			}
+		});
+	}
+
+	public class UploadECGPPGThread extends Thread {
+		boolean timeout = true;
+		boolean dataerr = true;
+		public boolean analyzeFlag = false;
+		private String result;
+
+		@Override
+		public void run() {
+			mbRunning = true;
+			if (initUploadData() && mbRunning) {
+				// 数据准备成功?
+				IServerBusiness.getInstance(mContext.getApplicationContext())
+						.UploadDeviceFile2(mUploadBean,
+								AbsUploadDeviceFileDialog.this);
+			}
+
+			if (!AbsUploadDeviceFileDialog.this.isFinishing()) {
+				AbsUploadDeviceFileDialog.this.finish();
+			}
+		}
+	}
+
+	@Override
+	public void notifyProgressChanged(int pos, int total, String message) {
+		// TODO Auto-generated method stub
+		updateProgress(pos, total, message);
+	}
+
+	@Override
+	public void uploadError(String message) {
+		// TODO Auto-generated method stub
+		uploadEnd(message);
+	}
+
+	@Override
+	public void uploadSuccess(String message, String ecgid, String ppgid) {
+		// TODO Auto-generated method stub
+		showMeasureDetail(ecgid, ppgid);
+		uploadEnd(message);
+	}
+
+	/***************************************************
+	 * 方法描述：本activity是以对话框的风格显示的，当点击对话框的外部时，不让消失 修改人：梁才学 日期：2014.2.27
+	 **************************************************/
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		return false;
+	}
+}

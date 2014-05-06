@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <com.bit_health.android.util.ReportModuleExpandListView
+        android:id="@+id/records_expandable_listview_of_xindian"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/content_bg"
+        android:divider="@null"
+        android:groupIndicator="@null"
+        android:listSelector="#00000000" >
+
+        <!-- android:groupIndicator="@null" 去掉系统自带的箭头图标 -->
+        <!-- android:listSelector="#00000000"关闭child的点击背景效果 -->
+    </com.bit_health.android.util.ReportModuleExpandListView>
+
+</LinearLayout>

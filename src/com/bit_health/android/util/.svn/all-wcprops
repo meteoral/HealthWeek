@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ClientSource_Android/!svn/ver/334/src/com/bit_health/android/util
+END
+SimpleTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ClientSource_Android/!svn/ver/313/src/com/bit_health/android/util/SimpleTable.java
+END
+ChartOfXindian.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/util/ChartOfXindian.java
+END
+TimeConsumingDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/util/TimeConsumingDialog.java
+END
+HeadImageUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ClientSource_Android/!svn/ver/147/src/com/bit_health/android/util/HeadImageUtil.java
+END
+ChartOfXueya.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/util/ChartOfXueya.java
+END
+TimeFormatUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ClientSource_Android/!svn/ver/311/src/com/bit_health/android/util/TimeFormatUtil.java
+END
+FileCatchConfigUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ClientSource_Android/!svn/ver/171/src/com/bit_health/android/util/FileCatchConfigUtil.java
+END
+BluetoothReceiveUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ClientSource_Android/!svn/ver/212/src/com/bit_health/android/util/BluetoothReceiveUtil.java
+END
+ReportModuleListView.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ClientSource_Android/!svn/ver/23/src/com/bit_health/android/util/ReportModuleListView.java
+END
+ReportModuleExpandListView.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ClientSource_Android/!svn/ver/238/src/com/bit_health/android/util/ReportModuleExpandListView.java
+END
+EmailAutoCompleteTextView.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ClientSource_Android/!svn/ver/334/src/com/bit_health/android/util/EmailAutoCompleteTextView.java
+END
+BgSettingsImage.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/util/BgSettingsImage.java
+END
+SetTextSizeClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/util/SetTextSizeClass.java
+END
+ReportModuleListViewHeader.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ClientSource_Android/!svn/ver/23/src/com/bit_health/android/util/ReportModuleListViewHeader.java
+END
+ChartOfXuetang.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/util/ChartOfXuetang.java
+END
+BirthdayToAge.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/util/BirthdayToAge.java
+END
+ReportModuleListViewFooter.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ClientSource_Android/!svn/ver/23/src/com/bit_health/android/util/ReportModuleListViewFooter.java
+END
+EncryptionUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ClientSource_Android/!svn/ver/227/src/com/bit_health/android/util/EncryptionUtil.java
+END
+CurrentVersion.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ClientSource_Android/!svn/ver/198/src/com/bit_health/android/util/CurrentVersion.java
+END
+CustomDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/util/CustomDialog.java
+END
+SetDialogFontSize.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ClientSource_Android/!svn/ver/234/src/com/bit_health/android/util/SetDialogFontSize.java
+END

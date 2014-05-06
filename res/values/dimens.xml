@@ -3,24 +3,45 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    
+
     <dimen name="main_frame_head_height">50dp</dimen>
     <dimen name="main_frame_foot_height">50dp</dimen>
     <dimen name="edittext_height">36dp</dimen>
     <dimen name="edittext_width">125dp</dimen>
     <dimen name="main_frame_content_foot_margin">35dp</dimen>
-    
+
     <dimen name="body_commu_foot_height">15dp</dimen>
     <dimen name="dandelion_bodycommu_block_gap">15dp</dimen>
-    
+
     <dimen name="textsize_for_actionbar_caption">18sp</dimen>
     <dimen name="textsize_small">16sp</dimen>
     <dimen name="textsize_medium">18sp</dimen>
     <dimen name="textsize_large">20sp</dimen>
-    
+
     <dimen name="icon_height">40dp</dimen>
     <dimen name="icon_width">50dp</dimen>
     <dimen name="general_padding">8dp</dimen>
     <dimen name="general_margin">8dp</dimen>
 
+    <dimen name="set_font_size_25px">25px</dimen>
+    <dimen name="set_font_size_28px">28px</dimen>
+    <dimen name="set_font_size_31px">31px</dimen>
+    <dimen name="set_font_size_90px">90px</dimen>
+    <dimen name="ecg_test_bottom_height">80px</dimen>
+    <dimen name="ecg_test_textsize">35px</dimen>
+    <dimen name="ecg_test_bluetooth_connect_padding">15px</dimen>
+    <dimen name="ecg_test_dialog_item_padding">0dip</dimen>
+    <dimen name="ecg_test_dialog_title_textsize">25px</dimen>
+    <dimen name="normal_textsize">25px</dimen>
+    <dimen name="interface_title">35px</dimen>
+    <dimen name="interface_bottom_one">15px</dimen>
+    <dimen name="interface_bottom_two">20px</dimen>
+    <dimen name="text_size_30px">30px</dimen>
+    <dimen name="text_size_45px">45px</dimen>
+    <dimen name="xiao_e_item_height">80px</dimen>
+    <dimen name="line_image_set_Y">5mm</dimen>
+    <dimen name="photo_w_and_h">100px</dimen>
+    <dimen name="abnormal_index_padding">80px</dimen>
+	<dimen name="report_module_list_item_padding">0px</dimen>
+	<dimen name="gridView_text_high">50dp</dimen>
 </resources>

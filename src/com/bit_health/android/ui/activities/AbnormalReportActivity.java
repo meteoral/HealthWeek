@@ -1,0 +1,325 @@
+/********************************************************
+ * 类名：AbnormalReportActivity.java
+ *
+ * 作者：陈建平
+ * 主要功能：
+ * 创建日期：上午10:16:41
+ ********************************************************/
+package com.bit_health.android.ui.activities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bit_health.android.constants.BusinessConst;
+import com.bit_health.android.controllers.DataCatchInterface;
+import com.bit_health.android.controllers.InterfaceService;
+import com.bit_health.android.controllers.beans.BpInfoBean;
+import com.bit_health.android.controllers.beans.BsInfoBean;
+import com.bit_health.android.controllers.beans.EcgInfoBean;
+import com.bit_health.android.controllers.beans.JsonBase;
+import com.bit_health.android.controllers.beans.PpgInfoBean;
+import com.bit_health.android.task.AndroidCustomTaskMgr;
+import com.bit_health.android.task.UpateRoleInfosTask;
+import com.bit_health.android.ui.adapter.ReportModuleListViewAdapter;
+import com.bit_health.android.util.ReportModuleListView;
+import com.bit_health.android.util.ReportModuleListView.IXListViewListener;
+import com.bit_health.android.util.TimeFormatUtil;
+import com.siat.healthweek.R;
+
+/**
+ * @author Administrator
+ *
+ */
+public class AbnormalReportActivity extends BaseActivity implements
+		IXListViewListener, OnItemClickListener {
+	public static final String INTENT_AB_BEGIN = "ab_begin_time";
+	public static final String INTENT_AB_ROLE = "ab_role_id";
+	public static final String INTENT_MS_TYPE = "measure_type";
+	public static final String INTENT_SEARCH_TYPE = "search_type";
+	public static final String INTENT_TYPE_TITLE = "title_name";
+	private ReportModuleListView mListView;
+	private ReportModuleListViewAdapter adapter;
+	private List<JsonBase> mInfos;
+	private boolean isLoadMore = false; // 目前状态是加载更多?
+	private String mBeginTime = "";
+	private String mRoleId = "";
+	private String mMeasureType = "";
+	private String mSearchType = BusinessConst.ALL_MESURE;// 默认查找全部异常
+	private ImageView backIcon;
+	private TextView abnormalSummary;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		this.setContentView(R.layout.abnormal_report);
+
+		backIcon = (ImageView) findViewById(R.id.abnormal_report_back_icon);
+		abnormalSummary = (TextView) findViewById(R.id.abnormal_summary);
+		mListView = (ReportModuleListView) findViewById(R.id.abnormal_report_listview);
+		// adapter = new ReportModuleListViewAdapter(
+		// (FourModuleManangerActivity) getActivity(), names, contents);
+		mListView.setAdapter(adapter);
+		mListView.setXListViewListener(this);
+		mListView.setOnItemClickListener(this);
+		mListView.setPullLoadEnable(true);
+		Intent intent = getIntent();
+		Bundle bundle = intent.getExtras();
+		if (bundle != null) {
+			mBeginTime = bundle.getString(INTENT_AB_BEGIN);
+			mRoleId = bundle.getString(INTENT_AB_ROLE);
+			mMeasureType = bundle.getString(INTENT_MS_TYPE);
+			mSearchType = bundle.getString(INTENT_SEARCH_TYPE);
+			abnormalSummary.setText(bundle.getString(INTENT_TYPE_TITLE));
+		}
+		mInfos = getDataFromCath();
+		if (mInfos != null && mInfos.size() > 0) {
+			// 存在缓存数据
+			adapter = new ReportModuleListViewAdapter(
+					AbnormalReportActivity.this, mInfos);
+			mListView.setAdapter(adapter);
+		} else {
+			refreshFromServer();
+		}
+
+		SharedPreferences preference = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+		setAllTextSizeOfApp(preference.getFloat("font_size_range", 0));
+
+		backIcon.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				finish();
+				overridePendingTransition(R.anim.slide_left_in,
+						R.anim.slide_right_out);
+			}
+		});
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see com.bit_health.android.ui.activities.BaseActivity#getMainLayout()
+	 */
+	@Override
+	public ViewGroup getMainLayout() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * com.bit_health.android.util.ReportModuleListView.IXListViewListener#onRefresh
+	 * ()
+	 */
+	@Override
+	public void onRefresh() {
+		// TODO Auto-generated method stub
+		if(mMeasureType.equals(BusinessConst.AF_ANLASY_SUCCESS)){
+			InterfaceService.getInstance(this).getMeasures(mRoleId, 0, 10,
+					mMeasureType,
+					mSearchType, this);
+		}else{
+			InterfaceService.getInstance(this).getMeasuresFromDate(mRoleId, 0, 10,
+					mBeginTime, TimeFormatUtil.getNowTime(),
+					mMeasureType,
+					mSearchType, this);
+		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see com.bit_health.android.util.ReportModuleListView.IXListViewListener#
+	 * onLoadMore()
+	 */
+	@Override
+	public void onLoadMore() {
+		// TODO Auto-generated method stub
+		isLoadMore = true;
+		int pos = (mInfos == null || mInfos.size() == 0) ? 0 : mInfos.size();
+		if (mMeasureType.equals(BusinessConst.AF_ANLASY_SUCCESS)) {
+			InterfaceService.getInstance(this).getMeasures(mRoleId, pos, 10,
+					mMeasureType, mSearchType, this);
+		} else {
+			InterfaceService.getInstance(this).getMeasuresFromDate(mRoleId,
+					pos, 10, mBeginTime, TimeFormatUtil.getNowTime(),
+					mMeasureType, mSearchType, this);
+		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * android.widget.AdapterView.OnItemClickListener#onItemClick(android.widget
+	 * .AdapterView, android.view.View, int, long)
+	 */
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		// TODO Auto-generated method stub
+
+		// TODO Auto-generated method stub
+		if (arg2 <= mInfos.size()) {
+			JsonBase node = mInfos.get(arg2 - 1);
+			if (node instanceof EcgInfoBean) {
+				EcgInfoBean ecgInfo = (EcgInfoBean) node;
+				// Intent intent = new Intent(this
+				// .getApplicationContext(),
+				// ReportDetailOfXinDianActivity.class);
+				// intent.putExtra("ecgInfo_id", ecgInfo.mId);
+				// startActivity(intent);
+
+				Intent intent = new Intent(this.getApplicationContext(),
+						ReportsDetailActivity.class);
+				ArrayList<String> ids = new ArrayList<String>();
+				ArrayList<String> types = new ArrayList<String>();
+				ids.add(ecgInfo.mId);
+				types.add(BusinessConst.ECG_MESURE);
+				intent.putStringArrayListExtra("bean_id", ids);
+				intent.putStringArrayListExtra("bean_type", types);
+				intent.putExtra("role_id", mRoleId);
+				intent.putExtra("anlasy_type", mMeasureType);
+				startActivity(intent);
+			}
+			if (node instanceof PpgInfoBean) {
+				PpgInfoBean ppgInfo = (PpgInfoBean) node;
+				Intent intent = new Intent(getApplicationContext(),
+						ReportsDetailActivity.class);
+				ArrayList<String> ids = new ArrayList<String>();
+				ArrayList<String> types = new ArrayList<String>();
+				ids.add(ppgInfo.mId);
+				types.add(BusinessConst.PPG_MESURE);
+				intent.putStringArrayListExtra("bean_id", ids);
+				intent.putStringArrayListExtra("bean_type", types);
+				intent.putExtra("role_id", mRoleId);
+				intent.putExtra("anlasy_type", mMeasureType);
+				startActivity(intent);
+			}
+			if (node instanceof BsInfoBean) {
+				BsInfoBean bsInfo = (BsInfoBean) node;
+				Intent intent = new Intent(getApplicationContext(),
+						ReportsDetailActivity.class);
+				ArrayList<String> ids = new ArrayList<String>();
+				ArrayList<String> types = new ArrayList<String>();
+				ids.add(bsInfo.mId);
+				types.add(BusinessConst.BS_MESURE);
+				intent.putStringArrayListExtra("bean_id", ids);
+				intent.putStringArrayListExtra("bean_type", types);
+				intent.putExtra("role_id", mRoleId);
+				intent.putExtra("anlasy_type", mMeasureType);
+				startActivity(intent);
+			}
+			if (node instanceof BpInfoBean) {
+				BpInfoBean bpInfo = (BpInfoBean) node;
+				Intent intent = new Intent(getApplicationContext(),
+						ReportsDetailActivity.class);
+				ArrayList<String> ids = new ArrayList<String>();
+				ArrayList<String> types = new ArrayList<String>();
+				ids.add(bpInfo.mId);
+				types.add(BusinessConst.BP_MESURE);
+				intent.putStringArrayListExtra("bean_id", ids);
+				intent.putStringArrayListExtra("bean_type", types);
+				intent.putExtra("role_id", mRoleId);
+				intent.putExtra("anlasy_type", mMeasureType);
+				startActivity(intent);
+			}
+		}
+
+	}
+
+	@Override
+	public void getMeasuresCallback(int retCode, String errorMsg,
+			List<JsonBase> beans) {
+		// TODO Auto-generated method stub
+		super.getMeasuresCallback(retCode, errorMsg, beans);
+		hideWaittingDialog();
+		switch (retCode) {
+		case 0:
+			final List<JsonBase> fbeans = beans;
+			runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					if (isLoadMore) {
+						for (JsonBase bean : fbeans) {
+							mInfos.add(bean);
+						}
+						adapter.notifyDataSetChanged();
+						isLoadMore = false; // 置位
+					} else {
+						mInfos = fbeans;
+						adapter = new ReportModuleListViewAdapter(
+								AbnormalReportActivity.this, mInfos);
+						mListView.setAdapter(adapter);
+					}
+				}
+			});
+
+			AndroidCustomTaskMgr.getInstance(this.getApplicationContext())
+					.excuteTask(UpateRoleInfosTask.class.getSimpleName());
+			break;
+		default:
+			showAlert(errorMsg);
+			isLoadMore = false; // 置位
+			break;
+		}
+		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				onLoad();
+			}
+		});
+
+	}
+
+	private void onLoad() {
+		mListView.stopRefresh();
+		mListView.stopLoadMore();
+		mListView.setRefreshTime("刚刚");
+	}
+
+	private List<JsonBase> getDataFromCath() {
+		String table = DataCatchInterface
+				.getTableName(mSearchType,
+						mMeasureType);
+		if (mMeasureType.equals(BusinessConst.AF_ANLASY_SUCCESS)) {
+			return DataCatchInterface.getInstance(this).getItems(mRoleId, table,
+					0, 10);
+		} else {
+			return DataCatchInterface.getInstance(this).getItemsFromDate(
+					mRoleId, table, 0, 10, mBeginTime,
+					TimeFormatUtil.getNowTime());
+		}
+	}
+
+	private void refreshFromServer() {
+		showWaittingDialog("正在获取数据...");
+		if (mMeasureType.equals(BusinessConst.AF_ANLASY_SUCCESS)) {
+			InterfaceService.getInstance(this).getMeasures(mRoleId, 0, 10,
+					mMeasureType,
+					mSearchType, this);
+		}else{
+			InterfaceService.getInstance(this).getMeasuresFromDate(mRoleId, 0, 10,
+					mBeginTime, TimeFormatUtil.getNowTime(),
+					mMeasureType,
+					mSearchType, this);
+		}
+	}
+}

@@ -1,0 +1,615 @@
+package com.bit_health.android.device.bluetooth;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.bit_health.android.ui.activities.BaseActivity;
+import com.bit_health.android.ui.activities.TestXinDianActivity;
+
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
+
+import com.siat.healthweek.R;
+
+public class ConnectBluetooth extends BaseActivity {
+	// Debugging
+	private static final String TAG = "------------------BT---------------------------";
+
+	public static final String TAGET_ORIENTATION = "ORIENTATION";
+
+	public static final int REQUEST_RESULT_CONNECTION = 9;
+	public static final int RESPONSE_RESULT_CONNECTION = 10;
+
+	private TextView mTitleView = null;
+
+	private ProgressBar mProgressBar = null;
+
+	private static final int REQUEST_ENABLE_BT = 0;
+
+	private BluetoothAdapter mAdapter = null;
+
+	private ArrayList<Map<String, Object>> listDevice = new ArrayList<Map<String, Object>>();
+
+	private SimpleAdapter mDeviceAdapter;
+
+	private ListView deviceListView = null;
+
+	// public static BluetoothSocket socket;
+	public boolean BLUE_FLAG = false;
+
+	private List<String> mDeviceNames;
+	// public static int deviceCode = 0;
+
+	/**
+	 * 通过广播来接收蓝牙的变化状态
+	 * <h3>mReceiver :</h3> receive <br>
+	 * 1) BluetoothAdapter.ACTION_STATE_CHANGED, <br>
+	 * 2) BluetoothDevice.ACTION_FOUND, <br>
+	 * 3) BluetoothAdapter.ACTION_DISCOVERY_FINISHED
+	 */
+	private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			String action = intent.getAction();
+
+			Log.d(TAG, "into Receiver...." + action);
+			Log.d(TAG, "intent.action=" + getIntent().getAction());
+			// When discovery finds a device
+
+			if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {// 蓝牙状态已改变,包括打开和关闭两种状态
+				Log.d(TAG, "STATE_CHANGED");
+				if (mAdapter != null
+						&& mAdapter.getState() == BluetoothAdapter.STATE_ON) {
+					// if bluetooth not enabled when create this activity then
+					// do Discovery here
+					doDiscovery();
+					Log.d(TAG, "STATE_CHANGED TO State ON");
+				}
+			} else if ("android.bluetooth.device.action.PAIRING_REQUEST"
+					.equals(action)) {// 配对请求
+				Log.d(TAG, "pairing_request");
+				// BluetoothDevice btDevice = intent
+				// .getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+				// attemptSetPin(btDevice);
+
+			} else if (BluetoothDevice.ACTION_FOUND.equals(action)) {// 发现蓝牙设备
+				Log.d(TAG, "find a device...");
+				mDeviceAdapter.notifyDataSetChanged();
+				// Get the BluetoothDevice object from the Intent
+				BluetoothDevice device = intent
+						.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);// 取得蓝牙设备
+
+				short rssi = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI,
+						Short.MIN_VALUE);
+				// see the docs about ACTION_FOUND:Always contains the extra
+				// fields EXTRA_DEVICE and EXTRA_CLASS. Can contain the extra
+				// fields EXTRA_NAME and/or EXTRA_RSSI if they are available.
+				if (device.getName() != null) {
+					String deviceName = device.getName();// 获取本地蓝牙名称
+					boolean bAdd = false;
+					if (mDeviceNames == null) {
+						// 没做限制
+						if (deviceName.startsWith("LR-ECG1")
+								|| deviceName.startsWith("SIATECG")
+								|| deviceName.startsWith("ECG")
+								|| deviceName.startsWith("SIAT")) {
+							bAdd = true;
+						}
+
+					} else {
+						if (mDeviceNames.size() > 0) {
+							for (String name : mDeviceNames) {
+								if (deviceName.startsWith(name)) {
+									bAdd = true;
+									break;
+								}
+							}
+						}
+					}
+					if (bAdd) {
+						byte signalLevel = (byte) WifiManager
+								.calculateSignalLevel(rssi, 5);
+
+						int signalImg;
+						switch (signalLevel) {
+						case 0:
+							signalImg = R.drawable.stat_sys_signal_0_fully;
+							break;
+						case 1:
+							signalImg = R.drawable.stat_sys_signal_1_fully;
+							break;
+						case 2:
+							signalImg = R.drawable.stat_sys_signal_2_fully;
+							break;
+						case 3:
+							signalImg = R.drawable.stat_sys_signal_3_fully;
+							break;
+						case 4:
+							signalImg = R.drawable.stat_sys_signal_4_fully;
+							break;
+						default:
+							signalImg = R.drawable.stat_sys_signal_0_fully;
+							break;
+						}
+						if (!isContainAddress(device.getAddress())) {// getAddress()
+																		// 获取本地蓝牙地址
+							Map<String, Object> mapDevice = new HashMap<String, Object>();
+							mapDevice.put("name", device.getName());
+							mapDevice.put("address", device.getAddress());
+							mapDevice.put("img", signalImg);
+							mapDevice.put("device", device);
+							Log.d(TAG, device.getName() + "'s RSSI is :" + rssi
+									+ " signalLevel:" + signalLevel);
+							listDevice.add(mapDevice);
+							mDeviceAdapter.notifyDataSetChanged();
+						}
+						// When discovery is finished, change the Activity title
+					}
+				}
+			} else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED
+					.equals(action)) {// 已完成蓝牙搜索
+				Log.d(TAG, "Discovery finished");
+				mProgressBar.setVisibility(View.INVISIBLE);
+				// cant found any device so finish it .
+				if (listDevice.size() == 0) {
+					// 查找蓝牙设备查找一定的时间后，如果找不到任何设备，则退出
+//					 Toast.makeText(ConnectBluetooth.this,
+//					 "找不到蓝牙设备", Toast.LENGTH_SHORT).show();
+					finish();
+					
+				} else {
+					// PairAllBluetoothes();
+					// if(mDeviceAdapter.getCount() > 1) {
+					// mTitleView.setText(R.string.bt_select);
+					// // }
+					// if (mDeviceAdapter.getCount() == 1) {
+					// establishConnection((BluetoothDevice) listDevice.get(0)
+					// .get("device"));
+					// } else {
+					// mTitleView.setText(R.string.bt_select);
+					// }
+					// mTitleView.setText(R.string.bt_select);
+				}
+			}
+		}
+	};
+
+	// Broadcast Filter??
+	private IntentFilter filter = null;
+
+	private boolean isContainAddress(String address) {
+		for (Map<String, Object> node : listDevice) {
+			if (node.get("address").equals(address)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * 暂时先放在这里，做蓝牙自动配对的产物，发布版本时可根据需要是否去掉，如有问题请联系张永刚
+	 * 
+	 * @param mDevice
+	 */
+	private void attemptSetPin(BluetoothDevice mDevice) {
+		try {
+			// boolean bPinOk = true;
+			// if (!BluetoothClsUtils.setPin(mDevice.getClass(), mDevice,
+			// "1111")) {
+			// if (!BluetoothClsUtils.setPin(mDevice.getClass(), mDevice,
+			// "0000")) {
+			// bPinOk = false;
+			// }
+			// }
+			BluetoothClsUtils.setPin(mDevice.getClass(), mDevice, "0000");
+			// if (bPinOk)
+			{
+				BluetoothClsUtils.createBond(mDevice.getClass(), mDevice);
+				BluetoothClsUtils.cancelPairingUserInput(mDevice.getClass(),
+						mDevice);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// try {
+		// Log.d(TAG, "attemptSetPin");
+		// Method convertPinToBytes = mDevice.getClass().getMethod(
+		// "convertPinToBytes", new Class[] { String.class });
+		// Method setPin = mDevice.getClass().getMethod("setPin",
+		// new Class[] { byte[].class });
+		// Method createBond = mDevice.getClass().getMethod("createBond",
+		// new Class[] {});
+		// byte[] pin1;
+		// byte[] pin2;
+		// pin1 = (byte[]) convertPinToBytes.invoke(null, "0000");
+		// pin2 = (byte[]) convertPinToBytes.invoke(null, "1234");
+		// createBond.invoke(mDevice);
+		// for (boolean flag = false; flag == false;) {
+		// createBond.invoke(mDevice);
+		// if ((Boolean) setPin.invoke(mDevice, pin1)) {
+		// flag = true;
+		// return;
+		// } else if ((Boolean) setPin.invoke(mDevice, pin2)) {
+		// createBond.invoke(mDevice);
+		// flag = true;
+		//
+		// }
+		//
+		// }
+		// } catch (Exception e) {
+		//
+		// e.printStackTrace();
+		// }
+	}
+
+	/**
+	 * 暂时先放在这里，做蓝牙自动配对的产物，发布版本时可根据需要是否去掉，如有问题请联系张永刚
+	 * 
+	 */
+	class SetPin implements Runnable {
+		BluetoothDevice mDevice;
+
+		SetPin(BluetoothDevice mDevice) {
+			this.mDevice = mDevice;
+
+		}
+
+		@Override
+		public void run() {
+			try {
+				Log.d(TAG, "attemptSetPin");
+				Method convertPinToBytes = mDevice.getClass().getMethod(
+						"convertPinToBytes", new Class[] { String.class });
+				Method setPin = mDevice.getClass().getMethod("setPin",
+						new Class[] { byte[].class });
+
+				byte[] pin1;
+				byte[] pin2;
+				pin1 = (byte[]) convertPinToBytes.invoke(null, "0000");
+				pin2 = (byte[]) convertPinToBytes.invoke(null, "1234");
+				// createBond.invoke(mDevice);
+				for (boolean flag = false; flag == false;) {
+					if (mDevice.getBondState() == BluetoothDevice.BOND_BONDED
+							|| ((Boolean) setPin.invoke(mDevice, pin1))
+							|| ((Boolean) setPin.invoke(mDevice, pin2))) {
+						flag = true;
+					}
+
+				}
+			} catch (Exception e) {
+				//
+				e.printStackTrace();
+			}
+
+		}
+
+	}
+
+	/**
+	 * 
+	 * @param release
+	 *            you can get it by {@link android.os.Build.VERSION#RELEASE}
+	 * @return sdk > 2.3.3 return insecure method means no pairing dialog,else
+	 *         return secure method means pairing dialog
+	 * @throws SecurityException
+	 * @throws NoSuchMethodException
+	 */
+	private Method getMethodBySdk(String release) throws SecurityException,
+			NoSuchMethodException {
+		String[] ss = release.split("\\.");
+		StringBuilder sNum = new StringBuilder();
+
+		for (int i = 0; i < ss.length; i++) {
+			sNum.append(ss[i]);
+		}
+
+		if (sNum.length() == 2) {
+			sNum.append("0");
+
+		}
+
+		int mSdkInt = Integer.parseInt(sNum.toString());
+		Method m = null;
+
+		if (mSdkInt < 233) {
+			m = BluetoothDevice.class.getMethod("createRfcommSocket",
+					new Class[] { int.class });
+		} else {
+			m = BluetoothDevice.class.getMethod("createInsecureRfcommSocket",
+					new Class[] { int.class });
+		}
+
+		return m;
+	}
+
+	/**
+	 * <h3>establishConnection :</h3> try to create a socket to Device found or
+	 * user selected.跟找到的蓝牙设备建立连接
+	 * 
+	 * @param mDevice
+	 *            the device found or user selected.找到的蓝牙设备
+	 */
+	private void establishConnection(BluetoothDevice mDevice) {
+		mTitleView.setText(R.string.bt_connecting);
+		mProgressBar.setVisibility(View.VISIBLE);
+
+		final BluetoothDevice device = mDevice;
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+
+				android.util.Log.i("TestXinDianActivity",
+						"establishConnection called...........");
+				int i = 0;
+				while (i < 3 && !BLUE_FLAG) {
+					i++;
+					try {
+						if (BLUE_FLAG == false) {
+							System.out.println("BoundState:"
+									+ device.getBondState());
+							Method m = getMethodBySdk(Build.VERSION.RELEASE);
+							BluetoothSocket socket = (BluetoothSocket) m
+									.invoke(device, Integer.valueOf(1));
+							Log.d(TAG, "++++ Connecting");
+							socket.connect();
+							Log.d(TAG, "++++ Connected");
+							BLUE_FLAG = true;
+							ConnectionDevice.getInstance().setSocket(socket);
+							ConnectionDevice.getInstance().setDeviceName(
+									device.getName());
+							if (getIntent() != null) {
+								int orientation = getIntent().getIntExtra(
+										TAGET_ORIENTATION,
+										Configuration.ORIENTATION_LANDSCAPE);
+								if (orientation != Configuration.ORIENTATION_PORTRAIT) {
+									// 被蓝牙上传调用
+									ConnectionDevice.getInstance().setDevice(
+											device);
+								}
+							}
+							setResult(RESPONSE_RESULT_CONNECTION);
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					if (!BLUE_FLAG) {
+						try {
+							Thread.sleep(3000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+				if (BLUE_FLAG) {
+					finish();
+				} else {
+					finish();
+				}
+			}
+		}).start();
+
+	}
+
+	void PairAllBluetoothes() {
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				mAdapter.cancelDiscovery();
+				for (int i = 0; i < listDevice.size(); i++) {
+					String address = (String) listDevice.get(i).get("address");
+					BluetoothClsUtils.pair(address, "0000");
+				}
+			}
+		}).start();
+	}
+
+	/**
+	 * if Bluetooth can't enable close this activity 如果用户不打开蓝牙，或者蓝牙发生错误不处于打开状态，则
+	 * finish 掉本 activity
+	 */
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		switch (requestCode) {
+		case REQUEST_ENABLE_BT:
+			// When the request to enable Bluetooth returns
+			if (resultCode == Activity.RESULT_OK) {
+				// Bluetooth is now enabled
+				Log.d(TAG, "BT Enabled...");
+				// Toast.makeText(this, R.string.bt_enabled, Toast.LENGTH_SHORT)
+				// .show();
+			} else {
+				// User did not enable Bluetooth or an error occured
+				Log.d(TAG, "BT not enabled");
+				// Toast.makeText(this, R.string.bt_not_enabled,
+				// Toast.LENGTH_SHORT).show();
+				finish();
+			}
+		}
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		if (getIntent() != null) {
+			mDeviceNames = getIntent().getStringArrayListExtra(
+					TestXinDianActivity.FLAG_INTENT_DEVCE_NAME);
+			int orientation = getIntent().getIntExtra(TAGET_ORIENTATION,
+					Configuration.ORIENTATION_LANDSCAPE);
+			if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+				// 将竖屏强制转为横屏
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);// 置为横屏
+			}
+		}
+
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		this.setContentView(R.layout.bluetooth_device_list);
+		mTitleView = (TextView) this.findViewById(R.id.bt_title);
+		mProgressBar = (ProgressBar) findViewById(R.id.bt_progress);
+		mTitleView.setText(R.string.bt_check);
+
+		/*
+		 * this.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON,
+		 * R.drawable.ic_volume_bluetooth_in_call);
+		 */
+
+		// this.setProgressBarIndeterminateVisibility(true);
+		// If BT is not on, request that it be enabled.
+		if (!BluetoothAdapter.getDefaultAdapter().isEnabled()) {// isEnabled:判断蓝牙是否打开，已打开返回true，否则，返回false
+
+			// 弹出打开蓝牙的对话框
+			Intent enableIntent = new Intent(
+					BluetoothAdapter.ACTION_REQUEST_ENABLE);
+			startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+			// BluetoothAdapter.getDefaultAdapter().enable();
+			// register Receiver
+			// filter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
+			// this.registerReceiver(mReceiver, filter);
+
+		}
+		doDiscovery();
+
+		filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+		filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+		filter.addAction(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
+		filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
+		filter.addAction("android.bluetooth.device.action.PAIRING_REQUEST");
+
+		this.registerReceiver(mReceiver, filter);
+	}
+
+	/**
+	 * 进行搜索蓝牙设备
+	 * <h3>doDiscovery</h3> A method to find the special Device
+	 * 
+	 * @see BluetoothAdapter.startDiscovery() when mDevice=null this method can
+	 *      work
+	 */
+	private void doDiscovery() {
+		Log.d(TAG, "in do Discovery!");
+
+		if (listDevice.size() == 0) {
+			mAdapter = BluetoothAdapter.getDefaultAdapter();
+			if (mAdapter == null) {
+				// Bluetooth is not available
+				// Toast.makeText(this, R.string.bt_not_enabled,
+				// Toast.LENGTH_LONG)
+				// .show();
+				finish();
+
+			} else {
+				// getState(): 获取本地蓝牙适配器当前状态
+				if (mAdapter.getState() == BluetoothAdapter.STATE_ON) {
+					Log.d(TAG, "doDiscovery.....");
+
+					mDeviceAdapter = new SimpleAdapter(this, listDevice,
+							R.layout.bluetooth_device_name, new String[] {
+									"name", "address", "img" }, new int[] {
+									R.id.bt_device_name,
+									R.id.bt_device_address, R.id.bt_signal });
+
+					deviceListView = (ListView) findViewById(R.id.bt_devices_list);
+					deviceListView.setAdapter(mDeviceAdapter);
+					deviceListView.setOnItemClickListener(mDeviceClickListener);
+
+					// if discovering cancel first then start discovery again...
+					if (mAdapter.isDiscovering()) {// isDiscovering():判断当前是否正在查找设备，是:返回true;否:返回false
+						mAdapter.cancelDiscovery();
+					}
+					mTitleView.setText(R.string.bt_searching);
+					mProgressBar.setVisibility(View.VISIBLE);
+
+					mAdapter.startDiscovery();// 开始搜索，这是搜索的第一步
+				}
+			}
+		}
+	}
+
+	private OnItemClickListener mDeviceClickListener = new OnItemClickListener() {
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+				long arg3) {
+			// Cancel discovery because it's costly and we're about to connect
+			mAdapter.cancelDiscovery();
+
+			String address = (String) listDevice.get(arg2).get("address");
+			BluetoothDevice device = mAdapter.getRemoteDevice(address);// 根据蓝牙地址获取远程蓝牙设备
+			establishConnection(device);
+			deviceListView.setVisibility(View.GONE);// 点击item之后让ListView消失
+
+		}
+	};
+
+	/**
+	 * @Override so can unregister the Receiver
+	 */
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		// Make sure we're not doing discovery anymore
+		if (mAdapter != null) {
+			mAdapter.cancelDiscovery();
+		}
+
+		// Unregister broadcast listeners
+		this.unregisterReceiver(mReceiver);
+	}
+
+	/**
+	 * if Bluetooth haven't enabled: <br>
+	 * 1) create the intent to enable. <br>
+	 * 2) registerReceiver to filter the action of {@link ACTION_STATE_CHANGED}
+	 */
+	@Override
+	public void onStart() {
+		super.onStart();
+
+	}
+
+	@Override
+	public ViewGroup getMainLayout() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/***************************************************
+	 * 方法描述：本activity是以对话框的风格显示的，当点击对话框的外部时，不让消失 修改人：梁才学 日期：2014.2.27
+	 **************************************************/
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		// finish();
+		return false;
+	}
+}

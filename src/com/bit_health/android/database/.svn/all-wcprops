@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ClientSource_Android/!svn/ver/308/src/com/bit_health/android/database
+END
+RoleDatabase.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ClientSource_Android/!svn/ver/102/src/com/bit_health/android/database/RoleDatabase.java
+END
+DatabaseBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ClientSource_Android/!svn/ver/24/src/com/bit_health/android/database/DatabaseBean.java
+END
+FileDbBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ClientSource_Android/!svn/ver/88/src/com/bit_health/android/database/FileDbBean.java
+END
+DbTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ClientSource_Android/!svn/ver/308/src/com/bit_health/android/database/DbTable.java
+END
+FileDbTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ClientSource_Android/!svn/ver/104/src/com/bit_health/android/database/FileDbTable.java
+END

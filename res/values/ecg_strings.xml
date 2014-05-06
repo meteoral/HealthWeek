@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="elh_statistic">心率统计</string>
+    <string name="EcgRRA_hrAverage">心率平均值：</string>
+    <string name="EcgRRV_heartRate">心率（次/分）</string>
+    <string name="EcgRRV_nn50Value">PNN50值: </string>
+    <string name="EcgRRV_sdnnValue">SDNN值: </string>
+    <string name="EcgRRV_reference">参考值</string>
+    <string name="EcgRRV_trangle">HRVI值</string>
+    <string name="ecg_rr_mean">心率平均值：无</string>
+    <string name="ecg_rr_statistic">心率统计</string>
+    <string name="ecg_chaos_CHAOS">混沌图</string>
+    <string name="ecg_chaos_string1">反应心脏健康状况，图形越像规则的箭头，心脏机能越好.</string>
+    <string name="elh_chaos">混沌分析</string>
+    <string name="EHA_uploadSuccess">分析失败，请重新采集数据</string>
+	<string name="EHA_analyzeSuccess">分析成功</string>
+	<string name="EHA_uploadFailed">上传失败，请退出此页面重新进入</string>
+	<string name="EHA_onAnalyzing">正在分析中</string>
+	<string name="EHA_isTestUser">测试用户不能进行分析，请登陆。</string>
+	<string name="EHA_historyData">历史数据</string>
+	<string name="EHA_oneHistoryData">测量结果</string>
+	<string name="EHA_tryAgain">数据不足,或者波形采集不准确，请重试。</string>
+	<string name="EHA_dataNotEnough">数据不足</string>
+	<string name="EHA_result_item_normal">正常:</string>
+	<string name="EHA_string2">心动过缓:</string>
+	<string name="EHA_string3">心动过速:</string>
+	<string name="EHA_result_item_sa">停搏:</string>
+	<string name="EHA_result_item_mb">漏搏:</string>
+	<string name="EHA_result_item_ws">宽搏:</string>
+	<string name="EHA_result_item_vpb">室性早搏:</string>
+	<string name="EHA_result_item_apb">房性早搏:</string>
+	<string name="EHA_result_item_ivbp">插入性室早搏:</string>
+	<string name="EHA_result_item_erlian">二联:</string>
+	<string name="EHA_result_item_sanlian">三联:</string>
+	<string name="EHA_result_item_shisu">室速:</string>
+	<string name="EHA_string10">波形稳定，未发现异常</string>
+	<string name="EHA_string11">心率较快</string>
+	<string name="EHA_string12">心率较快且不规则</string>
+	<string name="EHA_string13">心率较快，波形偏差</string>
+	<string name="EHA_string14">心率较快且不规则，波形偏差</string>
+	<string name="EHA_string15">心率较慢</string>
+	<string name="EHA_string16">心率较慢，且不规则</string>
+	<string name="EHA_string17">心率较慢，波形偏差</string>
+	<string name="EHA_string18">波形偏差</string>
+	<string name="EHA_string19">波形稳定，未发现异常</string>
+	<string name="EHA_result">分析结果</string>
+	<string name="EHA_testData">测试数据</string>
+	
+	<string name="alert_bl_upload_string">"正在上传您过去%1$d小时的测量数据，大概需要%2$d分钟的时间，请耐心等待";</string>
+</resources>

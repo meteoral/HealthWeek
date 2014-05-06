@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/detail_report_time_of_xueya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="2014-12-12"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <ImageView
+                    android:id="@+id/bp_detail_state_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="50dip"
+                    android:alpha="0.3"
+                    android:src="@drawable/abnormal" />
+
+                <TableLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/detail_report_time_of_xueya"
+                    android:layout_margin="15dip"
+                    android:stretchColumns="1" >
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/qi_hou_shousuoya_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="@string/after_wake_ssy"
+                            android:textSize="@dimen/normal_textsize" />
+
+                        <TextView
+                            android:id="@+id/qi_hou_shousuoya_value_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="6"
+                            android:textSize="@dimen/interface_title" />
+
+                        <TextView
+                            android:id="@+id/qi_hou_shousuoya_state_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="mmHg"
+                            android:textSize="@dimen/normal_textsize" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/qi_hou_shuzhangya_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="@string/after_wake_szy"
+                            android:textSize="@dimen/normal_textsize" />
+
+                        <TextView
+                            android:id="@+id/qi_hou_shuzhangya_value_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="6"
+                            android:textSize="@dimen/interface_title" />
+
+                        <TextView
+                            android:id="@+id/qi_hou_shuzhangya_state_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="mmHg"
+                            android:textSize="@dimen/normal_textsize" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/qi_hou_mailv_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="@string/after_wake_ml"
+                            android:textSize="@dimen/normal_textsize" />
+
+                        <TextView
+                            android:id="@+id/qi_hou_mailv_value_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="6"
+                            android:textSize="@dimen/interface_title" />
+
+                        <TextView
+                            android:id="@+id/qi_hou_mailv_state_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="mmHg"
+                            android:textSize="@dimen/normal_textsize" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/shui_qian_shousuoya_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="@string/before_sleep_ssy"
+                            android:textSize="@dimen/normal_textsize" />
+
+                        <TextView
+                            android:id="@+id/shui_qian_shousuoya_value_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="6"
+                            android:textSize="@dimen/interface_title" />
+
+                        <TextView
+                            android:id="@+id/shui_qian_shousuoya_state_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="mmHg"
+                            android:textSize="@dimen/normal_textsize" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/shui_qian_shuzhangya_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="@string/before_sleep_szy"
+                            android:textSize="@dimen/normal_textsize" />
+
+                        <TextView
+                            android:id="@+id/shui_qian_shuzhangya_value_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="6"
+                            android:textSize="@dimen/interface_title" />
+
+                        <TextView
+                            android:id="@+id/shui_qian_shuzhangya_state_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="mmHg"
+                            android:textSize="@dimen/normal_textsize" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/shui_qian_mailv_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="@string/before_sleep_ml"
+                            android:textSize="@dimen/normal_textsize" />
+
+                        <TextView
+                            android:id="@+id/shui_qian_mailv_value_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="6"
+                            android:textSize="@dimen/interface_title" />
+
+                        <TextView
+                            android:id="@+id/shui_qian_mailv_state_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="mmHg"
+                            android:textSize="@dimen/normal_textsize" />
+                    </TableRow>
+                </TableLayout>
+            </RelativeLayout>
+
+            <!-- ********************** 发现异常 start************************ -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dip" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:paddingBottom="5dip"
+                        android:paddingLeft="15dip"
+                        android:paddingRight="15dip"
+                        android:text="@string/adjust_your_location"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <TextView
+                        android:id="@+id/bp_detail_state_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:paddingBottom="5dip"
+                        android:textColor="#EC008C"
+                        android:textSize="@dimen/normal_textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/ecg_chart_bottom_line"
+                    android:gravity="center" >
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dip"
+                    android:src="@drawable/xueya_cursor_picture" />
+            </LinearLayout>
+            <!-- ********************** 发现异常 end************************ -->
+
+
+            <!-- ********************** 小E建议 start 先设为gone，今后有需要再去掉********** -->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dip"
+                    android:paddingRight="15dip" >
+
+                    <TextView
+                        android:id="@+id/suggestion_content_of_xueya_detail"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/actual_content_bg"
+                        android:gravity="bottom"
+                        android:paddingBottom="15dip"
+                        android:paddingLeft="15dip"
+                        android:paddingRight="15dip"
+                        android:paddingTop="80px"
+                        android:text="@string/xiao_e_suggetion_of_xueya_detail"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/normal_textsize"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_suggestion_of_xueya_detail"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/xiao_e_item_height"
+                    android:background="@drawable/xiao_e_content_selector"
+                    android:clickable="true" >
+
+                    <ImageView
+                        android:id="@+id/suggestion_pointer_image_of_xueya_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true" />
+
+                    <TextView
+                        android:id="@+id/suggestion_title_of_xueya_detail"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/suggestion_pointer_image_of_xueya_detail"
+                        android:text="@string/xiao_e_suggetion_colon"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <!-- ********************** 小E建议 end 先设为gone，今后有需要再去掉********** -->
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

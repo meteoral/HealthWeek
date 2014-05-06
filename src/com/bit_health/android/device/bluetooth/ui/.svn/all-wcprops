@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ClientSource_Android/!svn/ver/306/src/com/bit_health/android/device/bluetooth/ui
+END
+BluetoothData.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ClientSource_Android/!svn/ver/220/src/com/bit_health/android/device/bluetooth/ui/BluetoothData.java
+END
+EcgPpgView.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ClientSource_Android/!svn/ver/220/src/com/bit_health/android/device/bluetooth/ui/EcgPpgView.java
+END
+UploadEcgPggDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ClientSource_Android/!svn/ver/306/src/com/bit_health/android/device/bluetooth/ui/UploadEcgPggDialog.java
+END
+EcgPpgActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ClientSource_Android/!svn/ver/275/src/com/bit_health/android/device/bluetooth/ui/EcgPpgActivity.java
+END
+WaitforEcgSignActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/device/bluetooth/ui/WaitforEcgSignActivity.java
+END

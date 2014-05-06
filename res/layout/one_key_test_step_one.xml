@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.3"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:id="@+id/progress_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/progress_normal_first" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:alpha="0"
+                android:gravity="center"
+                android:text="123456789012"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <!-- <LinearLayout
+            android:id="@+id/progress_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/progress_1"
+            android:background="@drawable/progress_normal_second" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:alpha="0"
+                android:gravity="center"
+                android:text="123456789012"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout> -->
+
+        <LinearLayout
+            android:id="@+id/progress_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/progress_1"
+            android:background="@drawable/progress_normal_second" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:alpha="0"
+                android:gravity="center"
+                android:text="123456789012"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/progress_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/progress_3"
+            android:background="@drawable/progress_normal_last" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:alpha="0"
+                android:gravity="center"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_1"
+            android:layout_alignLeft="@id/progress_1"
+            android:text="@string/role_confirmation"
+            android:textSize="@dimen/normal_textsize" />
+
+        <!-- <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_2"
+            android:layout_alignLeft="@id/progress_2"
+            android:text="@string/funtions_choice"
+            android:textSize="@dimen/normal_textsize" /> -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_3"
+            android:layout_alignLeft="@id/progress_3"
+            android:text="@string/begin_to_test"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_4"
+            android:layout_alignLeft="@id/progress_4"
+            android:text="@string/report"
+            android:textSize="@dimen/normal_textsize" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.4"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/one_key_step_one_head_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/father" />
+
+<!--         <TextView
+            android:id="@+id/one_key_role_fullname_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/role_name_father"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:id="@+id/one_key_role_username_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Li Jiacheng"
+            android:textSize="@dimen/normal_textsize" /> -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/current_role_is"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/one_key_current_role_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/role_name_father"
+                android:textSize="@dimen/normal_textsize" />
+            
+            <TextView
+                android:id="@+id/one_key_role_username_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Li Jiacheng"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.3"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/step_one_next_step_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_style_green"
+            android:gravity="center"
+            android:text="@string/yes_next_step"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:id="@+id/step_one_change_role_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_margin="20dip"
+            android:text="@string/no_change_role"
+            android:textColor="@color/textview_color"
+            android:textSize="@dimen/normal_textsize" />
+    </LinearLayout>
+
+</LinearLayout>

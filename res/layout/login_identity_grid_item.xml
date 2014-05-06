@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="4dip" >
+
+    <ImageView
+        android:id="@+id/login_identity_grid_image"
+        android:layout_width="@dimen/photo_w_and_h"
+        android:layout_height="@dimen/photo_w_and_h"
+        android:layout_centerHorizontal="true" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/login_identity_grid_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_identity_grid_image"
+        android:layout_centerHorizontal="true"
+        android:text="儿子"
+        android:textSize="@dimen/normal_textsize" >
+    </TextView>
+    
+    <TextView
+        android:id="@+id/login_identity_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_identity_grid_text"
+        android:layout_centerHorizontal="true"
+        android:text="张三"
+        android:textSize="@dimen/normal_textsize" >
+    </TextView>
+
+</RelativeLayout>

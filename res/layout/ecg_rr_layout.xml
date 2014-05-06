@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zengfaner="http://schemas.android.com/apk/res/com.uih.mobile"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white" >
+
+    <TextView
+        android:id="@+id/ecg_rr_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dip"
+        android:text="@string/ecg_rr_statistic"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@drawable/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <com.bit_health.android.ui.views.EcgRRView
+        android:id="@+id/ecg_rr_View"
+        android:layout_width="fill_parent"
+        android:layout_height="480px"
+        android:layout_below="@+id/ecg_rr_name"
+        android:layout_marginTop="10dip" />
+
+    <TextView
+        android:id="@+id/shunshi_ecg_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dip"
+        android:text="@string/ecg_rr_mean"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@drawable/black"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

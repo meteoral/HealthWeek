@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- ===================== ֚1ƅ start========================= -->
+
+    <TableLayout
+        android:id="@+id/table_layout_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*" >
+
+        <TableRow
+            android:id="@+id/table_row_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <RelativeLayout
+                android:id="@+id/digit11"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/actual_content_selector"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/text11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/prompt_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/interface_bottom_two"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/TextViewdigit11"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text11"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="1dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/xin_dong_guo_su"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/digit12"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/actual_content_selector"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/text12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/prompt_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/interface_bottom_two"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/TextViewdigit12"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text12"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="1dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/xin_dong_guo_huan"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/digit13"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/actual_content_selector"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/text13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/prompt_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/interface_bottom_two"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/TextViewdigit13"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text13"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="1dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/zhen_fa_xing_guo_su"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+        </TableRow>
+
+        <!-- ===================== ֚1ƅ end========================= -->
+
+
+        <!-- ===================== ֚2ƅ start========================= -->
+
+        <TableRow
+             android:id="@+id/table_row_2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <RelativeLayout
+                android:id="@+id/digit21"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/actual_content_selector"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/text21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/prompt_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/interface_bottom_two"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/TextViewdigit21"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text21"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="1dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/er_lian_lv"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/digit22"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/actual_content_selector"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/text22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/prompt_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/interface_bottom_two"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/TextViewdigit22"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text22"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="1dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/san_lian_lv"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/digit23"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/actual_content_selector"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/text23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/prompt_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/interface_bottom_two"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/TextViewdigit23"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text23"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="1dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/kuan_bo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+        </TableRow>
+        <!-- ===================== ֚2ƅ end========================= -->
+
+
+        <!-- ===================== ֚3ƅ start========================= -->
+
+        <TableRow
+             android:id="@+id/table_row_3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <RelativeLayout
+                android:id="@+id/digit31"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/actual_content_selector"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/text31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/prompt_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/interface_bottom_two"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/TextViewdigit31"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text31"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="1dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/ting_bo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/digit32"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/actual_content_selector"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/text32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/prompt_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/interface_bottom_two"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/TextViewdigit32"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text32"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="1dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/lou_bo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/digit33"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/actual_content_selector"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/text33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/prompt_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/interface_bottom_two"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/TextViewdigit33"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text33"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="1dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/shi_xing_zao_bo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+        </TableRow>
+        <!-- ===================== ֚3ƅ end========================= -->
+
+
+        <!-- ===================== ֚4ƅ start========================= -->
+
+        <TableRow
+             android:id="@+id/table_row_4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <RelativeLayout
+                android:id="@+id/digit41"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/actual_content_selector"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/text41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/prompt_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/interface_bottom_two"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/TextViewdigit41"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text41"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="1dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/fang_xing_zao_bo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/digit42"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/actual_content_selector"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/text42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/prompt_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/interface_bottom_two"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/TextViewdigit42"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text42"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="1dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/cha_ru_xing_zao_bo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/digit43"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/actual_content_selector"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/text43"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/prompt_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/interface_bottom_two"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/TextViewdigit43"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text43"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="1dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/xin_lv_bu_qi"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+        </TableRow>
+    </TableLayout>
+    <!-- ===================== ֚4ƅ end========================= -->
+
+</LinearLayout>

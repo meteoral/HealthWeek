@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ClientSource_Android/!svn/ver/282/src/com/bit_health/android/controllers/beans
+END
+BpBriefBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/BpBriefBean.java
+END
+RoleInfoBeanList.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/RoleInfoBeanList.java
+END
+EcgInfoBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/EcgInfoBean.java
+END
+BsBriefBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/BsBriefBean.java
+END
+BpInfoBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/BpInfoBean.java
+END
+RoleInfoBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ClientSource_Android/!svn/ver/201/src/com/bit_health/android/controllers/beans/RoleInfoBean.java
+END
+JsonBase.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/227/src/com/bit_health/android/controllers/beans/JsonBase.java
+END
+BsInfoBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/BsInfoBean.java
+END
+PpgBaseBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/PpgBaseBean.java
+END
+PpgScoreBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ClientSource_Android/!svn/ver/282/src/com/bit_health/android/controllers/beans/PpgScoreBean.java
+END
+MeasureInfoList.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/MeasureInfoList.java
+END
+CheckVersionBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ClientSource_Android/!svn/ver/232/src/com/bit_health/android/controllers/beans/CheckVersionBean.java
+END
+UserInfoBeanList.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/UserInfoBeanList.java
+END
+CommonBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/CommonBean.java
+END
+EcgBaseBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/EcgBaseBean.java
+END
+UserInfoBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/UserInfoBean.java
+END
+EcgScoreBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ClientSource_Android/!svn/ver/282/src/com/bit_health/android/controllers/beans/EcgScoreBean.java
+END
+BpBaseBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/BpBaseBean.java
+END
+BpScoreBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ClientSource_Android/!svn/ver/282/src/com/bit_health/android/controllers/beans/BpScoreBean.java
+END
+PpgBriefBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/PpgBriefBean.java
+END
+BsBaseBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/BsBaseBean.java
+END
+BsScoreBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ClientSource_Android/!svn/ver/282/src/com/bit_health/android/controllers/beans/BsScoreBean.java
+END
+PpgInfoBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/PpgInfoBean.java
+END
+EcgBriefBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/controllers/beans/EcgBriefBean.java
+END
+OverScoreBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ClientSource_Android/!svn/ver/282/src/com/bit_health/android/controllers/beans/OverScoreBean.java
+END

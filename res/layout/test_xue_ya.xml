@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/content_bg" >
+
+    <RelativeLayout
+        android:id="@+id/layout_xue_ya_title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/xiao_e_item_height"
+        android:background="@drawable/content_title_bg" >
+
+        <ImageView
+            android:id="@+id/test_xueya_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/cancer_button_status" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/title_xueya_input"
+            android:textSize="@dimen/interface_title" />
+    </RelativeLayout>
+
+     <!-- 界面的底部“输入说明”，注释掉    start-->
+    <!-- <RelativeLayout
+        android:id="@+id/layout_xue_ya_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/main_bg_bottom"
+        android:gravity="center" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:paddingLeft="5dip"
+            android:paddingRight="5dip"
+            android:text="@string/remarks_of_xueya"
+            android:textSize="@dimen/interface_bottom_two" />
+    </RelativeLayout> -->
+     <!-- 界面的底部“输入说明”，注释掉    end-->
+
+    <ScrollView
+        android:id="@+id/scrollView_id"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/layout_xue_ya_title"
+        android:background="#F7F7F7"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="20px" >
+
+            <RelativeLayout
+                android:id="@+id/layout_date_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/preference_single_item"
+                android:clickable="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/date_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:text="@string/date_colon"
+                    android:textSize="@dimen/normal_textsize" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/date_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toRightOf="@id/date_textview"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:singleLine="true"
+                    android:textSize="@dimen/normal_textsize" >
+                </TextView>
+            </RelativeLayout>
+
+            <!-- 起床后 start -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="15dip"
+                android:text="@string/after_wake_time"
+                android:textSize="@dimen/normal_textsize" >
+            </TextView>
+
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_preference_first_normal"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="10dip"
+                        android:text="@string/shou_suo_ya_colon"
+                        android:textSize="@dimen/normal_textsize" >
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/wakeup_value_shousuoyaid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:digits="1234567890."
+                        android:hint="60~240"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textSize="@dimen/normal_textsize" >
+                    </EditText>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_preference_normal"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="10dip"
+                        android:text="@string/shu_zhang_ya_colon"
+                        android:textSize="@dimen/normal_textsize" >
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/wakeup_value_shuzhangyayaid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:digits="1234567890."
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:hint="40~140"
+                        android:textSize="@dimen/normal_textsize" >
+                    </EditText>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_preference_last_normal"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="10dip"
+                        android:text="@string/mai_lv_colon"
+                        android:textSize="@dimen/normal_textsize" >
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/wakeup_value_mailvid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:digits="1234567890."
+                        android:inputType="number"
+                        android:hint="40~200"
+                        android:singleLine="true"
+                        android:textSize="@dimen/normal_textsize" >
+                    </EditText>
+                </TableRow>
+            </TableLayout>
+
+            <!-- 起床后 end -->
+
+
+            <!-- 睡觉前 start -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="15dip"
+                android:text="@string/before_sleep_time"
+                android:textSize="@dimen/normal_textsize" >
+            </TextView>
+
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_preference_first_normal"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="10dip"
+                        android:text="@string/shou_suo_ya_colon"
+                        android:textSize="@dimen/normal_textsize" >
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/bsleep_value_shousuoyaid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:digits="1234567890."
+                        android:inputType="number"
+                        android:hint="60~240"
+                        android:singleLine="true"
+                        android:textSize="@dimen/normal_textsize" >
+                    </EditText>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_preference_normal"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="10dip"
+                        android:text="@string/shu_zhang_ya_colon"
+                        android:textSize="@dimen/normal_textsize" >
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/bsleep_value_shuzhangyaid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:digits="1234567890."
+                        android:inputType="number"
+                        android:hint="40~140"
+                        android:singleLine="true"
+                        android:textSize="@dimen/normal_textsize" >
+                    </EditText>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_preference_last_normal"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="10dip"
+                        android:text="@string/mai_lv_colon"
+                        android:textSize="@dimen/normal_textsize" >
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/bsleep_value_mailvid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:digits="1234567890."
+                        android:inputType="number"
+                        android:hint="40~200"
+                        android:singleLine="true"
+                        android:textSize="@dimen/normal_textsize" >
+                    </EditText>
+                </TableRow>
+            </TableLayout>
+
+            <!-- 睡觉前 end -->
+
+			<!-- 测量设备暂时没有，注释掉    start -->
+            <!-- <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/preference_single_item"
+                android:clickable="true" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dip"
+                    android:layout_centerVertical="true"
+                    android:text="@string/device_colon"
+                    android:textSize="@dimen/normal_textsize" >
+                </TextView>
+
+                <ImageView
+                    android:layout_width="35px"
+                    android:layout_height="35px"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"                    
+                    android:src="@drawable/pull_down_normal" />
+            </RelativeLayout> -->
+            <!-- 测量设备暂时没有，注释掉    end -->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/xueya_commit_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.3"
+                    android:background="@drawable/btn_style_green"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:layout_margin="15dip"
+                    android:text="@string/commit_of_xuetang"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/text_size_30px" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

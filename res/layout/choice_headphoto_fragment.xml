@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/content_bg">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/xiao_e_item_height"
+        android:background="@drawable/content_title_bg" >
+
+        <ImageView
+            android:id="@+id/choice_role_back_iamge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/cancer_button_status" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/title_choice_role"
+            android:textSize="@dimen/interface_title" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="10dip"
+            android:paddingRight="40dip"
+            android:paddingTop="15dip" >
+
+            <RadioGroup
+                android:id="@+id/choice_role_head_photo_radiogroup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip" >
+
+                <RadioButton
+                    android:id="@+id/choice_headphoto_father"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/father"
+                    android:drawableRight="@drawable/remember_checkbox_selector"
+                    android:text="@string/role_name_father"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <RadioButton
+                    android:id="@+id/choice_headphoto_mather"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/mather"
+                    android:drawableRight="@drawable/remember_checkbox_selector"
+                    android:text="@string/role_name_mather"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <RadioButton
+                    android:id="@+id/choice_headphoto_grandpa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/grandpa"
+                    android:drawableRight="@drawable/remember_checkbox_selector"
+                    android:text="@string/role_name_grandpa"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <RadioButton
+                    android:id="@+id/choice_headphoto_grandma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/grandma"
+                    android:drawableRight="@drawable/remember_checkbox_selector"
+                    android:text="@string/role_name_grandma"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <RadioButton
+                    android:id="@+id/choice_headphoto_sun"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/sun"
+                    android:drawableRight="@drawable/remember_checkbox_selector"
+                    android:text="@string/role_name_sun"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <RadioButton
+                    android:id="@+id/choice_headphoto_daughter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/daughter"
+                    android:drawableRight="@drawable/remember_checkbox_selector"
+                    android:text="@string/role_name_daughter"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <!-- android:button="@null" 将原来系统的RadioButton图标给隐藏起来 -->
+                <!--
+            android:drawableRight="@android:drawable/btn_radio"
+			在原来图标的右边添加系统自带的btn_radio图标
+                -->
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

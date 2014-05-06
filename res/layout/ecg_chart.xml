@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF" >
+
+    <!-- ************************* 顶部布局 start*********************** -->
+
+    <LinearLayout
+        android:id="@+id/layout_ecg_title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/xiao_e_item_height"
+        android:background="@drawable/content_title_bg"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/ecg_chart_back_iamge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="onClickBack"
+            android:src="@drawable/cancer_button_status" />
+
+        <LinearLayout
+            android:id="@+id/layout_title_container"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            
+            
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ************************* 顶部布局 end*********************** -->
+
+
+    <ImageView
+        android:id="@+id/ecg_cursor"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_ecg_title"
+        android:scaleType="matrix"
+        android:src="@drawable/line" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/ecg_chart_viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/ecg_cursor"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dip"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+
+</RelativeLayout>

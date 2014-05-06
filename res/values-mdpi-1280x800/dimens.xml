@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="set_font_size_25px">40px</dimen>
+    <dimen name="set_font_size_28px">45px</dimen>
+    <dimen name="set_font_size_31px">50px</dimen>
+    <dimen name="set_font_size_90px">90px</dimen>
+    <dimen name="ecg_test_bottom_height">128px</dimen>
+    <dimen name="ecg_test_textsize">56px</dimen>
+    <dimen name="ecg_test_bluetooth_connect_padding">30px</dimen>
+    <dimen name="ecg_test_dialog_item_padding">-20dip</dimen>
+    <dimen name="ecg_test_dialog_title_textsize">40px</dimen>
+    <dimen name="normal_textsize">40px</dimen>
+    <dimen name="interface_title">56px</dimen>
+    <dimen name="interface_bottom_one">24px</dimen>
+    <dimen name="interface_bottom_two">32px</dimen>
+    <dimen name="text_size_30px">48px</dimen>
+    <dimen name="text_size_45px">72px</dimen>
+    <dimen name="xiao_e_item_height">128px</dimen>
+    <dimen name="line_image_set_Y">5mm</dimen>
+    <dimen name="photo_w_and_h">128px</dimen>
+    <dimen name="abnormal_index_padding">120px</dimen>
+    <dimen name="report_module_list_item_padding">40px</dimen>
+    <dimen name="gridView_text_high">90dp</dimen>
+    
+</resources>

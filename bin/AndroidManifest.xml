@@ -6,24 +6,27 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
-    
+        android:targetSdkVersion="15" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.RESTART_PACKAGES" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        android:theme="@style/AppTheme" >
         <activity
             android:name="com.siat.healthweek.AppStart"
             android:label="@string/app_name" >
@@ -87,23 +90,203 @@
         <activity
             android:name="com.mobilehealth.medicalkit.StartingDisplayMedicalkit"
             android:label="@string/title_activity_physicalhealthresult"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name="com.mobilehealth.dandelionscheme.StartingDisplayBodyCommu"
             android:label="@string/title_activity_physicalhealthresult"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name="com.mobilehealth.healthehome.StartingDisplayHealthEHome"
             android:label="@string/title_activity_physicalhealthresult"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name="com.mobilehealth.sensibelbed.StartingDisplaySensibleBed"
             android:label="@string/title_activity_physicalhealthresult"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.siat.healthweek.HaoDou"
+            android:label="@string/title_activity_haodou"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
+        <!-- 2014.5.6 -->
+
+        <activity
+            android:name="com.bit_health.android.ui.activities.BitHealthMainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.bit_health.android.test.TestMainActivity"
+            android:label="测试界面"
+            android:screenOrientation="portrait" >
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name="com.bit_health.android.ui.activities.GuiderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.LoginIdentityActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.FourModuleManangerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.TestXueYaActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.TestXueTangActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.ForgetPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.SeeDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.TestXinDianActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.ChangeRoleNameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.BaseDataOfDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.ReportOfMaiboActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.HelpMenualActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.BlueToothUploadActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.FoundAbnormalECGActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.EcgChartActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.ReportDetailOfXinDianActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.AddMembersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.ReportsDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.AddMembersOfEditInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.MenuChildPageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.MoreInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.BasicInfoOfFamilyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.OneKeyTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.ReportOfXinDianActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.RegisterIdentifyCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.ReportOfXueYaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.ReportOfXueTangActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.ReportDetailOfXueTangActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.ReportDetailOfXueYaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.AbnormalReportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.EcgChaosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.ui.activities.EcgRRActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bit_health.android.device.bluetooth.ConnectBluetooth"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <service android:name="com.bit_health.android.device.bluetooth.GetBlueDataService" >
+            <intent-filter>
+                <action android:name="com.bit_health.android.getblue.service" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.bit_health.android.device.bluetooth.ui.EcgPpgActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.bit_health.android.device.bluetooth.ui.WaitforEcgSignActivity"
+            android:screenOrientation="landscape" />
+
+        <receiver android:name="com.bit_health.android.receivers.AndroidReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_EJECT" />
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+
+                <data android:scheme="file" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.bit_health.android.device.usb.UsbUploadService" >
+            <intent-filter>
+                <action android:name="com.bit_health.android.device.usb.UsbUploadService" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.bit_health.android.device.usb.UsbUploadMeasureFile"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.bit_health.android.device.bluetooth.ui.UploadEcgPggDialog"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.bit_health.android.device.usb.BluetoothUploadMiniholterEcg"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.bit_health.android.device.usb.HistoryUploadFile"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <service android:name="com.bit_health.android.ui.activities.DownLoadApkService" />
+
+
     </application>
 
     <uses-feature

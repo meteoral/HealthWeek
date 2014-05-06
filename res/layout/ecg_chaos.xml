@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white" >
+
+    <TextView
+        android:id="@+id/ecg_chaos_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/ecg_chaos_CHAOS"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@drawable/black"
+        android:textSize="@dimen/interface_title"
+        android:textStyle="bold" />
+
+    <com.uih.mobile.views.EcgChaosView
+        android:id="@+id/ecg_chaos_View"
+        android:layout_width="fill_parent"
+        android:layout_height="310dip"
+        android:layout_below="@+id/ecg_chaos_name"
+        android:layout_marginTop="10dip" />
+
+    <TextView
+        android:id="@+id/chaos_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20px"
+        android:layout_marginLeft="15px"
+        android:text="@string/ecg_chaos_string1"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@drawable/black"
+        android:textSize="@dimen/normal_textsize"
+        android:textStyle="bold" />
+
+</RelativeLayout>

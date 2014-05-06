@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/content_bg"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/xiao_e_item_height"
+                android:background="@drawable/content_title_bg" >
+
+                <ImageView
+                    android:id="@+id/feedback_back_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:clickable="true"
+                    android:src="@drawable/cancer_button_status" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="意见反馈"
+                    android:textSize="@dimen/interface_title" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px"
+                    android:paddingTop="20px"
+                    android:text="请写下您遇到的问题或者是改进建议："
+                    android:textSize="@dimen/normal_textsize" />
+
+                <EditText
+                    android:id="@+id/feedback_suggestion_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/ic_preference_single_normal"
+                    android:hint="您的宝贵意见，是我们进步的源泉..."
+                    android:textSize="@dimen/normal_textsize" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px"
+                    android:paddingTop="20px"
+                    android:text="您的手机号码、邮箱或者QQ："
+                    android:textSize="@dimen/normal_textsize" />
+
+                <EditText
+                    android:id="@+id/feedback_contact_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_preference_single_normal"
+                    android:gravity="center_vertical"
+                    android:hint="帮助我们给您答复"
+                    android:singleLine="true"
+                    android:textSize="@dimen/normal_textsize" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px"
+                    android:paddingTop="20px"
+                    android:text="您也可以通过以下方式提供您宝贵的意见："
+                    android:textSize="@dimen/normal_textsize" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px"
+                    android:paddingTop="10px"
+                    android:text="官方网站：http://"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px"
+                    android:paddingTop="10px"
+                    android:text="联系邮箱：http://"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px"
+                    android:paddingTop="10px"
+                    android:text="QQ客服：5201314"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px"
+                    android:paddingTop="10px"
+                    android:text="QQ交流群：5201314"
+                    android:textSize="@dimen/normal_textsize" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/feedback_commit_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/btn_style_green"
+                android:gravity="center"
+                android:text="提交"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

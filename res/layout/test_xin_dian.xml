@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/content_bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/xiao_e_item_height"
+        android:background="@drawable/content_title_bg" >
+
+        <ImageView
+            android:id="@+id/test_xindian_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/cancer_button_status" />
+        <TextView
+            android:id="@+id/test_show_tittle_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/how_to_do_test"
+            android:textSize="@dimen/interface_title" />
+        <Button 
+            android:id="@+id/test_show_menu_id"
+            android:background="@drawable/dr_test_bluetooth_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:background="@drawable/white">
+        <ImageView 
+            android:id="@+id/test_alert_show_image_id"
+            android:background="@drawable/alert_3n1_power"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+        <Button
+            android:id="@+id/test_xindian_ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/dr_test_bluetooth_connect"
+            android:gravity="left|center_vertical|bottom"
+            android:paddingBottom="@dimen/ecg_test_bluetooth_connect_padding"
+            android:paddingLeft="@dimen/ecg_test_bluetooth_connect_padding"
+            android:text="@string/bluetooth_connet"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_textsize" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/test_alert_message_id" 
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/ecg_test_bottom_height"
+        android:text="@string/how_to_do_test_remarks"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="@dimen/ecg_test_textsize"
+        android:background="#00AEEF"/>
+</LinearLayout>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/content_bg"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- ********************************血压图表start**************************** -->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <!-- 这个布局是填充图表的 -->
+
+                <LinearLayout
+                    android:id="@+id/chart_show_of_xueya"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_title_xueya"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/chart_title_select" >
+
+                    <TextView
+                        android:id="@+id/xueya_title_name_text"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dip"
+                        android:text="睡觉前收缩压"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/show_chart_more_selector" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/show_more_chart_dialog_xueya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layout_title_xueya"
+                    android:layout_marginTop="-20dip"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <include layout="@layout/xue_ya_top_right_show_dialog" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- ********************************血压图表end**************************** -->
+
+
+            <!-- ========================  发现异常 start ======================== -->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:id="@+id/layout_abnormal_contents_of_xueya"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dip"
+                    android:paddingRight="15dip"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/actual_content_bg"
+                        android:gravity="bottom"
+                        android:paddingBottom="15dip"
+                        android:paddingLeft="15dip"
+                        android:paddingRight="15dip"
+                        android:paddingTop="@dimen/abnormal_index_padding"
+                        android:text="@string/abnormal_count"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <include layout="@layout/xue_ya_report_of_found_abnormal" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_found_abnormal_of_xueya"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/xiao_e_item_height"
+                    android:layout_marginTop="10dip"
+                    android:background="@drawable/xiao_e_content_selector" >
+
+                    <ImageView
+                        android:id="@+id/abnormal_pointer_image_of_xueya"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/abnormal_pointer_image_of_xueya"
+                        android:text="@string/found_abnormal"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <!-- ========================  发现异常 end ======================== -->
+
+
+            <!-- ********************************小E建议start****暂时设为gone，今后需要再把gone去掉 -->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dip"
+                    android:paddingRight="15dip" >
+
+                    <TextView
+                        android:id="@+id/suggestion_content_of_xueya"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/actual_content_bg"
+                        android:gravity="bottom"
+                        android:paddingBottom="15dip"
+                        android:paddingLeft="15dip"
+                        android:paddingRight="15dip"
+                        android:paddingTop="80px"
+                        android:text="@string/xiao_e_content_of_xueya"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/normal_textsize"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_suggestion_of_xueya"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/xiao_e_item_height"
+                    android:background="@drawable/xiao_e_content_selector"
+                    android:clickable="true"
+                    android:onClick="rainbow" >
+
+                    <ImageView
+                        android:id="@+id/suggestion_pointer_image_of_xueya"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true" />
+
+                    <TextView
+                        android:id="@+id/suggestion_title_of_xueya"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/suggestion_pointer_image_of_xueya"
+                        android:text="@string/xiao_e_suggetion_colon"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <!-- ********************************小E建议end****暂时设为gone，今后需要再把gone去掉 -->
+
+            <RelativeLayout
+                android:id="@+id/layout_month_abnormal_of_xueya"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/xiao_e_item_height"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/xiao_e_content_selector"
+                android:clickable="true" >
+
+                <ImageView
+                    android:id="@+id/abnormal_image_of_xueya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/abnormal_pointer_selector" />
+
+                <TextView
+                    android:id="@+id/abnormal_title_of_xueya"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/abnormal_image_of_xuetang"
+                    android:paddingLeft="15dip"
+                    android:text="@string/month_of_abnormal_counts"
+                    android:textSize="@dimen/normal_textsize" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="30dip" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

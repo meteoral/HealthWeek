@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.bit_health.android.util.ReportModuleListView
+        android:id="@+id/report_module_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/white"
+        android:divider="@null"
+        android:listSelector="@color/transparent"
+        android:layout_below="@+id/report_module_top_bar"
+        android:scrollbars="vertical" />
+
+    <!-- android:divider="@null" 是取消item之间的分隔线 -->
+    <!-- android:dividerHeight="-2dp" 是设置item之间的间隔距离，可以是负数 -->
+
+    <LinearLayout
+        android:id="@+id/report_module_top_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingTop="10px"
+        android:paddingBottom="10px"
+        android:background="@drawable/report_top_layout_bg">
+
+        <LinearLayout
+            android:id="@+id/layout_xindian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/listview_item_color"
+            android:clickable="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="matrix"
+                android:src="@drawable/test_module_xindian_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ecg_name"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_maibo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/listview_item_color"
+            android:clickable="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="matrix"
+                android:src="@drawable/test_module_maibo_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ppg_name"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_xueya"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/listview_item_color"
+            android:clickable="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="matrix"
+                android:src="@drawable/test_module_xueya_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bp_name"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_xuetang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/listview_item_color"
+            android:clickable="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="matrix"
+                android:src="@drawable/test_module_xuetang_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bs_name"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

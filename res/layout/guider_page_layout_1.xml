@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".MainActivity" >
+
+    <ImageView
+        android:id="@+id/guider_image"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/begin_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/preference_single_item"
+            android:gravity="center"
+            android:text="@string/begin_taste"
+            android:textSize="@dimen/normal_textsize"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ClientSource_Android/!svn/ver/247/src/com/bit_health/android/constants
+END
+BusinessConst.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ClientSource_Android/!svn/ver/247/src/com/bit_health/android/constants/BusinessConst.java
+END
+DeviceConst.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/constants/DeviceConst.java
+END
+AndroidDeviceConst.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/constants/AndroidDeviceConst.java
+END

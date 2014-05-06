@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ClientSource_Android/!svn/ver/306/src/com/bit_health/android/device/usb
+END
+UsbUploadService.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/95/src/com/bit_health/android/device/usb/UsbUploadService.java
+END
+UsbUploadMeasureFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ClientSource_Android/!svn/ver/31/src/com/bit_health/android/device/usb/UsbUploadMeasureFile.java
+END
+BluetoothUploadMiniholterEcg.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ClientSource_Android/!svn/ver/306/src/com/bit_health/android/device/usb/BluetoothUploadMiniholterEcg.java
+END
+HistoryUploadFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ClientSource_Android/!svn/ver/306/src/com/bit_health/android/device/usb/HistoryUploadFile.java
+END

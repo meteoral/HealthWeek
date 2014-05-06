@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.3"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:id="@+id/progress_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/progress_selector_first_ok" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:alpha="0"
+                android:gravity="center"
+                android:text="123456789012"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <!-- <LinearLayout
+            android:id="@+id/progress_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/progress_1"
+            android:background="@drawable/progress_selector_second_ok" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:alpha="0"
+                android:gravity="center"
+                android:text="123456789012"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout> -->
+
+        <LinearLayout
+            android:id="@+id/progress_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/progress_1"
+            android:background="@drawable/progress_selector_second_wait" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:alpha="0"
+                android:gravity="center"
+                android:text="123456789012"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/progress_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/progress_3"
+            android:background="@drawable/progress_normal_last" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:alpha="0"
+                android:gravity="center"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_1"
+            android:layout_alignLeft="@id/progress_1"
+            android:text="@string/role_confirmation"
+            android:textSize="@dimen/normal_textsize" />
+
+        <!-- <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_2"
+            android:layout_alignLeft="@id/progress_2"
+            android:text="@string/funtions_choice"
+            android:textSize="@dimen/normal_textsize" /> -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_3"
+            android:layout_alignLeft="@id/progress_3"
+            android:text="@string/begin_to_test"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_4"
+            android:layout_alignLeft="@id/progress_4"
+            android:text="@string/report"
+            android:textSize="@dimen/normal_textsize" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.4"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/onekey_xindian_test"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/listview_item_color"
+            android:clickable="true"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/test_module_xindian_icon" />
+
+				<ImageView
+                    android:id="@+id/xindian_complete_state_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/one_key_test_waiting" />
+                
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/xindian_test"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/xindian_complete_state_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/waiting_for_test"
+                android:textColor="#FF1493"
+                android:textSize="@dimen/interface_bottom_two" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/onekey_xueya_test"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:clickable="true"
+            android:background="@drawable/listview_item_color"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/test_module_xueya_icon" />
+
+                <ImageView
+                    android:id="@+id/xueya_complete_state_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/one_key_test_waiting" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/xueya_test"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/xueya_complete_state_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/waiting_for_test"
+                android:textColor="#FF1493"
+                android:textSize="@dimen/interface_bottom_two" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/onekey_xuetang_test"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/listview_item_color"
+            android:clickable="true"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/test_module_xuetang_icon" />
+
+               <ImageView
+                    android:id="@+id/xuetang_complete_state_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/one_key_test_waiting" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/xuetang_test"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/xuetang_complete_state_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/waiting_for_test"
+                android:textColor="#FF1493"
+                android:textSize="@dimen/interface_bottom_two" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.3"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/step_three_next_step_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_style_green"
+            android:gravity="center"
+            android:text="@string/check_result"
+            android:textColor="#FFFFFF"
+            android:alpha="0.3"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:enabled="false"
+            android:textSize="@dimen/normal_textsize" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/xue_tang_history_child_item"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:paddingBottom="10dip"
+    android:paddingLeft="20dip"
+    android:paddingRight="20dip"
+    android:paddingTop="10dip" >
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:padding="3dip"
+        android:stretchColumns="*" >
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/futang_or_kongfu_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/fu_tang"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/value_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="76"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/unit_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/unit_of_xuetang"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/state_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="@string/normal"
+                android:textSize="@dimen/normal_textsize" />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

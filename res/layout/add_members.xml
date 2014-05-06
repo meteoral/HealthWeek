@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/content_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/xiao_e_item_height"
+        android:background="@drawable/content_title_bg" >
+
+        <ImageView
+            android:id="@+id/add_members_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/cancer_button_status" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/title_add_members"
+            android:textSize="@dimen/interface_title" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0px"
+                android:layout_weight="0.2"
+                android:orientation="horizontal"
+                android:padding="15dip" >
+
+                <LinearLayout
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.4"
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:id="@+id/add_member_headphoto_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/father" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/set_head_photo"
+                        android:textSize="@dimen/normal_textsize" />
+                </LinearLayout>
+
+                <!-- 这是独立密码那个布局，暂时设为不可见 -->
+
+                <LinearLayout
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.3"
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="vertical"
+                    android:visibility="invisible" >
+
+                    <ImageView
+                        android:id="@+id/alone_password_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:src="@drawable/lock_selector" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alone_password"
+                        android:textSize="@dimen/normal_textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.3"
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="vertical" >
+
+                    <CheckBox
+                        android:id="@+id/take_attention_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:drawableTop="@drawable/attention_selector"
+                        android:gravity="center_horizontal"
+                        android:text="@string/attention"
+                        android:textSize="@dimen/normal_textsize" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0px"
+                android:layout_weight="0.8"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/layout_add_members_choice_role"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/preference_single_item"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="choiceRoleName" >
+
+                    <TextView
+                        android:id="@+id/role_first_fullname_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="8dp"
+                        android:text="@string/role_colon"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:scaleType="matrix"
+                        android:src="@drawable/abnormal_pointer_selector" />
+
+                    <EditText
+                        android:id="@+id/add_members_role_fullname_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/role_first_fullname_text"
+                        android:background="@null"
+                        android:hint="请选择角色"
+                        android:padding="8dp"
+                        android:scaleType="matrix"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_username_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/ic_preference_single_normal"
+                    android:clickable="true"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:id="@+id/role_name_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="8dp"
+                        android:text="@string/name_colon"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <EditText
+                        android:id="@+id/add_members_username_edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/role_name_text"
+                        android:background="@null"
+                        android:hint="请输入姓名"
+                        android:scaleType="matrix"
+                        android:singleLine="true"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/ic_preference_single_normal"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:id="@+id/gender_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="8dp"
+                        android:text="@string/gender_colon"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <RadioGroup
+                        android:id="@+id/add_member_radiogroup_gender"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/gender_text"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/add_member_gender_man"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/male_colon"
+                            android:textSize="@dimen/normal_textsize" />
+
+                        <RadioButton
+                            android:id="@+id/add_member_gender_woman"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dip"
+                            android:text="@string/female_colon"
+                            android:textSize="@dimen/normal_textsize" />
+                    </RadioGroup>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_choice_date"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/preference_single_item"
+                    android:clickable="true"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:id="@+id/birthday_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="8dp"
+                        android:text="@string/birthday_colon"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:scaleType="matrix"
+                        android:src="@drawable/abnormal_pointer_selector" />
+
+                    <EditText
+                        android:id="@+id/add_member_date_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/birthday_text"
+                        android:background="@null"
+                        android:hint="请选择日期"
+                        android:scaleType="matrix"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/ic_preference_single_normal"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:id="@+id/height_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="8dp"
+                        android:text="@string/height_colon"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <EditText
+                        android:id="@+id/add_members_height_edit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/height_text"
+                        android:background="@null"
+                        android:hint="100~210"
+                        android:inputType="number"
+                        android:scaleType="matrix"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/ic_preference_single_normal"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:id="@+id/weight_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="8dp"
+                        android:text="@string/weight_colon"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <EditText
+                        android:id="@+id/add_members_weight_edit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/weight_text"
+                        android:background="@null"
+                        android:inputType="number"
+                        android:scaleType="matrix"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+
+                
+
+                    <Button
+                        android:id="@+id/add_members_commit_btn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dip"
+                        android:background="@drawable/btn_style_green"
+                        android:gravity="center"
+                        android:text="提交"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/normal_textsize" />
+                
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

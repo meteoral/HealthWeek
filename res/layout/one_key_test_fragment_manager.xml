@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/layout_one_key_test_title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/xiao_e_item_height"
+        android:background="@drawable/content_title_bg" >
+
+        <ImageView
+            android:id="@+id/one_key_test_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/cancer_button_status" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/one_key_test"
+            android:textSize="@dimen/interface_title" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_one_key_test_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/main_bg_bottom"
+        android:gravity="center" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:paddingLeft="5dip"
+            android:paddingRight="5dip"
+            android:text="@string/one_key_test_bottom_remarks"
+            android:textSize="@dimen/normal_textsize" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/one_key_test_fragment_container"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_above="@id/layout_one_key_test_bottom"
+        android:layout_below="@id/layout_one_key_test_title"
+        android:layout_weight="1.0" />
+
+</RelativeLayout>

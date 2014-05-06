@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ClientSource_Android/!svn/ver/337/src/com/bit_health/android/controllers
+END
+IBusinessCallback.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ClientSource_Android/!svn/ver/247/src/com/bit_health/android/controllers/IBusinessCallback.java
+END
+InterfaceService.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ClientSource_Android/!svn/ver/247/src/com/bit_health/android/controllers/InterfaceService.java
+END
+BusinessException.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ClientSource_Android/!svn/ver/227/src/com/bit_health/android/controllers/BusinessException.java
+END
+IProgressCallback.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ClientSource_Android/!svn/ver/31/src/com/bit_health/android/controllers/IProgressCallback.java
+END
+IServerBusiness.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ClientSource_Android/!svn/ver/318/src/com/bit_health/android/controllers/IServerBusiness.java
+END
+DataCatchInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ClientSource_Android/!svn/ver/308/src/com/bit_health/android/controllers/DataCatchInterface.java
+END

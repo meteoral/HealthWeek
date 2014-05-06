@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/content_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/xiao_e_item_height"
+        android:background="@drawable/content_title_bg" >
+
+        <ImageView
+            android:id="@+id/unit_set_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/cancer_button_status" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/unit_settings"
+            android:textSize="@dimen/interface_title" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="10dip"
+        android:paddingRight="40dip"
+        android:paddingTop="15dip" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/unit_of_xueya_colon"
+            android:textSize="@dimen/normal_textsize" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dip"
+            android:background="#4876FF" />
+
+        <RadioGroup
+            android:id="@+id/unit_radiogroup"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip" >
+
+            <RadioButton
+                android:id="@+id/unit_mmHg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:text="mmHg" 
+                android:textSize="@dimen/normal_textsize"/>
+
+            <RadioButton
+                android:id="@+id/unit_kPa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:text="kPa" 
+                android:textSize="@dimen/normal_textsize"/>
+
+            <!-- android:button="@null" 将原来系统的RadioButton图标给隐藏起来 -->
+            <!--
+            android:drawableRight="@android:drawable/btn_radio"
+			在原来图标的右边添加系统自带的btn_radio图标
+            -->
+        </RadioGroup>
+    </LinearLayout>
+
+</LinearLayout>

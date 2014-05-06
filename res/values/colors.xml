@@ -1,44 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<color name="white">#FFFFFF</color>
-	<color name="black">#000000</color>
 	<color name="gray">#808080</color>
 	<color name="red">#FF0000</color>
 	<color name="gold">#FFD700</color>
 	<color name="yellow">#FFFF00</color>
-	<color name="green">#008000</color>
-	<color name="blue">#0000FF</color>
-	<color name="purple">#800080</color>
 	<color name="pink">#FFC0CB</color>
 	<color name="orange">#FFA500</color>
 	<color name="lemonyellow">#FFFACD</color>
 	<color name="graywhite">#F5F5F5</color>
 	<color name="grayslate">#708090</color>
 	<color name="lightblue">#0083FF</color>
-	
+
     <color name="full_transparent">#00000000</color>
     <color name="half_transparent">#aa000000</color>
-    
+
     <color name="bright_foreground_light">#ff000000</color>
     <color name="bright_foreground_light_inverse">#ffffffff</color>
     <color name="bright_foreground_light_disabled">#80000000</color>
-    
+
     <color name="dim_foreground_light">#808080</color>
     <color name="dim_foreground_light_disabled">#80323232</color>
     <color name="dim_foreground_light_inverse">#ff006eaa</color>
     <color name="dim_foreground_light_inverse_disabled">#80bebebe</color>
-    
+
     <color name="head_text">#0e5986</color>
     <color name="author_text">#0e5986</color>
-    
+
     <color name="face_bg">#eef1f4</color>
-    
+
     <color name="frame_button_text_nor">#033a5c</color>
     <color name="frame_button_text_select">#FFFFFF</color>
-    
+
     <color name="weight_bar_buttondown">#63A3D7</color>
     <color name="weight_bar_buttonup">#A4A9AE</color>
-    
+
     <color name="listitem_transparent">#00000000</color>
     <color name="listitem_black">#ff000000</color>
     <color name="listitem_white">#ffffffff</color>
@@ -46,10 +41,10 @@
     <color name="listitem_gray">#ff9da19e</color>
     <color name="listitem_green">#ffe3ffc6</color>
     <color name="listitem_greenyellow">#ff87b869</color>
-    <color name="listitem_yellow">#fffaffbf</color>  
+    <color name="listitem_yellow">#fffaffbf</color>
     <color name="fff1f2f3">#fff1f2f3</color>
     <color name="ff40ab54">#ff40ab54</color>
-    
+
     <!-- 二维码扫描颜色值 -->
 	<color name="contents_text">#ff000000</color>
 	<color name="encode_view">#ffffffff</color>
@@ -59,17 +54,16 @@
 	<color name="result_text">#ffffffff</color>
 	<color name="result_view">#b0000000</color>
 	<color name="status_text">#ffffffff</color>
-	<color name="transparent">#00000000</color>
 	<color name="viewfinder_laser">#ffcc0000</color> <!-- Android standard ICS color -->
 	<color name="viewfinder_mask">#60000000</color>
-	
+
 	<color name="head_text_color">#ffffffff</color>
 	<color name="powderblue">#ffaeeeee</color>
 	<color name="bluetext">#ff436eee</color>
-	
+
 	<color name="health_experience_color">#33437799</color>
 	<color name="health_diet_color">#33123221</color>
-	
+
 	<color name="blue1">#ff33b5e5</color>
 	<color name="blue2">#ff0099cc</color>
 	<color name="red1">#ffff4444</color>
@@ -80,10 +74,48 @@
 	<color name="orange2">#ff0099cc</color>
 	<color name="purple1">#ffaa66cc</color>
 	<color name="purple2">#ff9933cc</color>
-	
+
 	<color name="generate_qrcode_block_color">#5533b5e5</color>
-	
+
 	<color name="pleasantblue">#ff9ac0cd</color>
 	<color name="darkgray">#ff668b8b</color>
 	<color name="separator_line">#77808080</color>
+
+	<color name="transparent">#00000000</color>
+    <color name="lightwhite">#ddd</color>
+    <color name="white">#fff</color>
+    <color name="listview_white">#ffffff</color>
+    <color name="listview_black">#000000</color>
+    <color name="listview_green">#FFC125</color>
+
+    <drawable name="black">#000000</drawable>
+    <drawable name="white">#FFFFFF</drawable>
+    <drawable name="PaleTurquoise1">#F0FFFF</drawable>
+    <drawable name="Bisque">#FFF8DC</drawable>
+    <drawable name="text1">#6E7B8B</drawable>
+    <drawable name="degreen">#2F4F4F</drawable>
+    <drawable name="DarkGoldenrod3">#CD950C</drawable>
+    <drawable name="DarkGreen">#006400</drawable>
+    <drawable name="Khaki1">#FFF68F</drawable>
+    <drawable name="yellow">#FFFF00</drawable> <!-- 黄色 -->
+    <drawable name="orange">#FFA500</drawable> <!-- 橙色 -->
+    <drawable name="red">#FF0000</drawable> <!-- 红色 -->
+    <drawable name="azure">#F0FFFF</drawable> <!-- 天蓝色 -->
+    <drawable name="lightgray">#D3D3D3</drawable> <!-- 亮灰色 -->
+    <drawable name="silver">#C0C0C0</drawable> <!-- 银色 -->
+    <drawable name="greenyellow">#ADFF2F</drawable> <!-- 黄绿色 -->
+    <color name="brown">#A52A2A</color> <!-- 褐色 -->
+    <color name="purple">#800080</color> <!-- 紫色 -->
+    <color name="aqua">#00FFFF</color> <!-- 浅绿色 -->
+    <color name="cyan">#00FFFF</color> <!-- 青色 -->
+    <color name="green">#008000</color> <!-- 绿色 -->
+    <color name="black">#000000</color> <!-- 黑色 -->
+    <color name="darkgreen">#006400</color> <!-- 暗绿色 -->
+    <color name="blue">#0000FF</color> <!-- 蓝色 -->
+    <color name="color_text_normal">#232222</color>
+    <color name="color_text_red">#ff0072</color>
+    <color name="color_text_white">#ffffff</color>
+    <color name="color_gray">#808080</color>
+    <color name="color_gray_press">#FF6D26</color>
+    <color name="color_red">#EC008C</color><!-- 红色 -->
 </resources>

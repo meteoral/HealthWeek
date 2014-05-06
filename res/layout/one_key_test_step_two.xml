@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.3"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:id="@+id/progress_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/progress_selector_first_ok" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:alpha="0"
+                android:gravity="center"
+                android:text="1234567890"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/progress_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/progress_1"
+            android:background="@drawable/progress_selector_second_wait" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:alpha="0"
+                android:gravity="center"
+                android:text="1234567890"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/progress_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/progress_2"
+            android:background="@drawable/progress_normal_second" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:alpha="0"
+                android:gravity="center"
+                android:text="1234567890"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/progress_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/progress_3"
+            android:background="@drawable/progress_normal_last" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:alpha="0"
+                android:gravity="center"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_1"
+            android:layout_alignLeft="@id/progress_1"
+            android:text="@string/role_confirmation"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_2"
+            android:layout_alignLeft="@id/progress_2"
+            android:text="@string/funtions_choice"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_3"
+            android:layout_alignLeft="@id/progress_3"
+            android:text="@string/begin_to_test"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progress_4"
+            android:layout_alignLeft="@id/progress_4"
+            android:text="@string/report"
+            android:textSize="@dimen/normal_textsize" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.4"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <CheckBox
+            android:id="@+id/step_two_xindian_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/remember_checkbox_selector"
+            android:clickable="true"
+            android:checked="true"
+            android:text="@string/xindian_test"
+            android:textSize="@dimen/normal_textsize" />
+
+        <CheckBox
+            android:id="@+id/step_two_xueya_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:button="@drawable/remember_checkbox_selector"
+            android:clickable="true"
+            android:checked="true"
+            android:text="@string/xueya_test"
+            android:textSize="@dimen/normal_textsize" />
+
+        <CheckBox
+            android:id="@+id/step_two_xuetang_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:button="@drawable/remember_checkbox_selector"
+            android:clickable="true"
+            android:checked="true"
+            android:text="@string/xuetang_test"
+            android:textSize="@dimen/normal_textsize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.3"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/step_two_next_step_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_style_green"
+            android:gravity="center"
+            android:text="@string/the_next_step"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/normal_textsize"/>
+    </LinearLayout>
+
+</LinearLayout>

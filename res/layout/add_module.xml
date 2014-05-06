@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/add_module_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:dividerHeight="2dp"
+        android:scrollbars="vertical" />
+
+    <!-- android:divider="@null" 是取消item之间的分隔线 -->
+    <!-- android:dividerHeight="-2dp" 是设置item之间的间隔距离，可以是负数 -->
+    <!-- android:cacheColorHint="@android:color/transparent"，意思为去掉点击时的底色 -->
+
+</LinearLayout>

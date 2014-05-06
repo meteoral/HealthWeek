@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"                
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/detail_report_time_of_xuetang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="2014-12-12"
+                    android:textSize="@dimen/normal_textsize" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dip" >
+
+                    <ImageView
+                        android:id="@+id/bs_detail_state_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="50dip"
+                        android:alpha="0.3"
+                        android:src="@drawable/abnormal" />
+
+                    <TableLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="10dip"
+                        android:stretchColumns="1" >
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/kongfu_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:text="@string/kongfu_and_unit_name"
+                                android:textSize="@dimen/normal_textsize" />
+
+                            <TextView
+                                android:id="@+id/kongfu_value_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="6"
+                                android:textSize="@dimen/interface_title" />
+
+                            <TextView
+                                android:id="@+id/kongfu_state_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:text="正常"
+                                android:textSize="@dimen/normal_textsize" />
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/before_lunch_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:text="@string/wucanqian_and_unit_name"
+                                android:textSize="@dimen/normal_textsize" />
+
+                            <TextView
+                                android:id="@+id/before_lunch_value_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="6"
+                                android:textSize="@dimen/interface_title" />
+
+                            <TextView
+                                android:id="@+id/before_lunch_state_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:text="正常"
+                                android:textSize="@dimen/normal_textsize" />
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/after_lunch_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:text="@string/wucanhou_and_unit_name"
+                                android:textSize="@dimen/normal_textsize" />
+
+                            <TextView
+                                android:id="@+id/after_lunch_value_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="6"
+                                android:textSize="@dimen/interface_title" />
+
+                            <TextView
+                                android:id="@+id/after_lunch_state_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:text="正常"
+                                android:textSize="@dimen/normal_textsize" />
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:id="@+id/before_sleep_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:text="@string/shuiqian_and_unit_name"
+                                android:textSize="@dimen/normal_textsize" />
+
+                            <TextView
+                                android:id="@+id/before_sleep_value_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="6"
+                                android:textSize="@dimen/interface_title" />
+
+                            <TextView
+                                android:id="@+id/before_sleep_state_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:text="正常"
+                                android:textSize="@dimen/normal_textsize" />
+                        </TableRow>
+                    </TableLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dip" >
+
+                    <ImageView
+                        android:id="@+id/cursor_chart_futang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:clickable="true"
+                        android:src="@drawable/bs_cursor_futang_picture" />
+
+                    <ImageView
+                        android:id="@+id/cursor_chart_kongfu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cursor_chart_futang"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dip"
+                        android:clickable="true"
+                        android:src="@drawable/bs_cursor_kongfu_picture" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="right" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xuetang_shuoming"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xuetang_shuoming_unit"
+                        android:textSize="@dimen/interface_bottom_two" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ********************************小E建议start 先设为gone，今后有需要再去掉********** -->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip" 
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dip"
+                    android:paddingRight="15dip" >
+
+                    <TextView
+                        android:id="@+id/xue_tang_xiao_E_content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/actual_content_bg"
+                        android:gravity="bottom"
+                        android:paddingBottom="15dip"
+                        android:paddingLeft="15dip"
+                        android:paddingRight="15dip"
+                        android:paddingTop="80px"
+                        android:text="@string/xiao_e_content_of_xuetang"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/normal_textsize"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_xue_tang_suggestion"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/xiao_e_item_height"
+                    android:background="@drawable/xiao_e_content_selector"
+                    android:clickable="true" >
+
+                    <ImageView
+                        android:id="@+id/xue_tang_xiao_E_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true" />
+
+                    <TextView
+                        android:id="@+id/xue_tang_xiao_E_suggestion"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/xue_tang_xiao_E_image"
+                        android:text="@string/xiao_e_suggetion_colon"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <!-- ********************************小E建议 end 先设为gone，今后有需要再去掉********** -->
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

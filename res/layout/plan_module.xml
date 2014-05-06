@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#858585" >
+
+        <ImageView
+            android:id="@+id/plan_module_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:paddingRight="10dip"
+            android:src="@drawable/plan_module_edit_selector" />
+
+        <ImageView
+            android:id="@+id/plan_module_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:paddingRight="10dip"
+            android:src="@drawable/plan_module_add_selector" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/plan_listview"
+            android:layout_width="fill_parent"
+            android:layout_height="250dip"
+            android:cacheColorHint="@android:color/transparent"
+            android:dividerHeight="2dp"
+            android:scrollbars="vertical" />
+
+        <!-- android:divider="@null" 是取消item之间的分隔线 -->
+        <!-- android:dividerHeight="-2dp" 是设置item之间的间隔距离，可以是负数 -->
+        <!-- android:cacheColorHint="@android:color/transparent"，意思为去掉点击时的底色 -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#858585"
+            android:text="已经完成的计划" 
+            android:textSize="@dimen/normal_textsize"/>
+
+        <ListView
+            android:id="@+id/complete_listview"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="2dp"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+
+</LinearLayout>

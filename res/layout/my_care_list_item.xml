@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10px" >
+
+    <RelativeLayout
+        android:id="@+id/layout_my_attention_item"
+        android:layout_width="wrap_content"
+        android:layout_height="150px"
+        android:background="@drawable/preference_single_item">
+        <!-- android:background="@drawable/shape_corner"  -->
+
+        <ImageView
+            android:id="@+id/my_attention_head_image"
+            android:layout_width="@dimen/photo_w_and_h"
+            android:layout_height="@dimen/photo_w_and_h"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10px"/>
+
+        <CheckBox
+            android:id="@+id/attention_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:clickable="false"
+            android:drawableTop="@drawable/attention_selector"
+            android:focusable="false"
+            android:gravity="center_horizontal"
+            android:paddingRight="@dimen/normal_textsize"
+            android:text="@string/attention"
+            android:textSize="@dimen/normal_textsize" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/attention_state"
+            android:layout_toRightOf="@id/my_attention_head_image"
+            android:orientation="vertical"
+            android:paddingLeft="10px" >
+
+            <TextView
+                android:id="@+id/my_attention_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/role_name_father"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/my_attention_english_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Li jiacheng"
+                android:textSize="@dimen/normal_textsize" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

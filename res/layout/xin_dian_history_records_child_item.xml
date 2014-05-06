@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/xin_dian_history_child_item"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:paddingBottom="10dip"
+    android:paddingLeft="20dip"
+    android:paddingRight="20dip"
+    android:paddingTop="10dip" >
+
+    <!--
+    ExpandableListView 控件中的 android:layout_height 属性是只读，
+    所以不可以设置高度，只能通过 paddingTop、paddingBottom 这样的属性来调 item 的高度
+    -->
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:padding="3dip"
+        android:stretchColumns="*" >
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/xindian_time_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="10:12"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/xindian_value_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="76"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/xindian_unit_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/normal_textsize" />
+
+            <TextView
+                android:id="@+id/xindian_state_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="@string/normal"
+                android:textSize="@dimen/normal_textsize" />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

@@ -1,0 +1,787 @@
+package com.bit_health.android.device.bluetooth.ui;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import com.bit_health.android.configuration.AndroidConfiguration;
+import com.bit_health.android.constants.DeviceConst;
+import com.bit_health.android.device.bluetooth.ConnectionDevice;
+import com.bit_health.android.device.bluetooth.GetBlueDataService;
+import com.bit_health.android.device.usb.UsbUploadService;
+import com.bit_health.android.ui.activities.BaseActivity;
+import com.bit_health.android.ui.activities.FourModuleManangerActivity;
+
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
+import android.util.AttributeSet;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.siat.healthweek.R;
+
+public class EcgPpgActivity extends BaseActivity {
+	
+	private TextView tvTimeBar;
+	private TextView tvSPOValue;
+	private TextView heartRate;
+	private TextView pulseRate;
+	private TextView scaletextview;
+	private RelativeLayout scalebtn;
+	private RelativeLayout uploadbtn;
+	// private TextView mTextShowContent;
+	// private ProgressBar mProgressBar;
+	private ImageView mButtonStop;
+	private ImageView mButtonScale;
+	// private String storeMethod;
+	private Toast toastPPG;
+	private Toast toastECG;
+	private EcgPpgView<AttributeSet> ecgppgView;
+
+	private static final int MSG_UI_REFRESH = -1;
+	private static final int MSG_TIME_COUNT = 1;
+	private static final int BLUE_ERROR = 4;
+	// private WakeLock wl;
+
+	// // 显示波形长度
+	// private final int ECG_POINT_LEN = BluetoothData.ECG_POINT_LEN;
+	// private final int PPG_POINT_LEN = BluetoothData.PPG_POINT_LEN;
+	//
+	// // 平滑用
+	// private int[] ecgtemp = new int[ECG_POINT_LEN];
+	// private int[] ppgtemp = new int[PPG_POINT_LEN];
+	//
+	// // 数据缓存数组和下标
+	// private int[] ECGbuffer = new int[ECG_POINT_LEN];
+	// private int[] PPGbuffer = new int[PPG_POINT_LEN];
+
+	private int ECGPointer = 0;
+	private int PPGPointer = 0;
+
+	private boolean bInitional = false;
+
+	// 波形放大倍数？
+	// private int scale = 6;
+	// private long startTime = 0;
+	// private long endTime = 0;
+	public static String[] endTimeString = new String[6];
+	// private int mCountPreSave = -1;
+	// private int mStoreMaxTime = 0;
+	// private boolean bIsScale = false;
+	// private boolean bIsComfirm = true;
+	// private int mCurrentSaveTime;
+	private TestingMode mCurrentMode;
+
+	private static final String COMFIRM_STATE = "COMFIRM_STATE";
+
+	private boolean bIsRunning = false;
+
+	enum TestingMode {
+		UPLOAD, TESTING, RETESTING,
+	}
+
+	// 更新句柄
+	Handler handler = new Handler() {
+
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case EcgPpgActivity.MSG_UI_REFRESH:
+				// Log.d(TAG, "case UI refresh");// 暂时没有用？
+				if (GetBlueDataService.DATA_TOQUEUE_FLAG) {
+					refreshUI();
+				}
+				break;
+
+			case EcgPpgActivity.MSG_TIME_COUNT:
+				if (BluetoothData.getInsetance().mCountPreSave > 0) {
+					tvTimeBar
+							.setText(BluetoothData.getInsetance().mCountPreSave
+									+ "秒后开始自动存储");
+					BluetoothData.getInsetance().mCountPreSave--;
+				} else if (BluetoothData.getInsetance().mCountPreSave == 0) {
+					startStore();
+					tvTimeBar
+							.setText(countTime(BluetoothData.getInsetance().mStoreMaxTime));
+					BluetoothData.getInsetance().mCountPreSave--;
+				} else {
+					long leftTime = BluetoothData.getInsetance().mStoreMaxTime
+							- (System.currentTimeMillis() - BluetoothData
+									.getInsetance().startTime) / 1000;
+					if (leftTime <= 0
+							&& BluetoothData.getInsetance().bIsComfirm) {
+						BluetoothData.getInsetance().bIsComfirm = false;
+						confirmUpload();
+					} else {
+						tvTimeBar
+								.setText(countTime((System.currentTimeMillis() - BluetoothData
+										.getInsetance().startTime) / 1000));
+					}
+				}
+				break;
+
+			case EcgPpgActivity.BLUE_ERROR:
+				/*
+				 * taskBeforeStop.cancel(); taskUi.cancel(); stopStore();
+				 * 
+				 * AlertDialog stopDialog = null; AlertDialog.Builder builder =
+				 * new AlertDialog.Builder(EcgPpgActivity.this);
+				 * builder.setIcon(android.R.drawable.ic_dialog_alert);
+				 * builder.setTitle(android.R.string.dialog_alert_title);
+				 * builder.setMessage(R.string.bt_error);
+				 * builder.setCancelable(false
+				 * ).setPositiveButton(android.R.string.ok, new
+				 * blueErrorListener()); stopDialog = builder.create();
+				 * stopDialog.show();
+				 */
+				break;
+
+			default:
+				break;
+			}
+			super.handleMessage(msg);
+		}
+	};
+
+	void switchMode(TestingMode mode) {
+		mCurrentMode = mode;
+		// if (mode.equals(TestingMode.UPLOAD)) {
+		// mButtonStop
+		// .setBackgroundResource(R.drawable.drsuploadbuttonselector);
+		// }
+		//
+		// if (mode.equals(TestingMode.TESTING)) {
+		// mButtonStop
+		// .setBackgroundResource(R.drawable.drsstoptestbuttonselector);
+		// }
+		//
+		// if (mode.equals(TestingMode.RETESTING)) {
+		// mButtonStop
+		// .setBackgroundResource(R.drawable.drsstoptestbuttonselector);
+		// }
+	}
+
+	void setVisableprogress(int visable) {
+		// findViewById(R.id.viewleftid).setVisibility(visable);
+		// findViewById(R.id.viewrightid).setVisibility(visable);
+		// mProgressBar.setVisibility(visable);
+		// mTextShowContent.setVisibility(visable);
+	}
+
+	// 定时器更新界面
+	private Timer timer = new Timer();
+	TimerTask taskUi = new TimerTask() {
+		@Override
+		public void run() {
+			// Log.d(TAG, "UI refresh timer");
+			handler.sendEmptyMessage(MSG_UI_REFRESH);
+		}
+	};
+
+	TimerTask taskTimeCountUi = new TimerTask() {
+		@Override
+		public void run() {
+			// Log.d(TAG, "UI refresh timer");
+			// if (ConnectionSelectActivity.SERVICE_FLAG)
+			{
+				handler.sendEmptyMessage(MSG_TIME_COUNT);
+			}
+		}
+	};
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		// TODO Auto-generated method stub
+		outState.putBoolean(COMFIRM_STATE, bIsRunning);
+		super.onSaveInstanceState(outState);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.measure_ecgppg);
+
+		android.util.Log.i("EcgPpgActivity", "onCreate called...........");
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+				R.layout.custom_title);
+		toastPPG = Toast.makeText(this, "", Toast.LENGTH_SHORT);
+		toastECG = Toast.makeText(this, "", Toast.LENGTH_SHORT);
+
+		// final TextView leftText = (TextView)
+		// findViewById(R.id.title_left_text);
+		// leftText.setText(R.string.SA_ecg);
+
+		ecgppgView = (EcgPpgView<AttributeSet>) findViewById(R.id.ecgppgView);
+		heartRate = (TextView) findViewById(R.id.ecgppg_xinlv);// 心率
+		pulseRate = (TextView) findViewById(R.id.ecgppg_mailv);// 脉率
+		tvSPOValue = (TextView) findViewById(R.id.ecgppg_spo);// 血氧
+		scaletextview = (TextView) findViewById(R.id.scaletextid);// 放大、缩小
+		tvTimeBar = (TextView) findViewById(R.id.ecgppgname);// 实时信号
+		// mProgressBar = (ProgressBar)
+		// findViewById(R.id.ecgppguploadprogressid);
+		// mTextShowContent = (TextView) findViewById(R.id.progresstextid);
+		mButtonStop = (ImageView) findViewById(R.id.stopuploadbuttonid);
+
+		uploadbtn = (RelativeLayout) findViewById(R.id.btn_uploadfile_id);// 停止并上传
+		uploadbtn.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				// if(mCurrentMode.equals(TestingMode.UPLOAD)){}
+				// 上传模式
+				confirmUpload();
+
+			}
+		});
+		mButtonScale = (ImageView) findViewById(R.id.scaleecgppgbuttonid);
+		scalebtn = (RelativeLayout) findViewById(R.id.btn_scale_viewid);
+		scalebtn.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if (BluetoothData.getInsetance().bIsScale) {
+					BluetoothData.getInsetance().bIsScale = !BluetoothData
+							.getInsetance().bIsScale;
+					BluetoothData.getInsetance().scale -= 2;
+					BluetoothData.getInsetance().mfScale = (float) BluetoothData
+							.getInsetance().scale / 6;
+					mButtonScale
+							.setBackgroundResource(R.drawable.drscalelagebuttonselector);
+					scaletextview.setText(getString(R.string.enlarge));
+				} else {
+					BluetoothData.getInsetance().bIsScale = !BluetoothData
+							.getInsetance().bIsScale;
+					BluetoothData.getInsetance().scale += 2;
+					BluetoothData.getInsetance().mfScale = (float) BluetoothData
+							.getInsetance().scale / 6;
+					mButtonScale
+							.setBackgroundResource(R.drawable.drscalelitbuttonselector);
+					scaletextview.setText(getString(R.string.enlittler));
+				}
+			}
+		});
+
+		if (savedInstanceState != null) {
+			bIsRunning = savedInstanceState.getBoolean(COMFIRM_STATE);
+		}
+		if (!bIsRunning) {
+			bIsRunning = true;
+			initialMethod();
+		}
+		startTesting();
+		for (int i = 0; i < BluetoothData.PPG_POINT_LEN; i++) {
+			BluetoothData.getInsetance().PPGbuffer[i] = 126;
+		}
+	}
+
+	/**
+	 * Give me a good name !!! <br>
+	 * 1)get storeMethod from sharedpreferences with the name
+	 * LoninActivity.SETTING <br>
+	 * 2)from the value of storeMethod, generate time before start to save,<br>
+	 * 3)if need count before start then start the task.
+	 */
+	private void initialMethod() {
+		// 10秒
+		BluetoothData.getInsetance().mCountPreSave = 10;
+		if (ConnectionDevice.getInstance().getDeviceCode() == 2) {
+			// miniholter
+			BluetoothData.getInsetance().mStoreMaxTime = 300; // 5分钟
+		} else {
+			BluetoothData.getInsetance().mStoreMaxTime = 120; // 120秒
+		}
+	}
+
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		GetBlueDataService.DATA_TOQUEUE_FLAG = true;
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+	}
+
+	/****************************************************************
+	 * 方法描述：退出应用的对话框
+	 * 
+	 * @param
+	 * @return
+	 ****************************************************************/
+	private void exitDialog() {
+		Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("提示");
+		builder.setMessage("测量数据还没有上传，确定要放弃测试吗?");
+		builder.setPositiveButton("是", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
+		builder.setNegativeButton("否", null);
+		builder.create();
+		builder.show();
+	}
+
+	/**********************************************************************
+	 * 方法描述：点击返回键时，弹出对话框提示退出应用
+	 * 
+	 * @param keyCode
+	 * @param event
+	 * @return
+	 **********************************************************************/
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+		if (keyCode == KeyEvent.KEYCODE_BACK
+				&& event.getAction() == KeyEvent.ACTION_DOWN
+				&& GetBlueDataService.DATA_TOFILE_FLAG) {
+			exitDialog();
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		android.util.Log.i("EcgPpgActivity", "finish called...........");
+		GetBlueDataService.DATA_TOQUEUE_FLAG = false;
+		GetBlueDataService.DATA_TOFILE_FLAG = false;
+		stopService(new Intent(this.getApplicationContext(),
+				GetBlueDataService.class));
+		super.finish();
+	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		android.util.Log.i("EcgPpgActivity", "onDestroy called...........");
+		if (timer != null) {
+			timer.cancel();
+			timer = null;
+		}
+	}
+
+	private void startStore() {
+		// 删除已有的ECG,PPGTXT文件 ，不会抛出异常，所以存在文件则删除，不存在也不影响程序继续运行。
+		deleteFile(GetBlueDataService.mEcgFilename);
+		deleteFile(GetBlueDataService.mPpgFilename);
+		BluetoothData.getInsetance().startTime = System.currentTimeMillis();
+		GetBlueDataService.DATA_TOFILE_FLAG = true;
+	}
+
+	private void startTesting() {
+		switchMode(TestingMode.TESTING);
+		timer.schedule(taskUi, 0, 50);
+		timer.schedule(taskTimeCountUi, 0, 1000);
+	}
+
+	private void stopTesting() {
+		timer.cancel();
+		switchMode(TestingMode.UPLOAD);
+	}
+
+	public void confirmUpload() {
+		AlertDialog ad = new AlertDialog.Builder(this).create();
+		ad.setTitle("提醒");
+		ad.setMessage("是否要上传,请先确认无线网络正常使用");
+		ad.setButton("是", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int i) {
+				// TODO Auto-generated method stub
+				// new UploadEcgPggDialog(EcgPpgActivity.this).startUpload();
+				tvTimeBar.setText(getString(R.string.common_SIGNAL));
+				stopStore();
+				stopTesting();
+				// if (ConnectionDevice.getInstance().getDeviceName()
+				// .startsWith(DeviceConst.BT_MINIHOLTER_NAME_NEW)) {
+				// Intent intent = new Intent(getApplicationContext(),
+				// UsbUploadService.class);
+				// intent.setAction(UsbUploadService.ACTION_START_BLUETOOTH_UPLOAD);
+				// startService(intent);
+				// } else {
+				// startActivity(new Intent(EcgPpgActivity.this,
+				// UploadEcgPggDialog.class));
+				// }
+				startActivity(new Intent(EcgPpgActivity.this,
+						UploadEcgPggDialog.class));
+				BluetoothData.getInsetance().bIsComfirm = true;
+			}
+		});
+		ad.setButton2("不,我要继续测试", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int i) {
+				BluetoothData.getInsetance().bIsComfirm = false;
+			}
+		});
+		ad.setCanceledOnTouchOutside(false);
+		ad.show();
+	}
+
+	private void stopStore() {
+		GetBlueDataService.DATA_TOFILE_FLAG = false;
+		GetBlueDataService.DATA_TOQUEUE_FLAG = false;
+		System.out.println("DO_FLAG:--------stopStore:"
+				+ GetBlueDataService.DATA_TOQUEUE_FLAG);
+		BluetoothData.getInsetance().endTime = System.currentTimeMillis();
+		getEndTime(endTimeString);
+	}
+
+	// 更新函数
+	public void refreshUI() {
+		// 屏蔽手机画图
+		upDateECGPath();
+		upDatePPGPath();
+		setData();
+		ecgppgView.postInvalidate();
+	}
+
+	public String countTime() {
+		long nowTime = System.currentTimeMillis()
+				- BluetoothData.getInsetance().startTime;
+		int hour, min, second;
+		hour = (int) (nowTime / (1000 * 3600));
+		min = (int) (((nowTime / 1000) - hour * 3600) / 60);
+		second = (int) ((nowTime / 1000) - hour * 3600 - min * 60);
+		return String.valueOf(hour) + " : " + String.valueOf(min) + " : "
+				+ String.valueOf(second);
+	}
+
+	private String countTime(long beforeStop) {
+		long hour, min, second;
+		hour = (beforeStop / 3600);
+		min = ((beforeStop - hour * 3600) / 60);
+		second = (beforeStop - hour * 3600 - min * 60);
+		return String.valueOf(hour) + " : " + String.valueOf(min) + " : "
+				+ String.valueOf(second);
+	}
+
+	public void getEndTime(String[] endTimeString) {
+		Calendar c = Calendar.getInstance();
+		int mYear = c.get(Calendar.YEAR);
+		int mMonth = c.get(Calendar.MONTH);
+		int mDay = c.get(Calendar.DAY_OF_MONTH);
+		int mHour = c.get(Calendar.HOUR_OF_DAY);
+		int mMinute = c.get(Calendar.MINUTE);
+		int mSecond = c.get(Calendar.SECOND);
+
+		endTimeString[0] = Integer.toString(mYear);
+		mMonth++;
+
+		if (mMonth < 10) {
+			endTimeString[1] = '0' + Integer.toString(mMonth);
+		} else {
+			endTimeString[1] = Integer.toString(mMonth);
+		}
+
+		if (mDay < 10) {
+			endTimeString[2] = '0' + Integer.toString(mDay);
+		} else {
+			endTimeString[2] = Integer.toString(mDay);
+		}
+
+		if (mHour < 10) {
+			endTimeString[3] = '0' + Integer.toString(mHour);
+		} else {
+			endTimeString[3] = Integer.toString(mHour);
+		}
+
+		if (mMinute < 10) {
+			endTimeString[4] = '0' + Integer.toString(mMinute);
+		} else {
+			endTimeString[4] = Integer.toString(mMinute);
+		}
+
+		if (mSecond < 10) {
+			endTimeString[5] = '0' + Integer.toString(mSecond);
+		} else {
+			endTimeString[5] = Integer.toString(mSecond);
+		}
+
+		try {
+			DataOutputStream dos = new DataOutputStream(
+					EcgPpgActivity.this.openFileOutput(AndroidConfiguration
+							.getInstance(this.getApplicationContext())
+							.getRoleId()
+							+ ".mapPar.txt", 0));
+
+			dos.write((endTimeString[0] + endTimeString[1] + endTimeString[2]
+					+ endTimeString[3] + endTimeString[4] + endTimeString[5])
+					.getBytes());
+			dos.write(("\r\n").getBytes());
+			dos.write(String.valueOf(
+					(BluetoothData.getInsetance().endTime - BluetoothData
+							.getInsetance().startTime) / 1000).getBytes());
+			dos.write(("\r\n").getBytes());
+			// AndroidConfiguration.xueyang =
+			// String.valueOf(GetBlueDataService.xueyang);
+			dos.write(String.valueOf(GetBlueDataService.xueyang).getBytes());
+			dos.write(("\r\n").getBytes());
+			dos.write(GetBlueDataService.mStrEcgFs.getBytes());
+			dos.close();
+		} catch (IOException e) {
+			System.out.print("EcgPpgActivity_IOException");
+		}
+	}
+
+	public void setData() {
+		int mHeartRate = 0;
+		int mPulseRate = 0;
+		int mTmpSPO = 0;
+
+		synchronized (GetBlueDataService.Data) {
+			mHeartRate = GetBlueDataService.Data[0];
+			mTmpSPO = GetBlueDataService.Data[1];
+			mPulseRate = GetBlueDataService.Data[2];
+		}
+
+		// 心率
+		if (mHeartRate != 0) {
+			heartRate.setText(Integer.toString(mHeartRate));
+			toastECG.cancel();
+		} else {
+			heartRate.setText("");
+			toastECG.setText("心电数据采集不全，请您调整姿态");
+			toastECG.show();
+		}
+
+		// 血氧
+		if (mTmpSPO != 0) {
+			tvSPOValue.setText(Integer.toString(mTmpSPO));
+		} else {
+			tvSPOValue.setText("");
+		}
+
+		if (ConnectionDevice.getInstance().getDeviceCode() == 1
+				|| ConnectionDevice.getInstance().getDeviceCode() == 3) {
+			// 脉率
+			if (mPulseRate != 0) {
+				pulseRate.setText(Integer.toString(mPulseRate));
+				toastPPG.cancel();
+			} else {
+				pulseRate.setText("");
+				toastPPG.setText("脉率数据采集不全，请您调整手指");
+				toastPPG.show();
+			}
+		}
+	}
+
+	private byte noDataCount = 0;
+
+	private void upDateECGPath() {
+		ECGPointer = BluetoothData.getInsetance().ecg_index;
+		if (!bInitional) {
+			ecgppgView.initEcgPpgView();
+			int viewHeight = ecgppgView.getHeight();
+			if (viewHeight > 500) {
+				BluetoothData.getInsetance().scale = 6;
+				BluetoothData.getInsetance().mfScale = (float) BluetoothData
+						.getInsetance().scale / 6;
+				BluetoothData.getInsetance().mEcgppgMaxlen = 250;
+			} else {
+				BluetoothData.getInsetance().mEcgppgMaxlen = ((viewHeight / 2) / 10) * 10;
+				// scale = (scale * (viewHeight/2))/250;
+				// scale = (scale==0)?1:scale;
+			}
+			if (BluetoothData.getInsetance().mEcgppgMaxlen != 0) {
+				bInitional = true;
+			}
+
+		}
+
+		synchronized (GetBlueDataService.ECGQueue) {
+			int ecg = 0;
+			for (int i = 0; i < 40; i++) {
+				ecg = GetBlueDataService.ECGQueue.out();
+				if (ecg != -1) {
+					BluetoothData.getInsetance().ECGbuffer[(ECGPointer++)
+							% BluetoothData.ECG_POINT_LEN] = ecg;
+				}
+			}
+		}
+
+		if (ECGPointer == BluetoothData.getInsetance().ecg_index) {
+			noDataCount++;
+
+			// 连续四个周期没有数据，判定为蓝牙出错
+			if (noDataCount > 3)
+				handler.sendEmptyMessage(EcgPpgActivity.BLUE_ERROR);
+		} else {
+			noDataCount = 0;
+		}
+
+		for (int i = 0; i < BluetoothData.ECG_POINT_LEN; i++) {
+			BluetoothData.getInsetance().ecgtemp[i] = BluetoothData
+					.getInsetance().ECGbuffer[i]
+					* BluetoothData.getInsetance().scale / 24;
+		}
+
+		/*
+		 * // 两次五点平滑 for (int i = 0; i < ECG_POINT_LEN; i++) { ecgtemp[i] =
+		 * fir_lp(ecgtemp[i]); ecgtemp[i] = fir_hp(ecgtemp[i]); }
+		 */
+
+		int[] buf = new int[BluetoothData.ECG_POINT_LEN];
+		for (int i = 4; i < BluetoothData.ECG_POINT_LEN; i++) {
+			buf[i] = (BluetoothData.getInsetance().ecgtemp[i]
+					+ BluetoothData.getInsetance().ecgtemp[i - 4]
+					+ BluetoothData.getInsetance().ecgtemp[i - 3]
+					+ BluetoothData.getInsetance().ecgtemp[i - 2] + BluetoothData
+					.getInsetance().ecgtemp[i - 1]) / 5;
+		}
+		buf[3] = buf[4] - 1;
+		buf[2] = buf[4] - 2;
+		buf[1] = buf[4] - 3;
+		buf[0] = buf[4] - 4;
+
+		int sum = 0;
+		for (int i = 4; i < BluetoothData.ECG_POINT_LEN; i++) {
+			BluetoothData.getInsetance().ecgtemp[i] = (buf[i] + buf[i - 4]
+					+ buf[i - 3] + buf[i - 2] + buf[i - 1]) / 5;
+			sum += BluetoothData.getInsetance().ecgtemp[i];
+		}
+		BluetoothData.getInsetance().ecgtemp[3] = BluetoothData.getInsetance().ecgtemp[4] - 1;
+		BluetoothData.getInsetance().ecgtemp[2] = BluetoothData.getInsetance().ecgtemp[4] - 2;
+		BluetoothData.getInsetance().ecgtemp[1] = BluetoothData.getInsetance().ecgtemp[4] - 3;
+		BluetoothData.getInsetance().ecgtemp[0] = BluetoothData.getInsetance().ecgtemp[4] - 4;
+		sum += BluetoothData.getInsetance().ecgtemp[0];
+		sum += BluetoothData.getInsetance().ecgtemp[1];
+		sum += BluetoothData.getInsetance().ecgtemp[2];
+		sum += BluetoothData.getInsetance().ecgtemp[3];
+		sum = sum / BluetoothData.ECG_POINT_LEN;
+
+		int mm = 0;
+		for (int i = BluetoothData.getInsetance().ecg_index; i < ECGPointer; i++) {
+			mm = BluetoothData.getInsetance().mEcgppgMaxlen
+					/ 2
+					+ BluetoothData.getInsetance().ecgtemp[i
+							% BluetoothData.ECG_POINT_LEN] - sum;
+			if (mm > BluetoothData.getInsetance().mEcgppgMaxlen) {
+				BluetoothData.getInsetance().ecgData[i
+						% BluetoothData.ECG_POINT_LEN] = BluetoothData
+						.getInsetance().mEcgppgMaxlen;
+			} else {
+				BluetoothData.getInsetance().ecgData[i
+						% BluetoothData.ECG_POINT_LEN] = mm;
+			}
+		}
+		BluetoothData.getInsetance().ecg_index = ECGPointer
+				% BluetoothData.ECG_POINT_LEN;
+		// Log.d(TAG, "index=" + ecgppgView.ecg_index + " pointer=" +
+		// ECGPointer);
+	}
+
+	// 更新ppg数据，从接受队列取数据放到更新数组之中
+	private void upDatePPGPath() {
+		PPGPointer = BluetoothData.getInsetance().ppg_index;
+		if (!bInitional) {
+			ecgppgView.initEcgPpgView();
+			int viewHeight = ecgppgView.getHeight();
+			if (viewHeight > 500) {
+				BluetoothData.getInsetance().scale = 6;
+				BluetoothData.getInsetance().mfScale = (float) BluetoothData
+						.getInsetance().scale / 6;
+				BluetoothData.getInsetance().mEcgppgMaxlen = 250;
+			} else {
+				BluetoothData.getInsetance().mEcgppgMaxlen = ((viewHeight / 2) / 10) * 10;
+				// scale = (scale * (viewHeight/2))/250;
+				// scale = (scale==0)?1:scale;
+			}
+			if (BluetoothData.getInsetance().mEcgppgMaxlen != 0) {
+				bInitional = true;
+			}
+		}
+		synchronized (GetBlueDataService.PPGQueue) {
+			int ppg = 0;
+			for (int i = 0; i < 10; i++) {
+				ppg = GetBlueDataService.PPGQueue.out();
+				if (ppg != -1) {
+					BluetoothData.getInsetance().PPGbuffer[(PPGPointer++)
+							% BluetoothData.PPG_POINT_LEN] = ppg;
+				}
+			}
+		}
+
+		int sum = 0;
+		for (int i = 0; i < BluetoothData.PPG_POINT_LEN; i++) {
+			BluetoothData.getInsetance().ppgtemp[i] = BluetoothData
+					.getInsetance().PPGbuffer[i]
+					* BluetoothData.getInsetance().scale / 4;
+			sum += BluetoothData.getInsetance().ppgtemp[i];
+		}
+		sum = sum / BluetoothData.PPG_POINT_LEN;
+
+		int mm = 0;
+		for (int i = BluetoothData.getInsetance().ppg_index; i < PPGPointer; i++) {
+
+			mm = BluetoothData.getInsetance().mEcgppgMaxlen
+					+ (BluetoothData.getInsetance().mEcgppgMaxlen / 2)
+					- BluetoothData.getInsetance().ppgtemp[i
+							% BluetoothData.PPG_POINT_LEN] + sum;
+			/*
+			 * Log.d("PPgppgppgppg", "ppgtemp" + (i % PPG_POINT_LEN) + "=" +
+			 * ppgtemp[i % PPG_POINT_LEN] + " mm=" + mm + " sum=" + sum +
+			 * " ppgtemp[max]=" + ppgtemp[PPG_POINT_LEN - 1]);
+			 */
+			// Log.i("EcgPpgActivity1", "ppg output is ----->>  "+mm);
+			if (mm < BluetoothData.getInsetance().mEcgppgMaxlen) {
+				BluetoothData.getInsetance().ppgData[i
+						% BluetoothData.PPG_POINT_LEN] = BluetoothData
+						.getInsetance().mEcgppgMaxlen;
+			} else {
+				BluetoothData.getInsetance().ppgData[i
+						% BluetoothData.PPG_POINT_LEN] = mm;
+			}
+		}
+		BluetoothData.getInsetance().ppg_index = (PPGPointer % BluetoothData.PPG_POINT_LEN);
+		// Log.d(TAG, "index=" + ecgppgView.ppg_index + " pointer=" +
+		// PPGPointer);
+	}
+
+	public long getTimeLength() {
+		return BluetoothData.getInsetance().endTime
+				- BluetoothData.getInsetance().startTime;
+	}
+
+	@Override
+	public ViewGroup getMainLayout() {
+		// TODO Auto-generated method stub
+		return (LinearLayout) findViewById(R.id.ecgppgmain);
+	}
+}

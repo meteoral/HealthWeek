@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <Preference
+        android:key="home_page"
+        android:title="主页" />
+    <Preference
+        android:key="my_family"
+        android:title="我的家庭" />
+    <Preference
+        android:key="my_role"
+        android:title="我的角色" />
+    <Preference
+        android:key="my_care"
+        android:title="我的关注" />
+    <Preference
+        android:key="remind_set"
+        android:title="提醒设置" />
+    <Preference
+        android:key="unit_set"
+        android:title="单位设置" />
+    <Preference
+        android:key="home_page_set"
+        android:title="主页设置" />
+	<Preference
+        android:key="about_info"
+        android:title="关于" />
+    <Preference
+        android:key="re_login"
+        android:title="重新登录" />
+
+</PreferenceScreen>

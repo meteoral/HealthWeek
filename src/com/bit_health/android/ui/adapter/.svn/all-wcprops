@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ClientSource_Android/!svn/ver/313/src/com/bit_health/android/ui/adapter
+END
+LoginIdentityGV_Adapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ClientSource_Android/!svn/ver/222/src/com/bit_health/android/ui/adapter/LoginIdentityGV_Adapter.java
+END
+AddModuleLV_Adapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/ui/adapter/AddModuleLV_Adapter.java
+END
+ReportModule_Adapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/ui/adapter/ReportModule_Adapter.java
+END
+GridViewAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/313/src/com/bit_health/android/ui/adapter/GridViewAdapter.java
+END
+PlanModuleLV_Adapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/ui/adapter/PlanModuleLV_Adapter.java
+END
+TestModuleGV_Adapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ClientSource_Android/!svn/ver/125/src/com/bit_health/android/ui/adapter/TestModuleGV_Adapter.java
+END
+HistoryRecordsAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ClientSource_Android/!svn/ver/240/src/com/bit_health/android/ui/adapter/HistoryRecordsAdapter.java
+END
+MyRoleListAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/ui/adapter/MyRoleListAdapter.java
+END
+ContentModuleVP_Adapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/ui/adapter/ContentModuleVP_Adapter.java
+END
+MyFamilyAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/162/src/com/bit_health/android/ui/adapter/MyFamilyAdapter.java
+END
+ReportModuleListViewAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ClientSource_Android/!svn/ver/170/src/com/bit_health/android/ui/adapter/ReportModuleListViewAdapter.java
+END
+BluetoothUploadAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ClientSource_Android/!svn/ver/106/src/com/bit_health/android/ui/adapter/BluetoothUploadAdapter.java
+END
+MyCareListAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ClientSource_Android/!svn/ver/139/src/com/bit_health/android/ui/adapter/MyCareListAdapter.java
+END
+TimeRemindAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/ui/adapter/TimeRemindAdapter.java
+END

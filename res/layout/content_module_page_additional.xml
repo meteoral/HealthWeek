@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.39"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/additional_page_back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="0px"
+            android:layout_weight="0.25"
+            android:background="@drawable/listview_item_color"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home_page_back_to_menu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的关注"
+                android:textColor="@color/white"
+                android:textSize="35px" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_weight="0.75"
+            android:background="@drawable/home_page_additional_up_bg" >
+
+            <LinearLayout
+                android:id="@+id/layout_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/home_page_head_photo_of_additional"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/mather" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/home_page_full_name_of_additional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="妈妈"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="\u3000" />
+
+                    <TextView
+                        android:id="@+id/home_page_user_name_of_additional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="momi"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/normal_textsize" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_defeat_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/layout_photo"
+                android:layout_marginLeft="10dip"
+                android:layout_toRightOf="@id/layout_photo"
+                android:gravity="right"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/page_additional_health_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="健康状况："
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <TextView
+                        android:id="@+id/page_additional_health_state_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="良好"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/normal_textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/page_additional_analyze_time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="分析时间："
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <TextView
+                        android:id="@+id/page_additional_analyze_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="刚刚"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/normal_textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/page_additional_detail_btn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:text="@string/test_right_now"
+                        android:textColor="@color/textview_color2"
+                        android:textSize="@dimen/normal_textsize" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.01"
+        android:gravity="center"
+        android:orientation="vertical" >
+    </LinearLayout>
+    <!-- 四个方形图的布局 start -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.58"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/layout_left_up_of_additional"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5px"
+                    android:layout_marginLeft="10px"
+                    android:layout_marginRight="5px"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_page_block_left_up"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/yesterday_abnormal_text_of_additional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/yesterday_abnormal"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <TextView
+                        android:id="@+id/left_up_count_text_of_additional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/yesterday_abnormal_text_of_additional"
+                        android:layout_centerHorizontal="true"
+                        android:text="2"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/set_font_size_90px" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/left_up_count_text_of_additional"
+                        android:layout_below="@id/yesterday_abnormal_text_of_additional"
+                        android:layout_toRightOf="@id/left_up_count_text_of_additional"
+                        android:text="@string/how_many_time"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_right_up_of_additional"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5px"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginRight="10px"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_page_block_right_up"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/month_abnormal_text_of_additional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/month_abnormal"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <TextView
+                        android:id="@+id/right_up_count_text_of_additional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/month_abnormal_text_of_additional"
+                        android:layout_centerHorizontal="true"
+                        android:text="15"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/set_font_size_90px" />
+
+                    <TextView
+                        android:id="@+id/right_up_unit_text_of_additional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/right_up_count_text_of_additional"
+                        android:layout_below="@id/month_abnormal_text_of_additional"
+                        android:layout_toRightOf="@id/right_up_count_text_of_additional"
+                        android:text="@string/how_many_time"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/layout_left_down_of_additional"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10px"
+                    android:layout_marginRight="5px"
+                    android:layout_marginTop="5px"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_page_block_left_down"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/left_down_count_text_of_additional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="36"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/set_font_size_90px" />
+
+                    <TextView
+                        android:id="@+id/left_down_unit_text_of_additional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/left_down_count_text_of_additional"
+                        android:layout_toRightOf="@id/left_down_count_text_of_additional"
+                        android:text="@string/how_many_time"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/normal_textsize" />
+
+                    <TextView
+                        android:id="@+id/year_abnormal_text_of_additional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/left_down_count_text_of_additional"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/year_abnormal"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_right_down_of_additional"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginRight="10px"
+                    android:layout_marginTop="5px"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_page_block_right_down"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:id="@+id/right_down_image_of_additional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/their_reports_img" />
+
+                    <TextView
+                        android:id="@+id/right_down_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/right_down_image_of_additional"
+                        android:layout_centerInParent="true"
+                        android:text="@string/string_their_reports"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/normal_textsize" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <!-- 四个方形图的布局 end -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.02"
+        android:gravity="center|bottom"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</LinearLayout>

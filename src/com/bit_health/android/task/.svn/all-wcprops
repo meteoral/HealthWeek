@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ClientSource_Android/!svn/ver/312/src/com/bit_health/android/task
+END
+UpateRoleInfosTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ClientSource_Android/!svn/ver/250/src/com/bit_health/android/task/UpateRoleInfosTask.java
+END
+AndroidCustomTaskMgr.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ClientSource_Android/!svn/ver/118/src/com/bit_health/android/task/AndroidCustomTaskMgr.java
+END
+GetOverAnalyzesTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ClientSource_Android/!svn/ver/312/src/com/bit_health/android/task/GetOverAnalyzesTask.java
+END
+CheckVersionTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ClientSource_Android/!svn/ver/250/src/com/bit_health/android/task/CheckVersionTask.java
+END
+GetHeadImageTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ClientSource_Android/!svn/ver/166/src/com/bit_health/android/task/GetHeadImageTask.java
+END
+CheckConnectTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ClientSource_Android/!svn/ver/221/src/com/bit_health/android/task/CheckConnectTask.java
+END

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20px" >
+
+        <TextView
+            android:id="@+id/the_term_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="心动过速"
+            android:textSize="@dimen/interface_title" />
+
+        <TextView
+            android:id="@+id/term_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:text="\u3000\u3000术语说明：因迷走神经张力增大或窦房结功能障碍引起，如出现黑矇、短暂意识障碍或晕厥时，及时就医。"
+            android:textSize="@dimen/normal_textsize" />
+    </LinearLayout>
+
+</LinearLayout>

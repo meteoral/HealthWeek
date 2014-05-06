@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ClientSource_Android/!svn/ver/334/src/com/bit_health/android/ui/activities
+END
+LoginIdentityActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ClientSource_Android/!svn/ver/317/src/com/bit_health/android/ui/activities/LoginIdentityActivity.java
+END
+AbnormalReportActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ClientSource_Android/!svn/ver/150/src/com/bit_health/android/ui/activities/AbnormalReportActivity.java
+END
+TestXueYaActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ClientSource_Android/!svn/ver/243/src/com/bit_health/android/ui/activities/TestXueYaActivity.java
+END
+ReportOfXueTangActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/ReportOfXueTangActivity.java
+END
+EcgRRActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/ui/activities/EcgRRActivity.java
+END
+ChangeRoleNameActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/ChangeRoleNameActivity.java
+END
+BitHealthMainActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ClientSource_Android/!svn/ver/277/src/com/bit_health/android/ui/activities/BitHealthMainActivity.java
+END
+AddMembersOfEditInfoActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/AddMembersOfEditInfoActivity.java
+END
+BaseActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/247/src/com/bit_health/android/ui/activities/BaseActivity.java
+END
+ReportActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/ui/activities/ReportActivity.java
+END
+RegisterIdentifyCodeActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/RegisterIdentifyCodeActivity.java
+END
+ReportOfXueYaActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/ReportOfXueYaActivity.java
+END
+BaseDataOfDetailActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ClientSource_Android/!svn/ver/226/src/com/bit_health/android/ui/activities/BaseDataOfDetailActivity.java
+END
+EcgChaosActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ClientSource_Android/!svn/ver/2/src/com/bit_health/android/ui/activities/EcgChaosActivity.java
+END
+MoreInfoActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/MoreInfoActivity.java
+END
+GuiderActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/GuiderActivity.java
+END
+SeeDetailsActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ClientSource_Android/!svn/ver/305/src/com/bit_health/android/ui/activities/SeeDetailsActivity.java
+END
+RegisterActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/RegisterActivity.java
+END
+BasicInfoOfFamilyActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ClientSource_Android/!svn/ver/334/src/com/bit_health/android/ui/activities/BasicInfoOfFamilyActivity.java
+END
+AndroidActivityMananger.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ClientSource_Android/!svn/ver/236/src/com/bit_health/android/ui/activities/AndroidActivityMananger.java
+END
+OneKeyTestActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ClientSource_Android/!svn/ver/241/src/com/bit_health/android/ui/activities/OneKeyTestActivity.java
+END
+HelpMenualActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/HelpMenualActivity.java
+END
+FourModuleManangerActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ClientSource_Android/!svn/ver/256/src/com/bit_health/android/ui/activities/FourModuleManangerActivity.java
+END
+TestXinDianActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ClientSource_Android/!svn/ver/212/src/com/bit_health/android/ui/activities/TestXinDianActivity.java
+END
+AddMembersActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ClientSource_Android/!svn/ver/334/src/com/bit_health/android/ui/activities/AddMembersActivity.java
+END
+MenuChildPageActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ClientSource_Android/!svn/ver/324/src/com/bit_health/android/ui/activities/MenuChildPageActivity.java
+END
+FoundAbnormalECGActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ClientSource_Android/!svn/ver/334/src/com/bit_health/android/ui/activities/FoundAbnormalECGActivity.java
+END
+DownLoadApkService.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ClientSource_Android/!svn/ver/320/src/com/bit_health/android/ui/activities/DownLoadApkService.java
+END
+ReportOfMaiboActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/ReportOfMaiboActivity.java
+END
+LoginActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ClientSource_Android/!svn/ver/235/src/com/bit_health/android/ui/activities/LoginActivity.java
+END
+ForgetPasswordActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/ForgetPasswordActivity.java
+END
+BlueToothUploadActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ClientSource_Android/!svn/ver/155/src/com/bit_health/android/ui/activities/BlueToothUploadActivity.java
+END
+ReportOfXinDianActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/ReportOfXinDianActivity.java
+END
+TestXueTangActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ClientSource_Android/!svn/ver/243/src/com/bit_health/android/ui/activities/TestXueTangActivity.java
+END
+EcgChartActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ClientSource_Android/!svn/ver/57/src/com/bit_health/android/ui/activities/EcgChartActivity.java
+END
+ReportsDetailActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ClientSource_Android/!svn/ver/308/src/com/bit_health/android/ui/activities/ReportsDetailActivity.java
+END

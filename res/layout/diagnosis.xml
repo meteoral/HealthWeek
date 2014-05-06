@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:stretchColumns="1" >
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/EHA_result_item_normal"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:id="@+id/diagnosis_result_item_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/EHA_result_item_erlian"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:id="@+id/diagnosis_result_item_erlian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/EHA_result_item_sanlian"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:id="@+id/diagnosis_result_item_sanlian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/EHA_result_item_sa"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:id="@+id/diagnosis_result_item_sa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/EHA_result_item_mb"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:id="@+id/diagnosis_result_item_mb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/EHA_result_item_ws"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:id="@+id/diagnosis_result_item_ws"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/EHA_result_item_vpb"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:id="@+id/diagnosis_result_item_vpb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/EHA_result_item_apb"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:id="@+id/diagnosis_result_item_apb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/EHA_result_item_ivbp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:id="@+id/diagnosis_result_item_ivbp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/EHA_result_item_shisu"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+
+        <TextView
+            android:id="@+id/diagnosis_result_item_shisu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_textsize" />
+    </TableRow>
+
+</TableLayout>

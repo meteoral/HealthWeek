@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ecgppgmain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ecgppgbottom"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:layout_weight="0.1"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00AEEF" >
+
+            <TextView
+                android:id="@+id/ecgppg_xinlv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="50px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ecgppg_xinlv"
+                android:layout_centerHorizontal="true"
+                android:text="@string/common_HR"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_textsize"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="10px"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <RelativeLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00AEEF" >
+
+            <TextView
+                android:id="@+id/ecgppg_mailv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="50px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ecgppg_mailv"
+                android:layout_centerHorizontal="true"
+                android:text="@string/common_PR"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_textsize"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="10px"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <RelativeLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00AEEF" >
+
+            <TextView
+                android:id="@+id/ecgppg_spo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="50px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ecgppg_spo"
+                android:layout_centerHorizontal="true"
+                android:text="@string/common_SPO"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_textsize"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="10px"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <RelativeLayout
+            android:id="@+id/btn_scale_viewid"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/btn_ecgppg_selector"
+            android:clickable="true" >
+
+            <ImageView
+                android:id="@+id/scaleecgppgbuttonid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5px"
+                android:background="@drawable/drscalelagebuttonselector" />
+
+            <TextView
+                android:id="@+id/scaletextid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/scaleecgppgbuttonid"
+                android:layout_centerHorizontal="true"
+                android:text="@string/enlarge"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_textsize"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="10px"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <RelativeLayout
+            android:id="@+id/btn_uploadfile_id"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/btn_ecgppg_selector"
+            android:clickable="true" >
+
+            <ImageView
+                android:id="@+id/stopuploadbuttonid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5px"
+                android:background="@drawable/drsuploadbuttonselector" />
+
+            <TextView
+                android:id="@+id/stopanduploadtextid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/stopuploadbuttonid"
+                android:layout_centerHorizontal="true"
+                android:text="@string/stop_and_upload"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_textsize"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+
+        <com.bit_health.android.device.bluetooth.ui.EcgPpgView
+            android:id="@+id/ecgppgView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/ecgppgname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/common_SIGNAL"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_textsize" />
+    </RelativeLayout>
+
+</LinearLayout>
