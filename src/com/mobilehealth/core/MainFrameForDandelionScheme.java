@@ -16,24 +16,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainFrameForDandelionScheme extends FragmentActivity implements ChildPageMessageListener{
-	
+
 	protected ImageView ivCurSubjectIcon;
 	protected TextView tvRightCaption;
 	protected ImageView ivBack;
-	
+
 	protected String[] childFragmentArray;
-	
+
 	protected int curPageIndex=0;
-	
+
 	@Override
 	protected void onCreate(Bundle arg0) {
 		// TODO Auto-generated method stub
 		super.onCreate(arg0);
 		setContentView(R.layout.main_frame_for_dandelion_scheme);
-		
+
 		init();
 	}
-	
+
 	protected void init() {
 		tvRightCaption = (TextView) findViewById(R.id.tvRightCaption);
 		ivCurSubjectIcon = (ImageView) findViewById(R.id.ivCurSubjectIcon);
@@ -48,7 +48,7 @@ public class MainFrameForDandelionScheme extends FragmentActivity implements Chi
 			}
 		});
 	}
-	
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
@@ -61,7 +61,7 @@ public class MainFrameForDandelionScheme extends FragmentActivity implements Chi
 		}
 		return super.onKeyDown(keyCode, event);
 	}
-	
+
 	private boolean disposeBack()
 	{
 		FragmentManager childFragManager=getSupportFragmentManager();
@@ -70,15 +70,15 @@ public class MainFrameForDandelionScheme extends FragmentActivity implements Chi
 			childFragManager.popBackStack();
 			return true;
 		}
-		
+
 		Intent intent=new Intent();
 		intent.setClass(this, MainActivity.class);
 		startActivity(intent);
 		this.finish();
-		
+
 		return true;
 	}
-	
+
 	private boolean changeToPageLocal(int toIndex)
 	{
 		if(toIndex==curPageIndex|toIndex<0)
@@ -87,7 +87,7 @@ public class MainFrameForDandelionScheme extends FragmentActivity implements Chi
 		}
 
 		FragmentTransaction transac=getSupportFragmentManager().beginTransaction();
-		
+
 		Fragment newPage=Fragment.instantiate(this, childFragmentArray[toIndex]);
 		if(toIndex>curPageIndex)
 		{
@@ -97,25 +97,25 @@ public class MainFrameForDandelionScheme extends FragmentActivity implements Chi
 			transac.setCustomAnimations(0, 0, 0, R.anim.view_disappear);
 		}
 		transac.replace(R.id.rlContent, newPage, childFragmentArray[toIndex]);
-		
+
 		if(toIndex>curPageIndex)
 		{
 			transac.addToBackStack(null);
 		}
-		
+
 		curPageIndex=toIndex;
-		
+
 		transac.commit();
-		
-		
+
+
 		return true;
 	}
-	
+
 	@Override
 	public void changeToPage(int toIndex) {
 		// TODO Auto-generated method stub
 		changeToPageLocal(toIndex);
-		
+
 		childPageChanged(-1, toIndex);
 	}
 

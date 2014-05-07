@@ -86,7 +86,7 @@
         <activity
             android:name="com.mobilehealth.ending.VideoPlaying"
             android:label="@string/title_activity_physicalhealthresult"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
         </activity>
         <activity
             android:name="com.mobilehealth.medicalkit.StartingDisplayMedicalkit"
