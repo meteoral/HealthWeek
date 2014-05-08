@@ -9,7 +9,8 @@ import android.widget.ImageView;
 public class ImageViewMovable extends ImageView{
 	
 	private int lastX, lastY;
-	private int legalMovingWidth, legalMovingHeight;
+	private int legalMovingLeft, legalMovingTop;
+	private int legalMovingRight, legalMovingBottom;
 	
 	private MovingListener movingListener;
 	
@@ -34,9 +35,6 @@ public class ImageViewMovable extends ImageView{
 		View v=this;
 		if(event.getAction()==MotionEvent.ACTION_DOWN)
 		{
-			legalMovingWidth = ((View)this.getParent()).getWidth();
-	        legalMovingHeight = ((View)this.getParent()).getHeight();
-	        
 			if(movingListener!=null)
 			{
 				movingListener.onMovingStarted(v);
@@ -54,27 +52,27 @@ public class ImageViewMovable extends ImageView{
 			int right=v.getRight()+dx;
 			int bottom=v.getBottom()+dy;
 			
-			if(left<0)
+			if(left<legalMovingLeft)
 			{
-				left=0;
+				left=legalMovingLeft;
 				right=left+v.getWidth();
 			}
 			
-			if(right>legalMovingWidth)
+			if(right>legalMovingRight)
 			{
-				right=legalMovingWidth;
+				right=legalMovingRight;
 				left=right-v.getWidth();
 			}
 			
-			if(top<0)
+			if(top<legalMovingTop)
 			{
-				top=0;
+				top=legalMovingTop;
 				bottom=top+v.getHeight();
 			}
 			
-			if(top>legalMovingHeight)
+			if(bottom>legalMovingBottom)
 			{
-				bottom=legalMovingHeight;
+				bottom=legalMovingBottom;
 				top=bottom-v.getHeight();
 			}
 			
@@ -97,6 +95,14 @@ public class ImageViewMovable extends ImageView{
 	public void setMovingListener(MovingListener l)
 	{
 		this.movingListener=l;
+	}
+	
+	public void setLegalMovingRect(int left, int top, int right, int bottom)
+	{
+		this.legalMovingLeft=left;
+		this.legalMovingTop=top;
+		this.legalMovingRight=right;
+		this.legalMovingBottom=bottom;
 	}
 	
 	public static interface MovingListener

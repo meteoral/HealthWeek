@@ -89,24 +89,26 @@ public class FragmentGenerateQRCode extends Fragment implements ImageViewMovable
 				public void onAnimationEnd(Animation animation) {
 					// TODO Auto-generated method stub
 					v.setVisibility(View.INVISIBLE);
+					
+					characterAdded++;
+					
+					if(characterAdded==1)
+					{
+						flInputBlockBox.setBackgroundResource(R.drawable.generate_qrcode_block_bg2);
+					}else if(characterAdded==2)
+					{
+						flInputBlockBox.setBackgroundResource(R.drawable.generate_qrcode_block_bg3);
+					}
+					
+					v.layout(originalLeft, originalTop, originalLeft+v.getWidth(), originalTop+v.getHeight());
+					
+					if(characterAdded>=3)
+					{
+						((ChildPageMessageListener)getActivity()).changeToPage(3);
+					}
 				}
 			});
 			v.startAnimation(anim);
-			
-			characterAdded++;
-			
-			if(characterAdded==1)
-			{
-				flInputBlockBox.setBackgroundResource(R.drawable.generate_qrcode_block_bg2);
-			}else if(characterAdded==2)
-			{
-				flInputBlockBox.setBackgroundResource(R.drawable.generate_qrcode_block_bg3);
-			}
-			
-			if(characterAdded>=3)
-			{
-				((ChildPageMessageListener)getActivity()).changeToPage(3);
-			}
 		}else
 		{
 			v.layout(originalLeft, originalTop, originalLeft+v.getWidth(), originalTop+v.getHeight());
@@ -119,5 +121,9 @@ public class FragmentGenerateQRCode extends Fragment implements ImageViewMovable
 		originalLeft=v.getLeft();
 		originalTop=v.getTop();
 		v.bringToFront();
+		
+		ivCharacter1.setLegalMovingRect(ivCharacter2.getLeft(), ivCharacter1.getTop(), ivCharacter3.getRight(), ivCharacter3.getBottom());
+		ivCharacter2.setLegalMovingRect(ivCharacter2.getLeft(), ivCharacter1.getTop(), ivCharacter3.getRight(), ivCharacter3.getBottom());
+		ivCharacter3.setLegalMovingRect(ivCharacter2.getLeft(), ivCharacter1.getTop(), ivCharacter3.getRight(), ivCharacter3.getBottom());
 	}
 }

@@ -6,6 +6,17 @@
     android:background="@color/white" >
     
     <ImageView
+        android:id="@+id/ivCharacter1Bg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/flInputBlockBox"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/character_yellow_bg"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name" />
+    
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -31,17 +42,6 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/flInputBlockBox"
         android:layout_marginTop="10dp" />
-    
-    <ImageView
-        android:id="@+id/ivCharacter1Bg"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/flInputBlockBox"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/character_yellow_bg"
-        android:scaleType="centerInside"
-        android:contentDescription="@string/app_name" />
     
     <com.mobilehealth.customizedview.ImageViewMovable
         android:id="@+id/ivCharacter1"
