@@ -76,6 +76,8 @@
 	<color name="purple2">#ff9933cc</color>
 
 	<color name="generate_qrcode_block_color">#5533b5e5</color>
+	<color name="generate_qrcode_block_color2">#8833b5e5</color>
+	<color name="generate_qrcode_block_color3">#bb33b5e5</color>
 
 	<color name="pleasantblue">#ff9ac0cd</color>
 	<color name="darkgray">#ff668b8b</color>

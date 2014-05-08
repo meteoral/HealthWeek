@@ -2,23 +2,27 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    android:padding="8dp"
     android:background="@color/white" >
     
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:src="@drawable/generate_qrcode"
         android:scaleType="centerInside"
         android:contentDescription="@string/app_name" />
     
     <FrameLayout
         android:id="@+id/flInputBlockBox"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:background="@drawable/generate_qrcode_block_bg"
-        android:layout_centerInParent="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+    
     <TextView
+        android:id="@+id/tvTips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/generate_qrcode_direction"
@@ -27,5 +31,84 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/flInputBlockBox"
         android:layout_marginTop="10dp" />
+    
+    <ImageView
+        android:id="@+id/ivCharacter1Bg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/flInputBlockBox"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/character_yellow_bg"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name" />
+    
+    <com.mobilehealth.customizedview.ImageViewMovable
+        android:id="@+id/ivCharacter1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ivCharacter1Bg"
+        android:layout_alignTop="@+id/ivCharacter1Bg"
+        android:layout_alignRight="@+id/ivCharacter1Bg"
+        android:layout_alignBottom="@+id/ivCharacter1Bg"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="-15dp"
+        android:src="@drawable/character_1"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name" />
+    
+    <ImageView
+        android:id="@+id/ivCharacter2Bg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvTips"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/character_blue_bg"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name" />
+    
+    <com.mobilehealth.customizedview.ImageViewMovable
+        android:id="@+id/ivCharacter2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ivCharacter2Bg"
+        android:layout_alignTop="@+id/ivCharacter2Bg"
+        android:layout_alignRight="@+id/ivCharacter2Bg"
+        android:layout_alignBottom="@+id/ivCharacter2Bg"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="-30dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/character_2"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name" />
+    
+    <ImageView
+        android:id="@+id/ivCharacter3Bg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvTips"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/character_cyan_bg"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name" />
+    
+    <com.mobilehealth.customizedview.ImageViewMovable
+        android:id="@+id/ivCharacter3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ivCharacter3Bg"
+        android:layout_alignTop="@+id/ivCharacter3Bg"
+        android:layout_alignRight="@+id/ivCharacter3Bg"
+        android:layout_alignBottom="@+id/ivCharacter3Bg"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="-30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="-5dp"
+        android:src="@drawable/character_3"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name" />
 
 </RelativeLayout>
