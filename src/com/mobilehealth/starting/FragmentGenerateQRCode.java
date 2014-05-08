@@ -60,6 +60,8 @@ public class FragmentGenerateQRCode extends Fragment implements ImageViewMovable
 		ivCharacter1.setMovingListener(this);
 		ivCharacter2.setMovingListener(this);
 		ivCharacter3.setMovingListener(this);
+		
+		characterAdded=0;
 	}
 
 	@Override
