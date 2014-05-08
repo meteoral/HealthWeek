@@ -1,7 +1,6 @@
 package com.mobilehealth.core;
 
 import java.util.ArrayList;
-
 import com.siat.healthweek.MainActivity;
 import com.siat.healthweek.R;
 

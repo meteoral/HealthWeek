@@ -2,7 +2,6 @@ package com.mobilehealth.customizedview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,33 +9,23 @@ import android.widget.ImageView;
 public class ImageViewMovable extends ImageView{
 	
 	private int lastX, lastY;
-	private int screenWidth, screenHeight;
+	private int legalMovingWidth, legalMovingHeight;
 	
 	private MovingListener movingListener;
 	
 	public ImageViewMovable(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
-		init();
 	}
 	
 	public ImageViewMovable(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
-		init();
 	}
 
 	public ImageViewMovable(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		// TODO Auto-generated constructor stub
-		init();
-	}
-	
-	private void init()
-	{
-		DisplayMetrics dm = getResources().getDisplayMetrics();  
-        screenWidth = dm.widthPixels;  
-        screenHeight = dm.heightPixels - 80;
 	}
 	
 	@Override
@@ -45,6 +34,9 @@ public class ImageViewMovable extends ImageView{
 		View v=this;
 		if(event.getAction()==MotionEvent.ACTION_DOWN)
 		{
+			legalMovingWidth = ((View)this.getParent()).getWidth();
+	        legalMovingHeight = ((View)this.getParent()).getHeight();
+	        
 			if(movingListener!=null)
 			{
 				movingListener.onMovingStarted(v);
@@ -68,9 +60,9 @@ public class ImageViewMovable extends ImageView{
 				right=left+v.getWidth();
 			}
 			
-			if(right>screenWidth)
+			if(right>legalMovingWidth)
 			{
-				right=screenWidth;
+				right=legalMovingWidth;
 				left=right-v.getWidth();
 			}
 			
@@ -80,9 +72,9 @@ public class ImageViewMovable extends ImageView{
 				bottom=top+v.getHeight();
 			}
 			
-			if(top>screenHeight)
+			if(top>legalMovingHeight)
 			{
-				bottom=screenHeight;
+				bottom=legalMovingHeight;
 				top=bottom-v.getHeight();
 			}
 			
