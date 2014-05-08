@@ -2,6 +2,8 @@ package com.siat.healthweek;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -31,6 +33,65 @@ public class HaoDou extends Activity {
             }
 });
 		webView.getSettings().setJavaScriptEnabled(true);
-		webView.loadUrl("http://m.haodou.com/app/recipe/act/shenzhen.php");
+		if(isNetConnected()||is3gConnected()||isWifiConnected())
+		{
+			webView.loadUrl("http://m.haodou.com/app/recipe/act/shenzhen.php");
+		}
+		else{
+			webView.loadUrl("file:///android_asset/shenzhen.html");
+		}
 	}
+    /**
+     * 检测网络是否连接
+     *
+     * @return
+     */
+    private boolean isNetConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm != null) {
+            NetworkInfo[] infos = cm.getAllNetworkInfo();
+            if (infos != null) {
+                for (NetworkInfo ni : infos) {
+                    if (ni.isConnected()) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 检测wifi是否连接
+     *
+     * @return
+     */
+    private boolean isWifiConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm != null) {
+            NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+            if (networkInfo != null
+                    && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 检测3G是否连接
+     *
+     * @return
+     */
+    private boolean is3gConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm != null) {
+            NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+            if (networkInfo != null
+                    && networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
