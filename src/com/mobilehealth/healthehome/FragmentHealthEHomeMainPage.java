@@ -1,47 +1,26 @@
 package com.mobilehealth.healthehome;
 
 import com.mobilehealth.core.ChildPageMessageListener;
+import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.R;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
-public class FragmentHealthEHomeMainPage extends Fragment{
+public class FragmentHealthEHomeMainPage extends FragmentChildPage{
 	
 	private ImageView ivHealthExperience;
-	
+
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	protected void setLayout() {
 		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
+		this.layoutId=R.layout.page_health_e_home;
 	}
-	
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	protected void init(View layout) {
 		// TODO Auto-generated method stub
-		
-		return inflater.inflate(R.layout.page_health_e_home, container, false);
-		
-		//return super.onCreateView(inflater, container, savedInstanceState);
-	}
-	
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		
-		init(view);
-		
-		super.onViewCreated(view, savedInstanceState);
-	}
-	
-	private void init(View layout)
-	{
 		ivHealthExperience = (ImageView) layout.findViewById(R.id.ivHealthExperience);
 
 		ivHealthExperience.setOnClickListener(new OnClickListener() {

@@ -15,7 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainFrameForDandelionScheme extends FragmentActivity implements ChildPageMessageListener{
+public abstract class MainFrameForDandelionScheme extends FragmentActivity implements ChildPageMessageListener{
 
 	protected ImageView ivCurSubjectIcon;
 	protected TextView tvRightCaption;
@@ -123,5 +123,18 @@ public class MainFrameForDandelionScheme extends FragmentActivity implements Chi
 	public void childPageChanged(int firstLeveIndex, int secondLevelIndex) {
 		// TODO Auto-generated method stub
 		curPageIndex=secondLevelIndex;
+	}
+
+	@Override
+	public int getPageIndex(String className) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<childFragmentArray.length;i++)
+		{
+			if(className.equals(childFragmentArray[i]))
+			{
+				return i;
+			}
+		}
+		return -1;
 	}
 }

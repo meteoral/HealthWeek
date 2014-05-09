@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.siat.healthweek.R;
 
-public class StartingDisplay extends Activity{
+public abstract class StartingDisplay extends Activity{
 
 	protected RelativeLayout rlMain;
 	protected ImageView ivClickEnter;

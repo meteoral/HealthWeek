@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-public class ParentFragment extends Fragment implements ChildPageMessageListener, ParentPageMessageListener{
+public abstract class ParentFragment extends Fragment implements ChildPageMessageListener, ParentPageMessageListener{
 	
 	protected ImageView ivContainerFrameBg;
 	
@@ -113,6 +113,19 @@ public class ParentFragment extends Fragment implements ChildPageMessageListener
 	public void childPageChanged(int firstLeveIndex, int secondLevelIndex) {
 		// TODO Auto-generated method stub
 		((ChildPageMessageListener)getActivity()).childPageChanged(firstLeveIndex, secondLevelIndex);
+	}
+	
+	@Override
+	public int getPageIndex(String className) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<childFragmentArray.length;i++)
+		{
+			if(className.equals(childFragmentArray[i]))
+			{
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	@Override

@@ -1,34 +1,20 @@
 package com.mobilehealth.medicalkit;
 
+import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.R;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-public class FragmentTimeSpaceConnectingMainPage extends Fragment{
-	
+public class FragmentTimeSpaceConnectingMainPage extends FragmentChildPage{
+
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	protected void setLayout() {
 		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
+		this.layoutId=R.layout.page_timespace_connecting;
 	}
-	
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	protected void init(View layout) {
 		// TODO Auto-generated method stub
-		
-		return inflater.inflate(R.layout.page_timespace_connecting, container, false);
-		
-		//return super.onCreateView(inflater, container, savedInstanceState);
-	}
-	
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onViewCreated(view, savedInstanceState);
 	}
 }

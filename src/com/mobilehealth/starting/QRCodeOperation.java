@@ -100,7 +100,13 @@ public class QRCodeOperation extends FragmentActivity implements ChildPageMessag
 		FragmentTransaction transac=getSupportFragmentManager().beginTransaction();
 		
 		Fragment newPage=Fragment.instantiate(this, childFragmentArray[toIndex]);
-		transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, 0, R.anim.view_disappear);
+		if(toIndex>curPageIndex)
+		{
+			transac.setCustomAnimations(0, R.anim.view_disappear, 0, R.anim.view_disappear);
+		}else
+		{
+			transac.setCustomAnimations(0, 0, 0, R.anim.view_disappear);
+		}
 		transac.replace(R.id.rlContent, newPage, childFragmentArray[toIndex]);
 		
 		if(toIndex>curPageIndex)
@@ -146,6 +152,19 @@ public class QRCodeOperation extends FragmentActivity implements ChildPageMessag
 			ivCurSubjectIconOnBottom.setVisibility(View.VISIBLE);
 			tvCaption.setText(getResources().getString(R.string.generate_qrcode));
 		}
+	}
+	
+	@Override
+	public int getPageIndex(String className) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<childFragmentArray.length;i++)
+		{
+			if(className.equals(childFragmentArray[i]))
+			{
+				return i;
+			}
+		}
+		return -1;
 	}
 
 }

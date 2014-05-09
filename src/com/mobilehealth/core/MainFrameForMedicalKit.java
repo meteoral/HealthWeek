@@ -15,7 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainFrameForMedicalKit extends FragmentActivity implements ChildPageMessageListener{
+public abstract class MainFrameForMedicalKit extends FragmentActivity implements ChildPageMessageListener{
 
 	protected ViewPager vpContent;
 	protected FragmentListAdapter vpAdapter;
@@ -194,5 +194,11 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 			childPageIndexes[firstLevelIndex]=secondLevelIndex;
 			this.tvCenterCaption.setText(centerCaptions.get(firstLevelIndex).get(secondLevelIndex));
 		}
+	}
+
+	@Override
+	public int getPageIndex(String className) {
+		// TODO Auto-generated method stub
+		return -1;
 	}
 }

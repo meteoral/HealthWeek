@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 
@@ -110,5 +109,18 @@ public class VideoPlaying extends FragmentActivity implements ChildPageMessageLi
 	public void childPageChanged(int firstLeveIndex, int secondLevelIndex) {
 		// TODO Auto-generated method stub
 		curPageIndex=secondLevelIndex;
+	}
+	
+	@Override
+	public int getPageIndex(String className) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<childFragmentArray.length;i++)
+		{
+			if(className.equals(childFragmentArray[i]))
+			{
+				return i;
+			}
+		}
+		return -1;
 	}
 }

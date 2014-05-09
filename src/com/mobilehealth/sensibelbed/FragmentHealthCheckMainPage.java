@@ -1,46 +1,26 @@
 package com.mobilehealth.sensibelbed;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 
 import com.mobilehealth.core.ChildPageMessageListener;
+import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.R;
 
-public class FragmentHealthCheckMainPage extends Fragment{
+public class FragmentHealthCheckMainPage extends FragmentChildPage{
+	
 	private LinearLayout llBreathFreq;
-	
+
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	protected void setLayout() {
 		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
+		this.layoutId=R.layout.page_health_check;
 	}
-	
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	protected void init(View layout) {
 		// TODO Auto-generated method stub
-		
-		return inflater.inflate(R.layout.page_health_check, container, false);
-		
-		//return super.onCreateView(inflater, container, savedInstanceState);
-	}
-	
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		
-		init(view);
-		
-		super.onViewCreated(view, savedInstanceState);
-	}
-	
-	private void init(View layout)
-	{
 		llBreathFreq = (LinearLayout) layout.findViewById(R.id.llBreathFreq);
 
 		llBreathFreq.setOnClickListener(new OnClickListener() {
