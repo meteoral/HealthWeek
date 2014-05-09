@@ -1,0 +1,69 @@
+/* 全局定义 */
+body,form,div,span,ul,ol,li,p,pre,dl,dt,dd,h1,h2,h3,h4,h5,h6,em,a,fieldset,legend,address,label,textarea,select,input,figure,table,th,td,b,i{margin:0;padding:0;}
+fieldset,img{border:0;}
+ul,li{list-style:none;}
+em,i{font-style:normal;}
+a{text-decoration:none;color:black;}
+a:hover{ text-decoration:none;}
+a:focus,input,button,select,textarea{outline:none;}
+h1,h2,h3,h4,h5,h6{ font-size:100%; font-variant: normal;}
+input,select,img{ vertical-align:middle;}
+legend{ display:none;}
+textarea{resize:none;}
+.clear{ clear:both;}
+.clearfix{zoom:1;}
+.clearfix:after{clear:both; content:"";display:block;height:0;line-height:0;visibility:hidden;}
+
+body{font-family:"微软雅黑";background-color: #f8f8f8;}
+/*全局字体定义*/
+.f1{font-size:22px;}
+.f2{font-size:20px;}
+.f3{font-size:18px;}
+.f4{font-size:16px;}
+
+.gray{color:#666666;}
+.red{color:#ff7488;}
+.blue{color:#58a7b3;}
+
+/*内容页*/
+.black{color:#333333;}
+.gray_light{color:#999999;}
+
+.round {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+}
+#header{width:100%;height:55px;line-height:55px;background-color:#ff7488;color:white;text-align: center; }
+#header img{margin-left:20px;float:left;margin-top:6px;height:40px;}
+#menu{width:100%;background-color: white;}
+#menu td{width:24%;}
+#menu .item{background-color: #e5e5e5;height:40px;line-height:40px;text-align:center;}
+#menu .select{background-color:#ff7488 !important;color:white !important;}
+
+#content{padding:0 15px;}
+#discription{padding:15px 0;color:#58a7b3;}
+#content .title1 {margin-left:-15px;position:relative;vertical-align:top;}
+#content .title1 img{width:60%}
+#content .title1 span{color:white;display:block;left:10px;top:50%;position:absolute;line-height:40px;margin-top:-20px;}
+#content .recipe img{width:100%;margin:10px 0 0 0;}
+#content .recipe span.title{margin:20px 10px 0 0;display:block;}
+#content .recipe span.detail{background-color: white;display:block;padding:10px 0;}
+
+#footer{position:fixed;left:0;bottom:0;width:100%;}
+#footer .ad{width:100%;margin-top:20px;}
+#spaceFooter .ad{width:100%;display:hidden;}
+#footer .close{position:absolute;right:0;top:20px;height:40%;width:20px;height:20px;}
+#spaceFooter{height:50px;}
+
+/*内容页*/
+.detail_bigImg{width:100%;}
+table.detail_tbl{width:100%;}
+table.detail_tbl td{padding:10px 0;}
+table.detail_tbl td.upborder{border-top:solid 1px #e1e1e1;}
+.step td{vertical-align: top;}
+.step .step_img{width:40%;}
+.step .step_img img{width:100%;}
+.step .step_text{width:50%;}
+table.detail_tbl td.tips_title{padding-top:20px;}
+table.detail_tbl td.tips_content span{display: block;}
