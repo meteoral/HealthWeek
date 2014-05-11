@@ -82,7 +82,7 @@ public class FragmentGenerateQRCode extends FragmentChildPage implements ImageVi
 					
 					if(characterAdded>=3)
 					{
-						((ChildPageMessageListener)getActivity()).changeToPage(3);
+						((ChildPageMessageListener)getActivity()).changeToPage(FragmentGenerationSucceed.class);
 					}
 				}
 			});

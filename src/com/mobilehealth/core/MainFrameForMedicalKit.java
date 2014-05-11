@@ -175,15 +175,13 @@ public abstract class MainFrameForMedicalKit extends FragmentActivity implements
 		Intent intent=new Intent();
 		intent.setClass(this, MainActivity.class);
 		startActivity(intent);
-		this.finish();
 		
 		return true;
 	}
-
+	
 	@Override
-	public void changeToPage(int toIndex) {
+	public void changeToPage(Class<?> clazz) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

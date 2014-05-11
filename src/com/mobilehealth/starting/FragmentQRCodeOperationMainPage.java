@@ -32,9 +32,10 @@ public class FragmentQRCodeOperationMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				//((ChildPageMessageListener)getActivity()).changeToPage(1);
+				//((ChildPageMessageListener)getActivity()).changeToPage(FragmentScanQRCode.class);
 				Intent intent = new Intent(getActivity(), Capture.class);
 				startActivity(intent);
+				getActivity().overridePendingTransition(0, R.anim.view_disappear);
 			}
 		});
 		
@@ -43,7 +44,7 @@ public class FragmentQRCodeOperationMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getActivity()).changeToPage(2);
+				((ChildPageMessageListener)getActivity()).changeToPage(FragmentGenerateQRCode.class);
 			}
 		});
 	}

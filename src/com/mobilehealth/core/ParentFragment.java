@@ -56,8 +56,6 @@ public abstract class ParentFragment extends Fragment implements ChildPageMessag
 			transac.commit();
 		}
 		
-		childPageChanged(firstLevelIndex, curPageIndex);
-		
 		super.onViewCreated(view, savedInstanceState);
 	}
 	
@@ -94,24 +92,25 @@ public abstract class ParentFragment extends Fragment implements ChildPageMessag
 			prevPageIndex=curPageIndex;
 		}
 		
-		curPageIndex=toIndex;
-		
 		transac.commit();
 		
-		childPageChanged(firstLevelIndex, curPageIndex);
+		curPageIndex=toIndex;
 		
 		return true;
 	}
-
+	
 	@Override
-	public void changeToPage(int toIndex) {
+	public void changeToPage(Class<?> clazz) {
 		// TODO Auto-generated method stub
+		int toIndex=getPageIndex(clazz.getName());
+		
 		changeToPageLocal(toIndex);
 	}
 
 	@Override
 	public void childPageChanged(int firstLeveIndex, int secondLevelIndex) {
 		// TODO Auto-generated method stub
+		firstLeveIndex=this.firstLevelIndex;
 		((ChildPageMessageListener)getActivity()).childPageChanged(firstLeveIndex, secondLevelIndex);
 	}
 	
@@ -136,8 +135,6 @@ public abstract class ParentFragment extends Fragment implements ChildPageMessag
 		{
 			childFragManager.popBackStack();
 			curPageIndex=prevPageIndex;
-			
-			childPageChanged(firstLevelIndex, curPageIndex);
 			
 			return true;
 		}

@@ -69,6 +69,7 @@
             android:background="@color/blue1" />
 
         <LinearLayout
+            android:id="@+id/llHRV"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
@@ -126,6 +127,7 @@
             android:background="@color/blue1" />
 
         <LinearLayout
+            android:id="@+id/llSleepStatus"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"

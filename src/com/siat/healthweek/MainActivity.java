@@ -127,8 +127,7 @@ public class MainActivity extends Activity {
 	private void startChildApp(Class<?> clazz) {
 		Intent intent = new Intent(MainActivity.this, clazz);
 		startActivity(intent);
-		overridePendingTransition(android.R.anim.fade_in,
-				android.R.anim.fade_out);
+		overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
 	}
 
 }

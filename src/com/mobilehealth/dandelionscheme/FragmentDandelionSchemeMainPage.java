@@ -28,7 +28,7 @@ public class FragmentDandelionSchemeMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getActivity()).changeToPage(pageIndex+1);
+				((ChildPageMessageListener)getActivity()).changeToPage(FragmentBodyCommu.class);
 			}
 		});
 	}

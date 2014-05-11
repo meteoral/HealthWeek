@@ -16,6 +16,8 @@ public class FragmentHealthCheck extends ParentFragment{
 		
 		this.childFragmentArray=new String[]{
 				FragmentHealthCheckMainPage.class.getName(),
-				FragmentBreathFreq.class.getName()};
+				FragmentHRV.class.getName(),
+				FragmentBreathFreq.class.getName(),
+				FragmentSleepStatus.class.getName()};
 	}
 }

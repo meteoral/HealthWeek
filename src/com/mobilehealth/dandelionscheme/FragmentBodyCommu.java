@@ -13,6 +13,12 @@ public class FragmentBodyCommu extends FragmentChildPage{
 	private RelativeLayout rlIdeaSharer;
 	
 	@Override
+	protected void setLayout() {
+		// TODO Auto-generated method stub
+		this.layoutId=R.layout.page_body_commu;
+	}
+	
+	@Override
 	protected void init(View layout) {
 		// TODO Auto-generated method stub
 		
@@ -22,15 +28,8 @@ public class FragmentBodyCommu extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getActivity()).changeToPage(pageIndex+1);
+				((ChildPageMessageListener)getActivity()).changeToPage(FragmentIdeaSharer.class);
 			}
 		});
 	}
-
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
-		this.layoutId=R.layout.page_body_commu;
-	}
-
 }

@@ -38,5 +38,7 @@ public abstract class StartingDisplay extends Activity{
 		Intent intent = new Intent(this, clazz);
 		startActivity(intent);
 		overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+		
+		finish();
 	}
 }

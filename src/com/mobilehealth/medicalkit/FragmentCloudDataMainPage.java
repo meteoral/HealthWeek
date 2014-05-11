@@ -28,7 +28,7 @@ public class FragmentCloudDataMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getParentFragment()).changeToPage(1);
+				((ChildPageMessageListener)getParentFragment()).changeToPage(FragmentPhysicalHealthResult.class);
 			}
 		});
 	}
