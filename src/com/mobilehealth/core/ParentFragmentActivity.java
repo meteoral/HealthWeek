@@ -64,7 +64,7 @@ public abstract class ParentFragmentActivity extends FragmentActivity implements
 	}
 	
 	@Override
-	public void childPageChanged(int firstLevelIndex, int secondLevelIndex) {
+	public void childPageChanged(int firstLevelIndex, String className) {
 		// TODO Auto-generated method stub
 	}
 

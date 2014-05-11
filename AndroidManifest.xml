@@ -89,6 +89,11 @@
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
         </activity>
         <activity
+            android:name="com.mobilehealth.ending.ActivityPlayingVideo"
+            android:label="@string/title_activity_physicalhealthresult"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+        </activity>
+        <activity
             android:name="com.mobilehealth.medicalkit.StartingDisplayMedicalkit"
             android:label="@string/title_activity_physicalhealthresult"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >

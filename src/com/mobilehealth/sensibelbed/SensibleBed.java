@@ -1,6 +1,6 @@
 package com.mobilehealth.sensibelbed;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.mobilehealth.core.FragmentListAdapter;
 import com.mobilehealth.core.MainFrameForMedicalKit;
@@ -21,20 +21,8 @@ public class SensibleBed extends MainFrameForMedicalKit{
 		tvRightCaption.setText(R.string.sensible_bed);
 		
 		{
-			centerCaptions=new ArrayList<ArrayList<String>>();
-			
-			ArrayList<String> temp=new ArrayList<String>();
-			temp.add("");
-			temp.add(getResources().getString(R.string.breath_freq));
-			centerCaptions.add(temp);
-			
-			temp=new ArrayList<String>();
-			temp.add("");
-			centerCaptions.add(temp);
-			
-			temp=new ArrayList<String>();
-			temp.add("");
-			centerCaptions.add(temp);
+			centerCaptions=new HashMap<String, String>();
+			centerCaptions.put(FragmentBreathFreq.class.getName(), getResources().getString(R.string.breath_freq));
 		}
 		
         vpAdapter = new FragmentListAdapter(this, getSupportFragmentManager());

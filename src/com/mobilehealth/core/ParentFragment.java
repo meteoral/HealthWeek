@@ -108,10 +108,10 @@ public abstract class ParentFragment extends Fragment implements ChildPageMessag
 	}
 
 	@Override
-	public void childPageChanged(int firstLeveIndex, int secondLevelIndex) {
+	public void childPageChanged(int firstLevelIndex, String className) {
 		// TODO Auto-generated method stub
-		firstLeveIndex=this.firstLevelIndex;
-		((ChildPageMessageListener)getActivity()).childPageChanged(firstLeveIndex, secondLevelIndex);
+		firstLevelIndex=this.firstLevelIndex;
+		((ChildPageMessageListener)getActivity()).childPageChanged(firstLevelIndex, className);
 	}
 	
 	@Override

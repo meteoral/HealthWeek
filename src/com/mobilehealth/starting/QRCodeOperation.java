@@ -59,20 +59,21 @@ public class QRCodeOperation extends ParentFragmentActivity{
 	}
 
 	@Override
-	public void childPageChanged(int firstLeveIndex, int secondLevelIndex) {
+	public void childPageChanged(int firstLevelIndex, String className) {
 		// TODO Auto-generated method stub
+		super.childPageChanged(firstLevelIndex, className);
 		
-		if(secondLevelIndex==0)
+		if(getCurPageIndex()==0)
 		{
 			ivCurSubjectIcon.setImageResource(R.drawable.icon_starting);
 			ivCurSubjectIconOnBottom.setVisibility(View.INVISIBLE);
 			tvCaption.setText("");
-		}else if(secondLevelIndex==1)
+		}else if(getCurPageIndex()==1)
 		{
 			ivCurSubjectIcon.setImageResource(R.drawable.scan_qrcode_icon);
 			ivCurSubjectIconOnBottom.setVisibility(View.VISIBLE);
 			tvCaption.setText(getResources().getString(R.string.scan_qrcode));
-		}else if(secondLevelIndex==2)
+		}else if(getCurPageIndex()==2)
 		{
 			ivCurSubjectIcon.setImageResource(R.drawable.generate_qrcode_icon);
 			ivCurSubjectIconOnBottom.setVisibility(View.VISIBLE);

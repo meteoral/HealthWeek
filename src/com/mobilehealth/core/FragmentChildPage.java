@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 public abstract class FragmentChildPage extends Fragment{
 	
 	protected int layoutId;
-	protected int pageIndex=-1;
 	
 	protected abstract void setLayout();
 	
@@ -41,12 +40,10 @@ public abstract class FragmentChildPage extends Fragment{
 		if(parentFragment==null)
 		{
 			Activity parentActivity=getActivity();
-			pageIndex=((ChildPageMessageListener)parentActivity).getPageIndex(this.getClass().getName());
-			((ChildPageMessageListener)parentActivity).childPageChanged(-1, pageIndex);
+			((ChildPageMessageListener)parentActivity).childPageChanged(-1 ,this.getClass().getName());
 		}else
 		{
-			pageIndex=((ChildPageMessageListener)parentFragment).getPageIndex(this.getClass().getName());
-			((ChildPageMessageListener)parentFragment).childPageChanged(-1, pageIndex);
+			((ChildPageMessageListener)parentFragment).childPageChanged(-1, this.getClass().getName());
 		}
 	}
 	
