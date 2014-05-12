@@ -26,7 +26,6 @@ import com.mobilehealth.starting.QRCodeOperation;
 public class MainActivity extends Activity {
 	private Button btnHealthpaper, btnXu, btnEhome, btnBag, btnWei, btnTran,
 			btnBed, btnHaodou, btnAbout;
-	private static Boolean isClick = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +44,6 @@ public class MainActivity extends Activity {
 		btnBed = (Button) findViewById(R.id.main_button_bed);
 		btnHaodou = (Button) findViewById(R.id.main_button_haodou);
 		btnAbout = (Button) findViewById(R.id.main_button_about);
-
 		Animation income = AnimationUtils.loadAnimation(MainActivity.this,
 				R.anim.translucent_button_zoom_in);
 		btnXu.setAnimation(income);
@@ -122,12 +120,20 @@ public class MainActivity extends Activity {
 				startChildApp(HaoDou.class);
 			}
 		});
+		btnHealthpaper.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startChildApp(HealthPaper.class);
+			}
+		});
 	}
 
 	private void startChildApp(Class<?> clazz) {
 		Intent intent = new Intent(MainActivity.this, clazz);
 		startActivity(intent);
-		overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+		overridePendingTransition(android.R.anim.fade_in,
+				android.R.anim.fade_out);
 	}
 
 }

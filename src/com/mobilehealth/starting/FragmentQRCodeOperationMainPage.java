@@ -1,28 +1,52 @@
 package com.mobilehealth.starting;
 
-import com.mobilehealth.core.ChildPageListener;
-import com.mobilehealth.core.FragmentChildPage;
+import com.mobilehealth.core.ChildPageMessageListener;
 import com.siat.healthweek.R;
 import com.siat.healthweek.ui.Capture;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 
-public class FragmentQRCodeOperationMainPage extends FragmentChildPage{
+public class FragmentQRCodeOperationMainPage extends Fragment{
 	
 	private RelativeLayout rlScanQRCode;
 	private RelativeLayout rlGenerateQRCode;
 	
-	public FragmentQRCodeOperationMainPage() {
-		// TODO Auto-generated constructor stub
-		this.layoutId=R.layout.page_qrcode_operation;
-	}
-
 	@Override
-	protected void init(View layout) {
+	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		
+		return inflater.inflate(R.layout.page_qrcode_operation, container, false);
+		
+		//return super.onCreateView(inflater, container, savedInstanceState);
+	}
+	
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		
+		init(view);
+		
+		((ChildPageMessageListener)getActivity()).childPageChanged(-1, 0);
+		
+		super.onViewCreated(view, savedInstanceState);
+	}
+	
+	private void init(View layout)
+	{
 		rlScanQRCode = (RelativeLayout) layout.findViewById(R.id.rlScanQRCode);
 		rlGenerateQRCode = (RelativeLayout) layout.findViewById(R.id.rlGenerateQRCode);
 
@@ -31,10 +55,9 @@ public class FragmentQRCodeOperationMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				//((ChildPageMessageListener)getActivity()).changeToPage(FragmentScanQRCode.class);
+				//((ChildPageMessageListener)getActivity()).changeToPage(1);
 				Intent intent = new Intent(getActivity(), Capture.class);
 				startActivity(intent);
-				getActivity().overridePendingTransition(0, R.anim.view_disappear);
 			}
 		});
 		
@@ -43,7 +66,7 @@ public class FragmentQRCodeOperationMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageListener)getActivity()).changeToPage(FragmentGenerateQRCode.class);
+				((ChildPageMessageListener)getActivity()).changeToPage(2);
 			}
 		});
 	}

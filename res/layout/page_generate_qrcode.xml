@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="8dp"
     android:background="@color/white" >
     
     <ImageView
@@ -77,6 +78,8 @@
         android:layout_alignBottom="@+id/ivCharacter2Bg"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="-30dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="5dp"
         android:src="@drawable/character_2"
         android:scaleType="centerInside"
         android:contentDescription="@string/app_name" />
@@ -102,6 +105,8 @@
         android:layout_alignBottom="@+id/ivCharacter3Bg"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="-30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="-5dp"
         android:src="@drawable/character_3"
         android:scaleType="centerInside"
         android:contentDescription="@string/app_name" />

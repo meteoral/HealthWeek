@@ -21,7 +21,12 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-
+	<receiver android:name="com.mobilehealth.sensibelbed.PairingRequest" >
+        <intent-filter>
+            <action android:name="android.bluetooth.device.action.PAIRING_REQUEST" />
+            <action android:name="android.bluetooth.device.action.PAIRING_CANCEL" />
+        </intent-filter>
+    </receiver>
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -84,12 +89,12 @@
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.mobilehealth.ending.VideoPlaying"
-            android:label="@string/title_activity_physicalhealthresult"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            android:name="com.mobilehealth.starting.QRCodeShow"
+            android:label="@string/title_activity_haodou"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.mobilehealth.ending.ActivityPlayingVideo"
+            android:name="com.mobilehealth.ending.VideoPlaying"
             android:label="@string/title_activity_physicalhealthresult"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
         </activity>
@@ -118,6 +123,12 @@
             android:label="@string/title_activity_haodou"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
+        <activity
+            android:name="com.siat.healthweek.HealthPaper"
+            android:label="@string/title_activity_haodou"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+
         <!-- 2014.5.6 -->
 
         <activity

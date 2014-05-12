@@ -33,21 +33,21 @@
 	    android:background="@drawable/sequ_button_xu" />
 
 	<Button
-	    android:id="@+id/main_button_bed"
+	    android:id="@+id/main_button_bag"
 	    android:layout_width="100dip"
 	    android:layout_height="100dip"
 		android:layout_alignBaseline="@+id/main_button_xu"
 		android:layout_centerHorizontal="true"
-	    android:background="@drawable/sequ_button_int_bed" />
+	    android:background="@drawable/sequ_button_medical_bag" />
 
 	<Button
-	    android:id="@+id/main_button_bag"
+	    android:id="@+id/main_button_bed"
 	    android:layout_width="100dip"
 	    android:layout_height="100dip"
 	    android:layout_alignBaseline="@+id/main_button_xu"
 	    android:layout_alignParentRight="true"
 	    android:layout_marginRight="10dp"
-	    android:background="@drawable/sequ_button_medical_bag" />
+	    android:background="@drawable/sequ_button_int_bed" />
 
 	<Button
 	    android:id="@+id/main_button_ehome"

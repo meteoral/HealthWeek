@@ -67,6 +67,7 @@ public class AverageCubicTemperatureChart extends Activity{
 		setContentView(R.layout.bed_fragment);
 		LayoutParams layout = new LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT,android.view.ViewGroup.LayoutParams.FILL_PARENT);
 		layout.weight = 1;
+
 		series = new XYSeries("new");
 		mDataset = new XYMultipleSeriesDataset();
 		mDataset.addSeries(series);

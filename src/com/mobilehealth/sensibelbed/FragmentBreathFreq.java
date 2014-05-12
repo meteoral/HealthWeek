@@ -21,16 +21,19 @@ import org.achartengine.renderer.XYSeriesRenderer;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
-import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.R;
 
-public class FragmentBreathFreq extends FragmentChildPage {
+public class FragmentBreathFreq extends Fragment {
 
 	private Timer timer = new Timer();
 	private TimerTask task;
@@ -39,15 +42,33 @@ public class FragmentBreathFreq extends FragmentChildPage {
 	private XYSeries heartSeries, breathSeries, bodySeries;
 	private XYMultipleSeriesDataset heartDataset, breathDataset, bodyDataset;
 
-	public FragmentBreathFreq() {
-		// TODO Auto-generated constructor stub
-		this.layoutId=R.layout.bed_fragment;
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+
+		return inflater.inflate(R.layout.bed_fragment, container, false);
+
+		// return super.onCreateView(inflater, container, savedInstanceState);
+	}
+
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+
+		init(view);
+
+		super.onViewCreated(view, savedInstanceState);
 	}
 
 	@SuppressLint("HandlerLeak")
-	@Override
-	protected void init(View view) {
-		// TODO Auto-generated method stub
+	private void init(View view) {
 		LayoutParams layout = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		layout.weight = 1;
@@ -514,4 +535,5 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		// 如果在非UI主线程中，需要调用postInvalidate()，具体参考api
 		chart.invalidate();
 	}
+
 }

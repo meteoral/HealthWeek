@@ -13,17 +13,10 @@ public class HaoDou extends Activity {
 	/** Called when the activity is first created. */
 	WebView webView;
 	WebViewClient webViewClient;
-	Context context;
-	int screenHeight;
-	int screenWidth;
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.page_haodou);
-
-		context = this.getApplicationContext();
-
 		webView = (WebView) findViewById(R.id.webview_haodou);
 		webView.setWebViewClient(new WebViewClient(){
             @Override
@@ -46,7 +39,7 @@ public class HaoDou extends Activity {
      *
      * @return
      */
-    private boolean isNetConnected() {
+    protected boolean isNetConnected() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm != null) {
             NetworkInfo[] infos = cm.getAllNetworkInfo();
@@ -66,7 +59,7 @@ public class HaoDou extends Activity {
      *
      * @return
      */
-    private boolean isWifiConnected() {
+    protected boolean isWifiConnected() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm != null) {
             NetworkInfo networkInfo = cm.getActiveNetworkInfo();
@@ -83,7 +76,7 @@ public class HaoDou extends Activity {
      *
      * @return
      */
-    private boolean is3gConnected() {
+    protected boolean is3gConnected() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm != null) {
             NetworkInfo networkInfo = cm.getActiveNetworkInfo();

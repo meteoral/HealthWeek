@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.liuqingwei.healthweek.MainFrame$PlaceholderFragment"
+    android:background="@color/white" >
+
+    <RelativeLayout
+        android:id="@+id/rlHead"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_frame_head_height"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_blue_actionbar" >
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_back_selector"
+            android:contentDescription="@string/app_name" />
+        <TextView
+            android:id="@+id/tvRightCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ivCurSubjectIcon"
+            android:text="@string/creator_platform"
+            android:gravity="bottom"
+            style="@style/detail_head_title"
+            android:layout_alignBottom="@+id/ivCurSubjectIcon"
+            android:layout_marginRight="10dp"
+            android:paddingBottom="3dp"
+            android:textSize="@dimen/textsize_for_actionbar_caption" />
+        <ImageView
+            android:id="@+id/ivCurSubjectIcon"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_starting"
+            android:contentDescription="@string/app_name"
+            android:layout_marginRight="8dp" />
+    </RelativeLayout>
+
+   <RelativeLayout
+        android:id="@+id/rlFoot"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_frame_foot_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/bg_blue_footbar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rlFoot"
+        android:layout_below="@+id/rlHead" >
+
+        <ImageView
+            android:id="@+id/caption_pic"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/abnormal" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

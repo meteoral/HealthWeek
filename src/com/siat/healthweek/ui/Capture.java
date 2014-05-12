@@ -46,6 +46,7 @@ import com.google.zxing.Result;
 import com.google.zxing.client.result.ParsedResult;
 import com.google.zxing.client.result.ResultParser;
 import com.google.zxing.common.HybridBinarizer;
+import com.mobilehealth.starting.QRCodeShow;
 import com.siat.healthweek.R;
 
 /**
@@ -336,12 +337,28 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 				restartPreviewAfterDelay(1l);
 			}
 		});
-
-		// 判断是否符合基本的json格式
-		if (!msg.matches("^\\{.*")) {
+		Intent intent = new Intent();
+		if(msg.equals("siat@achievement"))	//产业
+		{
+			intent.putExtra("name", "siat@achievement");
+			intent.setClass(this, QRCodeShow.class);
+			startActivity(intent);
+		}
+		else if(msg.equals("siat@popularization"))	//科普
+		{
+			intent.putExtra("name", "siat@popularization");
+			intent.setClass(this, QRCodeShow.class);
+			startActivity(intent);
+		}
+		else if(msg.equals("siat@research"))		//科研
+		{
+			intent.putExtra("name", "siat@research");
+			intent.setClass(this, QRCodeShow.class);
+			startActivity(intent);
+		}
+		else
+		{
 			showDialog(msg);
-		} else {
-				//TODO:Someting
 		}
 	}
 
@@ -350,7 +367,7 @@ public final class Capture extends Activity implements SurfaceHolder.Callback {
 	 * @param msg
 	 */
 	private void showDialog(final String msg) {
-		new AlertDialog.Builder(Capture.this).setTitle("扫描结果").
+		new AlertDialog.Builder(Capture.this).setTitle("此二维码内容不正确，请扫描我们提供的二维码").
 		setMessage("内容：" + msg).
 		setPositiveButton("复制", new DialogInterface.OnClickListener() {
 			@Override

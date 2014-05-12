@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.siat.healthweek.R;
 
-public abstract class StartingDisplay extends Activity{
+public class StartingDisplay extends Activity{
 
 	protected RelativeLayout rlMain;
 	protected ImageView ivClickEnter;
@@ -38,7 +38,5 @@ public abstract class StartingDisplay extends Activity{
 		Intent intent = new Intent(this, clazz);
 		startActivity(intent);
 		overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-		
-		finish();
 	}
 }

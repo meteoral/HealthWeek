@@ -11,11 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-public abstract class ParentFragment extends Fragment implements ChildPageListener, ParentPageListener{
+public class ParentFragment extends Fragment implements ChildPageMessageListener, ParentPageMessageListener{
 	
 	protected ImageView ivContainerFrameBg;
 	
-	protected String initPageClassName;
+	protected String[] childFragmentArray;
+	
+	private int curPageIndex=0;
+	private int prevPageIndex=0;
 	
 	protected int firstLevelIndex=0;
 	
@@ -41,24 +44,21 @@ public abstract class ParentFragment extends Fragment implements ChildPageListen
 		
 		init(view);
 		
-		displayInitPage();
-		
-		super.onViewCreated(view, savedInstanceState);
-	}
-	
-	private void displayInitPage()
-	{
-		Fragment newPage=getChildFragmentManager().findFragmentByTag(initPageClassName);
+		Fragment newPage=getChildFragmentManager().findFragmentByTag(childFragmentArray[curPageIndex]);
 		if(newPage==null)
 		{
 			FragmentTransaction transac=getChildFragmentManager().beginTransaction();
 			
-			newPage=Fragment.instantiate(getActivity(), initPageClassName);
+			newPage=Fragment.instantiate(getActivity(), childFragmentArray[curPageIndex]);
 			transac.setCustomAnimations(0, 0, 0, R.anim.view_disappear);
-			transac.add(R.id.rlMain, newPage, initPageClassName);
+			transac.add(R.id.rlMain, newPage, childFragmentArray[curPageIndex]);
 			
 			transac.commit();
 		}
+		
+		childPageChanged(firstLevelIndex, curPageIndex);
+		
+		super.onViewCreated(view, savedInstanceState);
 	}
 	
 	protected void init(View layout)
@@ -68,30 +68,51 @@ public abstract class ParentFragment extends Fragment implements ChildPageListen
 		firstLevelIndex=0;
 	}
 	
-	private boolean changeToPageLocal(String toPageClassName)
+	private boolean changeToPageLocal(int toIndex)
 	{
+		if(toIndex==curPageIndex|toIndex<0)
+		{
+			return false;
+		}
+
 		FragmentTransaction transac=getChildFragmentManager().beginTransaction();
 		
-		Fragment newPage=Fragment.instantiate(getActivity(), toPageClassName);
-		transac.setCustomAnimations(0, R.anim.view_disappear, 0, R.anim.view_disappear);
-		transac.replace(R.id.rlMain, newPage, toPageClassName);
-		transac.addToBackStack(null);
+		Fragment newPage=Fragment.instantiate(getActivity(), childFragmentArray[toIndex]);
+		if(toIndex>curPageIndex)
+		{
+			transac.setCustomAnimations(0, R.anim.view_disappear, 0, R.anim.view_disappear);
+		}else
+		{
+			transac.setCustomAnimations(0, 0, 0, R.anim.view_disappear);
+		}
+		
+		transac.replace(R.id.rlMain, newPage, childFragmentArray[toIndex]);
+		
+		if(toIndex>curPageIndex)
+		{
+			transac.addToBackStack(null);
+			prevPageIndex=curPageIndex;
+		}
+		
+		curPageIndex=toIndex;
+		
 		transac.commit();
+		
+		childPageChanged(firstLevelIndex, curPageIndex);
 		
 		return true;
 	}
-	
+
 	@Override
-	public void changeToPage(Class<?> clazz) {
+	public void changeToPage(int toIndex) {
 		// TODO Auto-generated method stub
-		changeToPageLocal(clazz.getName());
+		changeToPageLocal(toIndex);
 	}
 
 	@Override
-	public void childPageChanged(int firstLevelIndex, String className) {
+	public void childPageChanged(int firstLeveIndex, int secondLevelIndex) {
 		// TODO Auto-generated method stub
-		firstLevelIndex=this.firstLevelIndex;
-		((ChildPageListener)getActivity()).childPageChanged(firstLevelIndex, className);
+		((ChildPageMessageListener)getActivity()).childPageChanged(firstLeveIndex, secondLevelIndex);
 	}
 
 	@Override
@@ -101,6 +122,10 @@ public abstract class ParentFragment extends Fragment implements ChildPageListen
 		if(childFragManager.getBackStackEntryCount()>0)
 		{
 			childFragManager.popBackStack();
+			curPageIndex=prevPageIndex;
+			
+			childPageChanged(firstLevelIndex, curPageIndex);
+			
 			return true;
 		}
 		return false;

@@ -1,32 +1,42 @@
 package com.mobilehealth.starting;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mobilehealth.core.ParentFragmentActivity;
+import com.mobilehealth.core.ChildPageMessageListener;
 import com.siat.healthweek.MainActivity;
 import com.siat.healthweek.R;
 
-public class QRCodeOperation extends ParentFragmentActivity{
+public class QRCodeOperation extends FragmentActivity implements ChildPageMessageListener{
 
 	private ImageView ivCurSubjectIconOnBottom;
 	private ImageView ivCurSubjectIcon;
 	private TextView tvCaption;
 	private ImageView ivBack;
-	
-	public QRCodeOperation() {
-		// TODO Auto-generated constructor stub
-		this.layoutId=R.layout.main_frame_for_qrcode_operation;
-		this.containerId=R.id.rlContent;
-		this.backActivity=MainActivity.class;
-		this.initPageClassName=FragmentQRCodeOperationMainPage.class.getName();
-	}
-	
+
+	private String[] childFragmentArray;
+
+	private int curPageIndex = 0;
+
 	@Override
-	protected void init() {
+	protected void onCreate(Bundle arg0) {
 		// TODO Auto-generated method stub
+		super.onCreate(arg0);
+		setContentView(R.layout.main_frame_for_qrcode_operation);
+
+		init();
+	}
+
+	private void init()
+	{
 		tvCaption = (TextView) findViewById(R.id.tvRightCaption);
 		ivCurSubjectIconOnBottom=(ImageView)findViewById(R.id.ivCurSubjectIconInBottom);
 		ivCurSubjectIcon = (ImageView) findViewById(R.id.ivCurSubjectIcon);
@@ -37,27 +47,103 @@ public class QRCodeOperation extends ParentFragmentActivity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				disposeBtnBack();
+				disposeBack();
 			}
 		});
+
+		this.childFragmentArray=new String[]{
+				FragmentQRCodeOperationMainPage.class.getName(),
+				FragmentScanQRCode.class.getName(),
+				FragmentGenerateQRCode.class.getName(),
+				FragmentGenerationSucceed.class.getName()};
+
+
+		Fragment newPage=getSupportFragmentManager().findFragmentByTag(childFragmentArray[curPageIndex]);
+		if(newPage==null)
+		{
+			FragmentTransaction transac=getSupportFragmentManager().beginTransaction();
+
+			newPage=Fragment.instantiate(this, childFragmentArray[curPageIndex]);
+			transac.setCustomAnimations(0, R.anim.view_disappear, 0, R.anim.view_disappear);
+			transac.add(R.id.rlContent, newPage, childFragmentArray[curPageIndex]);
+
+			transac.commit();
+		}
+
+		childPageChanged(-1, curPageIndex);
+	}
+
+	private boolean disposeBack()
+	{
+		FragmentManager childFragManager=getSupportFragmentManager();
+		if(childFragManager.getBackStackEntryCount()>0)
+		{
+			childFragManager.popBackStack();
+			return true;
+		}
+
+		Intent intent=new Intent();
+		intent.setClass(this, MainActivity.class);
+		startActivity(intent);
+		this.finish();
+
+		return true;
+	}
+
+	private boolean changeToPageLocal(int toIndex)
+	{
+		if(toIndex==curPageIndex|toIndex<0)
+		{
+			return false;
+		}
+
+		FragmentTransaction transac=getSupportFragmentManager().beginTransaction();
+
+		Fragment newPage=Fragment.instantiate(this, childFragmentArray[toIndex]);
+		if(toIndex==3)
+		{
+			transac.setCustomAnimations(R.anim.translucent_view_zoom_in, R.anim.translucent_view_zoom_out, 0, R.anim.view_disappear);
+		}
+		else{
+			transac.setCustomAnimations(R.anim.view_emerge, R.anim.view_disappear, 0, R.anim.view_disappear);
+		}
+		transac.replace(R.id.rlContent, newPage, childFragmentArray[toIndex]);
+		if(toIndex>curPageIndex)
+		{
+			transac.addToBackStack(null);
+		}
+
+		curPageIndex=toIndex;
+
+		transac.commit();
+		return true;
 	}
 
 	@Override
-	public void childPageChanged(int firstLevelIndex, String className) {
+	public void changeToPage(int toIndex) {
 		// TODO Auto-generated method stub
-		super.childPageChanged(firstLevelIndex, className);
-		
-		if(className.equals(FragmentQRCodeOperationMainPage.class.getName()))
+		changeToPageLocal(toIndex);
+
+		childPageChanged(-1, toIndex);
+	}
+
+	@Override
+	public void childPageChanged(int firstLeveIndex, int secondLevelIndex) {
+		// TODO Auto-generated method stub
+
+		curPageIndex=secondLevelIndex;
+
+		if(secondLevelIndex==0)
 		{
 			ivCurSubjectIcon.setImageResource(R.drawable.icon_starting);
 			ivCurSubjectIconOnBottom.setVisibility(View.INVISIBLE);
 			tvCaption.setText("");
-		}else if(className.equals(FragmentScanQRCode.class.getName()))
+		}else if(secondLevelIndex==1)
 		{
 			ivCurSubjectIcon.setImageResource(R.drawable.scan_qrcode_icon);
 			ivCurSubjectIconOnBottom.setVisibility(View.VISIBLE);
 			tvCaption.setText(getResources().getString(R.string.scan_qrcode));
-		}else if(className.equals(FragmentGenerateQRCode.class.getName()))
+		}else if(secondLevelIndex==2)
 		{
 			ivCurSubjectIcon.setImageResource(R.drawable.generate_qrcode_icon);
 			ivCurSubjectIconOnBottom.setVisibility(View.VISIBLE);

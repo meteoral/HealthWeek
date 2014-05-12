@@ -1,6 +1,6 @@
 package com.mobilehealth.healthehome;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 import com.mobilehealth.core.FragmentListAdapter;
 import com.mobilehealth.core.MainFrameForMedicalKit;
@@ -21,8 +21,20 @@ public class HealthEHome extends MainFrameForMedicalKit{
 		tvRightCaption.setText(R.string.health_e_home);
 		
 		{
-			centerCaptions=new HashMap<String, String>();
-			centerCaptions.put(FragmentHealthExperience.class.getName(), getResources().getString(R.string.health_experience));
+			centerCaptions=new ArrayList<ArrayList<String>>();
+			
+			ArrayList<String> temp=new ArrayList<String>();
+			temp.add("");
+			temp.add(getResources().getString(R.string.health_experience));
+			centerCaptions.add(temp);
+			
+			temp=new ArrayList<String>();
+			temp.add("");
+			centerCaptions.add(temp);
+			
+			temp=new ArrayList<String>();
+			temp.add("");
+			centerCaptions.add(temp);
 		}
 		
         vpAdapter = new FragmentListAdapter(this, getSupportFragmentManager());

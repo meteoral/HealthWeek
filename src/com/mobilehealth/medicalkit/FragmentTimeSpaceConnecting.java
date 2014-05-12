@@ -14,8 +14,9 @@ public class FragmentTimeSpaceConnecting extends ParentFragment{
 		
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_right_bg);
 		
-		this.initPageClassName=FragmentTimeSpaceConnectingMainPage.class.getName();
+		this.childFragmentArray=new String[]{
+				FragmentTimeSpaceConnectingMainPage.class.getName()};
 		
-		this.firstLevelIndex=2;
+		firstLevelIndex=2;
 	}
 }

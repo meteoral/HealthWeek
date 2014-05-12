@@ -5,23 +5,23 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@color/white" >
-    
+
     <ImageView
-        android:layout_width="220dp"
-        android:layout_height="220dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_weight="1"
         android:src="@drawable/generated_qrcode"
         android:scaleType="centerInside"
         android:layout_gravity="center_horizontal"
         android:contentDescription="@string/app_name" />
-    
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/generation_succeed_tip"
         android:textColor="@color/blue1"
-        android:textSize="@dimen/textsize_medium"
+        android:textSize="@dimen/textsize_large"
         android:gravity="top|center_horizontal"
         android:layout_marginTop="10dp" />
 

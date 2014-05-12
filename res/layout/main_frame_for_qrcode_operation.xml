@@ -11,7 +11,7 @@
         android:layout_height="@dimen/main_frame_head_height"
         android:layout_alignParentTop="true"
         android:background="@drawable/bg_blue_actionbar" >
-        
+
         <ImageView
             android:id="@+id/ivBack"
             android:layout_width="@dimen/icon_width"
@@ -78,6 +78,14 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/rlFoot"
         android:layout_below="@+id/rlHead" >
+
+        <ImageView
+            android:id="@+id/caption_pic"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
+
     </RelativeLayout>
 
 </RelativeLayout>
