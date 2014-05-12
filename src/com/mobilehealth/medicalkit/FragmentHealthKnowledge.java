@@ -14,9 +14,8 @@ public class FragmentHealthKnowledge extends ParentFragment{
 		
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_mid_bg);
 		
-		this.childFragmentArray=new String[]{
-				FragmentHealthKnowledgeMainPage.class.getName()};
+		this.initPageClassName=FragmentHealthKnowledgeMainPage.class.getName();
 		
-		firstLevelIndex=1;
+		this.firstLevelIndex=1;
 	}
 }

@@ -23,7 +23,6 @@ public class StartingDisplayHealthEHome extends StartingDisplay{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				startAnotherActivity(BitHealthMainActivity.class);
-				finish();
 			}
 		});
 	}

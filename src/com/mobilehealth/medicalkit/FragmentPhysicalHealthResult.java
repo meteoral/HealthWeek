@@ -1,28 +1,19 @@
 package com.mobilehealth.medicalkit;
 
+import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.R;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-public class FragmentPhysicalHealthResult extends Fragment{
+public class FragmentPhysicalHealthResult extends FragmentChildPage{
 	
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
+	public FragmentPhysicalHealthResult() {
+		// TODO Auto-generated constructor stub
+		this.layoutId=R.layout.page_physical_health_result;
 	}
-	
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	protected void init(View layout) {
 		// TODO Auto-generated method stub
-		
-		return inflater.inflate(R.layout.page_physical_health_result, container, false);
-		
-		//return super.onCreateView(inflater, container, savedInstanceState);
 	}
 }

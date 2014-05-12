@@ -1,15 +1,15 @@
-package com.mobilehealth.starting;
+package com.mobilehealth.sensibelbed;
+
+import android.view.View;
 
 import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.R;
 
-import android.view.View;
+public class FragmentSleepStatus extends FragmentChildPage{
 
-public class FragmentGenerationSucceed extends FragmentChildPage{
-
-	public FragmentGenerationSucceed() {
+	public FragmentSleepStatus() {
 		// TODO Auto-generated constructor stub
-		this.layoutId=R.layout.page_qrcode_generation_succeed;
+		this.layoutId=R.layout.page_sleep_status;
 	}
 
 	@Override
@@ -17,4 +17,5 @@ public class FragmentGenerationSucceed extends FragmentChildPage{
 		// TODO Auto-generated method stub
 		
 	}
+
 }

@@ -1,6 +1,8 @@
 package com.mobilehealth.core;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.mobilehealth.medicalkit.FragmentPhysicalHealthResult;
 import com.siat.healthweek.MainActivity;
 import com.siat.healthweek.R;
 
@@ -15,7 +17,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainFrameForMedicalKit extends FragmentActivity implements ChildPageMessageListener{
+public abstract class MainFrameForMedicalKit extends FragmentActivity implements ChildPageListener{
 
 	protected ViewPager vpContent;
 	protected FragmentListAdapter vpAdapter;
@@ -27,8 +29,10 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 	protected TextView tvRightCaption;
 	protected ImageView ivBack;
 	
-	protected ArrayList<ArrayList<String>> centerCaptions=new ArrayList<ArrayList<String>>();
-	private int[] childPageIndexes;
+	//必须注意此处，每当添加了一个page，就必须在centerCaptions中添加一个对应的centerCaption字符串
+	protected HashMap<String, String> centerCaptions=new HashMap<String, String>();
+	
+	private String[] childPageNames;
 	
 	protected int[] bottom_tab_on_selectors;
 	protected int[] bottom_tab_off_selectors;
@@ -108,7 +112,7 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 				// TODO Auto-generated method stub
 				if(arg0!=curTabIndex)
 				{
-					MainFrameForMedicalKit.this.tvCenterCaption.setText(centerCaptions.get(arg0).get(childPageIndexes[arg0]));
+					MainFrameForMedicalKit.this.tvCenterCaption.setText(centerCaptions.get(childPageNames[arg0]));
 					bottomTabSelectionChanged(arg0);
 				}
 			}
@@ -125,20 +129,9 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 		});
 		
 		{
-			ArrayList<String> temp=new ArrayList<String>();
-			temp.add("");
-			temp.add(getResources().getString(R.string.physical_health_capthion));
-			centerCaptions.add(temp);
-			
-			temp=new ArrayList<String>();
-			temp.add("");
-			centerCaptions.add(temp);
-			
-			temp=new ArrayList<String>();
-			temp.add("");
-			centerCaptions.add(temp);
+			centerCaptions.put(FragmentPhysicalHealthResult.class.getName(), getResources().getString(R.string.physical_health_capthion));
 		}
-		childPageIndexes=new int[]{0, 0, 0};
+		childPageNames=new String[]{"", "", ""};
 		
 	}
 	
@@ -166,7 +159,7 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 	
 	private boolean disposeBack()
 	{
-		boolean ret_val=((ParentPageMessageListener)vpAdapter.getItem(vpContent.getCurrentItem())).onBack();
+		boolean ret_val=((ParentPageListener)vpAdapter.getItem(vpContent.getCurrentItem())).onBack();
 		if(ret_val==true)
 		{
 			return true;
@@ -175,24 +168,29 @@ public class MainFrameForMedicalKit extends FragmentActivity implements ChildPag
 		Intent intent=new Intent();
 		intent.setClass(this, MainActivity.class);
 		startActivity(intent);
-		this.finish();
 		
 		return true;
 	}
-
+	
 	@Override
-	public void changeToPage(int toIndex) {
+	public void changeToPage(Class<?> clazz) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public void childPageChanged(int firstLevelIndex, int secondLevelIndex) {
+	public void childPageChanged(int firstLevelIndex, String className) {
 		// TODO Auto-generated method stub
-		if(firstLevelIndex==vpContent.getCurrentItem())
+		if(firstLevelIndex==curTabIndex)
 		{
-			childPageIndexes[firstLevelIndex]=secondLevelIndex;
-			this.tvCenterCaption.setText(centerCaptions.get(firstLevelIndex).get(secondLevelIndex));
+			childPageNames[curTabIndex]=className;
+			
+			if(centerCaptions.containsKey(className))
+			{
+				this.tvCenterCaption.setText(centerCaptions.get(className));
+			}else
+			{
+				this.tvCenterCaption.setText("");
+			}
 		}
 	}
 }

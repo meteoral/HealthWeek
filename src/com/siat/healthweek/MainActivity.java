@@ -10,7 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import com.mobilehealth.dandelionscheme.StartingDisplayBodyCommu;
-import com.mobilehealth.ending.VideoPlaying;
+import com.mobilehealth.ending.ActivityPlayingVideo;
 import com.mobilehealth.healthehome.StartingDisplayHealthEHome;
 import com.mobilehealth.medicalkit.StartingDisplayMedicalkit;
 import com.mobilehealth.sensibelbed.StartingDisplaySensibleBed;
@@ -110,7 +110,7 @@ public class MainActivity extends Activity {
 				 * VideoPlaying.class); startActivity(intent);
 				 */
 
-				startChildApp(VideoPlaying.class);
+				startChildApp(ActivityPlayingVideo.class);
 			}
 		});
 		btnHaodou.setOnClickListener(new OnClickListener() {

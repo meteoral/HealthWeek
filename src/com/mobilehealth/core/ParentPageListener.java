@@ -1,6 +1,6 @@
 package com.mobilehealth.core;
 
-public interface ParentPageMessageListener {
+public interface ParentPageListener {
 	
 	boolean onBack();
 }

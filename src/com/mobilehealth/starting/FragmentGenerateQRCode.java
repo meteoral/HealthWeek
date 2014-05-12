@@ -1,20 +1,17 @@
 package com.mobilehealth.starting;
 
-import com.mobilehealth.core.ChildPageMessageListener;
+import com.mobilehealth.core.ChildPageListener;
+import com.mobilehealth.core.FragmentChildPage;
 import com.mobilehealth.customizedview.ImageViewMovable;
 import com.siat.healthweek.R;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 
-public class FragmentGenerateQRCode extends Fragment implements ImageViewMovable.MovingListener{
+public class FragmentGenerateQRCode extends FragmentChildPage implements ImageViewMovable.MovingListener{
 	
 	private FrameLayout flInputBlockBox;
 	private ImageViewMovable ivCharacter1;
@@ -24,34 +21,14 @@ public class FragmentGenerateQRCode extends Fragment implements ImageViewMovable
 	private int characterAdded=0;
 	private int originalLeft, originalTop;
 	
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
+	public FragmentGenerateQRCode() {
+		// TODO Auto-generated constructor stub
+		this.layoutId=R.layout.page_generate_qrcode;
 	}
-	
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	protected void init(View layout) {
 		// TODO Auto-generated method stub
-		
-		return inflater.inflate(R.layout.page_generate_qrcode, container, false);
-		
-		//return super.onCreateView(inflater, container, savedInstanceState);
-	}
-	
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onViewCreated(view, savedInstanceState);
-		
-		init(view);
-		
-		((ChildPageMessageListener)getActivity()).childPageChanged(-1, 2);
-	}
-	
-	private void init(View layout)
-	{
 		flInputBlockBox=(FrameLayout)layout.findViewById(R.id.flInputBlockBox);
 		ivCharacter1=(ImageViewMovable)layout.findViewById(R.id.ivCharacter1);
 		ivCharacter2=(ImageViewMovable)layout.findViewById(R.id.ivCharacter2);
@@ -104,7 +81,7 @@ public class FragmentGenerateQRCode extends Fragment implements ImageViewMovable
 					
 					if(characterAdded>=3)
 					{
-						((ChildPageMessageListener)getActivity()).changeToPage(3);
+						((ChildPageListener)getActivity()).changeToPage(FragmentGenerationSucceed.class);
 					}
 				}
 			});
@@ -122,8 +99,6 @@ public class FragmentGenerateQRCode extends Fragment implements ImageViewMovable
 		originalTop=v.getTop();
 		v.bringToFront();
 		
-		ivCharacter1.setLegalMovingRect(ivCharacter2.getLeft(), ivCharacter1.getTop(), ivCharacter3.getRight(), ivCharacter3.getBottom());
-		ivCharacter2.setLegalMovingRect(ivCharacter2.getLeft(), ivCharacter1.getTop(), ivCharacter3.getRight(), ivCharacter3.getBottom());
-		ivCharacter3.setLegalMovingRect(ivCharacter2.getLeft(), ivCharacter1.getTop(), ivCharacter3.getRight(), ivCharacter3.getBottom());
+		((ImageViewMovable)v).setLegalMovingRect(ivCharacter2.getLeft(), ivCharacter1.getTop(), ivCharacter3.getRight(), ivCharacter3.getBottom());
 	}
 }

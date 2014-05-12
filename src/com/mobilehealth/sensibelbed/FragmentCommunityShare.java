@@ -14,9 +14,8 @@ public class FragmentCommunityShare extends ParentFragment{
 		
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_right_bg);
 		
-		this.childFragmentArray=new String[]{
-				FragmentCommunityShareMainPage.class.getName()};
+		this.initPageClassName=FragmentCommunityShareMainPage.class.getName();
 		
-		firstLevelIndex=2;
+		this.firstLevelIndex=2;
 	}
 }

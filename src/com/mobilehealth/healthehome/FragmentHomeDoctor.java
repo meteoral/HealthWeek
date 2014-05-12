@@ -6,7 +6,7 @@ import com.siat.healthweek.R;
 import android.view.View;
 
 public class FragmentHomeDoctor extends ParentFragment{
-	
+
 	@Override
 	protected void init(View layout) {
 		// TODO Auto-generated method stub
@@ -14,9 +14,8 @@ public class FragmentHomeDoctor extends ParentFragment{
 		
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_mid_bg);
 		
-		this.childFragmentArray=new String[]{
-				FragmentHomeDoctorMainPage.class.getName()};
+		this.initPageClassName=FragmentHomeDoctorMainPage.class.getName();
 		
-		firstLevelIndex=1;
+		this.firstLevelIndex=1;
 	}
 }
