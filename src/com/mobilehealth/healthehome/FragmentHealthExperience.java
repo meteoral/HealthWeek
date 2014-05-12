@@ -9,11 +9,12 @@ public class FragmentHealthExperience extends FragmentChildPage{
 	
 	public FragmentHealthExperience() {
 		// TODO Auto-generated constructor stub
-		this.layoutId=R.layout.page_health_experience;
+		
 	}
 
 	@Override
 	protected void init(View layout) {
 		// TODO Auto-generated method stub
+		this.layoutId=R.layout.page_health_experience;
 	}
 }

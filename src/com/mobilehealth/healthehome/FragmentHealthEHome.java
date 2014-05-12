@@ -6,12 +6,6 @@ import com.mobilehealth.core.ParentFragment;
 import com.siat.healthweek.R;
 
 public class FragmentHealthEHome extends ParentFragment{
-
-	public FragmentHealthEHome() {
-		// TODO Auto-generated constructor stub
-		this.initPageClassName=FragmentHealthEHomeMainPage.class.getName();
-		this.firstLevelIndex=0;
-	}
 	
 	@Override
 	protected void init(View layout) {
@@ -19,5 +13,9 @@ public class FragmentHealthEHome extends ParentFragment{
 		super.init(layout);
 		
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_left_bg);
+		
+		this.initPageClassName=FragmentHealthEHomeMainPage.class.getName();
+		
+		this.firstLevelIndex=0;
 	}
 }
