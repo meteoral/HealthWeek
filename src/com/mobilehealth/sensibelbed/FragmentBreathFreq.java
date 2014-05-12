@@ -39,9 +39,8 @@ public class FragmentBreathFreq extends FragmentChildPage {
 	private XYSeries heartSeries, breathSeries, bodySeries;
 	private XYMultipleSeriesDataset heartDataset, breathDataset, bodyDataset;
 
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	public FragmentBreathFreq() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.bed_fragment;
 	}
 

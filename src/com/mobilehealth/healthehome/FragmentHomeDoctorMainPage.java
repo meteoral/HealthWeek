@@ -5,10 +5,9 @@ import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.R;
 
 public class FragmentHomeDoctorMainPage extends FragmentChildPage{
-
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	
+	public FragmentHomeDoctorMainPage() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_home_doctor;
 	}
 

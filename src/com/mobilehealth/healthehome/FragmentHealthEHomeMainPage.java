@@ -1,6 +1,6 @@
 package com.mobilehealth.healthehome;
 
-import com.mobilehealth.core.ChildPageMessageListener;
+import com.mobilehealth.core.ChildPageListener;
 import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.R;
 
@@ -11,10 +11,9 @@ import android.widget.ImageView;
 public class FragmentHealthEHomeMainPage extends FragmentChildPage{
 	
 	private ImageView ivHealthExperience;
-
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	
+	public FragmentHealthEHomeMainPage() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_health_e_home;
 	}
 
@@ -28,7 +27,7 @@ public class FragmentHealthEHomeMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getParentFragment()).changeToPage(FragmentHealthExperience.class);
+				((ChildPageListener)getParentFragment()).changeToPage(FragmentHealthExperience.class);
 			}
 		});
 	}

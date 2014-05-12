@@ -11,14 +11,10 @@ public abstract class FragmentChildPage extends Fragment{
 	
 	protected int layoutId;
 	
-	protected abstract void setLayout();
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
-		setLayout();
 	}
 	
 	@Override
@@ -40,10 +36,10 @@ public abstract class FragmentChildPage extends Fragment{
 		if(parentFragment==null)
 		{
 			Activity parentActivity=getActivity();
-			((ChildPageMessageListener)parentActivity).childPageChanged(-1 ,this.getClass().getName());
+			((ChildPageListener)parentActivity).childPageChanged(-1 ,this.getClass().getName());
 		}else
 		{
-			((ChildPageMessageListener)parentFragment).childPageChanged(-1, this.getClass().getName());
+			((ChildPageListener)parentFragment).childPageChanged(-1, this.getClass().getName());
 		}
 	}
 	

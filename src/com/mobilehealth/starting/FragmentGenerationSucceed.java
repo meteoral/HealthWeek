@@ -7,9 +7,8 @@ import android.view.View;
 
 public class FragmentGenerationSucceed extends FragmentChildPage{
 
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	public FragmentGenerationSucceed() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_qrcode_generation_succeed;
 	}
 

@@ -17,7 +17,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public abstract class MainFrameForMedicalKit extends FragmentActivity implements ChildPageMessageListener{
+public abstract class MainFrameForMedicalKit extends FragmentActivity implements ChildPageListener{
 
 	protected ViewPager vpContent;
 	protected FragmentListAdapter vpAdapter;
@@ -159,7 +159,7 @@ public abstract class MainFrameForMedicalKit extends FragmentActivity implements
 	
 	private boolean disposeBack()
 	{
-		boolean ret_val=((ParentPageMessageListener)vpAdapter.getItem(vpContent.getCurrentItem())).onBack();
+		boolean ret_val=((ParentPageListener)vpAdapter.getItem(vpContent.getCurrentItem())).onBack();
 		if(ret_val==true)
 		{
 			return true;
@@ -192,11 +192,5 @@ public abstract class MainFrameForMedicalKit extends FragmentActivity implements
 				this.tvCenterCaption.setText("");
 			}
 		}
-	}
-
-	@Override
-	public int getPageIndex(String className) {
-		// TODO Auto-generated method stub
-		return -1;
 	}
 }

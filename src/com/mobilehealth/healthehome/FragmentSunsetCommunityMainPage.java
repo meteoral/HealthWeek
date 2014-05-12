@@ -6,10 +6,9 @@ import com.siat.healthweek.R;
 import android.view.View;
 
 public class FragmentSunsetCommunityMainPage extends FragmentChildPage{
-
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	
+	public FragmentSunsetCommunityMainPage() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_sunset_community;
 	}
 

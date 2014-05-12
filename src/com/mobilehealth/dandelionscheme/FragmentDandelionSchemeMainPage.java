@@ -1,6 +1,6 @@
 package com.mobilehealth.dandelionscheme;
 
-import com.mobilehealth.core.ChildPageMessageListener;
+import com.mobilehealth.core.ChildPageListener;
 import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.R;
 
@@ -11,10 +11,9 @@ import android.widget.ImageView;
 public class FragmentDandelionSchemeMainPage extends FragmentChildPage{
 	
 	private ImageView ivBodyCommu;
-
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	
+	public FragmentDandelionSchemeMainPage() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_dandelion_scheme;
 	}
 
@@ -28,7 +27,7 @@ public class FragmentDandelionSchemeMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getActivity()).changeToPage(FragmentBodyCommu.class);
+				((ChildPageListener)getActivity()).changeToPage(FragmentBodyCommu.class);
 			}
 		});
 	}

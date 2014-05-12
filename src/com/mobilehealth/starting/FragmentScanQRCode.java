@@ -6,9 +6,8 @@ import android.view.View;
 
 public class FragmentScanQRCode extends FragmentChildPage{
 
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	public FragmentScanQRCode() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.capture;
 	}
 

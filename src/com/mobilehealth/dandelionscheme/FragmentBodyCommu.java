@@ -1,6 +1,6 @@
 package com.mobilehealth.dandelionscheme;
 
-import com.mobilehealth.core.ChildPageMessageListener;
+import com.mobilehealth.core.ChildPageListener;
 import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.R;
 
@@ -12,9 +12,8 @@ public class FragmentBodyCommu extends FragmentChildPage{
 	
 	private RelativeLayout rlIdeaSharer;
 	
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	public FragmentBodyCommu() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_body_commu;
 	}
 	
@@ -28,7 +27,7 @@ public class FragmentBodyCommu extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getActivity()).changeToPage(FragmentIdeaSharer.class);
+				((ChildPageListener)getActivity()).changeToPage(FragmentIdeaSharer.class);
 			}
 		});
 	}

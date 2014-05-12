@@ -7,17 +7,17 @@ import com.siat.healthweek.R;
 
 public class FragmentHealthCheck extends ParentFragment{
 	
+	public FragmentHealthCheck() {
+		// TODO Auto-generated constructor stub
+		this.initPageClassName=FragmentHealthCheckMainPage.class.getName();
+		this.firstLevelIndex=0;
+	}
+	
 	@Override
 	protected void init(View layout) {
 		// TODO Auto-generated method stub
 		super.init(layout);
 		
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_left_bg);
-		
-		this.childFragmentArray=new String[]{
-				FragmentHealthCheckMainPage.class.getName(),
-				FragmentHRV.class.getName(),
-				FragmentBreathFreq.class.getName(),
-				FragmentSleepStatus.class.getName()};
 	}
 }

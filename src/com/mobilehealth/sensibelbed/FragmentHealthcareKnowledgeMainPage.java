@@ -7,9 +7,8 @@ import android.view.View;
 
 public class FragmentHealthcareKnowledgeMainPage extends FragmentChildPage{
 
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	public FragmentHealthcareKnowledgeMainPage() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_healthcare_knowledge;
 	}
 

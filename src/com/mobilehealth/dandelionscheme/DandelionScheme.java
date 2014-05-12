@@ -11,22 +11,12 @@ public class DandelionScheme extends ParentFragmentActivity{
 	
 	private ImageView ivBack;
 	
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	public DandelionScheme() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.main_frame_for_dandelion_scheme;
-	}
-	
-	@Override
-	protected void setContainer() {
-		// TODO Auto-generated method stub
 		this.containerId=R.id.rlContent;
-	}
-	
-	@Override
-	protected void setBackActivity() {
-		// TODO Auto-generated method stub
 		this.backActivity=MainActivity.class;
+		this.initPageClassName=FragmentDandelionSchemeMainPage.class.getName();
 	}
 	
 	@Override
@@ -42,10 +32,5 @@ public class DandelionScheme extends ParentFragmentActivity{
 				disposeBtnBack();
 			}
 		});
-		
-		this.childFragmentArray=new String[]{
-				FragmentDandelionSchemeMainPage.class.getName(),
-				FragmentBodyCommu.class.getName(),
-				FragmentIdeaSharer.class.getName()};
 	}
 }

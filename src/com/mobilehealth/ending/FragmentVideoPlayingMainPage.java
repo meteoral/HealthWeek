@@ -11,11 +11,10 @@ import android.widget.ImageView;
 public class FragmentVideoPlayingMainPage extends FragmentChildPage{
 
     private ImageView ivVideoPlayingPush;
-
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
-		this.layoutId=R.layout.page_video_playing;
+    
+    public FragmentVideoPlayingMainPage() {
+		// TODO Auto-generated constructor stub
+    	this.layoutId=R.layout.page_video_playing;
 	}
 
 	@Override

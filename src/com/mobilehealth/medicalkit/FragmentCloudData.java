@@ -7,15 +7,17 @@ import com.siat.healthweek.R;
 
 public class FragmentCloudData extends ParentFragment{
 	
+	public FragmentCloudData() {
+		// TODO Auto-generated constructor stub
+		this.initPageClassName=FragmentCloudDataMainPage.class.getName();
+		this.firstLevelIndex=0;
+	}
+	
 	@Override
 	protected void init(View layout) {
 		// TODO Auto-generated method stub
 		super.init(layout);
 		
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_left_bg);
-		
-		this.childFragmentArray=new String[]{
-				FragmentCloudDataMainPage.class.getName(),
-				FragmentPhysicalHealthResult.class.getName()};
 	}
 }

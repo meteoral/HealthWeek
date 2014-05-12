@@ -6,28 +6,16 @@ import com.siat.healthweek.R;
 
 public class VideoPlaying extends ParentFragmentActivity{
 
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	public VideoPlaying() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.main_frame_for_ending;
-	}
-
-	@Override
-	protected void setContainer() {
-		// TODO Auto-generated method stub
 		this.containerId=R.id.rlContentEnding;
-	}
-	
-	@Override
-	protected void setBackActivity() {
-		// TODO Auto-generated method stub
 		this.backActivity=MainActivity.class;
+		this.initPageClassName=FragmentVideoPlayingMainPage.class.getName();
 	}
 	
 	@Override
 	protected void init() {
 		// TODO Auto-generated method stub
-		this.childFragmentArray=new String[]{
-				FragmentVideoPlayingMainPage.class.getName()};
 	}
 }

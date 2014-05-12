@@ -16,22 +16,12 @@ public class QRCodeOperation extends ParentFragmentActivity{
 	private TextView tvCaption;
 	private ImageView ivBack;
 	
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	public QRCodeOperation() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.main_frame_for_qrcode_operation;
-	}
-
-	@Override
-	protected void setContainer() {
-		// TODO Auto-generated method stub
 		this.containerId=R.id.rlContent;
-	}
-	
-	@Override
-	protected void setBackActivity() {
-		// TODO Auto-generated method stub
 		this.backActivity=MainActivity.class;
+		this.initPageClassName=FragmentQRCodeOperationMainPage.class.getName();
 	}
 	
 	@Override
@@ -50,12 +40,6 @@ public class QRCodeOperation extends ParentFragmentActivity{
 				disposeBtnBack();
 			}
 		});
-		
-		this.childFragmentArray=new String[]{
-				FragmentQRCodeOperationMainPage.class.getName(),
-				FragmentScanQRCode.class.getName(),
-				FragmentGenerateQRCode.class.getName(),
-				FragmentGenerationSucceed.class.getName()};
 	}
 
 	@Override
@@ -63,17 +47,17 @@ public class QRCodeOperation extends ParentFragmentActivity{
 		// TODO Auto-generated method stub
 		super.childPageChanged(firstLevelIndex, className);
 		
-		if(getCurPageIndex()==0)
+		if(className.equals(FragmentQRCodeOperationMainPage.class.getName()))
 		{
 			ivCurSubjectIcon.setImageResource(R.drawable.icon_starting);
 			ivCurSubjectIconOnBottom.setVisibility(View.INVISIBLE);
 			tvCaption.setText("");
-		}else if(getCurPageIndex()==1)
+		}else if(className.equals(FragmentScanQRCode.class.getName()))
 		{
 			ivCurSubjectIcon.setImageResource(R.drawable.scan_qrcode_icon);
 			ivCurSubjectIconOnBottom.setVisibility(View.VISIBLE);
 			tvCaption.setText(getResources().getString(R.string.scan_qrcode));
-		}else if(getCurPageIndex()==2)
+		}else if(className.equals(FragmentGenerateQRCode.class.getName()))
 		{
 			ivCurSubjectIcon.setImageResource(R.drawable.generate_qrcode_icon);
 			ivCurSubjectIconOnBottom.setVisibility(View.VISIBLE);

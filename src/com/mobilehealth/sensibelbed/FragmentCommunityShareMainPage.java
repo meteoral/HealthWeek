@@ -7,9 +7,8 @@ import android.view.View;
 
 public class FragmentCommunityShareMainPage extends FragmentChildPage{
 
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	public FragmentCommunityShareMainPage() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_community_share;
 	}
 

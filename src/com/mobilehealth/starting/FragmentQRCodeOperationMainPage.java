@@ -1,6 +1,6 @@
 package com.mobilehealth.starting;
 
-import com.mobilehealth.core.ChildPageMessageListener;
+import com.mobilehealth.core.ChildPageListener;
 import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.R;
 import com.siat.healthweek.ui.Capture;
@@ -14,10 +14,9 @@ public class FragmentQRCodeOperationMainPage extends FragmentChildPage{
 	
 	private RelativeLayout rlScanQRCode;
 	private RelativeLayout rlGenerateQRCode;
-
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	
+	public FragmentQRCodeOperationMainPage() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_qrcode_operation;
 	}
 
@@ -44,7 +43,7 @@ public class FragmentQRCodeOperationMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getActivity()).changeToPage(FragmentGenerateQRCode.class);
+				((ChildPageListener)getActivity()).changeToPage(FragmentGenerateQRCode.class);
 			}
 		});
 	}

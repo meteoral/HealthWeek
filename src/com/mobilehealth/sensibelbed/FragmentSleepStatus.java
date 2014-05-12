@@ -7,9 +7,8 @@ import com.siat.healthweek.R;
 
 public class FragmentSleepStatus extends FragmentChildPage{
 
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	public FragmentSleepStatus() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_sleep_status;
 	}
 

@@ -7,9 +7,8 @@ import com.siat.healthweek.R;
 
 public class FragmentHRV extends FragmentChildPage{
 
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	public FragmentHRV() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_hrv;
 	}
 

@@ -6,10 +6,9 @@ import com.siat.healthweek.R;
 import android.view.View;
 
 public class FragmentHealthKnowledgeMainPage extends FragmentChildPage{
-
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	
+	public FragmentHealthKnowledgeMainPage() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_health_knowledge;
 	}
 

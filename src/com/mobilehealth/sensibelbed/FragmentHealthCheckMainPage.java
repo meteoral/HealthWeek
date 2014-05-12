@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 
-import com.mobilehealth.core.ChildPageMessageListener;
+import com.mobilehealth.core.ChildPageListener;
 import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.R;
 
@@ -14,9 +14,8 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 	private LinearLayout llBreathFreq;
 	private LinearLayout llSleepStatus;
 
-	@Override
-	protected void setLayout() {
-		// TODO Auto-generated method stub
+	public FragmentHealthCheckMainPage() {
+		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_health_check;
 	}
 
@@ -32,7 +31,7 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getParentFragment()).changeToPage(FragmentHRV.class);
+				((ChildPageListener)getParentFragment()).changeToPage(FragmentHRV.class);
 			}
 		});
 		
@@ -41,7 +40,7 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getParentFragment()).changeToPage(FragmentBreathFreq.class);
+				((ChildPageListener)getParentFragment()).changeToPage(FragmentBreathFreq.class);
 			}
 		});
 		
@@ -50,7 +49,7 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageMessageListener)getParentFragment()).changeToPage(FragmentSleepStatus.class);
+				((ChildPageListener)getParentFragment()).changeToPage(FragmentSleepStatus.class);
 			}
 		});
 	}
