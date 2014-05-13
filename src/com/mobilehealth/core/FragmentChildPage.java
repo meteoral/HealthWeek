@@ -8,15 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public abstract class FragmentChildPage extends Fragment{
-	
+
 	protected int layoutId;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -24,14 +24,14 @@ public abstract class FragmentChildPage extends Fragment{
 		return inflater.inflate(layoutId, container, false);
 		//return super.onCreateView(inflater, container, savedInstanceState);
 	}
-	
+
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onViewCreated(view, savedInstanceState);
-		
+
 		init(view);
-		
+
 		Fragment parentFragment=getParentFragment();
 		if(parentFragment==null)
 		{
@@ -42,6 +42,6 @@ public abstract class FragmentChildPage extends Fragment{
 			((ChildPageListener)parentFragment).childPageChanged(-1, this.getClass().getName());
 		}
 	}
-	
+
 	protected abstract void init(View layout);
 }

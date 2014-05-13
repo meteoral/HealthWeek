@@ -15,7 +15,7 @@ public class FragmentHRV extends FragmentChildPage{
 	@Override
 	protected void init(View layout) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

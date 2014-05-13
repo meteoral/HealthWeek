@@ -1,5 +1,8 @@
 package com.mobilehealth.sensibelbed;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Date;
 import java.util.List;
 import java.util.Timer;
@@ -19,54 +22,216 @@ import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
 import android.annotation.SuppressLint;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothServerSocket;
+import android.bluetooth.BluetoothSocket;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
 
 import com.mobilehealth.core.FragmentChildPage;
+import com.siat.healthweek.ClsUtils;
 import com.siat.healthweek.R;
 
 public class FragmentBreathFreq extends FragmentChildPage {
 
 	private Timer timer = new Timer();
+	private static final boolean D = true;
+	private static final String TAG = "FragmentBreathFreq";
 	private TimerTask task;
 	private Handler handler;
+	private Handler updateUI;
 	private GraphicalView hearts, breath, body;
 	private XYSeries heartSeries, breathSeries, bodySeries;
 	private XYMultipleSeriesDataset heartDataset, breathDataset, bodyDataset;
+	private boolean isConnected = false;
+	private TextView bodytext;
+	public TextView bodytextShow;
+	private Integer bodyInt;
+	private TextView breathtext;
+	public TextView breathtextShow;
+	private Integer breathInt;
+	private TextView heartstext;
+	public TextView heartstextShow;
+	private Integer heartsInt;
+	private LinearLayout bodyHorilayout;
+	private LinearLayout bodyTextlayout;
+	private LinearLayout breathHorilayout;
+	private LinearLayout breathTextlayout;
+	private LinearLayout heartsHorilayout;
+	private LinearLayout heartsTextlayout;
+	private LinearLayout linearView;
+	private LayoutParams layout;
+
+	private BluetoothDevice device = null;
+	private BluetoothAdapter btAdapt = null;
+	private BroadcastReceiver ListenDevices = null;
+	private BluetoothAcceptThread bluetoothAcceptThread = null;
+	private BluetoothServerSocket mBThServerSocket = null;
+	private BluetoothSocket mBThSocket = null;
+	private PrintStream mPrintStream = null;
 
 	public FragmentBreathFreq() {
 		// TODO Auto-generated constructor stub
-		this.layoutId=R.layout.bed_fragment;
+		this.layoutId = R.layout.bed_fragment;
 	}
 
 	@SuppressLint("HandlerLeak")
 	@Override
 	protected void init(View view) {
 		// TODO Auto-generated method stub
-		LayoutParams layout = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+		Context btContext = getActivity().getApplicationContext();
+		LayoutParams chartLayoutParams = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		chartLayoutParams.weight = 4;
+		LayoutParams textLayoutParams = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		chartLayoutParams.weight = 1;
+		LayoutParams textLayoutParamsOne = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		chartLayoutParams.weight = 1;
+		LayoutParams textLayoutParamsTwo = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		chartLayoutParams.weight = 5;
+		layout = new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		layout.weight = 1;
-		LinearLayout linearView = (LinearLayout) view
-				.findViewById(R.id.chart_show);
+		linearView = (LinearLayout) view.findViewById(R.id.chart_show);
+
+		bodyHorilayout = new LinearLayout(btContext);
+		bodyTextlayout = new LinearLayout(btContext);
+		bodyHorilayout.setBackgroundColor(Color.BLACK);
+		bodyHorilayout.setOrientation(LinearLayout.HORIZONTAL);
+		bodyTextlayout.setOrientation(LinearLayout.VERTICAL);
+
+		heartsHorilayout = new LinearLayout(btContext);
+		heartsTextlayout = new LinearLayout(btContext);
+		heartsHorilayout.setBackgroundColor(Color.BLACK);
+		heartsHorilayout.setOrientation(LinearLayout.HORIZONTAL);
+		heartsTextlayout.setOrientation(LinearLayout.VERTICAL);
+
+		breathHorilayout = new LinearLayout(btContext);
+		breathTextlayout = new LinearLayout(btContext);
+		breathHorilayout.setBackgroundColor(Color.BLACK);
+		breathHorilayout.setOrientation(LinearLayout.HORIZONTAL);
+		breathTextlayout.setOrientation(LinearLayout.VERTICAL);
+
+		bodytext = new TextView(btContext);
+		bodytext.setText("体动");
+		bodytextShow = new TextView(btContext);
+		bodytextShow.setText("36");
+		bodytextShow.setTextSize(42);
+		bodytextShow.setTextColor(Color.RED);
+
+		breathtext = new TextView(btContext);
+		breathtext.setText("呼吸");
+		breathtextShow = new TextView(btContext);
+		breathtextShow.setText("50");
+		breathtextShow.setTextSize(42);
+		breathtextShow.setTextColor(Color.CYAN);
+
+		heartstext = new TextView(btContext);
+		heartstext.setText("心跳脉搏");
+		heartstextShow = new TextView(btContext);
+		heartstextShow.setText("42");
+		heartstextShow.setTextSize(42);
+		heartstextShow.setTextColor(Color.GREEN);
+
 		showBody(getActivity());
 		showHeart(getActivity());
 		showBreath(getActivity());
-		linearView.addView(body, layout);
-		linearView.addView(hearts, layout);
-		linearView.addView(breath, layout);
+
+		bodyTextlayout.addView(bodytext, textLayoutParamsOne);
+		bodyTextlayout.addView(bodytextShow, textLayoutParamsTwo);
+		bodyHorilayout.addView(body, chartLayoutParams);
+		bodyHorilayout.addView(bodyTextlayout, textLayoutParams);
+
+		breathTextlayout.addView(breathtext, textLayoutParamsOne);
+		breathTextlayout.addView(breathtextShow, textLayoutParamsTwo);
+		breathHorilayout.addView(breath, chartLayoutParams);
+		breathHorilayout.addView(breathTextlayout, textLayoutParams);
+
+		heartsTextlayout.addView(heartstext, textLayoutParamsOne);
+		heartsTextlayout.addView(heartstextShow, textLayoutParamsTwo);
+		heartsHorilayout.addView(hearts, chartLayoutParams);
+		heartsHorilayout.addView(heartsTextlayout, textLayoutParams);
+
+		btAdapt = BluetoothAdapter.getDefaultAdapter();// 初始化本机蓝牙功能
+		if (btAdapt.getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
+			Intent discoverableIntent = new Intent(
+					BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+			discoverableIntent.putExtra(
+					BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 3600);
+			startActivityForResult(discoverableIntent,
+					BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE);
+		}
+		// 注册Receiver来获取蓝牙设备相关的结果
+		IntentFilter intent = new IntentFilter();
+		intent.addAction(BluetoothDevice.ACTION_FOUND);// 用BroadcastReceiver来取得搜索结果
+		intent.addAction(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
+		intent.addAction(BluetoothAdapter.ACTION_SCAN_MODE_CHANGED);
+		intent.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
+		// 注册receiver监听配对
+		ListenDevices = new PairingRequest();
+		IntentFilter intent2 = new IntentFilter();
+		intent2.addAction("android.bluetooth.device.action.PAIRING_REQUEST");
+		getActivity().registerReceiver(ListenDevices, intent2);
+		bluetoothAcceptThread = new BluetoothAcceptThread(btAdapt, 29);
+		bluetoothAcceptThread.start();
+
+		if (!isConnected) {
+			linearView.removeAllViews();
+			TextView alert = new TextView(btContext);
+			alert.setText("等待电脑端数据传输！");
+			alert.setTextSize(60);
+			alert.setTextColor(Color.RED);
+			ImageView alertImg = new ImageView(btContext);
+			alertImg.setImageResource(R.drawable.bluetooth_status_right);
+			linearView.addView(alertImg);
+			linearView.addView(alert);
+		} else {
+			linearView.removeAllViews();
+			linearView.addView(bodyHorilayout, layout);
+			linearView.addView(breathHorilayout, layout);
+			linearView.addView(heartsHorilayout, layout);
+		}
 		handler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
 				// 刷新图表
 				updateBodyChart(body);
+				bodytextShow.setText(bodyInt.toString());
 				updateHeartChart(hearts);
+				heartstextShow.setText(heartsInt.toString());
 				updateBreathChart(breath);
+				breathtextShow.setText(breathInt.toString());
 				super.handleMessage(msg);
+			}
+		};
+		updateUI = new Handler()
+		{
+			@Override
+			public void handleMessage(Message msg) {
+				linearView.removeAllViews();
+				linearView.addView(bodyHorilayout, layout);
+				linearView.addView(breathHorilayout, layout);
+				linearView.addView(heartsHorilayout, layout);
 			}
 		};
 
@@ -78,7 +243,7 @@ public class FragmentBreathFreq extends FragmentChildPage {
 				handler.sendMessage(message);
 			}
 		};
-		timer.schedule(task, 500, 500);
+		// timer.schedule(task, 500, 500);
 	}
 
 	@Override
@@ -86,6 +251,28 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		// 当结束程序时关掉Timer
 		timer.cancel();
 		super.onDestroy();
+	}
+
+	public void cancel() {
+		if (mBThServerSocket != null)
+		{
+			if (D) Log.d(TAG, "Socket Type" + mBThServerSocket + "cancel " + this);
+			try {
+				mBThServerSocket.close();
+			} catch (IOException e) {
+				Log.e(TAG, "Socket Type" + mBThServerSocket+ "close() of server failed", e);
+			}
+		}
+
+		if(mBThSocket!=null)
+		{
+			if (D) Log.d(TAG, "Socket Type" + mBThSocket + "cancel " + this);
+			try {
+				mBThSocket.close();
+			} catch (IOException e) {
+				Log.e(TAG, "Socket Type" + mBThSocket+ "close() of server failed", e);
+			}
+		}
 	}
 
 	/**
@@ -163,8 +350,8 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		breathSeries = new XYSeries("呼吸节律");
 		breathDataset = new XYMultipleSeriesDataset();
 		breathDataset.addSeries(breathSeries);
-		int[] colors = new int[] { Color.CYAN};// 线条的颜色
-		PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE};// 坐标点的形状
+		int[] colors = new int[] { Color.CYAN };// 线条的颜色
+		PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE };// 坐标点的形状
 		XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles);
 		setChartSettings(renderer, "呼吸节律", "时间", "呼吸", 0, 100, 0, 90,
 				Color.WHITE, Color.WHITE);
@@ -416,6 +603,126 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		return renderer;
 	}
 
+	public class PairingRequest extends BroadcastReceiver {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			if (intent.getAction().equals(
+					"android.bluetooth.device.action.PAIRING_REQUEST")) {
+				device = intent
+						.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+				try {
+					ClsUtils.setPin(device.getClass(), device, "0000");
+					ClsUtils.cancelPairingUserInput(device.getClass(), device);
+					ClsUtils.setPairingConfirmation(device.getClass(), device,
+							false);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				try {
+					ClsUtils.createBond(device.getClass(), device);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				Log.i("FrameHealthCheck", device.getName() + " is connected!");
+			}
+		}
+	}
+
+	InputStream recvInputStream = null;
+
+	private class BluetoothAcceptThread extends Thread {
+		public BluetoothAcceptThread(BluetoothAdapter btAdapter, int port) {
+			try {
+
+				mBThServerSocket = ClsUtils.listenUsingRfcommOn(
+						btAdapter.getClass(), btAdapter, port);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		public void run() {
+			try {
+				mBThSocket = mBThServerSocket.accept();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			try {
+				mBThServerSocket.close();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			Log.i("info", "computer is connected!");
+			try {
+				// mBufferReader = new BufferedReader(new
+				// InputStreamReader(mBThSocket.getInputStream(),"utf8 "));
+				recvInputStream = mBThSocket.getInputStream();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+				mPrintStream = new PrintStream(mBThSocket.getOutputStream());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			byte[] buffer = "10002181".getBytes();
+			try {
+				mPrintStream.write(buffer);
+			} catch (IOException e) {
+				isConnected = false;
+				try {
+					mBThSocket.close();
+					mPrintStream.close();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+
+				e.printStackTrace();
+			}
+			mPrintStream.flush();
+			Log.i("info", "send---------!");
+
+			isConnected = true;
+			 Thread receiveThread = new recvThread();
+			 receiveThread.start();
+		}
+	}
+
+	private class recvThread extends Thread {
+		public recvThread() {
+			Message message = new Message();
+			message.what = 1;
+			updateUI.sendMessage(message);
+		}
+
+		public void run() {
+			byte[] buffer = new byte[1024 * 2];
+			int bytes;
+			while (isConnected) {
+				try {
+					// Read from the InputStream
+					if ((bytes = recvInputStream.read(buffer, 0, 1024 * 2)) > 0) {
+						byte[] buf_data = new byte[bytes];
+						for (int i = 0; i < bytes; i++) {
+							buf_data[i] = buffer[i];
+						}
+						String recvStr = new String(buf_data);
+						Log.i("info", "recvice---------!"+recvStr);
+					}
+				} catch (IOException e) {
+					try {
+						isConnected = false;
+						mBThSocket.close();
+						recvInputStream.close();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					break;
+				}
+			}
+		}
+	}
+
 	private void updateBodyChart(View chart) {
 		int[] xv = new int[100];
 		int[] yv = new int[100];
@@ -423,6 +730,7 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		int addX = 0;
 		int addY = ((int) (Math.random() * 30)) + 40;
 		// 移除数据集中旧的点集
+		bodyInt = addY;
 		bodyDataset.removeSeries(bodySeries);
 		// 判断当前点集中到底有多少点，因为屏幕总共只能容纳100个，所以当点数超过100时，长度永远是100
 		int length = bodySeries.getItemCount();
@@ -449,69 +757,53 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		// 如果在非UI主线程中，需要调用postInvalidate()，具体参考api
 		chart.invalidate();
 	}
+
 	private void updateHeartChart(View chart) {
 		int[] xv = new int[100];
 		int[] yv = new int[100];
-		// 设置好下一个需要增加的节点
 		int addX = 0;
 		int addY = ((int) (Math.random() * 30)) + 40;
-		// 移除数据集中旧的点集
+		heartsInt = addY;
 		heartDataset.removeSeries(heartSeries);
-		// 判断当前点集中到底有多少点，因为屏幕总共只能容纳100个，所以当点数超过100时，长度永远是100
 		int length = heartSeries.getItemCount();
 		if (length > 100) {
 			length = 100;
 		}
-		// 将旧的点集中x和y的数值取出来放入backup中，并且将x的值加1，造成曲线向右平移的效果
 		for (int i = 0; i < length; i++) {
 			xv[i] = (int) heartSeries.getX(i) + 2;
 			yv[i] = (int) heartSeries.getY(i);
 		}
-		// 点集先清空，为了做成新的点集而准备
 		heartSeries.clear();
-		// 将新产生的点首先加入到点集中，然后在循环体中将坐标变换后的一系列点都重新加入到点集中
-		// 这里可以试验一下把顺序颠倒过来是什么效果，即先运行循环体，再添加新产生的点
 		heartSeries.add(addX, addY);
 		for (int k = 0; k < length; k++) {
 			heartSeries.add(xv[k], yv[k]);
 		}
-		// 在数据集中添加新的点集
 		heartDataset.addSeries(heartSeries);
-		// 视图更新，没有这一步，曲线不会呈现动态
-		// 如果在非UI主线程中，需要调用postInvalidate()，具体参考api
 		chart.invalidate();
 	}
 
 	private void updateBreathChart(View chart) {
 		int[] xv = new int[100];
 		int[] yv = new int[100];
-		// 设置好下一个需要增加的节点
 		int addX = 0;
 		int addY = ((int) (Math.random() * 30)) + 40;
-		// 移除数据集中旧的点集
+		breathInt = addY;
 		breathDataset.removeSeries(breathSeries);
-		// 判断当前点集中到底有多少点，因为屏幕总共只能容纳100个，所以当点数超过100时，长度永远是100
 		int length = breathSeries.getItemCount();
 		if (length > 100) {
 			length = 100;
 		}
-		// 将旧的点集中x和y的数值取出来放入backup中，并且将x的值加1，造成曲线向右平移的效果
-		for (int i = 0; i < length-1; i++) {
+		for (int i = 0; i < length - 1; i++) {
 			xv[i] = (int) breathSeries.getX(i) + 2;
 			yv[i] = (int) breathSeries.getY(i);
 		}
-		// 点集先清空，为了做成新的点集而准备
 		breathSeries.clear();
-		// 将新产生的点首先加入到点集中，然后在循环体中将坐标变换后的一系列点都重新加入到点集中
-		// 这里可以试验一下把顺序颠倒过来是什么效果，即先运行循环体，再添加新产生的点
 		breathSeries.add(addX, addY);
 		for (int k = 0; k < length; k++) {
 			breathSeries.add(xv[k], yv[k]);
 		}
-		// 在数据集中添加新的点集
 		breathDataset.addSeries(breathSeries);
-		// 视图更新，没有这一步，曲线不会呈现动态
-		// 如果在非UI主线程中，需要调用postInvalidate()，具体参考api
 		chart.invalidate();
 	}
+
 }
