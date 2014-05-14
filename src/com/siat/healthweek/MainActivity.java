@@ -127,6 +127,13 @@ public class MainActivity extends Activity {
 				startChildApp(HealthPaper.class);
 			}
 		});
+		btnAbout.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startChildApp(AboutUs.class);
+			}
+		});
 	}
 
 	private void startChildApp(Class<?> clazz) {

@@ -132,13 +132,11 @@
             android:label="@string/title_activity_haodou"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
-
-		<receiver android:name="com.mobilehealth.sensibelbed.FragmentBreathFreqPairingRequest" >
-	        <intent-filter>
-	            <action android:name="android.bluetooth.device.action.PAIRING_REQUEST" />
-	            <action android:name="android.bluetooth.device.action.PAIRING_CANCEL" />
-	        </intent-filter>
-	    </receiver>
+        <activity
+            android:name="com.siat.healthweek.AboutUs"
+            android:label="@string/title_activity_haodou"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
         <!-- 2014.5.6 -->
 
         <activity

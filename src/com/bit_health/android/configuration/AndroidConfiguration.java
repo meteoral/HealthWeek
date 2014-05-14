@@ -7,18 +7,18 @@ import android.text.TextUtils;
 
 /**
  * 统一管理配置参数的类
- * 
+ *
  * @author 梁才学
- * 
+ *
  */
 public class AndroidConfiguration {
 
 	static private AndroidConfiguration instance;
-	
+
 	public static final String FIRST_TIME = "FIRST_TIME";// 第一次进入本应用程序
 	public static final String BIT_HEALTH_CONFIG = "BitHealthConfigFile";
 //	private static final String DEFAULT_HOST = "10.2.2.130:8081";
-//	private static final String DEFAULT_HOST = "172.20.35.118"; 
+//	private static final String DEFAULT_HOST = "172.18.50.50";
 	private static final String DEFAULT_HOST = "210.75.252.106:4084";
 	private Context mContext;
 	private SharedPreferences mSharedPreferences;
@@ -42,7 +42,7 @@ public class AndroidConfiguration {
 
 	/**********************************************************
 	 * 方法描述：
-	 * 
+	 *
 	 * @param context
 	 *            这个context不能是Activity的，必须是全局的, 即 Application的
 	 * @return
@@ -94,7 +94,7 @@ public class AndroidConfiguration {
 		mEditor.putString("account_session", this.mAccountSession);
 		mEditor.commit();
 	}
-	
+
 	public String getUserId() {
 		if (TextUtils.isEmpty(mUserId)) {
 			mUserId = mSharedPreferences.getString("user_id", null);
@@ -106,7 +106,7 @@ public class AndroidConfiguration {
 	public long getLastUpdateTime(String taskName){
 		return mSharedPreferences.getLong(taskName, -1);
 	}
-	
+
 	// 设置最后更新时间
 	public void setLastUpdateTime(String taskName,long time) {
 		mEditor.putLong(taskName, time);
@@ -117,7 +117,7 @@ public class AndroidConfiguration {
 		mEditor.putString("user_id", this.mUserId);
 		mEditor.commit();
 	}
-	
+
 	public String getRoleId() {
 		if (TextUtils.isEmpty(mRoleId)) {
 			mRoleId = mSharedPreferences.getString("role_id", null);
@@ -142,7 +142,7 @@ public class AndroidConfiguration {
 		mEditor.putString("role_session", this.mRoleSession);
 		mEditor.commit();
 	}
-	
+
 	public void clear() {
 		mEditor.clear();
 		mEditor.commit();

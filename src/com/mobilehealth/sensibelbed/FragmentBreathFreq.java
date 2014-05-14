@@ -3,6 +3,7 @@ package com.mobilehealth.sensibelbed;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Timer;
@@ -58,13 +59,13 @@ public class FragmentBreathFreq extends FragmentChildPage {
 	private boolean isConnected = false;
 	private TextView bodytext;
 	public TextView bodytextShow;
-	private Integer bodyInt;
+	private String bodyInt;
 	private TextView breathtext;
 	public TextView breathtextShow;
-	private Integer breathInt;
+	private String breathInt;
 	private TextView heartstext;
 	public TextView heartstextShow;
-	private Integer heartsInt;
+	private String heartsInt;
 	private LinearLayout bodyHorilayout;
 	private LinearLayout bodyTextlayout;
 	private LinearLayout breathHorilayout;
@@ -73,6 +74,9 @@ public class FragmentBreathFreq extends FragmentChildPage {
 	private LinearLayout heartsTextlayout;
 	private LinearLayout linearView;
 	private LayoutParams layout;
+	private List<Integer> intbody;
+	private List<Integer> intbreath;
+	private List<Integer> intheart;
 
 	private BluetoothDevice device = null;
 	private BluetoothAdapter btAdapt = null;
@@ -92,6 +96,7 @@ public class FragmentBreathFreq extends FragmentChildPage {
 	protected void init(View view) {
 		// TODO Auto-generated method stub
 		Context btContext = getActivity().getApplicationContext();
+
 		LayoutParams chartLayoutParams = new LayoutParams(
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -135,21 +140,21 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		bodytext = new TextView(btContext);
 		bodytext.setText("体动");
 		bodytextShow = new TextView(btContext);
-		bodytextShow.setText("36");
+		bodytextShow.setText("");
 		bodytextShow.setTextSize(42);
 		bodytextShow.setTextColor(Color.RED);
 
 		breathtext = new TextView(btContext);
 		breathtext.setText("呼吸");
 		breathtextShow = new TextView(btContext);
-		breathtextShow.setText("50");
+		breathtextShow.setText("");
 		breathtextShow.setTextSize(42);
 		breathtextShow.setTextColor(Color.CYAN);
 
 		heartstext = new TextView(btContext);
 		heartstext.setText("心跳脉搏");
 		heartstextShow = new TextView(btContext);
-		heartstextShow.setText("42");
+		heartstextShow.setText("");
 		heartstextShow.setTextSize(42);
 		heartstextShow.setTextColor(Color.GREEN);
 
@@ -216,18 +221,20 @@ public class FragmentBreathFreq extends FragmentChildPage {
 			public void handleMessage(Message msg) {
 				// 刷新图表
 				updateBodyChart(body);
-				bodytextShow.setText(bodyInt.toString());
+				bodytextShow.setText(bodyInt);
 				updateHeartChart(hearts);
-				heartstextShow.setText(heartsInt.toString());
+				heartstextShow.setText(heartsInt);
 				updateBreathChart(breath);
-				breathtextShow.setText(breathInt.toString());
+				breathtextShow.setText(breathInt);
 				super.handleMessage(msg);
 			}
 		};
-		updateUI = new Handler()
-		{
+		updateUI = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
+				intbody = new ArrayList<Integer>(100);
+				intbreath = new ArrayList<Integer>(100);
+				intheart = new ArrayList<Integer>(100);
 				linearView.removeAllViews();
 				linearView.addView(bodyHorilayout, layout);
 				linearView.addView(breathHorilayout, layout);
@@ -243,34 +250,37 @@ public class FragmentBreathFreq extends FragmentChildPage {
 				handler.sendMessage(message);
 			}
 		};
-		// timer.schedule(task, 500, 500);
+
 	}
 
 	@Override
 	public void onDestroy() {
 		// 当结束程序时关掉Timer
 		timer.cancel();
+		cancel();
 		super.onDestroy();
 	}
 
 	public void cancel() {
-		if (mBThServerSocket != null)
-		{
-			if (D) Log.d(TAG, "Socket Type" + mBThServerSocket + "cancel " + this);
+		if (mBThServerSocket != null) {
+			if (D)
+				Log.d(TAG, "Socket Type" + mBThServerSocket + "cancel " + this);
 			try {
 				mBThServerSocket.close();
 			} catch (IOException e) {
-				Log.e(TAG, "Socket Type" + mBThServerSocket+ "close() of server failed", e);
+				Log.e(TAG, "Socket Type" + mBThServerSocket
+						+ "close() of server failed", e);
 			}
 		}
 
-		if(mBThSocket!=null)
-		{
-			if (D) Log.d(TAG, "Socket Type" + mBThSocket + "cancel " + this);
+		if (mBThSocket != null) {
+			if (D)
+				Log.d(TAG, "Socket Type" + mBThSocket + "cancel " + this);
 			try {
 				mBThSocket.close();
 			} catch (IOException e) {
-				Log.e(TAG, "Socket Type" + mBThSocket+ "close() of server failed", e);
+				Log.e(TAG, "Socket Type" + mBThSocket
+						+ "close() of server failed", e);
 			}
 		}
 	}
@@ -283,13 +293,13 @@ public class FragmentBreathFreq extends FragmentChildPage {
 	 * @return the built intent
 	 */
 	public View showBody(Context context) {
-		bodySeries = new XYSeries("运动节律");
+		bodySeries = new XYSeries("体动节律");
 		bodyDataset = new XYMultipleSeriesDataset();
 		bodyDataset.addSeries(bodySeries);
 		int[] colors = new int[] { Color.RED };// 线条的颜色
 		PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE };// 坐标点的形状
 		XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles);
-		setChartSettings(renderer, "人体翻身节律", "时间", "动量", 0, 100, 0, 90,
+		setChartSettings(renderer, "体动节律节律", "时间", "次数", 0, 100, 0, 15,
 				Color.WHITE, Color.WHITE);
 		((XYSeriesRenderer) renderer.getSeriesRendererAt(0))
 				.setFillPoints(true);
@@ -321,7 +331,7 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		int[] colors = new int[] { Color.GREEN };// 线条的颜色
 		PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE };// 坐标点的形状
 		XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles);
-		setChartSettings(renderer, "心率图", "时间", "心率", 0, 100, 0, 90,
+		setChartSettings(renderer, "心率图", "时间", "心率", 0, 100, 40, 150,
 				Color.WHITE, Color.WHITE);
 		((XYSeriesRenderer) renderer.getSeriesRendererAt(0))
 				.setFillPoints(true);
@@ -353,7 +363,7 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		int[] colors = new int[] { Color.CYAN };// 线条的颜色
 		PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE };// 坐标点的形状
 		XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles);
-		setChartSettings(renderer, "呼吸节律", "时间", "呼吸", 0, 100, 0, 90,
+		setChartSettings(renderer, "呼吸节律", "时间", "呼吸", 0, 100, 0, 40,
 				Color.WHITE, Color.WHITE);
 		((XYSeriesRenderer) renderer.getSeriesRendererAt(0))
 				.setFillPoints(true);
@@ -603,31 +613,6 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		return renderer;
 	}
 
-	public class PairingRequest extends BroadcastReceiver {
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			if (intent.getAction().equals(
-					"android.bluetooth.device.action.PAIRING_REQUEST")) {
-				device = intent
-						.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-				try {
-					ClsUtils.setPin(device.getClass(), device, "0000");
-					ClsUtils.cancelPairingUserInput(device.getClass(), device);
-					ClsUtils.setPairingConfirmation(device.getClass(), device,
-							false);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				try {
-					ClsUtils.createBond(device.getClass(), device);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				Log.i("FrameHealthCheck", device.getName() + " is connected!");
-			}
-		}
-	}
-
 	InputStream recvInputStream = null;
 
 	private class BluetoothAcceptThread extends Thread {
@@ -681,10 +666,9 @@ public class FragmentBreathFreq extends FragmentChildPage {
 			}
 			mPrintStream.flush();
 			Log.i("info", "send---------!");
-
 			isConnected = true;
-			 Thread receiveThread = new recvThread();
-			 receiveThread.start();
+			Thread receiveThread = new recvThread();
+			receiveThread.start();
 		}
 	}
 
@@ -698,6 +682,7 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		public void run() {
 			byte[] buffer = new byte[1024 * 2];
 			int bytes;
+			timer.schedule(task, 1000, 1000);
 			while (isConnected) {
 				try {
 					// Read from the InputStream
@@ -707,7 +692,19 @@ public class FragmentBreathFreq extends FragmentChildPage {
 							buf_data[i] = buffer[i];
 						}
 						String recvStr = new String(buf_data);
-						Log.i("info", "recvice---------!"+recvStr);
+						if (!recvStr.isEmpty()) {
+							String[] recedata = recvStr.split("@");
+							String[] bodydata = recedata[0].split(",");
+							String[] breathdata = recedata[1].split(",");
+							String[] heartdata = recedata[2].split(",");
+							addNode(intbody, Integer.parseInt(bodydata[0]));
+							addNode(intbreath, Integer.parseInt(breathdata[0]));
+							addNode(intheart, Integer.parseInt(heartdata[0]));
+							bodyInt = bodydata[1];
+							breathInt = breathdata[1];
+							heartsInt = heartdata[1];
+						}
+						Log.i("info", "recvice---------!" + recvStr);
 					}
 				} catch (IOException e) {
 					try {
@@ -723,19 +720,38 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		}
 	}
 
+	private void addNode(List<Integer> list, int x) {
+		if (list.size() < 100) {
+			list.add(x);
+		} else {
+			for (int i = 0; i < 100; i++) {
+				list.set(i, list.get(i + 1));
+			}
+			list.set(99, x);
+		}
+	}
+
 	private void updateBodyChart(View chart) {
 		int[] xv = new int[100];
 		int[] yv = new int[100];
 		// 设置好下一个需要增加的节点
 		int addX = 0;
-		int addY = ((int) (Math.random() * 30)) + 40;
+		int addY;
 		// 移除数据集中旧的点集
-		bodyInt = addY;
 		bodyDataset.removeSeries(bodySeries);
 		// 判断当前点集中到底有多少点，因为屏幕总共只能容纳100个，所以当点数超过100时，长度永远是100
 		int length = bodySeries.getItemCount();
-		if (length > 100) {
-			length = 100;
+		if (length > 99) {
+			length = 99;
+		}
+		if (intbody.size() > 0) {
+			if (intbody.size() <= length) {
+				addY = intbody.get(intbody.size() - 1);
+			} else {
+				addY = intbody.get(length);
+			}
+		} else {
+			return;
 		}
 		// 将旧的点集中x和y的数值取出来放入backup中，并且将x的值加1，造成曲线向右平移的效果
 		for (int i = 0; i < length; i++) {
@@ -761,13 +777,24 @@ public class FragmentBreathFreq extends FragmentChildPage {
 	private void updateHeartChart(View chart) {
 		int[] xv = new int[100];
 		int[] yv = new int[100];
+		// 设置好下一个需要增加的节点
 		int addX = 0;
-		int addY = ((int) (Math.random() * 30)) + 40;
-		heartsInt = addY;
+		int addY;
+		// 移除数据集中旧的点集
 		heartDataset.removeSeries(heartSeries);
+		// 判断当前点集中到底有多少点，因为屏幕总共只能容纳100个，所以当点数超过100时，长度永远是100
 		int length = heartSeries.getItemCount();
-		if (length > 100) {
-			length = 100;
+		if (length > 99) {
+			length = 99;
+		}
+		if (intheart.size() > 0) {
+			if (intheart.size() <= length) {
+				addY = intheart.get(intheart.size() - 1);
+			} else {
+				addY = intheart.get(length);
+			}
+		} else {
+			return;
 		}
 		for (int i = 0; i < length; i++) {
 			xv[i] = (int) heartSeries.getX(i) + 2;
@@ -786,12 +813,20 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		int[] xv = new int[100];
 		int[] yv = new int[100];
 		int addX = 0;
-		int addY = ((int) (Math.random() * 30)) + 40;
-		breathInt = addY;
+		int addY;
 		breathDataset.removeSeries(breathSeries);
 		int length = breathSeries.getItemCount();
-		if (length > 100) {
-			length = 100;
+		if (length > 99) {
+			length = 99;
+		}
+		if (intbreath.size() > 0) {
+			if (intbreath.size() <= length) {
+				addY = intbreath.get(intbreath.size() - 1);
+			} else {
+				addY = intbreath.get(length);
+			}
+		} else {
+			return;
 		}
 		for (int i = 0; i < length - 1; i++) {
 			xv[i] = (int) breathSeries.getX(i) + 2;
@@ -805,5 +840,4 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		breathDataset.addSeries(breathSeries);
 		chart.invalidate();
 	}
-
 }

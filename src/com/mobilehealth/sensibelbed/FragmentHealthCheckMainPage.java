@@ -43,7 +43,7 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageListener)getParentFragment()).changeToPage(FragmentHRV.class);
+				((ChildPageListener)getParentFragment()).changeToPage(FragmentSleepStatus.class);
 			}
 		});
 
@@ -52,7 +52,7 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageListener)getParentFragment()).changeToPage(FragmentSleepStatus.class);
+				((ChildPageListener)getParentFragment()).changeToPage(FragmentHRV.class);
 			}
 		});
 		btAdapt = BluetoothAdapter.getDefaultAdapter();// 初始化本机蓝牙功能
