@@ -30,7 +30,11 @@ import android.widget.TextView;
 import com.mobilehealth.core.FragmentChildPage;
 import com.siat.healthweek.ClsUtils;
 import com.siat.healthweek.R;
-
+/**
+ * 子女监测界面
+ * @author Meteoral
+ *
+ */
 public class FragmentSleepStatus extends FragmentChildPage{
 
 	private Timer timer = new Timer();

@@ -724,7 +724,7 @@ public class FragmentBreathFreq extends FragmentChildPage {
 		if (list.size() < 100) {
 			list.add(x);
 		} else {
-			for (int i = 0; i < 100; i++) {
+			for (int i = 0; i < 99; i++) {
 				list.set(i, list.get(i + 1));
 			}
 			list.set(99, x);

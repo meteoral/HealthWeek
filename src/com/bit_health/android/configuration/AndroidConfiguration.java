@@ -18,8 +18,8 @@ public class AndroidConfiguration {
 	public static final String FIRST_TIME = "FIRST_TIME";// 第一次进入本应用程序
 	public static final String BIT_HEALTH_CONFIG = "BitHealthConfigFile";
 //	private static final String DEFAULT_HOST = "10.2.2.130:8081";
-//	private static final String DEFAULT_HOST = "172.18.50.50";
-	private static final String DEFAULT_HOST = "210.75.252.106:4084";
+	private static final String DEFAULT_HOST = "172.18.50.50";
+//	private static final String DEFAULT_HOST = "210.75.252.106:4084";
 	private Context mContext;
 	private SharedPreferences mSharedPreferences;
 	private Editor mEditor;

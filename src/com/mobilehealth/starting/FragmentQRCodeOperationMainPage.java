@@ -11,10 +11,10 @@ import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 
 public class FragmentQRCodeOperationMainPage extends FragmentChildPage{
-	
+
 	private RelativeLayout rlScanQRCode;
 	private RelativeLayout rlGenerateQRCode;
-	
+
 	public FragmentQRCodeOperationMainPage() {
 		// TODO Auto-generated constructor stub
 		this.layoutId=R.layout.page_qrcode_operation;
@@ -37,7 +37,7 @@ public class FragmentQRCodeOperationMainPage extends FragmentChildPage{
 				getActivity().overridePendingTransition(0, R.anim.view_disappear);
 			}
 		});
-		
+
 		rlGenerateQRCode.setOnClickListener(new OnClickListener() {
 
 			@Override
