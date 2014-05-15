@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mobilehealth.core.FragmentActivityEx;
 import com.mobilehealth.core.FragmentChildPage;
@@ -25,8 +26,8 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 	private TextView tvSleepQuality;
 	private TextView tvTips;
 	
-	private String curStatusCode=StatusCode.STATUS_NOT_READY;
-	private final String KEY_FOR_STATUS_CODE="keyStatusCode";
+	private String firstTime="firstTime";
+	private final String KEY_FOR_FIRST_TIME="KEY_FOR_FIRST_TIME";
 
 	public FragmentHealthCheckMainPage() {
 		// TODO Auto-generated constructor stub
@@ -50,6 +51,10 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if(checkReady()==false)
+				{
+					return;
+				}
 				((ParentFragment)getParentFragment()).changeToPage(FragmentHRV.class);
 			}
 		});
@@ -59,6 +64,10 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if(checkReady()==false)
+				{
+					return;
+				}
 				((ParentFragment)getParentFragment()).changeToPage(FragmentBreathFreq.class);
 			}
 		});
@@ -68,24 +77,26 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if(checkReady()==false)
+				{
+					return;
+				}
 				((ParentFragment)getParentFragment()).changeToPage(FragmentSleepStatus.class);
 			}
 		});
 		
-		String storedStatusCode=((FragmentActivityEx)getActivity()).getData(KEY_FOR_STATUS_CODE);
-		if(storedStatusCode.length()>0)
+		if(BluetoothAdapter.getDefaultAdapter().getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE)
 		{
-			statusChanged(storedStatusCode);
+			statusChanged(StatusCode.STATUS_NOT_READY);
+			
+			String temp=(String) ((FragmentActivityEx)getActivity()).getData(KEY_FOR_FIRST_TIME);
+			if(temp.length()==0)
+			{
+				sendRequestForBlueTooth();
+			}
 		}else
 		{
-			if(BluetoothAdapter.getDefaultAdapter().getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE)
-			{
-				statusChanged(StatusCode.STATUS_NOT_READY);
-				sendRequestForBlueTooth();
-			}else
-			{
-				statusChanged(StatusCode.STATUS_READY);
-			}
+			statusChanged(StatusCode.STATUS_READY);
 		}
 	}
 	
@@ -125,7 +136,6 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 				}
 			});
 		}
-		curStatusCode=statusCode;
 	}
 	
 	@Override
@@ -133,7 +143,7 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 		// TODO Auto-generated method stub
 		super.saveData();
 		
-		((FragmentActivityEx)getActivity()).setData(KEY_FOR_STATUS_CODE, curStatusCode);
+		((FragmentActivityEx)getActivity()).setData(KEY_FOR_FIRST_TIME, firstTime);
 	}
 	
 	private void sendRequestForBlueTooth()
@@ -141,5 +151,17 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 		Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
 		discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 3600);
 		startActivityForResult(discoverableIntent, BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE);
+	}
+	
+	private boolean checkReady()
+	{
+		if(BluetoothAdapter.getDefaultAdapter().getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE)
+		{
+			Toast.makeText(getActivity(), "蓝牙未开启，请先点击上部蓝牙图标开启蓝牙", Toast.LENGTH_SHORT).show();
+			return false;
+		}else
+		{
+			return true;
+		}
 	}
 }

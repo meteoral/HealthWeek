@@ -6,9 +6,9 @@ import android.support.v4.app.FragmentActivity;
 
 public abstract class FragmentActivityEx extends FragmentActivity{
 	
-	protected HashMap<String, String> tempDataStorage=new HashMap<String, String>();
+	protected HashMap<String, Object> tempDataStorage=new HashMap<String, Object>();
 	
-	public String getData(String key)
+	public Object getData(String key)
 	{
 		if(tempDataStorage.containsKey(key))
 		{
@@ -19,7 +19,7 @@ public abstract class FragmentActivityEx extends FragmentActivity{
 		}
 	}
 	
-	public String setData(String key, String value)
+	public Object setData(String key, Object value)
 	{
 		return tempDataStorage.put(key, value);
 	}

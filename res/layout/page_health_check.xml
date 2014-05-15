@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="@string/general_health_status"
             android:textColor="@color/blue1"
-            android:textSize="@dimen/textsize_medium"
+            android:textSize="@dimen/textsize_small"
             android:layout_marginBottom="@dimen/general_margin" />
 
         <TextView
@@ -42,7 +42,7 @@
             android:layout_marginLeft="20dp"
             android:text="@string/sleep_quality"
             android:textColor="@color/blue1"
-            android:textSize="@dimen/textsize_medium"
+            android:textSize="@dimen/textsize_small"
             android:layout_marginBottom="@dimen/general_margin" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:layout_marginLeft="30dp"
             android:text="@string/sensible_bed_tips"
             android:textColor="@color/blue1"
-            android:textSize="@dimen/textsize_medium" />
+            android:textSize="@dimen/textsize_small" />
     </LinearLayout>
 
     <LinearLayout
