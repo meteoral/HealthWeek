@@ -8,7 +8,6 @@ import com.siat.healthweek.R;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.KeyEvent;
@@ -17,7 +16,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public abstract class MainFrameForMedicalKit extends FragmentActivity implements ChildPageListener{
+public abstract class ActivityViewPager extends FragmentActivityEx{
 
 	protected ViewPager vpContent;
 	protected FragmentListAdapter vpAdapter;
@@ -112,7 +111,7 @@ public abstract class MainFrameForMedicalKit extends FragmentActivity implements
 				// TODO Auto-generated method stub
 				if(arg0!=curTabIndex)
 				{
-					MainFrameForMedicalKit.this.tvCenterCaption.setText(centerCaptions.get(childPageNames[arg0]));
+					ActivityViewPager.this.tvCenterCaption.setText(centerCaptions.get(childPageNames[arg0]));
 					bottomTabSelectionChanged(arg0);
 				}
 			}
@@ -159,7 +158,7 @@ public abstract class MainFrameForMedicalKit extends FragmentActivity implements
 	
 	private boolean disposeBack()
 	{
-		boolean ret_val=((ParentPageListener)vpAdapter.getItem(vpContent.getCurrentItem())).onBack();
+		boolean ret_val=((ParentFragment)vpAdapter.getItem(vpContent.getCurrentItem())).onBack();
 		if(ret_val==true)
 		{
 			return true;
@@ -171,15 +170,8 @@ public abstract class MainFrameForMedicalKit extends FragmentActivity implements
 		
 		return true;
 	}
-	
-	@Override
-	public void changeToPage(Class<?> clazz) {
-		// TODO Auto-generated method stub
-	}
 
-	@Override
 	public void childPageChanged(int firstLevelIndex, String className) {
-		// TODO Auto-generated method stub
 		if(firstLevelIndex==curTabIndex)
 		{
 			childPageNames[curTabIndex]=className;

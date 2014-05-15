@@ -1,7 +1,7 @@
 package com.mobilehealth.starting;
 
-import com.mobilehealth.core.ChildPageListener;
 import com.mobilehealth.core.FragmentChildPage;
+import com.mobilehealth.core.ParentFragmentActivity;
 import com.mobilehealth.customizedview.ImageViewMovable;
 import com.siat.healthweek.R;
 
@@ -81,7 +81,7 @@ public class FragmentGenerateQRCode extends FragmentChildPage implements ImageVi
 					
 					if(characterAdded>=3)
 					{
-						((ChildPageListener)getActivity()).changeToPage(FragmentGenerationSucceed.class);
+						((ParentFragmentActivity)getActivity()).changeToPage(FragmentGenerationSucceed.class);
 					}
 				}
 			});

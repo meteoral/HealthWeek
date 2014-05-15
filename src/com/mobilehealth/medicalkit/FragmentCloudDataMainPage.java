@@ -1,7 +1,7 @@
 package com.mobilehealth.medicalkit;
 
-import com.mobilehealth.core.ChildPageListener;
 import com.mobilehealth.core.FragmentChildPage;
+import com.mobilehealth.core.ParentFragment;
 import com.siat.healthweek.R;
 
 import android.view.View;
@@ -27,7 +27,7 @@ public class FragmentCloudDataMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageListener)getParentFragment()).changeToPage(FragmentPhysicalHealthResult.class);
+				((ParentFragment)getParentFragment()).changeToPage(FragmentPhysicalHealthResult.class);
 			}
 		});
 	}

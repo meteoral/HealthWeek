@@ -14,7 +14,7 @@ public class FragmentCloudData extends ParentFragment{
 		
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_left_bg);
 		
-		this.initPageClassName=FragmentCloudDataMainPage.class.getName();
+		this.curPageClassName=FragmentCloudDataMainPage.class.getName();
 		
 		this.firstLevelIndex=0;
 	}

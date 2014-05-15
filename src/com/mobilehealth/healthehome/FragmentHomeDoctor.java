@@ -14,7 +14,7 @@ public class FragmentHomeDoctor extends ParentFragment{
 		
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_mid_bg);
 		
-		this.initPageClassName=FragmentHomeDoctorMainPage.class.getName();
+		this.curPageClassName=FragmentHomeDoctorMainPage.class.getName();
 		
 		this.firstLevelIndex=1;
 	}

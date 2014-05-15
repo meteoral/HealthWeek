@@ -1,10 +1,10 @@
 package com.mobilehealth.medicalkit;
 
 import com.mobilehealth.core.FragmentListAdapter;
-import com.mobilehealth.core.MainFrameForMedicalKit;
+import com.mobilehealth.core.ActivityViewPager;
 import com.siat.healthweek.R;
 
-public class MedicalKit extends MainFrameForMedicalKit{
+public class MedicalKit extends ActivityViewPager{
 	
 	@Override
 	protected void init() {

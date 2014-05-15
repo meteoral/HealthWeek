@@ -16,7 +16,7 @@ public class DandelionScheme extends ParentFragmentActivity{
 		this.layoutId=R.layout.main_frame_for_dandelion_scheme;
 		this.containerId=R.id.rlContent;
 		this.backActivity=MainActivity.class;
-		this.initPageClassName=FragmentDandelionSchemeMainPage.class.getName();
+		this.curPageClassName=FragmentDandelionSchemeMainPage.class.getName();
 	}
 	
 	@Override

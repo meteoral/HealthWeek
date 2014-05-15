@@ -11,11 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-public abstract class ParentFragment extends Fragment implements ChildPageListener, ParentPageListener{
+public abstract class ParentFragment extends Fragment{
 	
 	protected ImageView ivContainerFrameBg;
 	
-	protected String initPageClassName;
+	protected String curPageClassName;
 	
 	protected int firstLevelIndex=0;
 	
@@ -48,14 +48,14 @@ public abstract class ParentFragment extends Fragment implements ChildPageListen
 	
 	private void displayInitPage()
 	{
-		Fragment newPage=getChildFragmentManager().findFragmentByTag(initPageClassName);
+		Fragment newPage=getChildFragmentManager().findFragmentByTag(curPageClassName);
 		if(newPage==null)
 		{
 			FragmentTransaction transac=getChildFragmentManager().beginTransaction();
 			
-			newPage=Fragment.instantiate(getActivity(), initPageClassName);
+			newPage=Fragment.instantiate(getActivity(), curPageClassName);
 			transac.setCustomAnimations(0, 0, 0, R.anim.view_disappear);
-			transac.add(R.id.rlMain, newPage, initPageClassName);
+			transac.add(R.id.rlMain, newPage, curPageClassName);
 			
 			transac.commit();
 		}
@@ -78,25 +78,21 @@ public abstract class ParentFragment extends Fragment implements ChildPageListen
 		transac.addToBackStack(null);
 		transac.commit();
 		
+		curPageClassName=toPageClassName;
+		
 		return true;
 	}
 	
-	@Override
 	public void changeToPage(Class<?> clazz) {
-		// TODO Auto-generated method stub
 		changeToPageLocal(clazz.getName());
 	}
 
-	@Override
-	public void childPageChanged(int firstLevelIndex, String className) {
+	public void childPageChanged(String className) {
 		// TODO Auto-generated method stub
-		firstLevelIndex=this.firstLevelIndex;
-		((ChildPageListener)getActivity()).childPageChanged(firstLevelIndex, className);
+		((ActivityViewPager)getActivity()).childPageChanged(firstLevelIndex, className);
 	}
 
-	@Override
 	public boolean onBack() {
-		// TODO Auto-generated method stub
 		FragmentManager childFragManager=getChildFragmentManager();
 		if(childFragManager.getBackStackEntryCount()>0)
 		{

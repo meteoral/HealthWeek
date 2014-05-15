@@ -5,17 +5,16 @@ import com.siat.healthweek.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-public abstract class ParentFragmentActivity extends FragmentActivity implements ChildPageListener{
-
+public abstract class ParentFragmentActivity extends FragmentActivityEx{
+	
 	protected int layoutId;
 	protected int containerId;
 	protected Class<?> backActivity;
-	protected String initPageClassName;
-
+	protected String curPageClassName;
+	
 	@Override
 	protected void onCreate(Bundle arg0) {
 		// TODO Auto-generated method stub
@@ -23,57 +22,49 @@ public abstract class ParentFragmentActivity extends FragmentActivity implements
 		setContentView(layoutId);
 
 		init();
-
+		
 		displayInitPage();
 	}
-
+	
 	private void displayInitPage()
 	{
-		Fragment newPage=getSupportFragmentManager().findFragmentByTag(initPageClassName);
+		Fragment newPage=getSupportFragmentManager().findFragmentByTag(curPageClassName);
 		if(newPage==null)
 		{
 			FragmentTransaction transac=getSupportFragmentManager().beginTransaction();
-
-			newPage=Fragment.instantiate(this, initPageClassName);
+			
+			newPage=Fragment.instantiate(this, curPageClassName);
 			transac.setCustomAnimations(0, R.anim.view_disappear, 0, R.anim.view_disappear);
-			transac.add(containerId, newPage, initPageClassName);
-
+			transac.add(containerId, newPage, curPageClassName);
+			
 			transac.commit();
 		}
 	}
-
+	
 	protected abstract void init();
 
-	@Override
 	public void changeToPage(Class<?> clazz) {
-		// TODO Auto-generated method stub
 		changeToPageLocal(clazz.getName());
 	}
-
-	@Override
-	public void childPageChanged(int firstLevelIndex, String className) {
-		// TODO Auto-generated method stub
+	
+	public void childPageChanged(String className) {
 	}
-
+	
 	private boolean changeToPageLocal(String toPageClassName)
 	{
 		FragmentTransaction transac=getSupportFragmentManager().beginTransaction();
 
 		Fragment newPage=Fragment.instantiate(this, toPageClassName);
-		if(toPageClassName.equals("com.mobilehealth.starting.FragmentGenerationSucceed"))
-		{
-			transac.setCustomAnimations(R.anim.translucent_view_zoom_in, R.anim.translucent_view_zoom_out, 0, R.anim.view_disappear);
-		}
-		else{
-			transac.setCustomAnimations(0, R.anim.view_disappear, 0, R.anim.view_disappear);
-		}
+		transac.setCustomAnimations(0, R.anim.view_disappear, 0, R.anim.view_disappear);
 		transac.replace(containerId, newPage, toPageClassName);
 		transac.addToBackStack(null);
 		transac.commit();
+		
+		curPageClassName=toPageClassName;
 
 		return true;
 	}
-
+	
 	protected boolean disposeBtnBack()
 	{
 		FragmentManager childFragManager=getSupportFragmentManager();
@@ -82,7 +73,7 @@ public abstract class ParentFragmentActivity extends FragmentActivity implements
 			childFragManager.popBackStack();
 			return true;
 		}
-
+		
 		Intent intent=new Intent();
 		intent.setClass(this, backActivity);
 		startActivity(intent);

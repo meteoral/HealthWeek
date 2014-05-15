@@ -36,12 +36,21 @@ public abstract class FragmentChildPage extends Fragment{
 		if(parentFragment==null)
 		{
 			Activity parentActivity=getActivity();
-			((ChildPageListener)parentActivity).childPageChanged(-1 ,this.getClass().getName());
+			((ParentFragmentActivity)parentActivity).childPageChanged(this.getClass().getName());
 		}else
 		{
-			((ChildPageListener)parentFragment).childPageChanged(-1, this.getClass().getName());
+			((ParentFragment)parentFragment).childPageChanged(this.getClass().getName());
 		}
+	}
+	
+	@Override
+	public void onDestroyView() {
+		// TODO Auto-generated method stub
+		super.onDestroyView();
+		
+		saveData();
 	}
 
 	protected abstract void init(View layout);
+	protected void saveData(){};
 }

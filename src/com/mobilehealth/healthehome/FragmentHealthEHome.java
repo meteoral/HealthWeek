@@ -14,7 +14,7 @@ public class FragmentHealthEHome extends ParentFragment{
 		
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_left_bg);
 		
-		this.initPageClassName=FragmentHealthEHomeMainPage.class.getName();
+		this.curPageClassName=FragmentHealthEHomeMainPage.class.getName();
 		
 		this.firstLevelIndex=0;
 	}

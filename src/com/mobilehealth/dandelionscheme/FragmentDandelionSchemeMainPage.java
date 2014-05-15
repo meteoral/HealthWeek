@@ -1,7 +1,7 @@
 package com.mobilehealth.dandelionscheme;
 
-import com.mobilehealth.core.ChildPageListener;
 import com.mobilehealth.core.FragmentChildPage;
+import com.mobilehealth.core.ParentFragmentActivity;
 import com.siat.healthweek.R;
 
 import android.view.View;
@@ -27,7 +27,7 @@ public class FragmentDandelionSchemeMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageListener)getActivity()).changeToPage(FragmentBodyCommu.class);
+				((ParentFragmentActivity)getActivity()).changeToPage(FragmentBodyCommu.class);
 			}
 		});
 	}

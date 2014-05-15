@@ -1,5 +1,7 @@
 package com.mobilehealth.sensibelbed;
 
+import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.mobilehealth.core.ParentFragment;
@@ -14,8 +16,21 @@ public class FragmentHealthCheck extends ParentFragment{
 		
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_left_bg);
 		
-		this.initPageClassName=FragmentHealthCheckMainPage.class.getName();
+		this.curPageClassName=FragmentHealthCheckMainPage.class.getName();
 		
 		this.firstLevelIndex=0;
+	}
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		
+		Fragment curPage=getChildFragmentManager().findFragmentByTag(curPageClassName);
+		if(curPage!=null)
+		{
+			curPage.onActivityResult(requestCode, resultCode, data);
+		}
+		
+		//super.onActivityResult(requestCode, resultCode, data);
 	}
 }

@@ -21,7 +21,7 @@ public class QRCodeOperation extends ParentFragmentActivity{
 		this.layoutId=R.layout.main_frame_for_qrcode_operation;
 		this.containerId=R.id.rlContent;
 		this.backActivity=MainActivity.class;
-		this.initPageClassName=FragmentQRCodeOperationMainPage.class.getName();
+		this.curPageClassName=FragmentQRCodeOperationMainPage.class.getName();
 	}
 	
 	@Override
@@ -43,9 +43,9 @@ public class QRCodeOperation extends ParentFragmentActivity{
 	}
 
 	@Override
-	public void childPageChanged(int firstLevelIndex, String className) {
+	public void childPageChanged(String className) {
 		// TODO Auto-generated method stub
-		super.childPageChanged(firstLevelIndex, className);
+		super.childPageChanged(className);
 		
 		if(className.equals(FragmentQRCodeOperationMainPage.class.getName()))
 		{

@@ -1,7 +1,7 @@
 package com.mobilehealth.healthehome;
 
-import com.mobilehealth.core.ChildPageListener;
 import com.mobilehealth.core.FragmentChildPage;
+import com.mobilehealth.core.ParentFragment;
 import com.siat.healthweek.R;
 
 import android.view.View;
@@ -27,7 +27,7 @@ public class FragmentHealthEHomeMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ChildPageListener)getParentFragment()).changeToPage(FragmentHealthExperience.class);
+				((ParentFragment)getParentFragment()).changeToPage(FragmentHealthExperience.class);
 			}
 		});
 	}

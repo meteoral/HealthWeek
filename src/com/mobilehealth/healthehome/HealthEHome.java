@@ -3,10 +3,10 @@ package com.mobilehealth.healthehome;
 import java.util.HashMap;
 
 import com.mobilehealth.core.FragmentListAdapter;
-import com.mobilehealth.core.MainFrameForMedicalKit;
+import com.mobilehealth.core.ActivityViewPager;
 import com.siat.healthweek.R;
 
-public class HealthEHome extends MainFrameForMedicalKit{
+public class HealthEHome extends ActivityViewPager{
 	
 	@Override
 	protected void init() {

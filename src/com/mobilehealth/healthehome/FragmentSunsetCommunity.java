@@ -14,7 +14,7 @@ public class FragmentSunsetCommunity extends ParentFragment{
 		
 		ivContainerFrameBg.setImageResource(R.drawable.indicator_right_bg);
 		
-		this.initPageClassName=FragmentSunsetCommunityMainPage.class.getName();
+		this.curPageClassName=FragmentSunsetCommunityMainPage.class.getName();
 		
 		this.firstLevelIndex=2;
 	}
