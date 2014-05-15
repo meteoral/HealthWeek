@@ -50,7 +50,7 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ParentFragment)getParentFragment()).changeToPage(FragmentBreathFreq.class);
+				((ParentFragment)getParentFragment()).changeToPage(FragmentHRV.class);
 			}
 		});
 
@@ -59,7 +59,7 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ParentFragment)getParentFragment()).changeToPage(FragmentSleepStatus.class);
+				((ParentFragment)getParentFragment()).changeToPage(FragmentBreathFreq.class);
 			}
 		});
 
@@ -68,11 +68,9 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				((ParentFragment)getParentFragment()).changeToPage(FragmentHRV.class);
+				((ParentFragment)getParentFragment()).changeToPage(FragmentSleepStatus.class);
 			}
 		});
-		
-		curStatusCode=StatusCode.STATUS_NOT_READY;
 		
 		String storedStatusCode=((FragmentActivityEx)getActivity()).getData(KEY_FOR_STATUS_CODE);
 		if(storedStatusCode.length()>0)
@@ -80,10 +78,13 @@ public class FragmentHealthCheckMainPage extends FragmentChildPage{
 			statusChanged(storedStatusCode);
 		}else
 		{
-			statusChanged(curStatusCode);
 			if(BluetoothAdapter.getDefaultAdapter().getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE)
 			{
+				statusChanged(StatusCode.STATUS_NOT_READY);
 				sendRequestForBlueTooth();
+			}else
+			{
+				statusChanged(StatusCode.STATUS_READY);
 			}
 		}
 	}

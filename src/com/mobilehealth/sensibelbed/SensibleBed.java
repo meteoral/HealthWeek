@@ -23,7 +23,9 @@ public class SensibleBed extends ActivityViewPager{
 
 		{
 			centerCaptions=new HashMap<String, String>();
-			centerCaptions.put(FragmentBreathFreq.class.getName(), getResources().getString(R.string.breath_freq));
+			centerCaptions.put(FragmentHRV.class.getName(), "实时数据");
+			centerCaptions.put(FragmentBreathFreq.class.getName(), "监控数据");
+			centerCaptions.put(FragmentSleepStatus.class.getName(), "历史数据");
 		}
 
         vpAdapter = new FragmentListAdapter(this, getSupportFragmentManager());
